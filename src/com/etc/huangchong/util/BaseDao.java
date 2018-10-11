@@ -22,7 +22,7 @@ public class BaseDao {
 	private static final String URL = "jdbc:mysql://192.168.9.230:3306/homestay?useunicode=true&characterEncoding=utf-8";
 	private static final String USER = "root"; // 用户名
 	private static final String PASSWORD = "ROOT";// 密码
-
+ 
 	/**
 	 * 获取连接对象
 	 * 
