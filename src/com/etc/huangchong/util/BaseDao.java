@@ -11,6 +11,8 @@ import java.util.List;
 
 import org.apache.commons.beanutils.BeanUtils;
 
+
+
 /**
  * 数据库操作的辅助类
  */
@@ -278,9 +280,9 @@ public class BaseDao {
 	 * @return
 	 */
 	public static PageData getPage(String sql, Integer page, Integer pageSize, Class cla, Object... param) {
-		//
 		String selSql = "select count(1) from (" + sql + ") t";
-		if (page == null) {
+		//这里的page<1和底下的if(page>totalPage){page=totalPage}是为了防止用户从地址栏直接向Servlet乱发送错误数据导致错误
+		if (page == null || page<1) {
 			page = 1;
 		}
 		if (pageSize == null) {
@@ -288,13 +290,25 @@ public class BaseDao {
 		}
 		//查询对应的记录数有几条
 		Integer count = Integer.parseInt(getFirst(selSql, param).toString());
-		//设置【起始位置】
-		int start = (page - 1) * pageSize;//(1-1)*pageSize 第一页
+		int totalPage = count / pageSize;
+		if(count% pageSize!=0) {
+			totalPage++;
+		}
+		if(page>totalPage) {
+			page=totalPage;
+			
+		}
+		
+		if(count ==0) {
+			page=1;
+		}
+		int start = (page - 1) * pageSize;
+		/*if(start==0) {
+			start=1;
+		}*/
 		selSql = sql + " limit " + start + "," + pageSize;
 		List list = (List) select(selSql, cla, param);
-		//创建一个PageDate对象
 		PageData data = new PageData(list, count, pageSize, page);
-		//返回值为PageDate
 		return data;
 	}
 
