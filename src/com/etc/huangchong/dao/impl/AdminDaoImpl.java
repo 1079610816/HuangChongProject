@@ -8,11 +8,12 @@ import com.etc.huangchong.util.BaseDao;
 
 public class AdminDaoImpl implements AdminDao {
 
-@Override
-public List<Admin> queyrAdmin() {
-	// TODO Auto-generated method stub
-	String sql = "select * from Admin";
-	List<Admin> list =(List<Admin>) BaseDao.select(sql, Admin.class);
-	return list;
-}
+	@Override
+	public List<Admin> queryAdmin() {
+		// TODO Auto-generated method stub
+		String sql = "select * from admin";
+		List<Admin> list = (List<Admin>) BaseDao.select(sql, Admin.class);
+		return list;
+	}
+
 }

@@ -14,7 +14,7 @@ public class AdminServiceImpl implements AdminService {
 	public List<Admin> getQueryAdmin() {
 		// TODO Auto-generated method stub
 		
-		return ad.queyrAdmin();
+		return ad.queryAdmin();
 	}
 
 }

@@ -24,6 +24,11 @@ public class Admin {
 		this.adminName = adminName;
 		this.adminPwd = adminPwd;
 	}
+	@Override
+	public String toString() {
+		return "Admin [adminName=" + adminName + ", adminPwd=" + adminPwd + "]";
+	}
+	
 	
 
 }
