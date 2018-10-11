@@ -40,12 +40,12 @@
 			<tr class="text-c">
 				<th width="25"><input type="checkbox" name="" value=""></th>
 				<th width="80">用户Id</th>
-				<th width="100">用户昵称</th>
-				<th width="60">用户密码</th>
-				<th width="90">手机</th>
-				<th width="150">身份证</th>
-				<th width="50">性别</th>
-				<th width="100">真实姓名</th>
+				<th width="100">用户名称</th>
+				<th width="60">用户昵称</th>
+				<th width="90">手机号</th>
+				<th width="150">真实姓名</th>
+				<th width="50">身份证</th>
+				<th width="100">头像</th>
 				<th width="70">状态</th>
 				<th width="100">操作</th>
 			</tr>
