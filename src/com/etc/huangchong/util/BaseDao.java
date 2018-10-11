@@ -298,7 +298,7 @@ public class BaseDao {
 			page=totalPage;
 			
 		}
-		
+		 
 		if(count ==0) {
 			page=1;
 		} 
