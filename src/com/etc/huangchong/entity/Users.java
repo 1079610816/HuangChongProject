@@ -121,4 +121,11 @@ public class Users {
 		this.imgUrl = imgUrl;
 	}
 
+	@Override
+	public String toString() {
+		return "Users [userId=" + userId + ", userName=" + userName + ", userPwd=" + userPwd + ", nickName=" + nickName
+				+ ", telNum=" + telNum + ", realName=" + realName + ", identityCard=" + identityCard + ", imgUrl="
+				+ imgUrl + "]";
+	}
+
 }
