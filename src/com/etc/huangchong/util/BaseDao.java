@@ -301,7 +301,7 @@ public class BaseDao {
 		
 		if(count ==0) {
 			page=1;
-		}
+		} 
 		int start = (page - 1) * pageSize;
 		/*if(start==0) {
 			start=1;
