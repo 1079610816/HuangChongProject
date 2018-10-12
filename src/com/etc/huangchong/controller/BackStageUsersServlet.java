@@ -17,14 +17,14 @@ import com.etc.huangchong.service.impl.UsersServiceImpl;
  * Servlet implementation class UsersServlet
  */
 @WebServlet("/us.do")
-public class UsersServlet extends HttpServlet {
+public class BackStageUsersServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private UsersService us=new UsersServiceImpl();
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public UsersServlet() {
+    public BackStageUsersServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
