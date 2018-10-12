@@ -45,6 +45,45 @@ public class BackStageCommentServlet extends HttpServlet {
 		response.setContentType("application/json");
 		String op = request.getParameter("op");
 		if("queryComment".equals(op)) {
+		doList(request,response);
+		}else if("commentUpdate".equals(op)) {
+			int commentId = Integer.parseInt(request.getParameter("commentId"));
+			String content = request.getParameter("content");
+			int accomId = Integer.parseInt(request.getParameter("accomId"));
+			int userId  = Integer.parseInt(request.getParameter("userId"));
+			Comment cm = new Comment(commentId,content,accomId,userId);
+			cs.getCommentUpdate(cm);
+			request.getRequestDispatcher("cs.do?op=queryComment").forward(request, response);
+		}else if("commentDelete".equals(op)) {
+			int commentId = Integer.parseInt(request.getParameter("commentId"));
+			boolean flag = cs.getCommentDelete(commentId);
+			if(flag) {
+				//如果成功，就在查询删除后的列表传给显示页面
+				doList(request,response);
+			}else {
+				System.out.println("删除失败");
+			}
+			
+		}
+		
+	}
+
+	/**
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 */
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// TODO Auto-generated method stub
+		doGet(request, response);
+	}
+	/**
+	 * 封装成一个doList方法调用
+	 * @param request
+	 * @param response
+	 * @throws ServletException
+	 * @throws IOException
+	 */
+	protected void doList(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// TODO Auto-generated method stub
 		List<Comment> list = cs.getQueryComment();
 		MyData<Comment> md = new MyData<Comment>();
 		md.setData(list);
@@ -58,24 +97,6 @@ public class BackStageCommentServlet extends HttpServlet {
 		System.out.println("[jsonString] :" + jsonString);
 
 		out.close();
-		}else if("commentUpdate".equals(op)) {
-			int commentId = Integer.parseInt(request.getParameter("commentId"));
-			String content = request.getParameter("content");
-			int accomId = Integer.parseInt(request.getParameter("accomId"));
-			int userId  = Integer.parseInt(request.getParameter("userId"));
-			Comment cm = new Comment(commentId,content,accomId,userId);
-			cs.getCommentUpdate(cm);
-			request.getRequestDispatcher("cs.do?op=queryComment").forward(request, response);
-		}
-		
-	}
-
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		doGet(request, response);
 	}
 
 }
