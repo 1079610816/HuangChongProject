@@ -15,5 +15,10 @@ public class CommentServiceImpl implements CommentService {
 		// TODO Auto-generated method stub
 		return cd.queryComment();
 	}
+	@Override
+	public boolean getCommentUpdate(Comment cm) {
+		// TODO Auto-generated method stub
+		return cd.commentUpdate(cm);
+	}
 
 }

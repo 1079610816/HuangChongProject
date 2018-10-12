@@ -6,5 +6,6 @@ import com.etc.huangchong.entity.Comment;
 
 public interface CommentService {
 	List<Comment> getQueryComment();
+	boolean getCommentUpdate(Comment cm);
 
 }
