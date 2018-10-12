@@ -15,12 +15,49 @@ public class Users {
 	private String realName;// 真实姓名
 	private String identityCard;// 身份证
 	private String imgUrl;// 头像地址
+	private int state;// 审核状态
 
 	/**
 	 * 无参构造
 	 */
 	public Users() {
 		// TODO Auto-generated constructor stub
+	}
+
+	/**
+	 * 有参构造
+	 * 
+	 * @param userId
+	 *            用户编号
+	 * @param userName
+	 *            用户名
+	 * @param userPwd
+	 *            用户密码
+	 * @param nickName
+	 *            用户昵称
+	 * @param telNum
+	 *            手机号
+	 * @param realName
+	 *            真实姓名
+	 * @param identityCard
+	 *            身份证
+	 * @param imgUrl
+	 *            头像地址
+	 * @param state
+	 *            审核状态
+	 */
+	public Users(int userId, String userName, String userPwd, String nickName, String telNum, String realName,
+			String identityCard, String imgUrl, int state) {
+		super();
+		this.userId = userId;
+		this.userName = userName;
+		this.userPwd = userPwd;
+		this.nickName = nickName;
+		this.telNum = telNum;
+		this.realName = realName;
+		this.identityCard = identityCard;
+		this.imgUrl = imgUrl;
+		this.state = state;
 	}
 
 	/**
@@ -121,11 +158,19 @@ public class Users {
 		this.imgUrl = imgUrl;
 	}
 
+	public int getState() {
+		return state;
+	}
+
+	public void setState(int state) {
+		this.state = state;
+	}
+
 	@Override
 	public String toString() {
 		return "Users [userId=" + userId + ", userName=" + userName + ", userPwd=" + userPwd + ", nickName=" + nickName
 				+ ", telNum=" + telNum + ", realName=" + realName + ", identityCard=" + identityCard + ", imgUrl="
-				+ imgUrl + "]";
+				+ imgUrl + ", state=" + state + "]";
 	}
 
 }

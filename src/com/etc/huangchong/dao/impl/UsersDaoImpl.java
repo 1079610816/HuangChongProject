@@ -21,7 +21,7 @@ public class UsersDaoImpl implements UsersDao {
 	@Override
 	public List<Users> queryUsers() {
 		// TODO Auto-generated method stub
-		String sql = "select * from users";
+		String sql = "select users.userId,users.userName,users.userPwd,users.nickName,users.telNum,userscheck.realName,userscheck.identityCard,users.imgUrl,userscheck.state from users left join userscheck on users.userId=userscheck.userId ";
 		@SuppressWarnings("unchecked")
 		List<Users> list = (List<Users>) BaseDao.select(sql, Users.class);
 		return list;

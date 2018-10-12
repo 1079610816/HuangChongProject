@@ -25,7 +25,7 @@
 <script>DD_belatedPNG.fix('*');</script><![endif]-->
 <!--/meta 作为公共模版分离出去-->
 
-<title>用户列表 - 用户管理 - H-ui.admin v3.0</title>
+<title>员工列表 - 员工管理 - H-ui.admin v3.0</title>
 <meta name="keywords" content="H-ui.admin v3.0,H-ui网站后台模版,后台模版下载,后台管理系统模版,HTML后台模版下载">
 <meta name="description" content="H-ui.admin v3.0，是一款由国人开发的轻量级扁平化网站后台模板，完全免费开源的网站后台管理系统模版，适合中小型CMS后台系统。">
 
@@ -116,10 +116,10 @@
 			</dd>
 		</dl>
 		<dl id="menu-member">
-			<dt class="selected"><i class="Hui-iconfont">&#xe60d;</i> 用户管理<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
-			<dd style="display: block;">
+			<dt class="selected"><i class="Hui-iconfont">&#xe60d;</i> 会员管理<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
+			<dd style="display: none;">
 				<ul>
-					<li class="current"><a href="userslist.jsp" title="用户列表">用户列表</a></li>
+					<li><a href="member-list.html" title="会员列表">会员列表</a></li>
 					<li><a href="member-del.html" title="删除的会员">删除的会员</a></li>
 					<li><a href="member-level.html" title="等级管理">等级管理</a></li>
 					<li><a href="member-scoreoperation.html" title="积分管理">积分管理</a></li>
@@ -133,38 +133,11 @@
 			<dt><i class="Hui-iconfont">&#xe62d;</i> 管理员管理<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
 			<dd>
 				<ul>
-					<li><a href="admin-role.html" title="角色管理">角色管理</a></li>
-					<li><a href="admin-permission.html" title="权限管理">权限管理</a></li>
-					<li><a href="admin-list.html" title="管理员列表">管理员列表</a></li>
+					<li  class="current"><a href="adminlist.jsp" title="管理员列表">管理员列表</a></li>
 				</ul>
 			</dd>
 		</dl>
-		<dl id="menu-tongji">
-			<dt><i class="Hui-iconfont">&#xe61a;</i> 系统统计<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
-			<dd>
-				<ul>
-					<li><a href="charts-1.html" title="折线图">折线图</a></li>
-					<li><a href="charts-2.html" title="时间轴折线图">时间轴折线图</a></li>
-					<li><a href="charts-3.html" title="区域图">区域图</a></li>
-					<li><a href="charts-4.html" title="柱状图">柱状图</a></li>
-					<li><a href="charts-5.html" title="饼状图">饼状图</a></li>
-					<li><a href="charts-6.html" title="3D柱状图">3D柱状图</a></li>
-					<li><a href="charts-7.html" title="3D饼状图">3D饼状图</a></li>
-				</ul>
-			</dd>
-		</dl>
-		<dl id="menu-system">
-			<dt><i class="Hui-iconfont">&#xe62e;</i> 系统管理<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
-			<dd>
-				<ul>
-					<li><a href="system-base.html" title="系统设置">系统设置</a></li>
-					<li><a href="system-category.html" title="栏目管理">栏目管理</a></li>
-					<li><a href="system-data.html" title="数据字典">数据字典</a></li>
-					<li><a href="system-shielding.html" title="屏蔽词">屏蔽词</a></li>
-					<li><a href="system-log.html" title="系统日志">系统日志</a></li>
-				</ul>
-			</dd>
-		</dl>
+	
 	</div>
 </aside>
 <div class="dislpayArrow hidden-xs"><a class="pngfix" href="javascript:void(0);" onClick="displaynavbar(this)"></a></div>
@@ -191,18 +164,12 @@
 			</div>
 			<div class="cl pd-5 bg-1 bk-gray mt-20"> <span class="l"><a href="javascript:;" onclick="datadel()" class="btn btn-danger radius"><i class="Hui-iconfont">&#xe6e2;</i> 批量删除</a> <a href="javascript:;" onclick="member_add('添加用户','emp-add.html','','510')" class="btn btn-primary radius"><i class="Hui-iconfont">&#xe600;</i> 添加用户</a></span> <span class="r">共有数据：<strong><span id="datarowcount"></span></strong> 条</span> </div>
 			<div class="mt-20">
-				<table id="example" class="table table-border table-bordered table-hover table-bg table-sort">
+				<table id="admintable" class="table table-border table-bordered table-hover table-bg table-sort">
 					<thead>
 						<tr class="text-c">
 							<th width="25"><input type="checkbox" id="employeeCheckAll" name="employeeCheckAll"></th>
-							<th>用户编号</th>
-         				    <th>用户名</th>
-          				    <th>用户昵称</th>
-           					<th>手机号</th>
-           				   <th>真实姓名</th>
-           				   <th>身份证</th>
-           				   <th>头像地址</th>
-           				   <th>审核状态</th>
+							<th>管理员</th>
+         				    <th>密码</th>
            				   <th>操作</th>
 						</tr>
 					</thead>
@@ -434,12 +401,12 @@ function member_del(obj,id){
 
 <script>
 
-    var users = {};
+    var employee = {};
 
-    users.property = {
+    employee.property = {
         version:"v1.0",
         name:"employee",
-        tableId:"example",//显示数据的容器表格的id
+        tableId:"admintable",//显示数据的容器表格的id
         checkAllId:"employeeCheckAll",
         buttonId:"employeeButtonId",
         formId:"employeeForm",
@@ -460,7 +427,7 @@ function member_del(obj,id){
     };
 
     //初始化配置
-    users.gridInit = {
+    employee.gridInit = {
         searching:true,
         lengthChange:true,
         paging:true,
@@ -478,16 +445,16 @@ function member_del(obj,id){
     };
 
     //路径配置,此处配置的路径是获取数据的重要手段;
-    users.url="/"; //  这里 / 表示的是localhost/
-    users.requestUrl = {
-        queryList:users.url+"HuangChongProject/us.do?op=queryAll"  //数据是从servlet一侧返回的 json格式
+    employee.url="/"; //  这里 / 表示的是localhost/
+    employee.requestUrl = {
+        queryList:employee.url+"HuangChongProject/as.do"  //数据是从servlet一侧返回的 json格式
     };
 
-    users.search={
+    employee.search={
         uuid:""
     };
 
-    users.status = [
+    employee.status = [
         {"searchable": false, "orderable": false, "targets": 0},//第一行不进行排序和搜索
 //        {"targets": [12], "visible": false},    //设置第13列隐藏/显示
 //        {"width": "10%", "targets": [1]},  //设置第2列宽度
@@ -507,23 +474,17 @@ function member_del(obj,id){
     ];
     //对应的返回数据格式
     
-    users.filed =[
+    employee.filed =[
         {   //第一个列
         	"data": "extn",
             "createdCell": function (nTd, sData, oData, iRow, iCol) {
                 $(nTd).html("<input type='checkbox' name='checkList' value='" + sData + "'>");
             }
         }, //这里是返回的json对象中的 属性值   {data : }
-        {"data": "userId"},
-        {"data": "userName"},
-        {"data": "nickName"},
-        {"data": "telNum"},
-        {"data": "realName"},
-        {"data": "identityCard"},
-        {"data": "imgUrl"},
-        {"data": "state"},
-        {    
-        	//创建操作那个列
+        {"data": "adminName"},
+        {"data": "adminPwd"},
+       
+        {    //创建操作那个列
         	"data":"extn",
         	"createdCell":function(nTd)
         	{
@@ -537,7 +498,7 @@ function member_del(obj,id){
     ];
 
      //导航按钮操作
-    users.buttons =
+    employee.buttons =
             '<button class="btn btn-default"  type="button" id="reload" data-toggle="modal" data-target="#employeeModal">刷新表格</button>'+
             '<button class="btn btn-primary" type="button" id="batchIds" style="margin-left:20px;" data-toggle="modal" >多选</button>'+
             '<button class="btn btn-success" type="button" id="selection" style="margin-left:20px;" data-toggle="modal" >单选</button>'+
@@ -804,7 +765,7 @@ function member_del(obj,id){
 <script>
 // 初始化数据
     $(document).ready(function(){
-        dataTablesInit(users);
+        dataTablesInit(employee);
     });
 </script>
 
