@@ -11,8 +11,10 @@ public class OrderTest {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		OrderDao os = new OrderDaoImpl();
-		List<Orders> list = os.queryOrder();
-		list.forEach(System.out::println);
+		//List<Orders> list = os.queryOrder();
+		//list.forEach(System.out::println);
+		boolean flag = os.delOrder(6);
+		System.out.println(flag);
 
 	}
 
