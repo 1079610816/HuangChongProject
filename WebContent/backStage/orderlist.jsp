@@ -404,25 +404,25 @@
 			layer.full(index);
 		}
 		/*订单-删除*/
-		function article_del(obj, id) {
-			layer.confirm('确认要删除吗？', function(index) {
-				$.ajax({
-					type : 'POST',
-					url : '',
-					dataType : 'json',
-					success : function(data) {
-						$(obj).parents("tr").remove();
-						layer.msg('已删除!', {
-							icon : 1,
-							time : 1000
-						});
-					},
-					error : function(data) {
-						console.log(data.msg);
-					},
+		function order_del(obj, id) {
+				layer.confirm('确认要删除吗？',function(){
+					$.ajax({
+						type: 'POST',
+						url: '../os.do?op=del&orderId='+id,
+						dataType: 'json',
+						success: function(data){
+							reload();
+							layer.msg('已删除!',{icon:1,time:1000});
+						},
+						error:function(data) {
+							console.log(data.msg);
+							layer.msg('删除失败!',{icon:1,time:1000});
+						},
+					});
 				});
-			});
+			
 		}
+		
 
 		/*订单-审核*/
 		function article_shenhe(obj, id) {
@@ -701,7 +701,7 @@
 		//路径配置,此处配置的路径是获取数据的重要手段;
 		employee.url = "/"; //  这里 / 表示的是localhost/
 		employee.requestUrl = {
-			queryList : employee.url + "HuangChongProject/os.do" //数据是从servlet一侧返回的 json格式
+			queryList : employee.url + "HuangChongProject/os.do?op=olist" //数据是从servlet一侧返回的 json格式
 		};
 
 		employee.search = {
@@ -766,11 +766,9 @@
 				},
 				{ //创建操作那个列
 					"data" : "extn",
-					"createdCell" : function(nTd) {
-						//表格最后一个列增加很多超链接 启用禁用。 编辑   删除 修改密码
-						$(nTd)
-								.html(
-										'<a style="text-decoration:none" onClick="member_stop(this,\'10001\')" href="javascript:;" title="停用"><i class="Hui-iconfont">&#xe631;</i></a> <a title="编辑" href="javascript:;" class="empedit ml-5" style="text-decoration:none"><i class="Hui-iconfont">&#xe6df;</i></a> <a style="text-decoration:none" class="changepwd ml-5"  href="javascript:;" title="修改密码"><i class="Hui-iconfont">&#xe63f;</i></a> <a title="删除" href="javascript:;" onclick="member_del(this,\'1\')" class="ml-5" style="text-decoration:none"><i class="Hui-iconfont">&#xe6e2;</i></a>');
+					"createdCell" : function(nTd, sData, oData, iRow, iCol) {
+						//表格最后一个列增加很多超链接 启用禁用。 编辑   删除 修改密码     
+						$(nTd).html('<a style="text-decoration:none" onClick="member_stop(this,\'10001\')" href="javascript:;" title="停用"><i class="Hui-iconfont">&#xe631;</i></a> <a title="编辑" href="javascript:;" class="empedit ml-5" style="text-decoration:none"><i class="Hui-iconfont">&#xe6df;</i></a> <a style="text-decoration:none" class="changepwd ml-5"  href="javascript:;" title="修改密码"><i class="Hui-iconfont">&#xe63f;</i></a> <a title="删除" href="javascript:;" onclick="order_del(this,'+oData.orderId+')" class="ml-5 delorder" style="text-decoration:none"><i class="Hui-iconfont">&#xe6e2;</i></a>');
 						//$(nTd).html('<a onClick="member_stop(this,\'10001\')">xx<a>');
 						//$(nTd).html('<a style="text-decoration:none" onClick="member_stop(this,\'10001\')" href="javascript:;" title="停用"><i class="Hui-iconfont">&#xe631;</i></a> <a title="编辑" href="javascript:;" onclick="member_edit(\'编辑\',\'member-add.html\',\'4\',\'\',\'510\')" class="ml-5" style="text-decoration:none"><i class="Hui-iconfont">&#xe6df;</i></a> <a style="text-decoration:none" class="ml-5" onClick="change_password(\'修改密码\',\'change-password.html\',\'10001\',\'600\',\'270\')" href="javascript:;" title="修改密码"><i class="Hui-iconfont">&#xe63f;</i></a> <a title="删除" href="javascript:;" onclick="member_del(this,\'1\')" class="ml-5" style="text-decoration:none"><i class="Hui-iconfont">&#xe6e2;</i></a>');
 						//$(nTd).html("<td class='td-manage'><a style='text-decoration:none' onClick='member_stop(this,'10001')' href='javascript:;' title='停用'><i class='Hui-iconfont'>&#xe631;</i></a> <a title='编辑' href='javascript:;' onclick='member_edit('编辑','member-add.html','4','','510')' class='ml-5' style='text-decoration:none'><i class='Hui-iconfont'>&#xe6df;</i></a> <a style='text-decoration:none' class='ml-5' onClick='change_password('修改密码','change-password.html','10001','600','270')' href='javascript:;' title='修改密码'><i class='Hui-iconfont'>&#xe63f;</i></a> <a title='删除' href='javascript:;' onclick='member_del(this,'1')' class='ml-5' style='text-decoration:none'><i class='Hui-iconfont'>&#xe6e2;</i></a></td>");
@@ -1071,7 +1069,41 @@
 			dataTablesInit(employee);
 		});
 	</script>
+<!-- <script type="text/javascript">
+$(function(){
+	//如果页面的内容时动态生成的,必须要用docmnet.on 方式来绑定事件
+	$(document).on("click",".delorder",function(){
+		var orderId = $(this).parents("tr").find("td:eq(1)").text();
+		console.log("click~~~"+orderId);
+		//location.href = "os.do?op=del&orderId="+orderId;
+		
+		layer.confirm('确认要删除吗？', function() {
+			$.ajax({
+				type : 'POST',
+				url : '../os.do?op=del&orderId='+orderId,
+				dataType : 'json',
+				success : function(data) {
+					//$(obj).parents("tr").remove();
+					reload();
+					layer.msg('已删除!', {
+						icon : 1,
+						time : 1000
+					});
+				},
+				error : function(data) {
+					console.log(data.msg);
+					layer.msg('删除失败!', {
+						icon : 1,
+						time : 1000
+					});
+				},
+			});
+		});
+	});
+	
+});
 
+</script> -->
 
 	<!--/请在上方写此页面业务相关的脚本-->
 </body>
