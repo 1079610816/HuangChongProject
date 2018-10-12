@@ -20,14 +20,14 @@ import com.google.gson.Gson;
  * Servlet implementation class OrderServlet
  */
 @WebServlet("/os.do")
-public class OrderServlet extends HttpServlet {
+public class BackStageOrderServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private OrderService os = new OrderServiceImpl();
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public OrderServlet() {
+    public BackStageOrderServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -41,20 +41,37 @@ public class OrderServlet extends HttpServlet {
 		request.setCharacterEncoding("utf-8");
 		response.setCharacterEncoding("utf-8");
 		response.setContentType("application/json");
-		//得到订单列表
-		List<Orders> list = os.getQueryOrder();
-		//得到Gson对象,Out对象和MyData对象
-		PrintWriter out = response.getWriter();
-		Gson gs = new Gson();
-		MyData<Orders> md = new MyData<Orders>();
-		//将得到的list<Orders>转为json字符串
-		md.setData(list);
-		String jsonstr = gs.toJson(md);
-		System.out.println("jsonstr:"+jsonstr);
-		out.println(jsonstr);
-		out.close();
+		String op = request.getParameter("op");
+		if("olist".equals(op)) {
+		dolist(request,response);
+		}else if("del".equals(op)) {
+			System.out.println("123");
+			String orderId = request.getParameter("orderId");
+			boolean flag = os.getDelOrder(Integer.parseInt(orderId));
+			if(flag) {
+				dolist(request,response);
+			}else {
+				System.out.println("删除失败");
+			}
+		}
 	}
 
+	protected void dolist(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// TODO Auto-generated method stub
+		//得到订单列表
+				List<Orders> list = os.getQueryOrder();
+				//得到Gson对象,Out对象和MyData对象
+				PrintWriter out = response.getWriter();
+				Gson gs = new Gson();
+				MyData<Orders> md = new MyData<Orders>();
+				//将得到的list<Orders>转为json字符串
+				md.setData(list);
+				String jsonstr = gs.toJson(md);
+				System.out.println("jsonstr:"+jsonstr);
+				out.println(jsonstr);
+				out.close();
+	}
+	
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
