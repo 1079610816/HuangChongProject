@@ -7,8 +7,8 @@ public class Orders {
 	private String unsubscribeTime;
 	private double fee;
 	private int orderStatus;
-	private int accomId;
-	private int userId;
+	private String accomTitle;
+	private String userName;
 	public int getOrderId() {
 		return orderId;
 	}
@@ -39,39 +39,42 @@ public class Orders {
 	public void setOrderStatus(int orderStatus) {
 		this.orderStatus = orderStatus;
 	}
-	public int getAccomId() {
-		return accomId;
+	public String getAccomTitle() {
+		return accomTitle;
 	}
-	public void setAccomId(int accomId) {
-		this.accomId = accomId;
+	public void setAccomTitle(String accomTitle) {
+		this.accomTitle = accomTitle;
 	}
-	public int getUserId() {
-		return userId;
+	public String getUserName() {
+		return userName;
 	}
-	public void setUserId(int userId) {
-		this.userId = userId;
+	public void setUserName(String userName) {
+		this.userName = userName;
 	}
+	/**
+	 * 无参构造
+	 */
 	public Orders() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-	public Orders(int orderId, String bookTime, String unsubscribeTime, double fee, int orderStatus, int accomId,
-			int userId) {
+	public Orders(int orderId, String bookTime, String unsubscribeTime, double fee, int orderStatus, String accomTitle,
+			String userName) {
 		super();
 		this.orderId = orderId;
 		this.bookTime = bookTime;
 		this.unsubscribeTime = unsubscribeTime;
 		this.fee = fee;
 		this.orderStatus = orderStatus;
-		this.accomId = accomId;
-		this.userId = userId;
+		this.accomTitle = accomTitle;
+		this.userName = userName;
 	}
 	@Override
 	public String toString() {
-		return "Order [orderId=" + orderId + ", bookTime=" + bookTime + ", unsubscribeTime=" + unsubscribeTime
-				+ ", fee=" + fee + ", orderStatus=" + orderStatus + ", accomId=" + accomId + ", userId=" + userId + "]";
+		return "Orders [orderId=" + orderId + ", bookTime=" + bookTime + ", unsubscribeTime=" + unsubscribeTime
+				+ ", fee=" + fee + ", orderStatus=" + orderStatus + ", accomTitle=" + accomTitle + ", userName="
+				+ userName + "]";
 	}
-	
 	
 
 }
