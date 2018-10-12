@@ -8,21 +8,18 @@ import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
-
 import org.apache.commons.beanutils.BeanUtils;
-
-
 
 /**
  * 数据库操作的辅助类
  */
 public class BaseDao {
-    
+
 	private static final String DRIVER = "com.mysql.jdbc.Driver";
 	private static final String URL = "jdbc:mysql://192.168.9.230:3306/homestay?useunicode=true&characterEncoding=utf-8";
 	private static final String USER = "root"; // 用户名
 	private static final String PASSWORD = "ROOT";// 密码
-   
+
 	/**
 	 * 获取连接对象
 	 * 
@@ -46,12 +43,9 @@ public class BaseDao {
 	/**
 	 * 释放资源
 	 * 
-	 * @param rs
-	 *            结果集
-	 * @param pstmt
-	 *            命令处理对象
-	 * @param conn
-	 *            连接对象
+	 * @param rs    结果集
+	 * @param pstmt 命令处理对象
+	 * @param conn  连接对象
 	 */
 	public static void close(ResultSet rs, PreparedStatement pstmt, Connection conn) {
 		try {
@@ -93,10 +87,8 @@ public class BaseDao {
 	/**
 	 * 通用的数据库(增,删,改)操作方法
 	 * 
-	 * @param sql
-	 *            sql语句
-	 * @param param
-	 *            sql语句参数
+	 * @param sql   sql语句
+	 * @param param sql语句参数
 	 * @return 受影响行数
 	 */
 	public static int execute(String sql, Object... param) {
@@ -133,12 +125,9 @@ public class BaseDao {
 	/**
 	 * 通用查询方法
 	 * 
-	 * @param sql
-	 *            要查询的sql语句
-	 * @param cla
-	 *            Class对象
-	 * @param param
-	 *            参数
+	 * @param sql   要查询的sql语句
+	 * @param cla   Class对象
+	 * @param param 参数
 	 * @return
 	 */
 	public static Object select(String sql, Class cla, Object... param) {
@@ -162,6 +151,8 @@ public class BaseDao {
 	public static Object select(String sql, Connection conn, Class cla, Object... param) {
 		ResultSet rs = null;
 		PreparedStatement pstmt = null;
+		// 创建了一个ArrayList对象,之前我们封装的是HashMap
+		// <Object> =>Emp Dept
 		List<Object> list = new ArrayList<Object>();
 		try {
 			pstmt = setPstmt(sql, conn, pstmt, param);
@@ -241,71 +232,70 @@ public class BaseDao {
 	/**
 	 * 查询结果的转换
 	 * 
-	 * @param rs
-	 * @param cla
-	 * @return
+	 * @param rs  结果集
+	 * @param cla Class类型的对象,例如: Emp.class Dept.class
+	 * @return 某个类对象 Emp的对象,Dept对象
 	 */
 	public static Object convert(ResultSet rs, Class cla) {
 		try {
-			if ("java.lang.Object".equals(cla.getName())) {
+			if (cla.getName().equals("java.lang.Object")) {
 				return rs.getObject(1);
 			}
 			// 创建实体类的实例 Class类对象的方法，创建指定对象的实例
-			// new Goods(); new News(); new person(); new Users();
+			// Emp =>Emp对象
 			Object object = cla.newInstance();
-			//// 结果集头信息对象
+			//// 结果集头信息对象 ResultSet 对象的列的编号、类型和属性。查询语句有关.
 			ResultSetMetaData metaData = rs.getMetaData();
 			// 循环为实体类的实例的属性赋值 getColumnCount得到列的个数
 			for (int i = 1; i <= metaData.getColumnCount(); i++) {
 				// 获取列名
 				String name = metaData.getColumnLabel(i);
 				//// 注：列名与属性名必须一致。最好遵循骆驼命名方法. rs.getObject(i) 结果集中的查询结果和对象匹配
+				// 查询结果 查询的结果列可以有别名
 				BeanUtils.setProperty(object, name, rs.getObject(i));
 			}
 			return object;
 		} catch (Exception e) {
-			e.printStackTrace();
 			throw new RuntimeException("属性设置失败!", e);
 		}
 	}
 
 	/**
-	 * 分页操作 mysql;
-	 * 
-	 * @param sql select*from users;
-	 * @param page
-	 * @param pageSize
-	 * @param cla
-	 * @param param
-	 * @return
+	 * 分页操作 mysql
+	 * @param sql 查询语句
+	 * @param page 查询的页码
+	 * @param pageSize 查询记录数
+	 * @param cla 查询后的对象
+	 * @param param 参数
+	 * @return PageData对象
 	 */
 	public static PageData getPage(String sql, Integer page, Integer pageSize, Class cla, Object... param) {
+		// 这里是sql嵌套查询,把查询结果作新表,计算数据库里记录数
 		String selSql = "select count(1) from (" + sql + ") t";
-		//这里的page<1和底下的if(page>totalPage){page=totalPage}是为了防止用户从地址栏直接向Servlet乱发送错误数据导致错误
-		if (page == null || page<1) {
+		// 默认是第一页,第一页不能继续-1查询
+		if (page == null) {
 			page = 1;
 		}
+		// 默认一页显示十条数据
 		if (pageSize == null) {
 			pageSize = 10;
 		}
-		//查询对应的记录数有几条
+		// 得到总记录数
 		Integer count = Integer.parseInt(getFirst(selSql, param).toString());
+		//记录总数/每页的记录数
 		int totalPage = count / pageSize;
-		if(count% pageSize!=0) {
+		//判断是否有余数,如果有就再加一页
+		if (count % pageSize != 0)
 			totalPage++;
+		//判断page是否超出总的记录,如果超出就显示最后一页
+		if (page > totalPage) {
+			page = totalPage;
 		}
-		if(page>totalPage) {
-			page=totalPage;
-			
-		}
-		 
-		if(count ==0) {
-			page=1;
-		} 
+		// start查询语句limit的起始位置
 		int start = (page - 1) * pageSize;
-		/*if(start==0) {
-			start=1;
-		}*/
+		if(start<0) {
+			start=0;
+		}
 		selSql = sql + " limit " + start + "," + pageSize;
 		List list = (List) select(selSql, cla, param);
 		PageData data = new PageData(list, count, pageSize, page);
@@ -321,7 +311,7 @@ public class BaseDao {
 	 * @param identity
 	 * @return
 	 */
-	public static PageData getPage(Integer page, Integer pageSize, Class cla, String identity) {
+	public PageData getPage(Integer page, Integer pageSize, Class cla, String identity) {
 		String name = cla.getName().substring(cla.getName().lastIndexOf(".") + 1);// 根据命名规则从类名获取数据库表名
 		String selSql = "select count(*) from " + name;// 获取总数
 		if (page == null) {
