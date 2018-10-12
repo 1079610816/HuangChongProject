@@ -1,6 +1,7 @@
 package com.etc.huangchong.controller;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.List;
 
 import javax.servlet.ServletException;
@@ -12,6 +13,8 @@ import javax.servlet.http.HttpServletResponse;
 import com.etc.huangchong.entity.Users;
 import com.etc.huangchong.service.UsersService;
 import com.etc.huangchong.service.impl.UsersServiceImpl;
+import com.etc.huangchong.util.MyData;
+import com.google.gson.Gson;
 
 /**
  * Servlet implementation class UsersServlet
@@ -38,6 +41,14 @@ public class BackStageUsersServlet extends HttpServlet {
 		response.setCharacterEncoding("utf-8");
 		response.setContentType("application/json");
 		List<Users>list=us.getAllUsers();
+		MyData<Users> mydata=new MyData<>();
+		mydata.setData(list);
+		Gson gson=new Gson();
+		String jsonString =gson.toJson(mydata);
+		PrintWriter out=response.getWriter();
+		out.print(jsonString);
+		System.out.println(jsonString);
+		out.close();
 		
 	}
 

@@ -10,11 +10,11 @@
    $(function(){
 	   
 	   //完成ajax请求 获取json数据并显示
-	   $.get("EmpServlet",{"page":1,"pageSize":10,"pename":""},function(pd,status){
+	   $.get("BackStageUsersServlet",{"page":1,"pageSize":10,"pename":""},function(pd,status){
 		   
 		   //遍历pd中data
-		   $.each(pd.data,function(index,emp){
-			   console.log(emp.EMPNO+","+emp.ENAME);
+		   $.each(pd.data,function(index,users){
+			   console.log(users.userId+","+users.userName);
 			   
 		   });
 		   
