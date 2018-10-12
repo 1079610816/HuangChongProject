@@ -9,6 +9,7 @@ import com.etc.huangchong.entity.Admin;
  *
  */
 public interface AdminDao {
-	List<Admin> queyrAdmin();
+	//显示管理员信息
+	List<Admin> queryAdmin();
 
 }
