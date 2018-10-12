@@ -293,8 +293,8 @@
 								<th width="120">退房时间</th>
 								<th width="80">费用</th>
 								<th width="80">订单状态</th>
-								<th width="75">民宿编号</th>
-								<th width="60">用户编号</th>
+								<th width="75">民宿标题</th>
+								<th width="60">下单用户</th>
 								<th width="120">操作</th>
 							</tr>
 						</thead>
@@ -759,10 +759,10 @@
 					"data" : "orderStatus"
 				},
 				{
-					"data" : "accomId"
+					"data" : "accomTitle"
 				},
 				{
-					"data" : "userId"
+					"data" : "userName"
 				},
 				{ //创建操作那个列
 					"data" : "extn",
