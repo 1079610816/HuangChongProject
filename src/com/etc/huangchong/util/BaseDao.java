@@ -17,7 +17,7 @@ import org.apache.commons.beanutils.BeanUtils;
  * 数据库操作的辅助类
  */
 public class BaseDao {
-  
+    
 	private static final String DRIVER = "com.mysql.jdbc.Driver";
 	private static final String URL = "jdbc:mysql://192.168.9.230:3306/homestay?useunicode=true&characterEncoding=utf-8";
 	private static final String USER = "root"; // 用户名
