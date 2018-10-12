@@ -480,7 +480,7 @@ function member_del(obj,id){
     //路径配置,此处配置的路径是获取数据的重要手段;
     users.url="/"; //  这里 / 表示的是localhost/
     users.requestUrl = {
-        queryList:users.url+"HuangChongProject/us.do"  //数据是从servlet一侧返回的 json格式
+        queryList:users.url+"HuangChongProject/us.do?op=queryAll"  //数据是从servlet一侧返回的 json格式
     };
 
     users.search={
