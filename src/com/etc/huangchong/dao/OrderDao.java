@@ -12,5 +12,8 @@ import com.etc.huangchong.entity.Orders;
  */
 public interface OrderDao {
 
+	//查询订单表
 	List<Orders> queryOrder();
+	//删除单条订单信息，使用事务操作
+	boolean delOrder(int orderId);
 }
