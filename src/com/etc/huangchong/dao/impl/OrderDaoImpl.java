@@ -11,7 +11,7 @@ public class OrderDaoImpl implements OrderDao {
 @Override
 public List<Orders> queryOrder() {
 	// TODO Auto-generated method stub
-	String sql = "SELECT * FROM orders";
+	String sql = "SELECT * FROM orderdetails";
 	List<Orders> list = (List<Orders>)BaseDao.select(sql, Orders.class);
 	return list;
 }
