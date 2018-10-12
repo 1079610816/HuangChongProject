@@ -6,5 +6,8 @@ import com.etc.huangchong.entity.Orders;
 
 public interface OrderService {
 
+	//查询订单列表
 	List<Orders> getQueryOrder();
+	//删除单条订单记录
+	boolean getDelOrder(int orderId);
 }
