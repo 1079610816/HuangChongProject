@@ -35,7 +35,7 @@
 <!--_header 作为公共模版分离出去-->
 <header class="navbar-wrapper">
 	<div class="navbar navbar-fixed-top">
-		<div class="container-fluid cl"> <a class="logo navbar-logo f-l mr-10 hidden-xs" href="/aboutHui.shtml">H-ui.admin</a> <a class="logo navbar-logo-m f-l mr-10 visible-xs" href="/aboutHui.shtml">H-ui</a> <span class="logo navbar-slogan f-l mr-10 hidden-xs">v3.0</span> <a aria-hidden="false" class="nav-toggle Hui-iconfont visible-xs" href="javascript:;">&#xe667;</a>
+		<div class="container-fluid cl"> <a class="logo navbar-logo f-l mr-10 hidden-xs" href="#">黄虫民宿管理系统</a><a aria-hidden="false" class="nav-toggle Hui-iconfont visible-xs" href="javascript:;">&#xe667;</a>
 			<nav class="nav navbar-nav">
 				<ul class="cl">
 					<li class="dropDown dropDown_hover"><a href="javascript:;" class="dropDown_A"><i class="Hui-iconfont">&#xe600;</i> 新增 <i class="Hui-iconfont">&#xe6d5;</i></a>
@@ -119,7 +119,7 @@
 			<dt ><i class="Hui-iconfont">&#xe60d;</i> 用户管理<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
 			<dd>
 				<ul>
-					<li><a href="userslist.jsp" title="用户列表">用户列表</a></li>
+					<li><a href="commentlist.jsp" title="用户列表">用户列表</a></li>
 					<li><a href="member-del.html" title="删除的会员">删除的会员</a></li>
 					<li><a href="member-level.html" title="等级管理">等级管理</a></li>
 					<li><a href="member-scoreoperation.html" title="积分管理">积分管理</a></li>
@@ -177,18 +177,18 @@
 		<article class="cl pd-20"> 
 		<div class="text-c">
 		        是否自动检索：<input type="checkbox" id="autoSearch">
-		   姓名：<input type="text" class="form-controlSearch input-text " placeholder="输入姓名" data-column="2" id="col2_filter" style="width:100px;">
-		     岗位：<input type="text" class="form-controlSearch input-text " placeholder="输入岗位" data-column="3" id="col3_filter" style="width:100px;">
-    入职时间：<input type="text" class="form-controlSearch input-text Wdate" onfocus="WdatePicker({maxDate:'#F{$dp.$D(\'datemax\')||\'%y-%M-%d\'}'})"  placeholder="输入入职时间" data-column="4" id="col4_filter" style="width:100px;">
+		   评论内容：<input type="text" class="form-controlSearch input-text " placeholder="搜索评论" data-column="2" id="col2_filter" style="width:100px;">
+		<!--      岗位：<input type="text" class="form-controlSearch input-text " placeholder="输入岗位" data-column="3" id="col3_filter" style="width:100px;">
+    入职时间：<input type="text" class="form-controlSearch input-text Wdate" onfocus="WdatePicker({maxDate:'#F{$dp.$D(\'datemax\')||\'%y-%M-%d\'}'})"  placeholder="输入入职时间" data-column="4" id="col4_filter" style="width:100px;"> -->
    
-		   </div>
-			<div class="text-c"> 入职时间范围：
+		    </div>
+			<!-- <div class="text-c"> 入职时间范围：
 				<input type="text" onfocus="WdatePicker({maxDate:'#F{$dp.$D(\'datemax\')||\'%y-%M-%d\'}'})" id="datemin" class="input-text Wdate" style="width:120px;">
 				-
 				<input type="text" onfocus="WdatePicker({minDate:'#F{$dp.$D(\'datemin\')}',maxDate:'%y-%M-%d'})" id="datemax" class="input-text Wdate" style="width:120px;">
 				<input type="text" class="input-text" style="width:250px" placeholder="输入员工姓名、岗位、部门" id="" name="">
 				<button type="submit" class="btn btn-success radius" id="" name=""><i class="Hui-iconfont">&#xe665;</i> 搜用户</button>
-			</div>
+			</div>  -->
 			<div class="cl pd-5 bg-1 bk-gray mt-20"> <span class="l"><a href="javascript:;" onclick="datadel()" class="btn btn-danger radius"><i class="Hui-iconfont">&#xe6e2;</i> 批量删除</a> <a href="javascript:;" onclick="member_add('添加用户','emp-add.html','','510')" class="btn btn-primary radius"><i class="Hui-iconfont">&#xe600;</i> 添加用户</a></span> <span class="r">共有数据：<strong><span id="datarowcount"></span></strong> 条</span> </div>
 			<div class="mt-20">
 				<table id="example" class="table table-border table-bordered table-hover table-bg table-sort">
@@ -299,7 +299,7 @@ function change_password(title,url,id,w,h){
         }
 	});
 }
-/*用户-删除*/
+/*评论-删除*/
 function member_del(obj,id){
 	layer.confirm('确认要删除吗？',function(index){
 		$.ajax({
@@ -359,7 +359,7 @@ function member_del(obj,id){
 	  
 	  
 	  
-	 //修改员工信息的超链接单击事件
+	 //修改评论的超链接单击事件
 	 $(document).on("click",'.commentUpdate',function()
 	 {
 		 var _this = $(this); //当前对象 编辑的超链接
@@ -442,9 +442,9 @@ function member_del(obj,id){
 
 <script>
 
-    var users = {};
+    var comment = {};
 
-    users.property = {
+    comment.property = {
         version:"v1.0",
         name:"employee",
         tableId:"example",//显示数据的容器表格的id
@@ -468,7 +468,7 @@ function member_del(obj,id){
     };
 
     //初始化配置
-    users.gridInit = {
+    comment.gridInit = {
         searching:true,
         lengthChange:true,
         paging:true,
@@ -486,16 +486,16 @@ function member_del(obj,id){
     };
 
     //路径配置,此处配置的路径是获取数据的重要手段;
-    users.url="/"; //  这里 / 表示的是localhost/
-    users.requestUrl = {
-        queryList:users.url+"HuangChongProject/cs.do?op=queryComment"  //数据是从servlet一侧返回的 json格式
+    comment.url="/"; //  这里 / 表示的是localhost/
+    comment.requestUrl = {
+        queryList:comment.url+"HuangChongProject/cs.do?op=queryComment"  //数据是从servlet一侧返回的 json格式
     };
 
-    users.search={
+    comment.search={
         uuid:""
     };
 
-    users.status = [
+    comment.status = [
         {"searchable": false, "orderable": false, "targets": 0},//第一行不进行排序和搜索
 //        {"targets": [12], "visible": false},    //设置第13列隐藏/显示
 //        {"width": "10%", "targets": [1]},  //设置第2列宽度
@@ -515,11 +515,11 @@ function member_del(obj,id){
     ];
     //对应的返回数据格式
     
-    users.filed =[
+    comment.filed =[
         {   //第一个列
         	"data": "extn",
             "createdCell": function (nTd, sData, oData, iRow, iCol) {
-                $(nTd).html("<input type='checkbox' name='checkList' value='" + sData + "'>");
+                $(nTd).html("<input type='checkbox' name='checkList' value='" + oData.commentId + "'>");
             }
         }, //这里是返回的json对象中的 属性值   {data : }
         {"data": "commentId"},
@@ -530,7 +530,7 @@ function member_del(obj,id){
         {    
         	//创建操作那个列
         	"data":"extn",
-        	"createdCell":function(nTd, sData, oData, iRow, iCol)
+        	"createdCell":function(nTd, sData, oData, iRow, iCol)//oData可以传递对应的字段
         	{
         		//表格最后一个列增加很多超链接 启用禁用。 编辑   删除 修改密码
         		$(nTd).html('<a style="text-decoration:none" onClick="member_stop(this,\'10001\')" href="javascript:;" title="停用"><i class="Hui-iconfont">&#xe631;</i></a> <a title="编辑" href="javascript:;" class="commentUpdate ml-5" style="text-decoration:none"><i class="Hui-iconfont">&#xe6df;</i></a> <a style="text-decoration:none" class="changepwd ml-5"  href="javascript:;" title="修改密码"><i class="Hui-iconfont">&#xe63f;</i></a> <a title="删除" href="javascript:;" onclick="member_del(this,'+oData.commentId+')" class="ml-5" style="text-decoration:none"><i class="Hui-iconfont">&#xe6e2;</i></a>');
@@ -542,7 +542,7 @@ function member_del(obj,id){
     ];
 
      //导航按钮操作
-    users.buttons =
+    comment.buttons =
             '<button class="btn btn-default"  type="button" id="reload" data-toggle="modal" data-target="#employeeModal">刷新表格</button>'+
             '<button class="btn btn-primary" type="button" id="batchIds" style="margin-left:20px;" data-toggle="modal" >多选</button>'+
             '<button class="btn btn-success" type="button" id="selection" style="margin-left:20px;" data-toggle="modal" >单选</button>'+
@@ -809,7 +809,7 @@ function member_del(obj,id){
 <script>
 // 初始化数据
     $(document).ready(function(){
-        dataTablesInit(users);
+        dataTablesInit(comment);
     });
 </script>
 
