@@ -8,4 +8,5 @@ public interface HomestayDao {
 	//得到所有民宿信息
 	List<Homestay> queryHomestay();
 	boolean homestayUpdate(Homestay homestay);
+	boolean homestaydel(int id);
 }

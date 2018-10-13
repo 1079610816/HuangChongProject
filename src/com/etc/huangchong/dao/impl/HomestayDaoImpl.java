@@ -22,4 +22,10 @@ public class HomestayDaoImpl implements HomestayDao {
 		return BaseDao.execute(sql, homestay.getAccomTitle(),homestay.getAccomIntro(),homestay.getAccomArea(),homestay.getAccomAddress(),homestay.getAccomStatus(),homestay.getPeopleSum(),homestay.getAccomId())>0;
 	}
 
+	@Override
+	public boolean homestaydel(int id) {
+		String sql="delete from accommodation where accomId = ?";
+		return BaseDao.execute(sql, id)>0;
+	}
+
 }

@@ -61,6 +61,16 @@ public class BackStageHomestayServlet extends HttpServlet {
 			Homestay h=new Homestay(homestayId, homestayTitle, homestayIntro, homestayArea, homestayAddress, homestayStatus, peopleNum, userName);
 			hs.getHomestayUpdate(h);
 			request.getRequestDispatcher("hs.do?op=homestaylist").forward(request, response);
+		}else if(op.equals("homestayDelete")) {
+			System.out.println("删除了");
+			int accomId=Integer.parseInt(request.getParameter("accomId"));
+			boolean flag=hs.getHomestayDel(accomId);
+			if(flag) {
+				request.getRequestDispatcher("hs.do?op=homestaylist").forward(request, response);
+			}else {
+				System.out.println("删除失败");
+			}
+			
 		}
 	}
 

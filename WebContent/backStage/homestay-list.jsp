@@ -303,11 +303,22 @@ function change_password(title,url,id,w,h){
         }
 	});
 }
-/*用户-删除*/
-function member_del(obj,id){
+/*民宿-删除*/
+function homestay_del(obj,id){
 	layer.confirm('确认要删除吗？',function(index){
-		$(obj).parents("tr").remove();
-		layer.msg('已删除!',{icon:1,time:1000});
+		$.ajax({
+			type: 'POST',
+			url: '../hs.do?op=homestayDelete&accomId='+id,//根据commentId传到servlet
+			dataType: 'json',
+			success: function(data){
+				reload();//成功状态，刷新页面调用reload方法，在795行有个方法刷新页面
+				layer.msg('已删除!',{icon:1,time:1000});
+			},
+			error:function(data) {
+				console.log(data.msg);
+				layer.msg('删除失败!',{icon:1,time:1000});
+			},
+		});		
 	});
 }
 </script>
@@ -524,10 +535,10 @@ function member_del(obj,id){
         {"data": "userName"},
         {    //创建操作那个列
         	"data":"extn",
-        	"createdCell":function(nTd)
+        	"createdCell":function(nTd, sData, oData, iRow, iCol)
         	{
         		//表格最后一个列增加很多超链接 启用禁用。 编辑   删除 修改密码
-        		$(nTd).html(' <a title="编辑" href="javascript:;" class="homestayedit ml-5" style="text-decoration:none"><i class="Hui-iconfont">&#xe6df;</i></a>  <a title="删除" href="javascript:;" onclick="member_del(this,\'1\')" class="ml-5" style="text-decoration:none"><i class="Hui-iconfont">&#xe6e2;</i></a>');
+        		$(nTd).html(' <a title="编辑" href="javascript:;" class="homestayedit ml-5" style="text-decoration:none"><i class="Hui-iconfont">&#xe6df;</i></a>  <a title="删除" href="javascript:;" onclick="homestay_del(this,'+oData.accomId+')" class="ml-5" style="text-decoration:none"><i class="Hui-iconfont">&#xe6e2;</i></a>');
         		//$(nTd).html('<a onClick="member_stop(this,\'10001\')">xx<a>');
         		//$(nTd).html('<a style="text-decoration:none" onClick="member_stop(this,\'10001\')" href="javascript:;" title="停用"><i class="Hui-iconfont">&#xe631;</i></a> <a title="编辑" href="javascript:;" onclick="member_edit(\'编辑\',\'member-add.html\',\'4\',\'\',\'510\')" class="ml-5" style="text-decoration:none"><i class="Hui-iconfont">&#xe6df;</i></a> <a style="text-decoration:none" class="ml-5" onClick="change_password(\'修改密码\',\'change-password.html\',\'10001\',\'600\',\'270\')" href="javascript:;" title="修改密码"><i class="Hui-iconfont">&#xe63f;</i></a> <a title="删除" href="javascript:;" onclick="member_del(this,\'1\')" class="ml-5" style="text-decoration:none"><i class="Hui-iconfont">&#xe6e2;</i></a>');
         		//$(nTd).html("<td class='td-manage'><a style='text-decoration:none' onClick='member_stop(this,'10001')' href='javascript:;' title='停用'><i class='Hui-iconfont'>&#xe631;</i></a> <a title='编辑' href='javascript:;' onclick='member_edit('编辑','member-add.html','4','','510')' class='ml-5' style='text-decoration:none'><i class='Hui-iconfont'>&#xe6df;</i></a> <a style='text-decoration:none' class='ml-5' onClick='change_password('修改密码','change-password.html','10001','600','270')' href='javascript:;' title='修改密码'><i class='Hui-iconfont'>&#xe63f;</i></a> <a title='删除' href='javascript:;' onclick='member_del(this,'1')' class='ml-5' style='text-decoration:none'><i class='Hui-iconfont'>&#xe6e2;</i></a></td>");
