@@ -1,0 +1,24 @@
+package com.etc.huangchong.service.impl;
+
+import java.util.List;
+
+import com.etc.huangchong.dao.HomestayDao;
+import com.etc.huangchong.dao.impl.HomestayDaoImpl;
+import com.etc.huangchong.entity.Homestay;
+import com.etc.huangchong.service.HomestayService;
+
+public class HomestayServiceImpl implements HomestayService {
+	HomestayDao hd=new HomestayDaoImpl();
+	@Override
+	public List<Homestay> getQueryHomestay() {
+		List<Homestay> list=hd.queryHomestay();
+		return list;
+	}
+	@Override
+	public boolean getHomestayUpdate(Homestay homestay) {
+		// TODO Auto-generated method stub
+		return hd.homestayUpdate(homestay);
+	}
+	
+
+}
