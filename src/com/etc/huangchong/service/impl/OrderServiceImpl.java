@@ -28,4 +28,12 @@ public class OrderServiceImpl implements OrderService {
 		// TODO Auto-generated method stub
 		return od.delOrder(orderId);
 	}
+	/**
+	 * 批量删除
+	 */
+	@Override
+	public boolean getBatchDelOrder(String sql1, String sql2) {
+		// TODO Auto-generated method stub
+		return od.batchDelOrder(sql1, sql2);
+	}
 }

@@ -42,13 +42,13 @@
 	<header class="navbar-wrapper">
 		<div class="navbar navbar-fixed-top">
 			<div class="container-fluid cl">
-				<a class="logo navbar-logo f-l mr-10 hidden-xs"
-					href="/aboutHui.shtml">H-ui.admin</a> <a
+				<a class="logo navbar-logo f-l mr-10 hidden-xs" href="/index.html">黄虫短租</a>
+				<!--  <a
 					class="logo navbar-logo-m f-l mr-10 visible-xs"
 					href="/aboutHui.shtml">H-ui</a> <span
 					class="logo navbar-slogan f-l mr-10 hidden-xs">v3.0</span> <a
 					aria-hidden="false" class="nav-toggle Hui-iconfont visible-xs"
-					href="javascript:;">&#xe667;</a>
+					href="javascript:;">&#xe667;</a> -->
 				<nav class="nav navbar-nav">
 					<ul class="cl">
 						<li class="dropDown dropDown_hover"><a href="javascript:;"
@@ -246,35 +246,40 @@
 		<div class="Hui-article">
 			<article class="cl pd-20">
 				<div class="text-c">
-					是否自动检索：<input type="checkbox" id="autoSearch"> 姓名：<input
-						type="text" class="form-controlSearch input-text "
-						placeholder="输入姓名" data-column="2" id="col2_filter"
-						style="width: 100px;"> 岗位：<input type="text"
-						class="form-controlSearch input-text " placeholder="输入岗位"
-						data-column="3" id="col3_filter" style="width: 100px;">
-					入职时间：<input type="text" class="form-controlSearch input-text Wdate"
-						onfocus="WdatePicker({maxDate:'#F{$dp.$D(\'datemax\')||\'%y-%M-%d\'}'})"
-						placeholder="输入入职时间" data-column="4" id="col4_filter"
-						style="width: 100px;">
+					<!-- 是否自动检索：<input type="checkbox" id="autoSearch"> --> 入住日期：<input
+						type="text" class="form-controlSearch input-text Wdate"
+						onfocus="WdatePicker({onpicked:filterColumn($(this).attr('data-column')),maxDate:'#F{$dp.$D(\'datemax\')||\'%y-%M-%d\'}'})"
+						placeholder="输入入住日期" data-column="2" id="col2_filter"
+						style="width: 100px;"> 退房日期：<input type="text"
+						class="form-controlSearch input-text Wdate"
+						onfocus="WdatePicker({onpicked:filterColumn($(this).attr('data-column')),maxDate:'#F{$dp.$D(\'datemax\')||\'%y-%M-%d\'}'})"
+						placeholder="输入入职时间" data-column="3" id="col3_filter"
+						style="width: 100px;"> 订单状态：
+					<!-- <input type="text"
+						class="form-controlSearch input-text " placeholder="输入订单状态"
+						data-column="5" id="col5_filter" style="width: 100px;"> -->
+					<!-- 订单状态下拉框开始 -->
+					<select name="" class="form-controlSearch" data-column="5" id="col5_filter" style="width: 100px;">
+						<!-- <option value="">请选择订单zhua</option> -->
+						<option value="0">待付款</option>
+						<option value="1">已付款</option>
+						<option value="2">交易失败</option>
+					</select>
+
+					<!-- 订单状态下拉框结束 -->
+					民宿标题：<input type="text" class="form-controlSearch input-text "
+						placeholder="输入民宿标题" data-column="6" id="col6_filter"
+						style="width: 100px;"> 用户名：<input type="text"
+						class="form-controlSearch input-text " placeholder="输入用户名"
+						data-column="7" id="col7_filter" style="width: 100px;">
 
 				</div>
-				<div class="text-c">
-					入职时间范围： <input type="text"
-						onfocus="WdatePicker({maxDate:'#F{$dp.$D(\'datemax\')||\'%y-%M-%d\'}'})"
-						id="datemin" class="input-text Wdate" style="width: 120px;">
-					- <input type="text"
-						onfocus="WdatePicker({minDate:'#F{$dp.$D(\'datemin\')}',maxDate:'%y-%M-%d'})"
-						id="datemax" class="input-text Wdate" style="width: 120px;">
-					<input type="text" class="input-text" style="width: 250px"
-						placeholder="输入员工姓名、岗位、部门" id="" name="">
-					<button type="submit" class="btn btn-success radius" id="" name="">
-						<i class="Hui-iconfont">&#xe665;</i> 搜用户
-					</button>
-				</div>
+			
 				<div class="cl pd-5 bg-1 bk-gray mt-20">
-					<span class="l"> <a href="javascript:;" onclick="datadel()"
-						class="btn btn-danger radius"><i class="Hui-iconfont">&#xe6e2;</i>
-							批量删除</a> <a class="btn btn-primary radius" data-title="添加订单"
+					<span class="l"> <a href="javascript:;"
+						class="btn btn-danger radius" id="plsc"><i
+							class="Hui-iconfont">&#xe6e2;</i> 批量删除</a> <a
+						class="btn btn-primary radius" data-title="添加订单"
 						_href="article-add.html"
 						onclick="article_add('添加订单','article-add.html')"
 						href="javascript:;"><i class="Hui-iconfont">&#xe600;</i> 添加订单</a>
@@ -299,49 +304,6 @@
 							</tr>
 						</thead>
 						<tbody>
-							<!-- <tr class="text-c">
-								<td><input type="checkbox" value="" name=""></td>
-								<td>1</td>
-								<td>2014-6-11 11:11:42</td>
-								<td>2014-6-11 11:11:42</td>
-								<td class="text-l"><u style="cursor:pointer" class="text-primary" onClick="article_edit('查看','article-zhang.html','10001')" title="查看">订单标题</u></td>
-								<td>200</td>
-								<td>1</td>
-								<td>1</td>
-								<td>1</td>
-								<td class="td-status"><span class="label label-success radius">已发布</span></td>
-								<td class="f-14 td-manage"><a style="text-decoration: none"
-									onClick="article_stop(this,'10001')" href="javascript:;"
-									title="下架"><i class="Hui-iconfont">&#xe6de;</i></a> <a
-									style="text-decoration: none" class="ml-5"
-									onClick="article_edit('订单编辑','orderadd.html','10001')"
-									href="javascript:;" title="编辑"><i class="Hui-iconfont">&#xe6df;</i></a>
-									<a style="text-decoration: none" class="ml-5"
-									onClick="article_del(this,'10001')" href="javascript:;"
-									title="删除"><i class="Hui-iconfont">&#xe6e2;</i></a></td>
-							</tr>
-							<tr class="text-c">
-								<td><input type="checkbox" value="" name=""></td>
-								<td>10002</td>
-								<td class="text-l"><u style="cursor: pointer"
-									class="text-primary"
-									onClick="article_edit('查看','article-zhang.html','10002')"
-									title="查看">订单标题</u></td>
-								<td>行业动态</td>
-								<td>H-ui</td>
-								<td>2014-6-11 11:11:42</td>
-								<td>21212</td>
-								<td class="td-status"><span
-									class="label label-success radius">草稿</span></td>
-								<td class="f-14 td-manage"><a style="text-decoration: none"
-									onClick="article_shenhe(this,'10001')" href="javascript:;"
-									title="审核">审核</a> <a style="text-decoration: none" class="ml-5"
-									onClick="article_edit('订单编辑','article-add.html','10001')"
-									href="javascript:;" title="编辑"><i class="Hui-iconfont">&#xe6df;</i></a>
-									<a style="text-decoration: none" class="ml-5"
-									onClick="article_del(this,'10001')" href="javascript:;"
-									title="删除"><i class="Hui-iconfont">&#xe6e2;</i></a></td>
-							</tr> -->
 						</tbody>
 					</table>
 				</div>
@@ -405,24 +367,30 @@
 		}
 		/*订单-删除*/
 		function order_del(obj, id) {
-				layer.confirm('确认要删除吗？',function(){
-					$.ajax({
-						type: 'POST',
-						url: '../os.do?op=del&orderId='+id,
-						dataType: 'json',
-						success: function(data){
-							reload();
-							layer.msg('已删除!',{icon:1,time:1000});
-						},
-						error:function(data) {
-							console.log(data.msg);
-							layer.msg('删除失败!',{icon:1,time:1000});
-						},
-					});
+			layer.confirm('确认要删除吗？', function() {
+				$.ajax({
+					type : 'POST',
+					url : '../os.do?op=del&orderId=' + id,
+					dataType : 'text',
+					success : function(data) {
+						reload();
+						layer.msg('已删除!', {
+							icon : 1,
+							time : 1000
+						});
+					},
+					error : function(data) {
+						console.log(data.msg);
+						layer.msg('删除失败!', {
+							icon : 1,
+							time : 1000
+						});
+					},
 				});
-			
+
+			});
+
 		}
-		
 
 		/*订单-审核*/
 		function article_shenhe(obj, id) {
@@ -592,8 +560,8 @@
 									fix : false, //不固定
 									maxmin : true,
 									shade : 0.4,
-									title : '编辑员工信息', //显示的标题
-									content : 'emp-add.html', //很多种写法 其中之一直接写目标窗口(要弹出来窗口)
+									title : '修改订单信息', //显示的标题
+									content : 'orderadd.html', //很多种写法 其中之一直接写目标窗口(要弹出来窗口)
 									success : function(layero, index) { //success可以不写
 										var body = layer.getChildFrame('body',
 												index);//建立父子联系
@@ -695,7 +663,7 @@
 			scrollCollapse : true,
 			jQueryUI : false,
 			autoWidth : true,
-			autoSearch : false
+			autoSearch : true
 		};
 
 		//路径配置,此处配置的路径是获取数据的重要手段;
@@ -740,8 +708,9 @@
 					"createdCell" : function(nTd, sData, oData, iRow, iCol) {
 						$(nTd)
 								.html(
-										"<input type='checkbox' name='checkList' value='" + sData + "'>");
+										"<input type='checkbox' name='checkList' value='" + oData.orderId + "'>");
 					}
+
 				}, //这里是返回的json对象中的 属性值   {data : }
 				{
 					"data" : "orderId"
@@ -756,7 +725,23 @@
 					"data" : "fee"
 				},
 				{
-					"data" : "orderStatus"
+					"data" : "orderStatus",
+					"createdCell" : function(nTd, sData, oData, iRow, iCol) {
+						if (oData.orderStatus == 1) {
+							$(nTd)
+									.html(
+											'<span class="label label-success radius">已付款</span>');
+						} else if (oData.orderStatus == 0) {
+							$(nTd)
+									.html(
+											'<span class="label label-success radius">待付款</span>');
+						} else if (oData.orderStatus == 2) {
+							$(nTd)
+									.html(
+											'<span class="label label-success radius">交易失败</span>');
+						}
+
+					}
 				},
 				{
 					"data" : "accomTitle"
@@ -768,7 +753,11 @@
 					"data" : "extn",
 					"createdCell" : function(nTd, sData, oData, iRow, iCol) {
 						//表格最后一个列增加很多超链接 启用禁用。 编辑   删除 修改密码     
-						$(nTd).html('<a style="text-decoration:none" onClick="member_stop(this,\'10001\')" href="javascript:;" title="停用"><i class="Hui-iconfont">&#xe631;</i></a> <a title="编辑" href="javascript:;" class="empedit ml-5" style="text-decoration:none"><i class="Hui-iconfont">&#xe6df;</i></a> <a style="text-decoration:none" class="changepwd ml-5"  href="javascript:;" title="修改密码"><i class="Hui-iconfont">&#xe63f;</i></a> <a title="删除" href="javascript:;" onclick="order_del(this,'+oData.orderId+')" class="ml-5 delorder" style="text-decoration:none"><i class="Hui-iconfont">&#xe6e2;</i></a>');
+						$(nTd)
+								.html(
+										'<a style="text-decoration:none" onClick="member_stop(this,\'10001\')" href="javascript:;" title="停用"><i class="Hui-iconfont">&#xe631;</i></a> <a title="编辑" href="javascript:;" class="empedit ml-5" style="text-decoration:none"><i class="Hui-iconfont">&#xe6df;</i></a> <a style="text-decoration:none" class="changepwd ml-5"  href="javascript:;" title="修改密码"><i class="Hui-iconfont">&#xe63f;</i></a> <a title="删除" href="javascript:;" onclick="order_del(this,'
+												+ oData.orderId
+												+ ')" class="ml-5 delorder" style="text-decoration:none"><i class="Hui-iconfont">&#xe6e2;</i></a>');
 						//$(nTd).html('<a onClick="member_stop(this,\'10001\')">xx<a>');
 						//$(nTd).html('<a style="text-decoration:none" onClick="member_stop(this,\'10001\')" href="javascript:;" title="停用"><i class="Hui-iconfont">&#xe631;</i></a> <a title="编辑" href="javascript:;" onclick="member_edit(\'编辑\',\'member-add.html\',\'4\',\'\',\'510\')" class="ml-5" style="text-decoration:none"><i class="Hui-iconfont">&#xe6df;</i></a> <a style="text-decoration:none" class="ml-5" onClick="change_password(\'修改密码\',\'change-password.html\',\'10001\',\'600\',\'270\')" href="javascript:;" title="修改密码"><i class="Hui-iconfont">&#xe63f;</i></a> <a title="删除" href="javascript:;" onclick="member_del(this,\'1\')" class="ml-5" style="text-decoration:none"><i class="Hui-iconfont">&#xe6e2;</i></a>');
 						//$(nTd).html("<td class='td-manage'><a style='text-decoration:none' onClick='member_stop(this,'10001')' href='javascript:;' title='停用'><i class='Hui-iconfont'>&#xe631;</i></a> <a title='编辑' href='javascript:;' onclick='member_edit('编辑','member-add.html','4','','510')' class='ml-5' style='text-decoration:none'><i class='Hui-iconfont'>&#xe6df;</i></a> <a style='text-decoration:none' class='ml-5' onClick='change_password('修改密码','change-password.html','10001','600','270')' href='javascript:;' title='修改密码'><i class='Hui-iconfont'>&#xe63f;</i></a> <a title='删除' href='javascript:;' onclick='member_del(this,'1')' class='ml-5' style='text-decoration:none'><i class='Hui-iconfont'>&#xe6e2;</i></a></td>");
@@ -863,7 +852,7 @@
 									});
 
 									$("#batchIds").click(function() {
-										batchIds();
+
 									});
 
 									$("#selection").click(function() {
@@ -901,6 +890,11 @@
 																			'selected');
 														}
 													});
+
+									// 批量删除的单击事件
+									$("#plsc").click(function() {
+										batchDel();
+									});
 
 									//得到总记录数，显示在表格的右上角位置
 									$("#datarowcount")
@@ -958,10 +952,10 @@
 
 			//自动搜索方法
 			$('.form-controlSearch').on('keyup change', function() {
-				elo.gridInit.autoSearch = $("#autoSearch").prop("checked");
-				if (elo.gridInit.autoSearch) {
+				/* elo.gridInit.autoSearch = $("#autoSearch").prop("checked");
+				if (elo.gridInit.autoSearch) { */
 					filterColumn($(this).attr('data-column'));
-				}
+				//}
 			});
 		}
 
@@ -1017,18 +1011,49 @@
 			eloancn.table.grid.columns().search("").draw();
 		}
 
-		//获取所有选中行的UUID
-		function batchIds() {
-
+		//批量删除
+		function batchDel() {
 			var uuid = '';
 			var uuids = eloancn.table.grid.rows(".selected").data();
 			if (uuids.length == 0) {
 				alert(eloancn.table.statusTitle);
 			} else {
-				for (var i = 0; i < uuids.length; i++) {
-					uuid = uuid + uuids[i].extn + ",";
-				}
-				alert(uuid);
+				layer.confirm('确认要删除吗？', function() {
+					// 上面是自带的语句,大概意思就是判断有没有选数据,没有的话进行提示
+					// 下面是选中数据后
+					// 创建一个数组empId的数组进行存放选中行所对应要操作的empId
+					var orderId = new Array();
+					// 循环往数组里添加数据
+					for (var i = 0; i < uuids.length; i++) {
+						orderId.push(uuids[i]['orderId']);
+					}
+					//这里进行ajax
+					$.ajax({
+						type : 'POST',
+						url : '../os.do?op=batchDel',
+						// 传递数组
+						data : {
+							'orderId' : orderId
+						},
+						// 设置traditional: true后才能传到servlet里面去
+						traditional : true,
+						dataType : 'text',
+						success : function(data) {
+							// 不管是否操作成功都进行页面刷新,重新加载数据
+							reload();
+							layer.msg('删除成功!', {
+								icon : 1,
+								time : 3000
+							});
+						},
+						error : function(data) {
+							layer.msg('删除失败!', {
+								icon : 1,
+								time : 3000
+							});
+						},
+					});
+				});
 			}
 		}
 
@@ -1053,6 +1078,10 @@
 		//重新加载数据
 		function reload() {
 			eloancn.table.grid.ajax.reload();
+			//用jquery实现点击一次
+			if ($("#employeeCheckAll").prop("checked")) {
+				$("#employeeCheckAll").click();
+			}
 		}
 
 		//销毁table
@@ -1069,7 +1098,7 @@
 			dataTablesInit(employee);
 		});
 	</script>
-<!-- <script type="text/javascript">
+	<!-- <script type="text/javascript">
 $(function(){
 	//如果页面的内容时动态生成的,必须要用docmnet.on 方式来绑定事件
 	$(document).on("click",".delorder",function(){
