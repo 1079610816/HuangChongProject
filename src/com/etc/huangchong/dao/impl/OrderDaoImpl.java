@@ -43,6 +43,7 @@ public class OrderDaoImpl implements OrderDao {
 			if (s1 > 0 && s2 > 0) {
 				flag = true;
 			}
+			//手动提交
 			conn.commit();
 			System.out.println("删除成功");
 		} catch (SQLException e) {
@@ -59,5 +60,37 @@ public class OrderDaoImpl implements OrderDao {
 			return flag;
 		}
 
+	}
+	/**
+	 * 批量删除
+	 * 返回值为false时表示删除失败，true时为删除成功
+	 */
+	@Override
+	public boolean batchDelOrder(String sql1, String sql2) {
+		// TODO Auto-generated method stub
+		Connection conn = bd.getConn();
+		boolean flag = false;
+		try {
+			conn.setAutoCommit(false);
+			boolean flag1 = bd.execute(sql1)>0;
+			boolean flag2 = bd.execute(sql2)>0;
+			if(flag1&&flag2) {
+				flag=true;
+			}
+			conn.commit();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			try {
+				conn.rollback();
+				System.out.println("删除失败，自动回滚");
+			} catch (SQLException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
+			e.printStackTrace();
+		}finally {
+			return flag;
+		}
+		
 	}
 }
