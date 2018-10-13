@@ -176,8 +176,8 @@
 	
 		<article class="cl pd-20"> 
 		<div class="text-c">
-		        是否自动检索：<input type="checkbox" id="autoSearch">
-		   评论内容：<input type="text" class="form-controlSearch input-text " placeholder="搜索评论" data-column="2" id="col2_filter" style="width:100px;">
+		       <!--  是否自动检索：<input type="checkbox" id="autoSearch"> -->
+		   评论内容：<input type="text" class="form-controlSearch input-text " placeholder="搜索评论" data-column="2" id="col2_filter" style="width:300px;">
 		<!--      岗位：<input type="text" class="form-controlSearch input-text " placeholder="输入岗位" data-column="3" id="col3_filter" style="width:100px;">
     入职时间：<input type="text" class="form-controlSearch input-text Wdate" onfocus="WdatePicker({maxDate:'#F{$dp.$D(\'datemax\')||\'%y-%M-%d\'}'})"  placeholder="输入入职时间" data-column="4" id="col4_filter" style="width:100px;"> -->
    
@@ -482,7 +482,7 @@ function member_del(obj,id){
         scrollCollapse:true,
         jQueryUI:false,
         autoWidth:true,
-        autoSearch:false
+        autoSearch:true
     };
 
     //路径配置,此处配置的路径是获取数据的重要手段;
@@ -541,13 +541,7 @@ function member_del(obj,id){
         }
     ];
 
-     //导航按钮操作
-    comment.buttons =
-            '<button class="btn btn-default"  type="button" id="reload" data-toggle="modal" data-target="#employeeModal">刷新表格</button>'+
-            '<button class="btn btn-primary" type="button" id="batchIds" style="margin-left:20px;" data-toggle="modal" >多选</button>'+
-            '<button class="btn btn-success" type="button" id="selection" style="margin-left:20px;" data-toggle="modal" >单选</button>'+
-            '<button class="btn btn-success" type="button" id="search" style="margin-left:20px;" data-toggle="modal" >查询</button>'+
-            '<button class="btn btn-success" type="button" id="clearSearch" style="margin-left:20px;" data-toggle="modal" >重置</button>';
+   
 
 </script>
 
@@ -700,7 +694,7 @@ function member_del(obj,id){
 
         //自动搜索方法
         $('.form-controlSearch').on('keyup change', function () {
-            elo.gridInit.autoSearch = $("#autoSearch").prop("checked");
+            //elo.gridInit.autoSearch = $("#autoSearch").prop("checked");
             if(elo.gridInit.autoSearch){
                 filterColumn( $(this).attr('data-column') );
             }
