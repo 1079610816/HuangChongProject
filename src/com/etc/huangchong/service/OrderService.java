@@ -10,4 +10,6 @@ public interface OrderService {
 	List<Orders> getQueryOrder();
 	//删除单条订单记录
 	boolean getDelOrder(int orderId);
+	//批量删除
+	boolean getBatchDelOrder(String sql1,String sql2);
 }
