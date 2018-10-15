@@ -24,6 +24,16 @@ public class HomestayServiceImpl implements HomestayService {
 		// TODO Auto-generated method stub
 		return hd.homestaydel(id);
 	}
+	@Override
+	public boolean getHomestayAdd(Homestay h, int id) {
+		// TODO Auto-generated method stub
+		return hd.homestayAdd(h, id);
+	}
+	@Override
+	public boolean getHomestayBatchDel(String sql) {
+		// TODO Auto-generated method stub
+		return hd.homestayBatchDel(sql);
+	}
 	
 
 }

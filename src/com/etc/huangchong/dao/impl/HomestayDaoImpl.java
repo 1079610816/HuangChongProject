@@ -28,4 +28,18 @@ public class HomestayDaoImpl implements HomestayDao {
 		return BaseDao.execute(sql, id)>0;
 	}
 
+	@Override
+	public boolean homestayAdd(Homestay h, int userId) {
+		String sql="insert into accommodation values(null,?,?,?,?,?,?,?)";
+		return BaseDao.execute(sql, h.getAccomTitle(),h.getAccomIntro(),h.getAccomArea(),h.getAccomAddress(),h.getAccomStatus(),h.getPeopleSum(),userId)>0;
+	}
+
+	@Override
+	public boolean homestayBatchDel(String sql) {
+		
+		return BaseDao.execute(sql)>0;
+	}
+
+	
+
 }

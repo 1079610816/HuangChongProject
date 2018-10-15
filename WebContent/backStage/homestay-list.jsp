@@ -25,7 +25,7 @@
 <script>DD_belatedPNG.fix('*');</script><![endif]-->
 <!--/meta 作为公共模版分离出去-->
 
-<title>民宿管理 - 民宿列表 - H-ui.admin v3.0</title>
+<title>蝗虫短租 - 民宿管理 - 民宿列表 </title>
 <meta name="keywords" content="H-ui.admin v3.0,H-ui网站后台模版,后台模版下载,后台管理系统模版,HTML后台模版下载">
 <meta name="description" content="H-ui.admin v3.0，是一款由国人开发的轻量级扁平化网站后台模板，完全免费开源的网站后台管理系统模版，适合中小型CMS后台系统。">
 
@@ -35,17 +35,10 @@
 <!--_header 作为公共模版分离出去-->
 <header class="navbar-wrapper">
 	<div class="navbar navbar-fixed-top">
-		<div class="container-fluid cl"> <a class="logo navbar-logo f-l mr-10 hidden-xs" href="/aboutHui.shtml">H-ui.admin</a> <a class="logo navbar-logo-m f-l mr-10 visible-xs" href="/aboutHui.shtml">H-ui</a> <span class="logo navbar-slogan f-l mr-10 hidden-xs">v3.0</span> <a aria-hidden="false" class="nav-toggle Hui-iconfont visible-xs" href="javascript:;">&#xe667;</a>
+		<div class="container-fluid cl"> <a class="logo navbar-logo f-l mr-10 hidden-xs" href="/aboutHui.shtml">蝗虫短租</a> <a class="logo navbar-logo-m f-l mr-10 visible-xs" href="/aboutHui.shtml">H-ui</a> <span class="logo navbar-slogan f-l mr-10 hidden-xs">v3.0</span> <a aria-hidden="false" class="nav-toggle Hui-iconfont visible-xs" href="javascript:;">&#xe667;</a>
 			<nav class="nav navbar-nav">
 				<ul class="cl">
-					<li class="dropDown dropDown_hover"><a href="javascript:;" class="dropDown_A"><i class="Hui-iconfont">&#xe600;</i> 新增 <i class="Hui-iconfont">&#xe6d5;</i></a>
-						<ul class="dropDown-menu menu radius box-shadow">
-							<li><a href="javascript:;" onclick="article_add('添加资讯','article-add.html')"><i class="Hui-iconfont">&#xe616;</i> 资讯</a></li>
-							<li><a href="javascript:;" onclick="picture_add('添加资讯','picture-add.html')"><i class="Hui-iconfont">&#xe613;</i> 图片</a></li>
-							<li><a href="javascript:;" onclick="product_add('添加资讯','product-add.html')"><i class="Hui-iconfont">&#xe620;</i> 产品</a></li>
-							<li><a href="javascript:;" onclick="member_add('添加用户','emp-add.html','','510')"><i class="Hui-iconfont">&#xe60d;</i> 用户</a></li>
-						</ul>
-					</li>
+					
 				</ul>
 			</nav>
 			<nav id="Hui-userbar" class="nav navbar-nav navbar-userbar hidden-xs">
@@ -176,20 +169,14 @@
 	
 		<article class="cl pd-20"> 
 		<div class="text-c">
-		        是否自动检索：<input type="checkbox" id="autoSearch">
-		   姓名：<input type="text" class="form-controlSearch input-text " placeholder="输入姓名" data-column="2" id="col2_filter" style="width:100px;">
-		     岗位：<input type="text" class="form-controlSearch input-text " placeholder="输入岗位" data-column="3" id="col3_filter" style="width:100px;">
-    入职时间：<input type="text" class="form-controlSearch input-text Wdate" onfocus="WdatePicker({maxDate:'#F{$dp.$D(\'datemax\')||\'%y-%M-%d\'}'})"  placeholder="输入入职时间" data-column="4" id="col4_filter" style="width:100px;">
+		       自动检索：<input type="checkbox" id="autoSearch" checked="checked">
+		   民宿标题：<input type="text" class="form-controlSearch input-text " placeholder="根据民宿标题搜索" data-column="2" id="col2_filter" style="width:100px;">
+		     民宿介绍：<input type="text" class="form-controlSearch input-text " placeholder="根据民宿介绍搜索" data-column="3" id="col3_filter" style="width:100px;">
+    民宿所在地：<input type="text" class="form-controlSearch input-text " placeholder="根据地区搜索" data-column="4" id="col4_filter" style="width:100px;">
    
 		   </div>
-			<div class="text-c"> 入职时间范围：
-				<input type="text" onfocus="WdatePicker({maxDate:'#F{$dp.$D(\'datemax\')||\'%y-%M-%d\'}'})" id="datemin" class="input-text Wdate" style="width:120px;">
-				-
-				<input type="text" onfocus="WdatePicker({minDate:'#F{$dp.$D(\'datemin\')}',maxDate:'%y-%M-%d'})" id="datemax" class="input-text Wdate" style="width:120px;">
-				<input type="text" class="input-text" style="width:250px" placeholder="输入员工姓名、岗位、部门" id="" name="">
-				<button type="submit" class="btn btn-success radius" id="" name=""><i class="Hui-iconfont">&#xe665;</i> 搜用户</button>
-			</div>
-			<div class="cl pd-5 bg-1 bk-gray mt-20"> <span class="l"><a href="javascript:;" onclick="datadel()" class="btn btn-danger radius"><i class="Hui-iconfont">&#xe6e2;</i> 批量删除</a> <a href="javascript:;" onclick="member_add('添加用户','emp-add.html','','510')" class="btn btn-primary radius"><i class="Hui-iconfont">&#xe600;</i> 添加用户</a></span> <span class="r">共有数据：<strong><span id="datarowcount"></span></strong> 条</span> </div>
+			
+			<div class="cl pd-5 bg-1 bk-gray mt-20"> <span class="l"><a href="javascript:;"  id="plsc" class="btn btn-danger radius"><i class="Hui-iconfont">&#xe6e2;</i> 批量删除</a> <a href="javascript:;" onclick="homestay_add('添加民宿','homestay-add.html','','510')" class="btn btn-primary radius"><i class="Hui-iconfont">&#xe600;</i> 添加民宿</a></span> <span class="r">共有数据：<strong><span id="datarowcount"></span></strong> 条</span> </div>
 			<div class="mt-20">
 				<table id="example" class="table table-border table-bordered table-hover table-bg table-sort">
 					<thead>
@@ -200,9 +187,9 @@
           				    <th>民宿介绍</th>
            					<th>民宿所在地</th>
            				   	<th>民宿具体地址</th>
-           				   	<th>民宿状态</th>
-           				   	<th>人数</th>
-           				   	<th>用户</th>
+           				   	<th>发布状态</th>
+           				   	<th>可入住人数</th>
+           				   	<th>房东</th>
            				   	<th>操作</th>
 						</tr>
 					</thead>
@@ -247,9 +234,12 @@ $(function(){
 			$(this).addClass('selected');
 		}
 	});
+	$("#plsc").click(function () {
+		batchIds();
+	});
 });
 /*用户-添加*/
-function member_add(title,url,w,h){
+function homestay_add(title,url,w,h){
 	layer_show(title,url,w,h);
 }
 /*用户-查看*/
@@ -279,7 +269,9 @@ function member_start(obj,id){
 function member_edit(title,url,id,w,h){
 	layer_show(title,url,w,h);
 }
+
 /*密码-修改*/
+
 function change_password(title,url,id,w,h){
 	//layer_show(title,url,w,h);	
 
@@ -530,7 +522,14 @@ function homestay_del(obj,id){
         {"data": "accomIntro"},
         {"data": "accomArea"},
         {"data": "accomAddress"},
-        {"data": "accomStatus"},
+        {"data": "accomStatus",
+        	"createdCell": function (nTd, sData, oData, iRow, iCol) {
+            	if(oData.accomStatus == 0){
+            		$(nTd).html('<span class="label label-success radius">未发布</span>');
+            	}else{
+            		$(nTd).html('<span class="label label-success radius">已发布</span>');
+            	}
+        }},
         {"data": "peopleSum"},
         {"data": "userName"},
         {    //创建操作那个列
@@ -547,12 +546,7 @@ function homestay_del(obj,id){
     ];
 
      //导航按钮操作
-    employee.buttons =
-            '<button class="btn btn-default"  type="button" id="reload" data-toggle="modal" data-target="#employeeModal">刷新表格</button>'+
-            '<button class="btn btn-primary" type="button" id="batchIds" style="margin-left:20px;" data-toggle="modal" >多选</button>'+
-            '<button class="btn btn-success" type="button" id="selection" style="margin-left:20px;" data-toggle="modal" >单选</button>'+
-            '<button class="btn btn-success" type="button" id="search" style="margin-left:20px;" data-toggle="modal" >查询</button>'+
-            '<button class="btn btn-success" type="button" id="clearSearch" style="margin-left:20px;" data-toggle="modal" >重置</button>';
+    
 
 </script>
 
@@ -764,19 +758,46 @@ function homestay_del(obj,id){
     }
 
     //获取所有选中行的UUID
+    //获取所有选中行的UUID
     function batchIds(){
-
         var uuid = '';
         var uuids =eloancn.table.grid.rows(".selected").data();
         if(uuids.length==0){
             alert(eloancn.table.statusTitle);
         }else{
+        	// 上面是自带的语句,大概意思就是判断有没有选数据,没有的话进行提示
+        	// 下面是选中数据后
+        	// 创建一个数组empId的数组进行存放选中行所对应要操作的empId
+        	var accomId = new Array();
+        	// 循环往数组里添加数据
             for(var i=0;i<uuids.length;i++){
-                uuid = uuid+uuids[i].extn+",";
+            	accomId.push(uuids[i]['accomId']);
             }
-            alert(uuid);
+            //这里进行ajax
+            layer.confirm('确定删除？',function(){
+            	$.ajax({
+                	type: 'POST',
+                	url: '../hs.do?op=batchDelById',
+                	// 传递数组
+                	data: {'accomId':accomId},
+                	// 设置traditional: true后才能传到servlet里面去
+                	traditional: true,
+                	dataType: 'text',
+                	success: function(data){
+                		layer.msg('删除成功!',{icon:1,time:1000});
+                		reload();
+                	},
+                	error:function(data) {
+                		layer.msg('删除失败!',{icon:1,time:1000});
+                	},
+                });	
+            });
+            
+            // 不管是否操作成功都进行页面刷新,重新加载数据
+            
         }
     }
+
 
     //单选
     function selection(){
