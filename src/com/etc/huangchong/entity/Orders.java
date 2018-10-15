@@ -69,6 +69,22 @@ public class Orders {
 		this.accomTitle = accomTitle;
 		this.userName = userName;
 	}
+	/**
+	 * 不带accomTitle和userName的构造方法
+	 * @param orderId
+	 * @param bookTime
+	 * @param unsubscribeTime
+	 * @param fee
+	 * @param orderStatus
+	 */
+	public Orders(int orderId, String bookTime, String unsubscribeTime, double fee, int orderStatus) {
+		super();
+		this.orderId = orderId;
+		this.bookTime = bookTime;
+		this.unsubscribeTime = unsubscribeTime;
+		this.fee = fee;
+		this.orderStatus = orderStatus;
+	}
 	@Override
 	public String toString() {
 		return "Orders [orderId=" + orderId + ", bookTime=" + bookTime + ", unsubscribeTime=" + unsubscribeTime

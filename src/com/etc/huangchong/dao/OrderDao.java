@@ -18,4 +18,6 @@ public interface OrderDao {
 	boolean delOrder(int orderId);
 	//批量删除
 	boolean batchDelOrder(String sql1,String sql2);
+	//订单修改
+	boolean updateOrder(Orders o);
 }

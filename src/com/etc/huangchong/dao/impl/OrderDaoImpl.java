@@ -45,12 +45,11 @@ public class OrderDaoImpl implements OrderDao {
 			}
 			//手动提交
 			conn.commit();
-			System.out.println("删除成功");
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			try {
 				conn.rollback();
-				System.out.println("删除失败，自动回滚");
+				//System.out.println("删除失败，自动回滚");
 			} catch (SQLException e1) {
 				// TODO Auto-generated catch block
 				e1.printStackTrace();
@@ -82,7 +81,7 @@ public class OrderDaoImpl implements OrderDao {
 			// TODO Auto-generated catch block
 			try {
 				conn.rollback();
-				System.out.println("删除失败，自动回滚");
+				//System.out.println("删除失败，自动回滚");
 			} catch (SQLException e1) {
 				// TODO Auto-generated catch block
 				e1.printStackTrace();
@@ -92,5 +91,15 @@ public class OrderDaoImpl implements OrderDao {
 			return flag;
 		}
 		
+	}
+	/**
+	 * 修改订单
+	 * 返回值为false时表示删除失败，true时为删除成功
+	 */
+	@Override
+	public boolean updateOrder(Orders o) {
+		// TODO Auto-generated method stub
+		sql="UPDATE orderdetails SET bookTime=?, unsubscribeTime=?, fee=?, orderStatus=? WHERE orderId=?";
+		return bd.execute(sql, o.getBookTime(),o.getUnsubscribeTime(),o.getFee(),o.getOrderStatus(),o.getOrderId())>0;
 	}
 }

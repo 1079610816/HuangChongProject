@@ -36,4 +36,9 @@ public class OrderServiceImpl implements OrderService {
 		// TODO Auto-generated method stub
 		return od.batchDelOrder(sql1, sql2);
 	}
+	@Override
+	public boolean getUpdateOrder(Orders o) {
+		// TODO Auto-generated method stub
+		return od.updateOrder(o);
+	}
 }
