@@ -219,7 +219,7 @@
 						_href="article-add.html"
 						onclick="article_add('添加订单','article-add.html')"
 						href="javascript:;"><i class="Hui-iconfont">&#xe600;</i> 添加订单</a>
-					</span> <span class="r">共有数据：<strong>54</strong> 条
+					</span> <span class="r">共有数据：<strong><span id="datarowcount"></span></strong> 条
 					</span>
 				</div>
 				<div class="mt-20">
