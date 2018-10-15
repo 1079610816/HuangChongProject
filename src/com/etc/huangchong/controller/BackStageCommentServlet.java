@@ -64,6 +64,25 @@ public class BackStageCommentServlet extends HttpServlet {
 				System.out.println("删除失败");
 			}
 			
+		}else if("batchDelete".equals(op)) {
+			//批量删除的SQL语句
+			String sql="DELETE FROM comment WHERE commentId IN (";
+			//获取批量ID
+			String[] commentId = request.getParameterValues("commentId");
+			PrintWriter out = response.getWriter();
+			//循环拼接ID
+			for (String string : commentId) {
+				sql+=string+",";
+			}
+			//最后的SQL语句
+			sql=sql.substring(0,sql.lastIndexOf(","))+")";
+			boolean flag = cs.getCommentBatchDelete(sql);
+			if(flag) {
+				out.println(flag);				
+			}else {
+				out.println(flag);
+			}
+
 		}
 		
 	}

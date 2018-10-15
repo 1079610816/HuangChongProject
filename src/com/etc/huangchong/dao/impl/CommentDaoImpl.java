@@ -36,5 +36,13 @@ public class CommentDaoImpl implements CommentDao {
 		String sql = "delete from comment where commentId = ?";
 		return BaseDao.execute(sql, commentId) > 0;
 	}
+	/**
+	 * 批量删除
+	 */
+	@Override
+	public boolean commentBatchDelete(String sql) {
+		// TODO Auto-generated method stub
+		return BaseDao.execute(sql)>0;
+	}
 
 }

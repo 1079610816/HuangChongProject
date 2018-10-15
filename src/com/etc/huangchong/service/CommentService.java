@@ -11,5 +11,7 @@ public interface CommentService {
 	boolean getCommentUpdate(Comment cm);
 	//删除评论
 	boolean getCommentDelete(int commentId);
+	//批量删除
+	boolean getCommentBatchDelete(String sql);
 
 }

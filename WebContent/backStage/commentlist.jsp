@@ -35,7 +35,7 @@
 <!--_header 作为公共模版分离出去-->
 <header class="navbar-wrapper">
 	<div class="navbar navbar-fixed-top">
-		<div class="container-fluid cl"> <a class="logo navbar-logo f-l mr-10 hidden-xs" href="#">黄虫民宿管理系统</a><a aria-hidden="false" class="nav-toggle Hui-iconfont visible-xs" href="javascript:;">&#xe667;</a>
+		<div class="container-fluid cl"> <a class="logo navbar-logo f-l mr-10 hidden-xs" href="#">黄虫短租</a><a aria-hidden="false" class="nav-toggle Hui-iconfont visible-xs" href="javascript:;">&#xe667;</a>
 			<nav class="nav navbar-nav">
 				<ul class="cl">
 					<li class="dropDown dropDown_hover"><a href="javascript:;" class="dropDown_A"><i class="Hui-iconfont">&#xe600;</i> 新增 <i class="Hui-iconfont">&#xe6d5;</i></a>
@@ -96,16 +96,7 @@
 				</ul>
 			</dd>
 		</dl>
-		<dl id="menu-product">
-			<dt><i class="Hui-iconfont">&#xe620;</i> 产品管理<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
-			<dd>
-				<ul>
-					<li><a href="product-brand.html" title="品牌管理">品牌管理</a></li>
-					<li><a href="product-category.html" title="分类管理">分类管理</a></li>
-					<li><a href="product-list.html" title="产品管理">产品管理</a></li>
-				</ul>
-			</dd>
-		</dl>
+	
 		<dl id="menu-comments">
 			<dt class="selected"><i class="Hui-iconfont">&#xe622;</i> 评论管理<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
 			<dd style="display: block;">
@@ -133,38 +124,11 @@
 			<dt><i class="Hui-iconfont">&#xe62d;</i> 管理员管理<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
 			<dd>
 				<ul>
-					<li><a href="admin-role.html" title="角色管理">角色管理</a></li>
-					<li><a href="admin-permission.html" title="权限管理">权限管理</a></li>
-					<li><a href="admin-list.html" title="管理员列表">管理员列表</a></li>
+					<li><a href="adminlist.jsp" title="管理员列表">管理员管理</a></li>
 				</ul>
 			</dd>
 		</dl>
-		<dl id="menu-tongji">
-			<dt><i class="Hui-iconfont">&#xe61a;</i> 系统统计<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
-			<dd>
-				<ul>
-					<li><a href="charts-1.html" title="折线图">折线图</a></li>
-					<li><a href="charts-2.html" title="时间轴折线图">时间轴折线图</a></li>
-					<li><a href="charts-3.html" title="区域图">区域图</a></li>
-					<li><a href="charts-4.html" title="柱状图">柱状图</a></li>
-					<li><a href="charts-5.html" title="饼状图">饼状图</a></li>
-					<li><a href="charts-6.html" title="3D柱状图">3D柱状图</a></li>
-					<li><a href="charts-7.html" title="3D饼状图">3D饼状图</a></li>
-				</ul>
-			</dd>
-		</dl>
-		<dl id="menu-system">
-			<dt><i class="Hui-iconfont">&#xe62e;</i> 系统管理<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
-			<dd>
-				<ul>
-					<li><a href="system-base.html" title="系统设置">系统设置</a></li>
-					<li><a href="system-category.html" title="栏目管理">栏目管理</a></li>
-					<li><a href="system-data.html" title="数据字典">数据字典</a></li>
-					<li><a href="system-shielding.html" title="屏蔽词">屏蔽词</a></li>
-					<li><a href="system-log.html" title="系统日志">系统日志</a></li>
-				</ul>
-			</dd>
-		</dl>
+		
 	</div>
 </aside>
 <div class="dislpayArrow hidden-xs"><a class="pngfix" href="javascript:void(0);" onClick="displaynavbar(this)"></a></div>
@@ -189,7 +153,7 @@
 				<input type="text" class="input-text" style="width:250px" placeholder="输入员工姓名、岗位、部门" id="" name="">
 				<button type="submit" class="btn btn-success radius" id="" name=""><i class="Hui-iconfont">&#xe665;</i> 搜用户</button>
 			</div>  -->
-			<div class="cl pd-5 bg-1 bk-gray mt-20"> <span class="l"><a href="javascript:;" onclick="datadel()" class="btn btn-danger radius"><i class="Hui-iconfont">&#xe6e2;</i> 批量删除</a> <a href="javascript:;" onclick="member_add('添加用户','emp-add.html','','510')" class="btn btn-primary radius"><i class="Hui-iconfont">&#xe600;</i> 添加用户</a></span> <span class="r">共有数据：<strong><span id="datarowcount"></span></strong> 条</span> </div>
+			<div class="cl pd-5 bg-1 bk-gray mt-20"> <span class="l"><a href="javascript:;" onclick="datadel()" id="plsc" class="btn btn-danger radius"><i class="Hui-iconfont">&#xe6e2;</i> 批量删除</a></span>  <span class="r">共有数据：<strong><span id="datarowcount"></span></strong> 条</span> </div>
 			<div class="mt-20">
 				<table id="example" class="table table-border table-bordered table-hover table-bg table-sort">
 					<thead>
@@ -356,6 +320,10 @@ function member_del(obj,id){
 		 
 		 
 	 });
+	  //批量删除方法
+	 $("#plsc").click(function () {
+     	batchIds();
+     });
 	  
 	  
 	  
@@ -752,18 +720,42 @@ function member_del(obj,id){
         eloancn.table.grid.columns().search("").draw();
     }
 
-    //获取所有选中行的UUID
+    //批量删除
+   //获取所有选中行的UUID
     function batchIds(){
-
         var uuid = '';
         var uuids =eloancn.table.grid.rows(".selected").data();
         if(uuids.length==0){
             alert(eloancn.table.statusTitle);
         }else{
+        	// 上面是自带的语句,大概意思就是判断有没有选数据,没有的话进行提示
+        	// 下面是选中数据后
+        	// 创建一个数组commentId的数组进行存放选中行所对应要操作的commentId
+        	var commentId = new Array();
+        	// 循环往数组里添加数据
             for(var i=0;i<uuids.length;i++){
-                uuid = uuid+uuids[i].extn+",";
+            	commentId.push(uuids[i]['commentId']);
             }
-            alert(uuid);
+            //这里进行ajax
+            $.ajax({
+            	type: 'POST',
+            	url: '../cs.do?op=batchDelete',
+            	// 传递数组
+            	data: {'commentId':commentId},
+            	// 设置traditional属性: true后才能将集合传到servlet里面去
+            	traditional: true,
+            	dataType: 'text',//接受数据类型为文本类型
+            	success: function(data){
+            		layer.msg('删除成功!',{icon:1,time:1000});
+            		//成功之后重新加载页面
+                    reload();
+            		
+            	},
+            	error:function(data) {
+            		layer.msg('删除失败!',{icon:1,time:1000});
+            	},
+            });	
+            
         }
     }
 
@@ -788,6 +780,8 @@ function member_del(obj,id){
     //重新加载数据
     function reload(){
         eloancn.table.grid.ajax.reload();
+        //用jquery实现点击一次
+        $("#employeeCheckAll").click();
     }
 
     //销毁table

@@ -11,5 +11,7 @@ public interface CommentDao {
 	boolean commentUpdate(Comment cm);
 	//根据commentId删除评论
 	boolean commentDelete(int commentId);
+	//批量删除
+	boolean commentBatchDelete(String sql);
 
 }

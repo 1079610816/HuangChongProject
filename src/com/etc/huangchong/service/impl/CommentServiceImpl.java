@@ -25,5 +25,10 @@ public class CommentServiceImpl implements CommentService {
 		// TODO Auto-generated method stub
 		return cd.commentDelete(commentId);
 	}
+	@Override
+	public boolean getCommentBatchDelete(String sql) {
+		// TODO Auto-generated method stub
+		return cd.commentBatchDelete(sql);
+	}
 
 }
