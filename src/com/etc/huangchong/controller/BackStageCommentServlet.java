@@ -38,11 +38,13 @@ public class BackStageCommentServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		System.out.println("CommentServlet");
+		
 		
 		request.setCharacterEncoding("utf-8");
 		response.setCharacterEncoding("utf-8");
 		response.setContentType("application/json");
+		
+		
 		String op = request.getParameter("op");
 		if("queryComment".equals(op)) {
 		doList(request,response);
@@ -113,7 +115,7 @@ public class BackStageCommentServlet extends HttpServlet {
 		PrintWriter out = response.getWriter();
 
 		out.print(jsonString);
-		System.out.println("[jsonString] :" + jsonString);
+		//System.out.println("[jsonString] :" + jsonString);
 
 		out.close();
 	}
