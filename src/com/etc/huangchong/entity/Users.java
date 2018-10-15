@@ -93,6 +93,29 @@ public class Users {
 		this.imgUrl = imgUrl;
 	}
 
+	public Users(String userName, String userPwd, String nickName, String imgUrl) {
+		super();
+		this.userName = userName;
+		this.userPwd = userPwd;
+		this.nickName = nickName;
+		this.imgUrl = imgUrl;
+	}
+
+	public Users(int userId, String userName, String nickName, String telNum, String imgUrl) {
+		super();
+		this.userId = userId;
+		this.userName = userName;
+		this.nickName = nickName;
+		this.telNum = telNum;
+		this.imgUrl = imgUrl;
+	}
+
+	public Users(int userId, String userPwd) {
+		super();
+		this.userId = userId;
+		this.userPwd = userPwd;
+	}
+
 	// 封装属性
 	public int getUserId() {
 		return userId;

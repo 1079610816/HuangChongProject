@@ -29,7 +29,7 @@
 <script>DD_belatedPNG.fix('*');</script><![endif]-->
 <!--/meta 作为公共模版分离出去-->
 
-<title>添加员工 - H-ui.admin v3.0</title>
+<title>添加用户</title>
 <meta name="keywords"
 	content="H-ui.admin v3.0,H-ui网站后台模版,后台模版下载,后台管理系统模版,HTML后台模版下载">
 <meta name="description"
@@ -37,68 +37,52 @@
 </head>
 <body>
 	<article class="cl pd-20">
-		<form action="EmpServlet" method="post" class="form form-horizontal"
-			id="form-member-add">
+		
+		<form action="../us.do?op=userAdd" method="post" class="form form-horizontal" id="form-member-add" enctype="multipart/form-data">
 			<div class="row cl">
 				<label class="form-label col-xs-4 col-sm-3"><span
-					class="c-red">*</span>员工编号：</label>
+					class="c-red">*</span>用户名称：</label>
 				<div class="formControls col-xs-8 col-sm-9">
-					<input type="hidden" class="input-text" value="add" name="op">
-					<input type="text" class="input-text" value="6543" placeholder=""
-						id="empno" name="empno">
+					<input type="text" class="input-text" value="" placeholder="" id="userName" name="userName">
 				</div>
 			</div>
 
 			<div class="row cl">
 				<label class="form-label col-xs-4 col-sm-3"><span
-					class="c-red">*</span>姓名：</label>
+					class="c-red">*</span>用户密码：</label>
 				<div class="formControls col-xs-8 col-sm-9">
-					<input type="text" class="input-text" value="ttt" placeholder=""
-						id="ename" name="ename">
+					<input type="password" class="input-text" value="" placeholder="" id="userPwd" name="userPwd">
 				</div>
 			</div>
 			<div class="row cl">
 				<label class="form-label col-xs-4 col-sm-3"><span
-					class="c-red">*</span>岗位：</label>
+					class="c-red">*</span>上传图片：</label>
 				<div class="formControls col-xs-8 col-sm-9">
-					<input type="text" class="input-text" value="SELLMAN"
-						placeholder="" name="job" id="job">
+					<input type="file" accept="image/*" id="file" name="file" onChange="play()" /><br/>
+					<img src="" id="img01" style="display: none;" width="100px" height="100px" />
 				</div>
 			</div>
-
-			<div class="row cl">
-				<label class="form-label col-xs-4 col-sm-3"><span
-					class="c-red">*</span>入职时间：</label>
-				<div class="formControls col-xs-8 col-sm-9">
-					<input type="date" class="input-text" placeholder=""
-						name="hiredate" id="hiredate">
-				</div>
-			</div>
-			<div class="row cl">
-				<label class="form-label col-xs-4 col-sm-3"><span
-					class="c-red">*</span>基本工资：</label>
-				<div class="formControls col-xs-8 col-sm-9">
-					<input type="text" class="input-text" placeholder="" value="0"
-						name="sal" id="sal">
-				</div>
-			</div>
-			<div class="row cl">
-				<label class="form-label col-xs-4 col-sm-3"><span
-					class="c-red">*</span>所属部门：</label>
-				<div class="formControls col-xs-8 col-sm-9">
-					<select name="deptno" id="deptno">
-					</select>
-				</div>
-			</div>
-
-
 			<div class="row cl">
 				<div class="col-xs-8 col-sm-9 col-xs-offset-4 col-sm-offset-3">
 					<input class="btn btn-primary radius" type="submit" value="提交" />
 				</div>
 			</div>
 		</form>
+		
+		
+		
 	</article>
+
+ <script type="text/javascript">
+		
+function play(){
+	var file = document.getElementById('file').files[0];
+    var url = URL.createObjectURL(file);
+    document.getElementById("img01").src = url;
+    document.getElementById("img01").style.display='block';
+}
+</script>
+
 
 	<!--_footer 作为公共模版分离出去-->
 	<script type="text/javascript" src="lib/jquery/1.9.1/jquery.min.js"></script>
@@ -133,12 +117,10 @@
 					.validate(
 							{
 								rules : {
-									empno : {
+									userName : {
 										required : true,
-										minlength : 4,
-										maxlength : 4
 									},
-									ename : {
+									userPwd : {
 										required : true,
 									}
 								},
@@ -154,11 +136,10 @@
 									$(form)
 											.ajaxSubmit(
 													{
-														//type : 'post',
-														//url : "EmpServlet",
+														//type : "post",
+														//url : "../us.do?userName=123",
 														success : function(data) {
-															layer
-																	.msg(
+															layer.msg(
 																			'操作成功!',
 																			{
 																				icon : 1,
@@ -206,7 +187,7 @@
 
 
 	<!-- <script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script> -->
-	<script type="text/javascript">
+	<!-- <script type="text/javascript">
 		$(function() {
 
 			$.get("EmpServlet?op=load", function(data) {
@@ -220,7 +201,7 @@
 			});
 
 		});
-	</script>
+	</script> -->
 
 	<!--/请在上方写此页面业务相关的脚本-->
 </body>
