@@ -245,31 +245,22 @@
 
 			<article class="cl pd-20">
 				<div class="text-c">
-					是否自动检索：<input type="checkbox" id="autoSearch"> 姓名：<input
+					<!-- 是否自动检索：<input type="checkbox" id="autoSearch">  -->姓名：<input
 						type="text" class="form-controlSearch input-text "
 						placeholder="输入姓名" data-column="2" id="col2_filter"
-						style="width: 100px;"> 岗位：<input type="text"
-						class="form-controlSearch input-text " placeholder="输入岗位"
-						data-column="3" id="col3_filter" style="width: 100px;">
-					入职时间：<input type="text" class="form-controlSearch input-text Wdate"
-						onfocus="WdatePicker({maxDate:'#F{$dp.$D(\'datemax\')||\'%y-%M-%d\'}'})"
-						placeholder="输入入职时间" data-column="4" id="col4_filter"
-						style="width: 100px;">
+						style="width: 100px;"> 
+						昵称：<input
+						type="text" class="form-controlSearch input-text "
+						placeholder="输入昵称" data-column="3" id="col3_filter"
+						style="width: 100px;"> 
+						手机号：<input
+						type="text" class="form-controlSearch input-text "
+						placeholder="输入手机号" data-column="4" id="col4_filter"
+						style="width: 100px;"> 
+					
 
 				</div>
-				<div class="text-c">
-					入职时间范围： <input type="text"
-						onfocus="WdatePicker({maxDate:'#F{$dp.$D(\'datemax\')||\'%y-%M-%d\'}'})"
-						id="datemin" class="input-text Wdate" style="width: 120px;">
-					- <input type="text"
-						onfocus="WdatePicker({minDate:'#F{$dp.$D(\'datemin\')}',maxDate:'%y-%M-%d'})"
-						id="datemax" class="input-text Wdate" style="width: 120px;">
-					<input type="text" class="input-text" style="width: 250px"
-						placeholder="输入员工姓名、岗位、部门" id="" name="">
-					<button type="submit" class="btn btn-success radius" id="" name="">
-						<i class="Hui-iconfont">&#xe665;</i> 搜用户
-					</button>
-				</div>
+				
 				<div class="cl pd-5 bg-1 bk-gray mt-20">
 					<span class="l"><a href="javascript:;" id="plsc"
 						class="btn btn-danger radius"><i class="Hui-iconfont">&#xe6e2;</i>
@@ -293,6 +284,8 @@
 								<th>手机号</th>
 								<th>头像地址</th>
 								<th>审核状态</th>
+								<th style="display: none;">真实姓名</th>
+								<th style="display: none;">身份证号码</th>
 								<th>操作</th>
 							</tr>
 						</thead>
@@ -430,7 +423,7 @@ function member_del(obj,id){
 		 var _this = $(this);
 	      data =_this.parent().siblings();
 	      var arr = [];
-	     for(var i = 1; i< data.length; i++){
+	     for(var i = 1; i< data.length-1; i++){
 	        // console.log($(data[i]).text());
 	        arr.push($(data[i]).text());//拿到点击按钮的当前那条信息的内容 放到一个数组里
 	    }
@@ -468,6 +461,7 @@ function member_del(obj,id){
 	 $(document).on("click",'.empedit',function()
 	 {
 		 var _this = $(this); //当前对象 编辑的超链接
+		 console.log(_this);
 	      data =_this.parent().siblings(); //_this.parent() 得到td   siblings(); 当前行的其他td
 	      var arr = [];
 	     for(var i = 1; i< data.length; i++){ //1 从1开始 从姓名开始
@@ -488,6 +482,9 @@ function member_del(obj,id){
 	 		success: function(layero, index){ //success可以不写
 	             var body = layer.getChildFrame('body',index);//建立父子联系
 	             var iframeWin = window[layero.find('iframe')[0]['name']];
+	             //img的元素
+	             var imgList = body.find('img');//找所有的img
+	             $(imgList[0]).attr("src",arr[4]);
 	             
 	             var inputList = body.find('input'); //找所有的input
 	             for(var j = 0; j< arr.length; j++){
@@ -499,6 +496,49 @@ function member_del(obj,id){
 		 
 	 });
 	  
+	 
+	 
+	 
+	 
+	 $(document).on("click",'.userCheck',function()
+			 {
+				 var _this = $(this); //当前对象 编辑的超链接
+			      data =_this.parent().siblings(); //_this.parent() 得到td   siblings(); 当前行的其他td
+			      var arr = [];
+			     for(var i = 1; i< data.length; i++){ //1 从1开始 从姓名开始
+			        arr.push($(data[i]).text());//每一个td中的内容() 放到一个数组里
+			     }
+			    // console.log(arr);
+				 //change-password.html
+				 
+				 //打开新窗口 编辑窗口
+			     layer.open({
+			 		type: 2,
+			 		area: ['400px', '300px'], //窗口大小
+			 		fix: false, //不固定
+			 		maxmin: true,
+			 		shade:0.4,
+			 		title: '编辑用户验证信息', //显示的标题
+			 		content: 'usersCheck.html', //很多种写法 其中之一直接写目标窗口(要弹出来窗口)
+			 		success: function(layero, index){ //success可以不写
+			             var body = layer.getChildFrame('body',index);//建立父子联系
+			             var iframeWin = window[layero.find('iframe')[0]['name']];
+			             var inputList = body.find('input'); //找所有的input
+			             $(inputList[0]).val(arr[5]);
+			             $(inputList[1]).val(arr[6]);
+			          
+			             console.log(arr);
+			             var selectList = body.find('select'); //找所有的select
+			             
+			       
+			             $(selectList[0]).find("option:contains("+arr[7]+")").attr("selected",true); 
+
+			            
+			         }
+			 	});
+				 
+				 
+			 });
 	  
   });
 </script>
@@ -549,7 +589,7 @@ function member_del(obj,id){
         scrollCollapse:true,
         jQueryUI:false,
         autoWidth:true,
-        autoSearch:false
+        autoSearch:true
     };
 
     //路径配置,此处配置的路径是获取数据的重要手段;
@@ -564,20 +604,6 @@ function member_del(obj,id){
 
     users.status = [
         {"searchable": false, "orderable": false, "targets": 0},//第一行不进行排序和搜索
-//        {"targets": [12], "visible": false},    //设置第13列隐藏/显示
-//        {"width": "10%", "targets": [1]},  //设置第2列宽度
-//        {
-//            对第7列内容进行替换处理
-//            targets: 6,
-//            render: function (data, type, row, meta) {
-//                if (data == "1") {
-//                    return employee.table.sexMan;
-//                }
-//                if (data == "0") {
-//                    return employee.table.sexWoman;
-//                }
-//            }
-//        },
         {defaultContent: '',targets: ['_all']} //所有列设置默认值为空字符串
     ];
     //对应的返回数据格式
@@ -597,11 +623,29 @@ function member_del(obj,id){
         {
         	"createdCell":function(nTd, sData, oData, iRow, iCol)
         	{
+        		console.log(oData.state);
 	    		if(oData.state==1){
-	    			$(nTd).html('<a href="#"><span class="label label-success radius">已审核</span></a>');
+	    			$(nTd).html('<a href="javascript:;" class="userCheck"><span class="label label-success radius">已审核</span></a>');
+	    		}else if(oData.state==2){		
+	    			$(nTd).html('<a href="javascript:;" class="userCheck"><span class="label label-success radius">待审核</span></a>');
 	    		}else{
-	    			$(nTd).html('<a href="#"><span class="label label-success radius">未审核</span></a>');
+	    			$(nTd).html('<a href="javascript:;"><span class="label label-success radius">未填写</span></a>');
 	    		}
+    		}
+        },
+        
+        {
+        	"createdCell":function(nTd, sData, oData, iRow, iCol)
+        	{
+        		$(nTd).css("display","none")
+	    		$(nTd).html(oData.realName);
+    		}
+        },
+        {
+        	"createdCell":function(nTd, sData, oData, iRow, iCol)
+        	{
+        		$(nTd).css("display","none")
+	    		$(nTd).html(oData.identityCard);
     		}
         },
         {    
@@ -610,10 +654,7 @@ function member_del(obj,id){
         	"createdCell":function(nTd, sData, oData, iRow, iCol)
         	{
         		//表格最后一个列增加很多超链接 启用禁用。 编辑   删除 修改密码
-        		$(nTd).html('<a style="text-decoration:none" onClick="member_stop(this,\'10001\')" href="javascript:;" title="停用"><i class="Hui-iconfont">&#xe631;</i></a> <a title="编辑" href="javascript:;" class="empedit ml-5" style="text-decoration:none"><i class="Hui-iconfont">&#xe6df;</i></a> <a style="text-decoration:none" class="changepwd ml-5"  href="javascript:;" title="修改密码"><i class="Hui-iconfont">&#xe63f;</i></a> <a title="删除" href="javascript:;" onclick="member_del(this,'+oData.userId+')" class="ml-5" style="text-decoration:none"><i class="Hui-iconfont">&#xe6e2;</i></a>');
-        		//$(nTd).html('<a onClick="member_stop(this,\'10001\')">xx<a>');
-        		//$(nTd).html('<a style="text-decoration:none" onClick="member_stop(this,\'10001\')" href="javascript:;" title="停用"><i class="Hui-iconfont">&#xe631;</i></a> <a title="编辑" href="javascript:;" onclick="member_edit(\'编辑\',\'member-add.html\',\'4\',\'\',\'510\')" class="ml-5" style="text-decoration:none"><i class="Hui-iconfont">&#xe6df;</i></a> <a style="text-decoration:none" class="ml-5" onClick="change_password(\'修改密码\',\'change-password.html\',\'10001\',\'600\',\'270\')" href="javascript:;" title="修改密码"><i class="Hui-iconfont">&#xe63f;</i></a> <a title="删除" href="javascript:;" onclick="member_del(this,\'1\')" class="ml-5" style="text-decoration:none"><i class="Hui-iconfont">&#xe6e2;</i></a>');
-        		//$(nTd).html("<td class='td-manage'><a style='text-decoration:none' onClick='member_stop(this,'10001')' href='javascript:;' title='停用'><i class='Hui-iconfont'>&#xe631;</i></a> <a title='编辑' href='javascript:;' onclick='member_edit('编辑','member-add.html','4','','510')' class='ml-5' style='text-decoration:none'><i class='Hui-iconfont'>&#xe6df;</i></a> <a style='text-decoration:none' class='ml-5' onClick='change_password('修改密码','change-password.html','10001','600','270')' href='javascript:;' title='修改密码'><i class='Hui-iconfont'>&#xe63f;</i></a> <a title='删除' href='javascript:;' onclick='member_del(this,'1')' class='ml-5' style='text-decoration:none'><i class='Hui-iconfont'>&#xe6e2;</i></a></td>");
+        		$(nTd).html(' <a title="编辑" href="javascript:;" class="empedit ml-5" style="text-decoration:none"><i class="Hui-iconfont">&#xe6df;</i></a> <a style="text-decoration:none" class="changepwd ml-5"  href="javascript:;" title="修改密码"><i class="Hui-iconfont">&#xe63f;</i></a> <a title="删除" href="javascript:;" onclick="member_del(this,'+oData.userId+')" class="ml-5" style="text-decoration:none"><i class="Hui-iconfont">&#xe6e2;</i></a>');
         	}
         }
     ];
@@ -777,7 +818,7 @@ function member_del(obj,id){
 
         //自动搜索方法
         $('.form-controlSearch').on('keyup change', function () {
-            elo.gridInit.autoSearch = $("#autoSearch").prop("checked");
+           // elo.gridInit.autoSearch = $("#autoSearch").prop("checked");
             if(elo.gridInit.autoSearch){
                 filterColumn( $(this).attr('data-column') );
             }

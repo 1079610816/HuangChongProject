@@ -38,67 +38,40 @@
 </head>
 <body>
 	<article class="cl pd-20">
-		<form action="../us.do?op=updateUsers" method="post" class="form form-horizontal" enctype="multipart/form-data"
-			id="form-member-add">			
-			<div class="row cl">
-				<label class="form-label col-xs-4 col-sm-3">用户编号：</label>
-				<div class="formControls col-xs-8 col-sm-9">
-					<input type="text" class="input-text" value="1234" placeholder=""
-						id="userId" name="userId" required="required"
-						readonly="readonly" style=border:0px;background:none>
-				</div>
-			</div>
-			
+		<form action="../" method="post" class="form form-horizontal" id="form-member-add">
+
+
 			<div class="row cl">
 				<label class="form-label col-xs-4 col-sm-3"><span
-					class="c-red">*</span>用户名称：</label>
+					class="c-red">*</span>真实姓名：</label>
 				<div class="formControls col-xs-8 col-sm-9">
 					<input type="text" class="input-text" value="" placeholder=""
-						id="userName" name="userName">
+						readonly="readonly" id="realName" name="realName">
 				</div>
 			</div>
 
 			<div class="row cl">
 				<label class="form-label col-xs-4 col-sm-3"><span
-					class="c-red">*</span>用户昵称：</label>
+					class="c-red">*</span>身份证号码：</label>
 				<div class="formControls col-xs-8 col-sm-9">
 					<input type="text" class="input-text" value="" placeholder=""
-						id="nickName" name="nickName">
+						readonly="readonly" id="identityCard" name="identityCard">
 				</div>
 			</div>
-			
+
+
 			<div class="row cl">
 				<label class="form-label col-xs-4 col-sm-3"><span
-					class="c-red">*</span>手机号：</label>
+					class="c-red">*</span>审核状态：</label>
 				<div class="formControls col-xs-8 col-sm-9">
-					<input type="text" class="input-text" value="" placeholder=""
-						id="telNum" name="telNum">
+				<select id="checked" name="checked">
+				<option value="2">待审核</option>
+				<option value="1">已审核</option>
+				</select>
 				</div>
 			</div>
-			
-           <div class="row cl">
-				<label class="form-label col-xs-4 col-sm-3"><span
-					class="c-red">*</span>上传图片：</label>
-				<div class="formControls col-xs-8 col-sm-9">
-	
-					提示:点击头像进行修改<br />
-				   <input type="text" class="input-text" value="" placeholder=""
-						id="" name="" style="display: none;">
-					 <input type="text" class="input-text" value="" placeholder=""
-						id="" name="" style="display: none;">
-				     <img src="" id="img" width="100px" height="100px"/><br/>
-				     
-				      <input type="text" class="input-text" value="" placeholder=""
-						id="" name="" style="display: none;">
-				    <input type="text" class="input-text" value="" placeholder=""
-						id="" name="" style="display: none;">
-				   <input type="file" accept="image/*" id="file" name="file" style="display: none;" onChange="play()"/><br/>
-					
-					
-				</div>
-			</div>				
 
-        
+
 			<div class="row cl">
 				<div class="col-xs-8 col-sm-9 col-xs-offset-4 col-sm-offset-3">
 					<input class="btn btn-primary radius" type="submit" value="提交" />
@@ -107,24 +80,11 @@
 		</form>
 	</article>
 
- <script type="text/javascript">
- 
-	 $("#img").click(function() {
-	 	$("#file").click();
-	 });
-		
-       function play(){
-      var file = document.getElementById('file').files[0];
-       var url = URL.createObjectURL(file);
-       document.getElementById("img").src = url;
-       }
-</script>
-
 
 
 	<!--_footer 作为公共模版分离出去-->
-	
-	
+
+
 	<script type="text/javascript" src="lib/layer/2.4/layer.js"></script>
 	<script type="text/javascript" src="static/h-ui/js/H-ui.js"></script>
 	<script type="text/javascript"

@@ -53,7 +53,6 @@ public class BackStageUsersServlet extends HttpServlet {
 		response.setCharacterEncoding("utf-8");
 		response.setContentType("application/json");
 		String op = request.getParameter("op");
-		// System.out.println(request.getParameter("file"));
 		if ("queryAll".equals(op)) {
 			doList(request, response);
 		} else if ("userAdd".equals(op)) {
@@ -89,7 +88,6 @@ public class BackStageUsersServlet extends HttpServlet {
 		String jsonString = gson.toJson(mydata);
 		PrintWriter out = response.getWriter();
 		out.print(jsonString);
-		System.out.println(jsonString);
 		out.close();
 	}
 
@@ -129,29 +127,22 @@ public class BackStageUsersServlet extends HttpServlet {
 			while (iter.hasNext()) {
 
 				FileItem item = iter.next();
-				System.out.println(item);
 				if (item.isFormField()) {
 					// 非文件域
 					String name = item.getFieldName();
 					String value = item.getString("utf-8");
-					System.out.println(name + value);
 					if (name.equals("userName")) {
 						userName = value;
 						nickName = value;
 					} else {
 						userPwd = value;
 					}
-					System.out.println("userName:" + userName + ",userPwd:" + userPwd + ",nickName:" + nickName);
 				} else {
 
 					String fileName = new File(item.getName()).getName();
 					String filePath = imgPath + File.separator + fileName;
-					File storeFile = new File(filePath);
-					// 在控制台输出文件的上传路径
-					System.out.println(filePath);
-
+					File storeFile = new File(filePath);	
 					imgUrl = filePath;
-					System.out.println(imgUrl);
 					// 保存文件到硬盘
 					item.write(storeFile);
 					request.setAttribute("message", "文件上传成功!");
@@ -177,7 +168,6 @@ public class BackStageUsersServlet extends HttpServlet {
 		String jsonString = gson.toJson(flag);
 		PrintWriter out = response.getWriter();
 		out.print(jsonString);
-		System.out.println(jsonString);
 		out.close();
 	}
 
@@ -194,7 +184,7 @@ public class BackStageUsersServlet extends HttpServlet {
 		if (flag) {
 			doList(request, response);
 		} else {
-			System.out.println("删除失败");
+			doList(request, response);
 		}
 	}
 
@@ -239,7 +229,6 @@ public class BackStageUsersServlet extends HttpServlet {
 					// 非文件域
 					String name = item.getFieldName();
 					String value = item.getString("utf-8");
-					System.out.println(name + value);
 					if (name.equals("userName")) {
 						userName = value;
 					} else if (name.equals("nickName")) {
@@ -249,17 +238,12 @@ public class BackStageUsersServlet extends HttpServlet {
 					} else {
 						userId = value;
 					}
-					System.out.println("userName:" + userName + ",userId:" + userId + ",nickName:" + nickName
-							+ ",telNum:" + telNum);
 				} else {
 					String fileName = new File(item.getName()).getName();
 					String filePath = imgPath + File.separator + fileName;
 					File storeFile = new File(filePath);
-					// 在控制台输出文件的上传路径
-					System.out.println(filePath);
 
 					imgUrl = filePath;
-					System.out.println(imgUrl);
 					// 保存文件到硬盘
 					item.write(storeFile);
 					request.setAttribute("message", "文件上传成功!");
@@ -281,7 +265,6 @@ public class BackStageUsersServlet extends HttpServlet {
 		String jsonString = gson.toJson(flag);
 		PrintWriter out = response.getWriter();
 		out.print(jsonString);
-		System.out.println(jsonString);
 		out.close();
 
 	}
@@ -309,7 +292,7 @@ public class BackStageUsersServlet extends HttpServlet {
 			out.print(flag);
 			out.close();
 		} else {
-			System.out.println("删除失败");
+			doList(request, response);
 		}
 	}
 
@@ -332,7 +315,7 @@ public class BackStageUsersServlet extends HttpServlet {
 			out.print(flag);
 			out.close();
 		} else {
-			System.out.println("删除失败");
+			doList(request, response);
 		}
 	}
 
