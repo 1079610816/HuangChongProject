@@ -286,7 +286,7 @@ public class BackStageUsersServlet extends HttpServlet {
 
 	}
 
-	/**
+	/**批量删除
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
 	 *      response)
 	 */

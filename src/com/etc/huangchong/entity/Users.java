@@ -110,6 +110,7 @@ public class Users {
 		this.imgUrl = imgUrl;
 	}
 
+	
 	public Users(int userId, String userPwd) {
 		super();
 		this.userId = userId;

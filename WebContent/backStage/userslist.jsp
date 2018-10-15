@@ -444,7 +444,7 @@ function member_del(obj,id){
 	 		maxmin: true,
 	 		shade:0.4,
 	 		title: '修改密码',
-	 		content: 'change-emp-password.html',
+	 		content: 'change-users-password.html',
 	 		success: function(layero, index){
 	             var body = layer.getChildFrame('body',index);//建立父子联系
 	             var iframeWin = window[layero.find('iframe')[0]['name']];

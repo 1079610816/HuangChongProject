@@ -47,4 +47,5 @@ boolean batchDelUsers(String sql);
  * @return true 更新成功 false 更新失败
  */
 boolean changePassword(Users users);
+
 }
