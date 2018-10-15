@@ -25,7 +25,7 @@ public class CommentDaoImpl implements CommentDao {
 		// TODO Auto-generated method stub
 		String sql = "update comment set content = ? where commentId = ?";
 
-		return BaseDao.execute(sql, cm.getContent(), cm.getAccomId()) > 0;
+		return BaseDao.execute(sql, cm.getContent(), cm.getCommentId()) > 0;
 	}
 /**
  * 删除评论

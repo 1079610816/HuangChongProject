@@ -102,7 +102,6 @@
 			<dd style="display: block;">
 				<ul>
 					<li class="current"><a href="commentlist.jsp" title="评论列表">评论列表</a></li>
-					<li><a href="feedback-list.html" title="意见反馈">意见反馈</a></li>
 				</ul>
 			</dd>
 		</dl>
@@ -736,6 +735,7 @@ function member_del(obj,id){
             for(var i=0;i<uuids.length;i++){
             	commentId.push(uuids[i]['commentId']);
             }
+        	layer.confirm('确认要删除吗？',function(){
             //这里进行ajax
             $.ajax({
             	type: 'POST',
@@ -756,6 +756,7 @@ function member_del(obj,id){
             	},
             });	
             
+        });
         }
     }
 

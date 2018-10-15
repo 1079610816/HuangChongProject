@@ -16,5 +16,10 @@ public class AdminServiceImpl implements AdminService {
 		
 		return ad.queryAdmin();
 	}
+	@Override
+	public boolean getDeleteByAdminName(String adminName) {
+		// TODO Auto-generated method stub
+		return ad.DeleteByAdminName(adminName);
+	}
 
 }

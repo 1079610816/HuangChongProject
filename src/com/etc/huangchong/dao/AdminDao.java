@@ -11,5 +11,7 @@ import com.etc.huangchong.entity.Admin;
 public interface AdminDao {
 	//显示管理员信息
 	List<Admin> queryAdmin();
+	//删除
+	boolean DeleteByAdminName(String adminName);
 
 }

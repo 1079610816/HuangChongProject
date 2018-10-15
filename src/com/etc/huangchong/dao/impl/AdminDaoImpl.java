@@ -15,5 +15,11 @@ public class AdminDaoImpl implements AdminDao {
 		List<Admin> list = (List<Admin>) BaseDao.select(sql, Admin.class);
 		return list;
 	}
+	@Override
+	public boolean DeleteByAdminName(String adminName) {
+		// TODO Auto-generated method stub
+		String sql = "delete from admin where adminName = ?";
+		return BaseDao.execute(sql,adminName)>0;
+	}
 
 }

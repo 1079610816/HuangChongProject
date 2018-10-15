@@ -25,7 +25,7 @@
 <script>DD_belatedPNG.fix('*');</script><![endif]-->
 <!--/meta 作为公共模版分离出去-->
 
-<title>员工列表 - 员工管理 - H-ui.admin v3.0</title>
+<title>管理员列表 - 管理员管理 </title>
 <meta name="keywords" content="H-ui.admin v3.0,H-ui网站后台模版,后台模版下载,后台管理系统模版,HTML后台模版下载">
 <meta name="description" content="H-ui.admin v3.0，是一款由国人开发的轻量级扁平化网站后台模板，完全免费开源的网站后台管理系统模版，适合中小型CMS后台系统。">
 
@@ -35,19 +35,7 @@
 <!--_header 作为公共模版分离出去-->
 <header class="navbar-wrapper">
 	<div class="navbar navbar-fixed-top">
-		<div class="container-fluid cl"> <a class="logo navbar-logo f-l mr-10 hidden-xs" href="/aboutHui.shtml">H-ui.admin</a> <a class="logo navbar-logo-m f-l mr-10 visible-xs" href="/aboutHui.shtml">H-ui</a> <span class="logo navbar-slogan f-l mr-10 hidden-xs">v3.0</span> <a aria-hidden="false" class="nav-toggle Hui-iconfont visible-xs" href="javascript:;">&#xe667;</a>
-			<nav class="nav navbar-nav">
-				<ul class="cl">
-					<li class="dropDown dropDown_hover"><a href="javascript:;" class="dropDown_A"><i class="Hui-iconfont">&#xe600;</i> 新增 <i class="Hui-iconfont">&#xe6d5;</i></a>
-						<ul class="dropDown-menu menu radius box-shadow">
-							<li><a href="javascript:;" onclick="article_add('添加资讯','article-add.html')"><i class="Hui-iconfont">&#xe616;</i> 资讯</a></li>
-							<li><a href="javascript:;" onclick="picture_add('添加资讯','picture-add.html')"><i class="Hui-iconfont">&#xe613;</i> 图片</a></li>
-							<li><a href="javascript:;" onclick="product_add('添加资讯','product-add.html')"><i class="Hui-iconfont">&#xe620;</i> 产品</a></li>
-							<li><a href="javascript:;" onclick="member_add('添加用户','emp-add.html','','510')"><i class="Hui-iconfont">&#xe60d;</i> 用户</a></li>
-						</ul>
-					</li>
-				</ul>
-			</nav>
+		<div class="container-fluid cl"> <a class="logo navbar-logo f-l mr-10 hidden-xs" href="/aboutHui.shtml">黄虫短租</a>  <a aria-hidden="false" class="nav-toggle Hui-iconfont visible-xs" href="javascript:;">&#xe667;</a>
 			<nav id="Hui-userbar" class="nav navbar-nav navbar-userbar hidden-xs">
 				<ul class="cl">
 					<li>超级管理员</li>
@@ -81,45 +69,35 @@
 	
 	<div class="menu_dropdown bk_2">
 		<dl id="menu-article">
-			<dt><i class="Hui-iconfont">&#xe616;</i> 资讯管理<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
+			<dt><i class="Hui-iconfont">&#xe616;</i> 订单管理<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
 			<dd>
 				<ul>
-					<li><a href="article-list.html" title="资讯管理">资讯管理</a></li>
+					<li><a href="orderlist.jsp" title="订单管理">订单管理</a></li>
 				</ul>
 			</dd>
 		</dl>
 		<dl id="menu-picture">
-			<dt><i class="Hui-iconfont">&#xe613;</i> 图片管理<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
+			<dt><i class="Hui-iconfont">&#xe613;</i> 民宿管理<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
 			<dd>
 				<ul>
-					<li><a href="picture-list.html" title="图片管理">图片管理</a></li>
+					<li><a href="homestay-list.jsp" title="民宿管理">民宿列表</a></li>
 				</ul>
 			</dd>
 		</dl>
-		<dl id="menu-product">
-			<dt><i class="Hui-iconfont">&#xe620;</i> 产品管理<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
-			<dd>
-				<ul>
-					<li><a href="product-brand.html" title="品牌管理">品牌管理</a></li>
-					<li><a href="product-category.html" title="分类管理">分类管理</a></li>
-					<li><a href="product-list.html" title="产品管理">产品管理</a></li>
-				</ul>
-			</dd>
-		</dl>
+	
 		<dl id="menu-comments">
 			<dt><i class="Hui-iconfont">&#xe622;</i> 评论管理<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
 			<dd>
 				<ul>
-					<li><a href="http://h-ui.duoshuo.com/admin/" title="评论列表">评论列表</a></li>
-					<li><a href="feedback-list.html" title="意见反馈">意见反馈</a></li>
+					<li><a href="commentlist.jsp" title="评论列表">评论列表</a></li>
 				</ul>
 			</dd>
 		</dl>
 		<dl id="menu-member">
-			<dt class="selected"><i class="Hui-iconfont">&#xe60d;</i> 会员管理<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
+			<dt><i class="Hui-iconfont">&#xe60d;</i> 用户管理<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
 			<dd style="display: none;">
 				<ul>
-					<li><a href="member-list.html" title="会员列表">会员列表</a></li>
+					<li><a href="userslist.jsp" title="用户列表">用户列表</a></li>
 					<li><a href="member-del.html" title="删除的会员">删除的会员</a></li>
 					<li><a href="member-level.html" title="等级管理">等级管理</a></li>
 					<li><a href="member-scoreoperation.html" title="积分管理">积分管理</a></li>
@@ -131,7 +109,7 @@
 		</dl>
 		<dl id="menu-admin">
 			<dt><i class="Hui-iconfont">&#xe62d;</i> 管理员管理<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
-			<dd>
+			<dd style="display: block;">
 				<ul>
 					<li  class="current"><a href="adminlist.jsp" title="管理员列表">管理员列表</a></li>
 				</ul>
@@ -144,30 +122,28 @@
 <!--/_menu 作为公共模版分离出去-->
 
 <section class="Hui-article-box">
-	<nav class="breadcrumb"><i class="Hui-iconfont">&#xe67f;</i> 首页 <span class="c-gray en">&gt;</span> 员工中心 <span class="c-gray en">&gt;</span> 员工列表<a class="btn btn-success radius r" style="line-height:1.6em;margin-top:3px" href="javascript:location.replace(location.href);" title="刷新" ><i class="Hui-iconfont">&#xe68f;</i></a></nav>
+	<nav class="breadcrumb"><i class="Hui-iconfont">&#xe67f;</i> 首页 <span class="c-gray en">&gt;</span> 管理员 <span class="c-gray en">&gt;</span> 管理员列表<a class="btn btn-success radius r" style="line-height:1.6em;margin-top:3px" href="javascript:location.replace(location.href);" title="刷新" ><i class="Hui-iconfont">&#xe68f;</i></a></nav>
 	<div class="Hui-article">
 	
 		<article class="cl pd-20"> 
 		<div class="text-c">
-		        是否自动检索：<input type="checkbox" id="autoSearch">
-		   姓名：<input type="text" class="form-controlSearch input-text " placeholder="输入姓名" data-column="2" id="col2_filter" style="width:100px;">
-		     岗位：<input type="text" class="form-controlSearch input-text " placeholder="输入岗位" data-column="3" id="col3_filter" style="width:100px;">
-    入职时间：<input type="text" class="form-controlSearch input-text Wdate" onfocus="WdatePicker({maxDate:'#F{$dp.$D(\'datemax\')||\'%y-%M-%d\'}'})"  placeholder="输入入职时间" data-column="4" id="col4_filter" style="width:100px;">
-   
+		      <!--   是否自动检索：<input type="checkbox" id="autoSearch"> -->
+		   管理员姓名：<input type="text" class="form-controlSearch input-text " placeholder="输入管理员姓名" data-column="2" id="col2_filter" style="width:300px;">
+		   
 		   </div>
-			<div class="text-c"> 入职时间范围：
+		<!-- 	<div class="text-c"> 入职时间范围：
 				<input type="text" onfocus="WdatePicker({maxDate:'#F{$dp.$D(\'datemax\')||\'%y-%M-%d\'}'})" id="datemin" class="input-text Wdate" style="width:120px;">
 				-
 				<input type="text" onfocus="WdatePicker({minDate:'#F{$dp.$D(\'datemin\')}',maxDate:'%y-%M-%d'})" id="datemax" class="input-text Wdate" style="width:120px;">
 				<input type="text" class="input-text" style="width:250px" placeholder="输入员工姓名、岗位、部门" id="" name="">
 				<button type="submit" class="btn btn-success radius" id="" name=""><i class="Hui-iconfont">&#xe665;</i> 搜用户</button>
-			</div>
-			<div class="cl pd-5 bg-1 bk-gray mt-20"> <span class="l"><a href="javascript:;" onclick="datadel()" class="btn btn-danger radius"><i class="Hui-iconfont">&#xe6e2;</i> 批量删除</a> <a href="javascript:;" onclick="member_add('添加用户','emp-add.html','','510')" class="btn btn-primary radius"><i class="Hui-iconfont">&#xe600;</i> 添加用户</a></span> <span class="r">共有数据：<strong><span id="datarowcount"></span></strong> 条</span> </div>
+			</div> -->
+			<div class="cl pd-5 bg-1 bk-gray mt-20"> <span class="r">共有数据：<strong><span id="datarowcount"></span></strong> 条</span> </div>
 			<div class="mt-20">
 				<table id="admintable" class="table table-border table-bordered table-hover table-bg table-sort">
 					<thead>
 						<tr class="text-c">
-							<th width="25"><input type="checkbox" id="employeeCheckAll" name="employeeCheckAll"></th>
+							<th width="25"><input type="checkbox" id="adminCheckAll" name="adminCheckAll"></th>
 							<th>管理员</th>
          				    <th>密码</th>
            				   <th>操作</th>
@@ -271,11 +247,24 @@ function change_password(title,url,id,w,h){
 	});
 }
 /*用户-删除*/
-function member_del(obj,id){
-	layer.confirm('确认要删除吗？',function(index){
-		$(obj).parents("tr").remove();
-		layer.msg('已删除!',{icon:1,time:1000});
-	});
+function member_del(index){
+	console.log(index);
+	/* layer.confirm('确认要删除吗？',function(){
+		console.log(id);
+			$.ajax({
+				type: 'POST',
+				url: '../as.do?op=adminDelete&adminName='+id,//根据commentId传到servlet
+				dataType: 'json',
+				success: function(data){
+					reload();//成功状态，刷新页面调用reload方法，在795行有个方法刷新页面
+					layer.msg('已删除!',{icon:1,time:1000});
+				},
+				error:function(data) {
+					console.log(data.msg);
+					layer.msg('删除失败!',{icon:1,time:1000});
+				},
+			});		
+	}); */
 }
 </script>
 
@@ -319,7 +308,7 @@ function member_del(obj,id){
 	  
 	  
 	 //修改员工信息的超链接单击事件
-	 $(document).on("click",'.empedit',function()
+	 $(document).on("click",'.adminedit',function()
 	 {
 		 var _this = $(this); //当前对象 编辑的超链接
 	      data =_this.parent().siblings(); //_this.parent() 得到td   siblings(); 当前行的其他td
@@ -337,8 +326,8 @@ function member_del(obj,id){
 	 		fix: false, //不固定
 	 		maxmin: true,
 	 		shade:0.4,
-	 		title: '编辑员工信息', //显示的标题
-	 		content: 'emp-add.html', //很多种写法 其中之一直接写目标窗口(要弹出来窗口)
+	 		title: '编辑管理员信息', //显示的标题
+	 		content: 'admin-add.html', //很多种写法 其中之一直接写目标窗口(要弹出来窗口)
 	 		success: function(layero, index){ //success可以不写
 	             var body = layer.getChildFrame('body',index);//建立父子联系
 	             var iframeWin = window[layero.find('iframe')[0]['name']];
@@ -379,7 +368,7 @@ function member_del(obj,id){
     <table id="example" class="display">
         <thead>
         <tr>
-            <th><input type="checkbox" id="employeeCheckAll"></th>
+            <th><input type="checkbox" id="adminCheckAll"></th>
             <th>员工编号</th>
             <th>姓名</th>
             <th>岗位</th>
@@ -401,16 +390,16 @@ function member_del(obj,id){
 
 <script>
 
-    var employee = {};
+    var admin = {};
 
-    employee.property = {
+    admin.property = {
         version:"v1.0",
-        name:"employee",
+        name:"admin",
         tableId:"admintable",//显示数据的容器表格的id
-        checkAllId:"employeeCheckAll",
-        buttonId:"employeeButtonId",
-        formId:"employeeForm",
-        corporateFormId:"employeeForm",
+        checkAllId:"adminCheckAll",
+        buttonId:"adminButtonId",
+        formId:"adminForm",
+        corporateFormId:"adminForm",
         returnStatus:"SUCCESS",
         returnTitle:"操作成功",
         statusTitle:"请选择一条数据！",
@@ -427,7 +416,7 @@ function member_del(obj,id){
     };
 
     //初始化配置
-    employee.gridInit = {
+    admin.gridInit = {
         searching:true,
         lengthChange:true,
         paging:true,
@@ -441,20 +430,20 @@ function member_del(obj,id){
         scrollCollapse:true,
         jQueryUI:false,
         autoWidth:true,
-        autoSearch:false
+        autoSearch:true
     };
 
     //路径配置,此处配置的路径是获取数据的重要手段;
-    employee.url="/"; //  这里 / 表示的是localhost/
-    employee.requestUrl = {
-        queryList:employee.url+"HuangChongProject/as.do"  //数据是从servlet一侧返回的 json格式
+    admin.url="/"; //  这里 / 表示的是localhost/
+    admin.requestUrl = {
+        queryList:admin.url+"HuangChongProject/as.do?op=queryAdmin"  //数据是从servlet一侧返回的 json格式
     };
 
-    employee.search={
+    admin.search={
         uuid:""
     };
 
-    employee.status = [
+    admin.status = [
         {"searchable": false, "orderable": false, "targets": 0},//第一行不进行排序和搜索
 //        {"targets": [12], "visible": false},    //设置第13列隐藏/显示
 //        {"width": "10%", "targets": [1]},  //设置第2列宽度
@@ -463,10 +452,10 @@ function member_del(obj,id){
 //            targets: 6,
 //            render: function (data, type, row, meta) {
 //                if (data == "1") {
-//                    return employee.table.sexMan;
+//                    return admin.table.sexMan;
 //                }
 //                if (data == "0") {
-//                    return employee.table.sexWoman;
+//                    return admin.table.sexWoman;
 //                }
 //            }
 //        },
@@ -474,11 +463,11 @@ function member_del(obj,id){
     ];
     //对应的返回数据格式
     
-    employee.filed =[
+    admin.filed =[
         {   //第一个列
         	"data": "extn",
             "createdCell": function (nTd, sData, oData, iRow, iCol) {
-                $(nTd).html("<input type='checkbox' name='checkList' value='" + sData + "'>");
+                $(nTd).html("<input type='checkbox' name='checkList' value='" + oData.adminName + "'>");
             }
         }, //这里是返回的json对象中的 属性值   {data : }
         {"data": "adminName"},
@@ -486,10 +475,10 @@ function member_del(obj,id){
        
         {    //创建操作那个列
         	"data":"extn",
-        	"createdCell":function(nTd)
+        	"createdCell":function(nTd, sData, oData, iRow, iCol)
         	{
         		//表格最后一个列增加很多超链接 启用禁用。 编辑   删除 修改密码
-        		$(nTd).html('<a style="text-decoration:none" onClick="member_stop(this,\'10001\')" href="javascript:;" title="停用"><i class="Hui-iconfont">&#xe631;</i></a> <a title="编辑" href="javascript:;" class="empedit ml-5" style="text-decoration:none"><i class="Hui-iconfont">&#xe6df;</i></a> <a style="text-decoration:none" class="changepwd ml-5"  href="javascript:;" title="修改密码"><i class="Hui-iconfont">&#xe63f;</i></a> <a title="删除" href="javascript:;" onclick="member_del(this,\'1\')" class="ml-5" style="text-decoration:none"><i class="Hui-iconfont">&#xe6e2;</i></a>');
+        		$(nTd).html(' <a title="编辑" href="javascript:;" class="adminedit ml-5" style="text-decoration:none"><i class="Hui-iconfont">&#xe6df;</i></a> <a title="删除" href="javascript:;" onclick="member_del('+oData.adminName+')" class="ml-5" style="text-decoration:none"><i class="Hui-iconfont">&#xe6e2;</i></a>');
         		//$(nTd).html('<a onClick="member_stop(this,\'10001\')">xx<a>');
         		//$(nTd).html('<a style="text-decoration:none" onClick="member_stop(this,\'10001\')" href="javascript:;" title="停用"><i class="Hui-iconfont">&#xe631;</i></a> <a title="编辑" href="javascript:;" onclick="member_edit(\'编辑\',\'member-add.html\',\'4\',\'\',\'510\')" class="ml-5" style="text-decoration:none"><i class="Hui-iconfont">&#xe6df;</i></a> <a style="text-decoration:none" class="ml-5" onClick="change_password(\'修改密码\',\'change-password.html\',\'10001\',\'600\',\'270\')" href="javascript:;" title="修改密码"><i class="Hui-iconfont">&#xe63f;</i></a> <a title="删除" href="javascript:;" onclick="member_del(this,\'1\')" class="ml-5" style="text-decoration:none"><i class="Hui-iconfont">&#xe6e2;</i></a>');
         		//$(nTd).html("<td class='td-manage'><a style='text-decoration:none' onClick='member_stop(this,'10001')' href='javascript:;' title='停用'><i class='Hui-iconfont'>&#xe631;</i></a> <a title='编辑' href='javascript:;' onclick='member_edit('编辑','member-add.html','4','','510')' class='ml-5' style='text-decoration:none'><i class='Hui-iconfont'>&#xe6df;</i></a> <a style='text-decoration:none' class='ml-5' onClick='change_password('修改密码','change-password.html','10001','600','270')' href='javascript:;' title='修改密码'><i class='Hui-iconfont'>&#xe63f;</i></a> <a title='删除' href='javascript:;' onclick='member_del(this,'1')' class='ml-5' style='text-decoration:none'><i class='Hui-iconfont'>&#xe6e2;</i></a></td>");
@@ -497,14 +486,7 @@ function member_del(obj,id){
         }
     ];
 
-     //导航按钮操作
-    employee.buttons =
-            '<button class="btn btn-default"  type="button" id="reload" data-toggle="modal" data-target="#employeeModal">刷新表格</button>'+
-            '<button class="btn btn-primary" type="button" id="batchIds" style="margin-left:20px;" data-toggle="modal" >多选</button>'+
-            '<button class="btn btn-success" type="button" id="selection" style="margin-left:20px;" data-toggle="modal" >单选</button>'+
-            '<button class="btn btn-success" type="button" id="search" style="margin-left:20px;" data-toggle="modal" >查询</button>'+
-            '<button class="btn btn-success" type="button" id="clearSearch" style="margin-left:20px;" data-toggle="modal" >重置</button>';
-
+  
 </script>
 
 <script>
@@ -656,7 +638,7 @@ function member_del(obj,id){
 
         //自动搜索方法
         $('.form-controlSearch').on('keyup change', function () {
-            elo.gridInit.autoSearch = $("#autoSearch").prop("checked");
+            /* elo.gridInit.autoSearch = $("#autoSearch").prop("checked"); */
             if(elo.gridInit.autoSearch){
                 filterColumn( $(this).attr('data-column') );
             }
@@ -765,7 +747,7 @@ function member_del(obj,id){
 <script>
 // 初始化数据
     $(document).ready(function(){
-        dataTablesInit(employee);
+        dataTablesInit(admin);
     });
 </script>
 
