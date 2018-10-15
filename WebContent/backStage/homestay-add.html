@@ -72,13 +72,15 @@
 					<input type="text" class="input-text" value=""
 						placeholder="" name="accomAddress" id="accomAddress" required="required">
 				</div>
-			</div>
+			</div> 
 			<div class="row cl">
 				<label class="form-label col-xs-4 col-sm-3"><span
 					class="c-red">*</span>发布状态：</label>
 				<div class="formControls col-xs-8 col-sm-9">
-					<input type="text" class="input-text" value=""
-						placeholder="0表示未发布，1表示已发布" name="accomStatus" id="accomStatus" required="required">
+					<select name="accomStatus">
+						<option value="0">未发布</option> 
+						<option value="1">已发布</option>
+					</select> 
 				</div>
 			</div>
 
