@@ -214,12 +214,9 @@
 				<div class="cl pd-5 bg-1 bk-gray mt-20">
 					<span class="l"> <a href="javascript:;"
 						class="btn btn-danger radius" id="plsc"><i
-							class="Hui-iconfont">&#xe6e2;</i> 批量删除</a> <a
-						class="btn btn-primary radius" data-title="添加订单"
-						_href="article-add.html"
-						onclick="article_add('添加订单','article-add.html')"
-						href="javascript:;"><i class="Hui-iconfont">&#xe600;</i> 添加订单</a>
-					</span> <span class="r">共有数据：<strong><span id="datarowcount"></span></strong> 条
+							class="Hui-iconfont">&#xe6e2;</i> 批量删除</a>
+					</span> <span class="r">共有数据：<strong><span
+							id="datarowcount"></span></strong> 条
 					</span>
 				</div>
 				<div class="mt-20">
@@ -497,7 +494,7 @@
 									maxmin : true,
 									shade : 0.4,
 									title : '修改订单信息', //显示的标题
-									content : 'orderadd.html', //很多种写法 其中之一直接写目标窗口(要弹出来窗口)
+									content : 'orderupdate.html', //很多种写法 其中之一直接写目标窗口(要弹出来窗口)
 									success : function(layero, index) { //success可以不写
 										var body = layer.getChildFrame('body',index);//建立父子联系
 										var iframeWin = window[layero.find('iframe')[0]['name']];
@@ -704,11 +701,11 @@
 				} ];
 
 		//导航按钮操作
-		employee.buttons = '<button class="btn btn-default"  type="button" id="reload" data-toggle="modal" data-target="#employeeModal">刷新表格</button>'
+		/* employee.buttons = '<button class="btn btn-default"  type="button" id="reload" data-toggle="modal" data-target="#employeeModal">刷新表格</button>'
 				+ '<button class="btn btn-primary" type="button" id="batchIds" style="margin-left:20px;" data-toggle="modal" >多选</button>'
 				+ '<button class="btn btn-success" type="button" id="selection" style="margin-left:20px;" data-toggle="modal" >单选</button>'
 				+ '<button class="btn btn-success" type="button" id="search" style="margin-left:20px;" data-toggle="modal" >查询</button>'
-				+ '<button class="btn btn-success" type="button" id="clearSearch" style="margin-left:20px;" data-toggle="modal" >重置</button>';
+				+ '<button class="btn btn-success" type="button" id="clearSearch" style="margin-left:20px;" data-toggle="modal" >重置</button>'; */
 	</script>
 
 	<script>
