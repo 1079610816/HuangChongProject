@@ -144,7 +144,7 @@
 							<th width="25"><input type="checkbox" id="employeeCheckAll" name="employeeCheckAll"></th>
 							<th>民宿编号</th>
          				    <th>民宿标题</th>
-          				    <th>民宿介绍</th>
+          				    <th width="500px">民宿介绍</th>
            					<th>民宿所在地</th>
            				   	<th>民宿具体地址</th>
            				   	<th>发布状态</th>
