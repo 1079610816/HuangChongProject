@@ -39,13 +39,13 @@ public class BackStageHomestayServlet extends HttpServlet {
 		response.setCharacterEncoding("utf-8");
 		response.setContentType("application/json");
 		String op=request.getParameter("op");
+		PrintWriter out=response.getWriter();
 		if(op.equals("homestaylist")) {
 			List<Homestay> list=hs.getQueryHomestay();
 			MyData<Homestay> mydata=new MyData<>();
 			mydata.setData(list);
 			Gson gson=new Gson();
 			String jsonString=gson.toJson(mydata);
-			PrintWriter out=response.getWriter();
 			out.print(jsonString);
 			out.close();
 		}else if(op.equals("edit")) {
@@ -68,8 +68,32 @@ public class BackStageHomestayServlet extends HttpServlet {
 			if(flag) {
 				request.getRequestDispatcher("hs.do?op=homestaylist").forward(request, response);
 			}else {
-				System.out.println("删除失败");
+				System.out.println("删除失败"); 
 			}
+			
+		}else if(op.equals("add")) {
+			String accomTitle=request.getParameter("accomTitle");
+			String accomIntro=request.getParameter("accomIntro");
+			String accomArea=request.getParameter("accomArea");
+			String accomAddress=request.getParameter("accomAddress");
+			int accomStatus=Integer.parseInt(request.getParameter("accomStatus"));
+			int peopleSum=Integer.parseInt(request.getParameter("peopleSum"));
+			int userId=Integer.parseInt(request.getParameter("userId"));
+			Homestay h=new Homestay(0, accomTitle, accomIntro, accomArea, accomAddress, accomStatus, peopleSum, null);
+			hs.getHomestayAdd(h, userId);
+			request.getRequestDispatcher("hs.do?op=homestaylist").forward(request, response);
+		}else if(op.equals("batchDelById")) {
+			//批量删除的SQL语句
+			String sql="DELETE FROM accommodation WHERE accomId IN (";
+			//获取批量ID
+			String[] accomId = request.getParameterValues("accomId");
+			//循环拼接ID
+			for (String string : accomId) {
+				sql+=string+",";
+			}
+			//最后的SQL语句
+			sql=sql.substring(0,sql.lastIndexOf(","))+")";
+			boolean flag=hs.getHomestayBatchDel(sql);
 			
 		}
 	}

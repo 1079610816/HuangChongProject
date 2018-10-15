@@ -9,4 +9,6 @@ public interface HomestayDao {
 	List<Homestay> queryHomestay();
 	boolean homestayUpdate(Homestay homestay);
 	boolean homestaydel(int id);
+	boolean homestayAdd(Homestay h,int userId);
+	boolean homestayBatchDel(String sql);
 }
