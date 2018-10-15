@@ -85,8 +85,11 @@
 				<label class="form-label col-xs-4 col-sm-3"><span
 					class="c-red">*</span>发布状态：</label>
 				<div class="formControls col-xs-8 col-sm-9">
-					<input type="text" class="input-text" placeholder="" value="0"
-						name="homestayStatus" id="homestayStatus">
+					<input type="text" style="display:none;" class="input-text" name="status" id="status" value="" required="required"/>
+					<select name="homestayStatus">
+						<option value="0">未发布</option> 
+						<option value="1">已发布</option>
+					</select>  
 				</div>
 			</div>
 			<div class="row cl">

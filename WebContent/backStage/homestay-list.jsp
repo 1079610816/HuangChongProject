@@ -135,8 +135,8 @@
 		<article class="cl pd-20"> 
 		<div class="text-c">
 		       自动检索：<input type="checkbox" id="autoSearch" checked="checked">
-		   民宿标题：<input type="text" class="form-controlSearch input-text " placeholder="根据民宿标题搜索" data-column="2" id="col2_filter" style="width:100px;">
-		     民宿介绍：<input type="text" class="form-controlSearch input-text " placeholder="根据民宿介绍搜索" data-column="3" id="col3_filter" style="width:100px;">
+		   民宿标题：<input type="text" class="form-controlSearch input-text "  placeholder="根据民宿标题搜索" data-column="2" id="col2_filter" style="width:124px;">
+		     民宿介绍：<input type="text" class="form-controlSearch input-text " placeholder="根据民宿介绍搜索" data-column="3" id="col3_filter" style="width:124px;">
     民宿所在地：<input type="text" class="form-controlSearch input-text " placeholder="根据地区搜索" data-column="4" id="col4_filter" style="width:100px;">
    
 		   </div>
@@ -343,6 +343,9 @@ function homestay_del(obj,id){
 	 		success: function(layero, index){ //success可以不写
 	             var body = layer.getChildFrame('body',index);//建立父子联系
 	             var iframeWin = window[layero.find('iframe')[0]['name']];
+	             
+	             var select =body.find('select');
+	             $(select[0]).find("option:contains("+arr[5]+")").attr("selected",true);
 	             
 	             var inputList = body.find('input'); //找所有的input
 	             for(var j = 0; j< arr.length; j++){

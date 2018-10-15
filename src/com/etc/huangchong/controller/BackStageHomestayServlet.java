@@ -49,7 +49,7 @@ public class BackStageHomestayServlet extends HttpServlet {
 			out.print(jsonString);
 			out.close();
 		}else if(op.equals("edit")) {
-			System.out.println("民宿编辑");
+			//System.out.println("民宿编辑");
 			int homestayId=Integer.parseInt(request.getParameter("homestayId"));
 			String homestayTitle=request.getParameter("homestayTitle");
 			String homestayIntro=request.getParameter("homestayIntro");
@@ -62,7 +62,7 @@ public class BackStageHomestayServlet extends HttpServlet {
 			hs.getHomestayUpdate(h);
 			request.getRequestDispatcher("hs.do?op=homestaylist").forward(request, response);
 		}else if(op.equals("homestayDelete")) {
-			System.out.println("删除了");
+			//System.out.println("删除了");
 			int accomId=Integer.parseInt(request.getParameter("accomId"));
 			boolean flag=hs.getHomestayDel(accomId); 
 			
