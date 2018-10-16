@@ -7,14 +7,14 @@ public class Homestay {
 	private String accomArea;
 	private String accomAddress;
 	private int accomStatus;
-	private int peopleSum;
+	private int houseType;
 	private String userName;
 	public Homestay() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 	public Homestay(int accomId, String accomTitle, String accomIntro, String accomArea, String accomAddress,
-			int accomStatus, int peopleSum, String userName) {
+			int accomStatus, int houseType, String userName) {
 		super();
 		this.accomId = accomId;
 		this.accomTitle = accomTitle;
@@ -22,7 +22,7 @@ public class Homestay {
 		this.accomArea = accomArea;
 		this.accomAddress = accomAddress;
 		this.accomStatus = accomStatus;
-		this.peopleSum = peopleSum;
+		this.houseType = houseType;
 		this.userName = userName;
 	}
 	public int getAccomId() {
@@ -61,11 +61,11 @@ public class Homestay {
 	public void setAccomStatus(int accomStatus) {
 		this.accomStatus = accomStatus;
 	}
-	public int getPeopleSum() {
-		return peopleSum;
+	public int getHouseType() {
+		return houseType;
 	}
-	public void setPeopleSum(int peopleSum) {
-		this.peopleSum = peopleSum;
+	public void setHouseType(int houseType) {
+		this.houseType = houseType;
 	}
 	public String getUserName() {
 		return userName;
@@ -77,7 +77,7 @@ public class Homestay {
 	public String toString() {
 		return "Homestay [accomId=" + accomId + ", accomTitle=" + accomTitle + ", accomIntro=" + accomIntro
 				+ ", accomArea=" + accomArea + ", accomAddress=" + accomAddress + ", accomStatus=" + accomStatus
-				+ ", peopleSum=" + peopleSum + ", userName=" + userName + "]";
+				+ ", houseType=" + houseType + ", userName=" + userName + "]";
 	}
 	
 	

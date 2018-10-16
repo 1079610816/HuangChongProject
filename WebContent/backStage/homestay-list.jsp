@@ -148,7 +148,7 @@
            					<th>民宿所在地</th>
            				   	<th>民宿具体地址</th>
            				   	<th>发布状态</th>
-           				   	<th>可入住人数</th>
+           				   	<th>居室数</th> 
            				   	<th>房东</th>
            				   	<th>操作</th>
 						</tr>
@@ -493,7 +493,7 @@ function homestay_del(obj,id){
             		$(nTd).html('<span class="label label-success radius">已发布</span>');
             	}
         }},
-        {"data": "peopleSum"},
+        {"data": "houseType"},
         {"data": "userName"},
         {    //创建操作那个列
         	"data":"extn",
@@ -521,7 +521,6 @@ function homestay_del(obj,id){
         grid:"",
         statusTitle:"请选择一条数据！"
     };
-
     //dataTables方法封装
     function dataTablesInit(elo){
 
