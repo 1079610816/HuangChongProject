@@ -119,9 +119,9 @@ public class BackStageAdminServlet extends HttpServlet {
 		if (null != admin) {
 			HttpSession session = request.getSession();
 			session.setAttribute("admin", admin);
-			out.print("<script> alert('登录成功');location.href='backStage/index.html';</script>");
+			out.print("true");
 		} else {
-			out.print("<script> alert('用户名或密码错误，请重新登录！！');location.href='backStage/login.jsp';</script>");
+			out.print("false");
 		}
 		out.close();
 	}
