@@ -105,6 +105,9 @@ $("#loginform_submit").click(function(){
 				location.href="index.html";
 			}else{
 				alert("账号或密码错误!");
+				result=false;
+				$("#adminName").val("");
+				$("#adminPwd").val("");
 			}
 		});
 	}

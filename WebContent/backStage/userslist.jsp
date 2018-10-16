@@ -133,7 +133,7 @@
 				</dt>
 				<dd>
 					<ul>
-						<li><a href="picture-list.html" title=" 民宿管理">民宿列表</a></li>
+						<li><a href="homestay-list.jsp" title=" 民宿管理">民宿列表</a></li>
 					</ul>
 				</dd>
 			</dl>
@@ -157,7 +157,7 @@
 				</dt>
 				<dd style="display: block;">
 					<ul>
-						<li class="current"><a href="userslist.jsp" title="用户列表">用户列表</a></li>
+						<li><a href="userslist.jsp" title="用户列表">用户列表</a></li>
 					
 					</ul>
 				</dd>
