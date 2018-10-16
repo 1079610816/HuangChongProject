@@ -11,6 +11,7 @@
 			}
 		}
 
+		
     	$(function(){
 			//提交表单
 			$('#submit_btn').click(function(){

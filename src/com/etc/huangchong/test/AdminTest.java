@@ -14,6 +14,7 @@ public class AdminTest {
 		AdminService as = new AdminServiceImpl();
 		List<Admin> list = as.getQueryAdmin();
 		list.forEach(System.out::println);
+		
 	System.out.println(MD5Util.getEncodeByMd5("admin"));
 	}
 

@@ -13,6 +13,7 @@ import com.etc.huangchong.entity.Users;
  *
  */
 public interface UsersService {
+	
 	/**
 	 * 查询所有用户
 	 * 

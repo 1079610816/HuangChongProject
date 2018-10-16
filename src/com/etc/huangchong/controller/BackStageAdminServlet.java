@@ -99,6 +99,8 @@ public class BackStageAdminServlet extends HttpServlet {
 
 		out.close();
 	}
+	
+	
 	/**
 	 * 登录操作
 	 * @param request

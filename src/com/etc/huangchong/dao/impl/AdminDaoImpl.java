@@ -24,6 +24,7 @@ public class AdminDaoImpl implements AdminDao {
 		return BaseDao.execute(sql, adminName) > 0;
 	}
 
+	
 	/**
 	 * 管理员登录
 	 * 

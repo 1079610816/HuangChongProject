@@ -26,6 +26,7 @@ public class UsersServiceImpl implements UsersService {
 		List<Users> list=ud.queryUsers();
 		return list;
 	}
+	
 	/**
 	 * 增加用户
 	 * @param users 用户

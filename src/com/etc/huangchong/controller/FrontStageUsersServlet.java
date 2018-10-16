@@ -19,7 +19,8 @@ import com.etc.huangchong.service.impl.UsersServiceImpl;
 public class FrontStageUsersServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private UsersService us = new UsersServiceImpl();
-       
+    
+	
     /**
      * @see HttpServlet#HttpServlet()
      */

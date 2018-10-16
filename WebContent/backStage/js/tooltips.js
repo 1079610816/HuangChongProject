@@ -21,6 +21,7 @@ function show_err_msg(msg){
 	 }, "1000"); 
 }
 
+
 //正确时：提示调用方法
 function show_msg(msg,url){	
      $('.msg_bg').html('');

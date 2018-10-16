@@ -6,7 +6,6 @@ import com.etc.huangchong.dao.UsersDao;
 import com.etc.huangchong.entity.Users;
 import com.etc.huangchong.util.BaseDao;
 
-
 /**
  * UserDao接口的实现类
  * 

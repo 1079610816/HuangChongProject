@@ -27,7 +27,6 @@
 </head>
 
 <body>
-
 	<div class="page-container">
 		<div class="main_box" style="height: 500px">
 			<div class="login_box">

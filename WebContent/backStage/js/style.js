@@ -1,3 +1,4 @@
+
 (function (window, document) {
     var SliderBar = function (targetDom, options) {
         // 判断是用函数创建的还是用new创建的。这样我们就可以通过MaskShare("dom") 或 new MaskShare("dom")来使用这个插件了  
