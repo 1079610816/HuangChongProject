@@ -1,3 +1,5 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!--_meta 作为公共模版分离出去-->
 <!DOCTYPE HTML>
 <html>
@@ -129,7 +131,7 @@ function play(){
 								focusCleanup : true,
 								success : "valid",
 								submitHandler : function(form) {
-									alert("submit" + form);
+									//alert("submit" + form);
 									//$(form).ajaxSubmit();
 									//var index = parent.layer.getFrameIndex(window.name);
 									//parent.$('.btn-refresh').click();

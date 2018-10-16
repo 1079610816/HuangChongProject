@@ -57,14 +57,13 @@ public interface UsersService {
 	boolean getBatchDelUsers(String sql);
 
 	/**
-	 * 修改密码
+	 * 重置密码
 	 * 
-	 * @param Users
-	 *            用户
-	 * @return true 更新成功 false 更新失败
+	 * @param userId
+	 *            用户编号
+	 * @return true 重置成功 false 重置失败
 	 */
-	boolean getChangePassword(Users users);
-
+	boolean getResetPassword(int userId);
 	/**
 	 * 修改用户的审核状态
 	 * 
