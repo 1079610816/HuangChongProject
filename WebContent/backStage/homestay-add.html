@@ -86,10 +86,10 @@
 
 			<div class="row cl">
 				<label class="form-label col-xs-4 col-sm-3"><span
-					class="c-red">*</span>可入住人数：</label>
+					class="c-red">*</span>居室数：</label>
 				<div class="formControls col-xs-8 col-sm-9">
 					<input type="text" class="input-text" value=""
-						placeholder="" name="peopleSum" id="peopleSum" required="required">
+						placeholder="" name="houseType" id="houseType" required="required">
 				</div>
 			</div>
 			<div class="row cl">
@@ -154,12 +154,12 @@
 								focusCleanup : true,
 								success : "valid",
 								submitHandler : function(form) {
-									alert("submit" + form);
+									//alert("submit" + form);  
 									//$(form).ajaxSubmit();
 									//var index = parent.layer.getFrameIndex(window.name);
 									//parent.$('.btn-refresh').click();
 									//parent.layer.close(index);
-									$(form)
+									$(form) 
 											.ajaxSubmit(
 													{
 														//type : 'post',
