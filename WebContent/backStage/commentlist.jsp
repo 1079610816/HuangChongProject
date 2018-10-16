@@ -155,8 +155,8 @@
 							<th width="25"><input type="checkbox" id="employeeCheckAll" name="employeeCheckAll"></th>
 							<th>评论ID</th>
          				    <th>评论内容</th>
-          				    <th>民宿ID</th>
-           					<th>用户ID</th>
+          				    <th>民宿标题</th>
+           					<th>评论用户</th>
            				   <th>操作</th>
 						</tr>
 					</thead>
@@ -486,8 +486,8 @@ function member_del(obj,id){
         }, //这里是返回的json对象中的 属性值   {data : }
         {"data": "commentId"},
         {"data": "content"},
-        {"data": "accomId"},
-        {"data": "userId"},
+        {"data": "accomTitle"},
+        {"data": "userName"},
        
         {    
         	//创建操作那个列

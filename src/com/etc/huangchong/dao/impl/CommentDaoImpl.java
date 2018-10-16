@@ -13,7 +13,7 @@ public class CommentDaoImpl implements CommentDao {
 	@Override
 	public List<Comment> queryComment() {
 		// TODO Auto-generated method stub
-		String sql = "select * from comment";
+		String sql = "SELECT comment.commentId,comment.content,accommodation.accomTitle,users.userName FROM comment,accommodation,users where comment.userId = users.userId and comment.accomId = accommodation.accomId";
 		List<Comment> list = (List<Comment>) BaseDao.select(sql, Comment.class);
 		return list;
 	}
