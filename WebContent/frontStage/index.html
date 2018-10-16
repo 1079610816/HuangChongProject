@@ -16,7 +16,8 @@
 	href="//staticnew.mayi.com/resourcesWeb/v201807/index_page_new/css/new_calendar.css">
 <link rel="stylesheet"
 	href="//staticnew.mayi.com/resourcesWeb/v201807/index_page_new/css/index.css?v=2018.8.8">
-<script src="js/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+<!-- <script src="js/jquery.min.js" type="text/javascript" charset="utf-8"></script> -->
+<script src="http://libs.baidu.com/jquery/1.11.1/jquery.min.js" type="text/javascript" charset="utf-8"></script>
 </head>
 
 <body>
@@ -535,6 +536,8 @@
 						</div>
 					</div>
 					<!-- 手机登陆 end  -->
+					
+					
 					<!-- 密码登陆 start -->
 					<div class="login-input" id="loginbyupdiv" name="loginbyupdiv"
 						style="display: none;">
@@ -546,9 +549,10 @@
 								value="" autocomplete="off" />
 						</div>
 						<div class="input small-top">
-							<span class="password-icon"></span> <input class="dlargeinput"
-								type="password" id="password " name="password " placeholder="密码"
+							<span class="password-icon"></span> 
+							<input class="dlargeinput" type="password" id="userPwd " name="userPwd " placeholder="密码"
 								value="" />
+								<!-- <input type="password" class="dlargeinput" id="userPwd "/> -->
 						</div>
 						<div class="largeinputbox small-top clearfix" id="uperrordiv">
 							<div class="dinput fl" id="yui_3_5_1_1_1434542056373_108">
@@ -651,49 +655,31 @@
 		});
 	</script>
 	<!-- 图形验证码的js结束 -->
-
+<!--  <script src="http://cdn.static.runoob.com/libs/jquery/1.10.2/jquery.min.js"></script> -->
 	<!--  -->
 	<script type="text/javascript">
 			
 
 	$("#loginByPassword").click(function() {
-	/* 	var username=$("#username").val();
-      var password="abc";//$("#password").val();
+	 	var username=$("#username").val();
+ //     var userPwd=$("#userPwd").val();
+      var userPwd=$("#userPwd").val();
       var validationCode=$("#validationCode").val();
-      console.log("function..."); */
+      console.log($('input[name="password"]').val()); 
         
-    	/* $.post("../ussss.action?op=loginByPwd","username"+username+"&password"+password+"&validationCode"+validationCode,function(data,status){
+    	 $.post("../us.action?op=loginByPwd","username="+username+"&userPwd="+userPwd+"&validationCode="+validationCode,function(data,status){
       	 console.log(data);
 			if("2"==data){
-				location.href="index.html";
-			}else{
+				window.location.reload();
+			}else if("1"==data){
 				alert("账号或密码错误!");
-				result=false;
 				$("#username").val("");
-				$("#password").val("");
+				$("#userPwd").val("");
+			}else{
+				alert("验证码错误！");
 			}
-		});  */
-		
-      $.ajax({
-			type : 'POST',
-			//url : '../us.action?op=loginByPwd&username='+username+"&password="+password+"&validationCode="+validationCode,
-			url : "/HuangChongProject/us.action?op=loginByPwd",
-			dataType : 'json',
-			success : function(data) {
-				layer.msg('重置密码成功!', {
-					icon : 1,
-					time : 1000
-				});
-				reload();
-			},
-			error : function(data) {
-				console.log(data.msg);
-				layer.msg('重置失败!', {
-					icon : 2,
-					time : 1000
-				});
-			}
-		});
+		});  
+	
 	});
 	</script>
 
