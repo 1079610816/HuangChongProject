@@ -1,6 +1,8 @@
 package com.etc.huangchong.controller;
 
 import java.io.IOException;
+import java.io.PrintWriter;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -11,6 +13,7 @@ import javax.servlet.http.HttpSession;
 import com.etc.huangchong.entity.Users;
 import com.etc.huangchong.service.UsersService;
 import com.etc.huangchong.service.impl.UsersServiceImpl;
+import com.etc.huangchong.util.MD5Util;
 
 /**
  * Servlet implementation class FrontStageUsersServlet
@@ -38,30 +41,39 @@ public class FrontStageUsersServlet extends HttpServlet {
 		request.setCharacterEncoding("utf-8");
 		response.setCharacterEncoding("utf-8");
 		String op = request.getParameter("op");
-		if ("".equals(op)) {
+		PrintWriter out=response.getWriter();
+
+		if ("loginByPwd".equals(op)) {
+			
 			String username = request.getParameter("username");
 
-			String password = request.getParameter("password");
-
+			String userPwd = request.getParameter("userPwd");
+			System.out.println(username+userPwd);
+			userPwd=MD5Util.getEncodeByMd5(userPwd);
+			
 			String validationCode = request.getParameter("validationCode");
 
 			HttpSession session = request.getSession();
 
 			String validation_code = (String) session.getAttribute("validation_code");
-
+    
 			if (validationCode.equalsIgnoreCase(validation_code)) {
-				Users users = us.getLogin(username, password);
+				System.out.println(username+userPwd);
+				Users users = us.getLogin(username, userPwd);
+				System.out.println(users);
 				if (null != users) {
 					session.setAttribute("users", users);
-
-					request.getRequestDispatcher("index.html").forward(request, response);
+					out.print("2");
+//					request.getRequestDispatcher("index.html").forward(request, response);
 				} else {
-					request.getRequestDispatcher("login.jsp").forward(request, response);
+					out.print("1");
+//					request.getRequestDispatcher("login.jsp").forward(request, response);
 				}
 			} else {
-				System.out.println("验证码错误");
+				out.print("0");
 
 			}
+			out.close();
 		}
 	}
 
