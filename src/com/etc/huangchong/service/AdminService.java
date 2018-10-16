@@ -9,5 +9,11 @@ public interface AdminService {
 	List<Admin> getQueryAdmin();
 	//批量删除
 	boolean getDeleteByAdminName(String adminName);
-
+	/**
+	 * 登录操作
+	 * @param adminName 管理员姓名
+	 * @param adminPwd 管理员密码
+	 * @return Admin 管理员
+	 */
+	Admin getLogin(String adminName,String adminPwd);
 }
