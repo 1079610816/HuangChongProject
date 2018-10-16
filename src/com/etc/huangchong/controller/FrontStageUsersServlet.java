@@ -49,6 +49,7 @@ public class FrontStageUsersServlet extends HttpServlet {
 
 			String userPwd = request.getParameter("userPwd");
 			System.out.println(username+userPwd);
+			
 			userPwd=MD5Util.getEncodeByMd5(userPwd);
 			
 			String validationCode = request.getParameter("validationCode");
