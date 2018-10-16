@@ -446,10 +446,10 @@
 							<div class="largeinputbox small-top clearfix">
 								<div class="dinput fl">
 									<span class="verification-icon"></span>
-									<input class="dsmallinput" type="text" id="imagecode" placeholder="图形验证码" value="" />
+									<input class="dsmallinput" type="text" id="validationCode1" placeholder="图形验证码" value="" />
 								</div>
 								<div class="yz-code fr">
-									<img src="" id="loginauthimage" title="点击刷新" />
+									<img id="validationCode_img1" alt="点击刷新" title="点击刷新" src="../ValidateCode" width=130px height=38>
 								</div>
 							</div>
 							<div class="largeinputbox small-top clearfix" id="maerrordiv">
@@ -475,24 +475,26 @@
 						</div>
 						<!-- 手机登陆 end  -->
 						<!-- 密码登陆 start -->
+						<form action="" method="post">
 						<div class="login-input" id="loginbyupdiv" name="loginbyupdiv" style="display:none;">
 							<input type="hidden" id="li_num_1" value="0">
 							<input type="hidden" id="code_num_1" value="86">
 							<div class="input">
 								<span class="user-icon"></span>
-								<input class="dlargeinput" type="text" id="loginnamein" name="loginnamein" placeholder="手机号/邮箱/账号" value="" autocomplete="off" />
+								<input class="dlargeinput" type="text" id="username" name="username " placeholder="手机号/用户名" value="" autocomplete="off" />
 							</div>
 							<div class="input small-top">
 								<span class="password-icon"></span>
-								<input class="dlargeinput" type="password" id="loginpassin" name="loginpassin" placeholder="密码" value="" />
+								<input class="dlargeinput" type="password" id="password " name="password " placeholder="密码" value="" />
 							</div>
 							<div class="largeinputbox small-top clearfix" id="uperrordiv">
 								<div class="dinput fl" id="yui_3_5_1_1_1434542056373_108">
 									<span class="verification-icon"></span>
-									<input type="text" class="dsmallinput" id="imagecode1" placeholder="图形验证码" value="">
+									<input type="text" class="dsmallinput" id="validationCode" name="validationCode "placeholder="图形验证码" value="">
 								</div>
 								<div class="yz-code fr">
-									<img src="" id="loginauthimage1" title="点击刷新">
+									<!-- <img src="" id="loginauthimage1" title="点击刷新"> -->
+									<img id="validationCode_img" alt="点击刷新" title="点击刷新" src="../ValidateCode" width=130px height=38>
 								</div>
 							</div>
 							<div class="logincheckbox large-top clearfix">
@@ -507,6 +509,7 @@
 								<a href="javascript:void(0)" id="changeloginbymwa">使用手机验证码登录</a>
 							</p>
 						</div>
+						</form>
 						<!-- 密码登陆 end -->
 					</div>
 				</div>
@@ -518,6 +521,11 @@
 		</div>
 
 		<!-- 登录弹窗 END -->
+		
+		
+		
+	
+		
 		<script src="js/jquery.min.js" type="text/javascript" charset="utf-8"></script>
 		<script src="js/jquery.bxslider.js" type="text/javascript" charset="utf-8"></script>
 		<script src="js/layer.min.js" type="text/javascript" charset="utf-8"></script>
@@ -537,6 +545,33 @@
 		<script src="//staticnew.mayi.com/resourcesWeb/v201807/index_page_new/js/index.js?v=2018.8.6"></script>
 		<script type='text/javascript' src='//webchat.7moor.com/javascripts/7moorInit.js?accessId=73859f20-f357-11e6-b43e-3b18b16942dc&autoShow=false' async='async'></script>
 		<script type="text/javascript" src="//staticnew.mayi.com/resourcesWeb/js/util/jquery.qrcode.min.js"></script>
+
+
+<script type="text/javascript">
+
+		$(function() {
+			
+		$("#validationCode_img").click(
+				function() {
+
+					$("#validationCode_img").attr("src",
+							"../ValidateCode?" + Math.random());
+				});
+		
+		$("#validationCode_img1").click(
+				function() {
+
+					$("#validationCode_img1").attr("src",
+							"../ValidateCode?" + Math.random());
+				});
+		
+		/*  $.get("us.do",function  (data) {
+			$("#div01").text(data);
+			$("#div01").style.display=none;
+		});  */
+		});
+	</script>
+
 
 		<!--公共底部-->
 		<div class="foot">

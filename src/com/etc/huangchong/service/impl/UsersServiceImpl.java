@@ -26,6 +26,7 @@ public class UsersServiceImpl implements UsersService {
 		List<Users> list=ud.queryUsers();
 		return list;
 	}
+	
 	/**
 	 * 增加用户
 	 * @param users 用户
@@ -76,6 +77,35 @@ public class UsersServiceImpl implements UsersService {
 	public boolean getChangePassword(Users users) {
 		// TODO Auto-generated method stub
 		return ud.changePassword(users);
+	}
+	/**
+	 * 修改用户的审核状态
+	 * 
+	 * @param state
+	 *            审核状态
+	 * @param identityCard
+	 *            身份证号码
+	 * @return true 更新成功 false 更新失败
+	 */
+	@Override
+	public boolean getChangeState(int state, String identityCard) {
+		// TODO Auto-generated method stub
+		return ud.changeState(state, identityCard);
+	}
+
+	/**
+	 * 用户登录操作
+	 * 
+	 * @param userName
+	 *            用户名或电话号码
+	 * @param userPwd
+	 *            用户密码
+	 * @return Users 用户
+	 */
+	@Override
+	public Users getLogin(String userName, String userPwd) {
+		// TODO Auto-generated method stub
+		return ud.login(userName, userPwd);
 	}
 
 	

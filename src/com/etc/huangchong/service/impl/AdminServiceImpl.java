@@ -21,5 +21,12 @@ public class AdminServiceImpl implements AdminService {
 		// TODO Auto-generated method stub
 		return ad.DeleteByAdminName(adminName);
 	}
+	
+	@Override
+	public Admin getLogin(String adminName, String adminPwd) {
+		// TODO Auto-generated method stub
+		return ad.login(adminName, adminPwd);
+	}
+	
 
 }

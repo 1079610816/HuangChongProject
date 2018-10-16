@@ -62,4 +62,23 @@ public interface UsersDao {
 	 */
 	boolean changePassword(Users users);
 
+	/**
+	 * 修改用户的审核状态
+	 * 
+	 * @param state
+	 *            审核状态
+	 * @param identityCard
+	 *            身份证号码
+	 * @return true 更新成功 false 更新失败
+	 */
+	boolean changeState(int state, String identityCard);
+
+	/**
+	 * 登录操作
+	 * 
+	 * @param userName 用户名或电话号码
+	 * @param userPwd 用户密码
+	 * @return Users 用户
+	 */
+	Users login(String userName, String userPwd);
 }
