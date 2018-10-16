@@ -34,7 +34,7 @@ public class BackStageUsersServlet extends HttpServlet {
 	private UsersService us = new UsersServiceImpl();
 	private static final String UPLOAD_DIRECTORY = "img";
 
-	/**
+	/**构造函数
 	 * @see HttpServlet#HttpServlet()
 	 */
 	public BackStageUsersServlet() {
@@ -42,7 +42,7 @@ public class BackStageUsersServlet extends HttpServlet {
 		// TODO Auto-generated constructor stub
 	}
 
-	/**
+	/**doget请求
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
 	 *      response)
 	 */
@@ -65,6 +65,8 @@ public class BackStageUsersServlet extends HttpServlet {
 			doBatchDelUsers(request, response);
 		} else if ("changePassword".equals(op)) {
 			doChangePassword(request, response);
+		}else if("usersChecked".equals(op)){
+			doUsersChecked(request, response);
 		}
 	}
 
@@ -269,7 +271,8 @@ public class BackStageUsersServlet extends HttpServlet {
 
 	}
 
-	/**批量删除
+	/**
+	 * 批量删除
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
 	 *      response)
 	 */
@@ -319,6 +322,24 @@ public class BackStageUsersServlet extends HttpServlet {
 		}
 	}
 
+	/**
+	 * 修改用户的身份审核状态
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
+	 *      response)
+	 */
+	protected void doUsersChecked(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		String identityCard=request.getParameter("identityCard");
+		String state=request.getParameter("state");
+		boolean flag =us.getChangeState(Integer.parseInt(state), identityCard);
+		if (flag) {
+			PrintWriter out = response.getWriter();
+			out.print(flag);
+			out.close();
+		} else {
+			doList(request, response);
+		}
+	}
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
 	 *      response)

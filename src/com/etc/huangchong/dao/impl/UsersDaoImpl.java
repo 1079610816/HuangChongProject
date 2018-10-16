@@ -6,7 +6,6 @@ import com.etc.huangchong.dao.UsersDao;
 import com.etc.huangchong.entity.Users;
 import com.etc.huangchong.util.BaseDao;
 
-import javafx.scene.layout.Background;
 
 /**
  * UserDao接口的实现类
@@ -86,6 +85,42 @@ public class UsersDaoImpl implements UsersDao {
 		String sql="update users set userPwd=? where userId=?";
 		int n=BaseDao.execute(sql, users.getUserPwd(),users.getUserId());
 		return n>0;
+	}
+	/**
+	 * 修改用户的审核状态
+	 * 
+	 * @param state
+	 *            审核状态
+	 * @param identityCard
+	 *            身份证号码
+	 * @return true 更新成功 false 更新失败
+	 */
+	@Override
+	public boolean changeState(int state, String identityCard) {
+		// TODO Auto-generated method stub
+		String sql="update userscheck set state=? where identityCard=?";	
+		int n=BaseDao.execute(sql, state,identityCard);
+		return n>0;
+	}
+	/**
+	 * 登录操作
+	 * 
+	 * @param userName 用户名或电话号码
+	 * @param userPwd 用户密码
+	 * @return Users 用户
+	 */
+	@Override
+	public Users login(String userName, String userPwd) {
+		// TODO Auto-generated method stub
+		String sql="select * from users where (userName=? or telNum=?) and userPwd=?";
+		@SuppressWarnings("unchecked")
+		List<Users> list=(List<Users>) BaseDao.select(sql, Users.class, userName,userName,userPwd);
+		if(list.size()!=0) {
+			Users u=list.get(0);
+		return u;
+		}else {
+		return null;	
+		}
 	}
 
 	
