@@ -63,7 +63,7 @@ public class BackStageUsersServlet extends HttpServlet {
 			doUpdateUsers(request, response);
 		} else if ("batchDel".equals(op)) {
 			doBatchDelUsers(request, response);
-		} else if ("changePassword".equals(op)) {
+		} else if ("resetPassword".equals(op)) {
 			doChangePassword(request, response);
 		}else if("usersChecked".equals(op)){
 			doUsersChecked(request, response);
@@ -184,7 +184,13 @@ public class BackStageUsersServlet extends HttpServlet {
 		String userId = request.getParameter("userId");
 		boolean flag = us.delUsers(Integer.parseInt(userId));
 		if (flag) {
-			doList(request, response);
+			// 创建gson对象
+			Gson gson = new Gson();
+			// 调用gson的方法
+			String jsonString = gson.toJson(flag);
+			PrintWriter out = response.getWriter();
+			out.print(jsonString);
+			out.close();
 		} else {
 			doList(request, response);
 		}
@@ -299,6 +305,7 @@ public class BackStageUsersServlet extends HttpServlet {
 		}
 	}
 
+	
 	/**
 	 * 修改密码
 	 * 
@@ -309,10 +316,7 @@ public class BackStageUsersServlet extends HttpServlet {
 			throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		String userId = request.getParameter("userId");
-		String userPwd = request.getParameter("newpassword2");
-		userPwd=MD5Util.getEncodeByMd5(userPwd);
-		Users users = new Users(Integer.parseInt(userId), userPwd);
-		boolean flag = us.getChangePassword(users);
+		boolean flag = us.getResetPassword(Integer.parseInt(userId));
 		if (flag) {
 			PrintWriter out = response.getWriter();
 			out.print(flag);
