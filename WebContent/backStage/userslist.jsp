@@ -213,7 +213,7 @@
 					<span class="l"><a href="javascript:;" id="plsc"
 						class="btn btn-danger radius"><i class="Hui-iconfont">&#xe6e2;</i>
 							批量删除</a> <a href="javascript:;"
-						onclick="member_add('添加用户','usersAdd.html','450','400')"
+						onclick="member_add('添加用户','usersAdd.jsp','450','400')"
 						class="btn btn-primary radius"><i class="Hui-iconfont">&#xe600;</i>
 							添加用户</a></span> <span class="r">共有数据：<strong><span
 							id="datarowcount"></span></strong> 条
@@ -385,52 +385,38 @@
 			});
 
 		}
+		
+		
+
+		/*用户重置密码*/
+			function resetPwd(obj, id) {
+				layer.confirm('确认要重置密码吗？', function() {
+					$.ajax({
+						type : 'POST',
+						url : '../us.do?op=resetPassword&userId=' + id,
+						dataType : 'json',
+						success : function(data) {
+							layer.msg('重置密码成功!', {
+								icon : 1,
+								time : 1000
+							});
+							reload();
+						},
+						error : function(data) {
+							console.log(data.msg);
+							layer.msg('重置失败!', {
+								icon : 1,
+								time : 1000
+							});
+						},
+					});
+				});
+
+			}
 	</script>
 
 	<script>
 		$(function() {
-			//修改密码的超链接单击事件
-			$(document).on(
-					"click",
-					'.changepwd',
-					function() {
-						var _this = $(this);
-						data = _this.parent().siblings();
-						var arr = [];
-						for (var i = 1; i < data.length - 1; i++) {
-							// console.log($(data[i]).text());
-							arr.push($(data[i]).text());//拿到点击按钮的当前那条信息的内容 放到一个数组里
-						}
-						console.log(arr);
-						//change-em-password.html
-
-						layer
-								.open({
-									type : 2,
-									area : [ '600px', '270px' ],
-									fix : false, //不固定
-									maxmin : true,
-									shade : 0.4,
-									title : '修改密码',
-									content : 'change-users-password.html',
-									success : function(layero, index) {
-										var body = layer.getChildFrame('body',
-												index);//建立父子联系
-										var iframeWin = window[layero
-												.find('iframe')[0]['name']];
-
-										var _ename = body.find('#ename');
-										console.log(_ename + "," + arr[1]);
-										$(_ename).html(arr[1]);
-										var _userId = body.find('#userId');
-										console.log(_userId + "," + arr[0]);
-										$(_userId).html(arr[0]);
-
-									}
-								});
-
-					});
-
 			//修改用户信息的超链接单击事件
 			$(document).on(
 					"click",
@@ -658,7 +644,9 @@
 						//表格最后一个列增加很多超链接 启用禁用。 编辑   删除 修改密码
 						$(nTd)
 								.html(
-										' <a title="编辑" href="javascript:;" class="usersedit ml-5" style="text-decoration:none"><i class="Hui-iconfont">&#xe6df;</i></a> <a style="text-decoration:none" class="changepwd ml-5"  href="javascript:;" title="修改密码"><i class="Hui-iconfont">&#xe63f;</i></a> <a title="删除" href="javascript:;" onclick="member_del(this,'
+										' <a title="编辑" href="javascript:;" class="usersedit ml-5" style="text-decoration:none"><i class="Hui-iconfont">&#xe6df;</i></a> <a style="text-decoration:none" class=" ml-5"  href="javascript:;" onclick="resetPwd(this,'
+												+ oData.userId
+												+ ')" title="重置密码"><i class="Hui-iconfont">&#xe63f;</i></a> <a title="删除" href="javascript:;" onclick="member_del(this,'
 												+ oData.userId
 												+ ')" class="ml-5" style="text-decoration:none"><i class="Hui-iconfont">&#xe6e2;</i></a>');
 					}
