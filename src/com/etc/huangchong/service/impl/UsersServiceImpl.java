@@ -6,15 +6,16 @@ import com.etc.huangchong.dao.UsersDao;
 import com.etc.huangchong.dao.impl.UsersDaoImpl;
 import com.etc.huangchong.entity.Users;
 import com.etc.huangchong.service.UsersService;
+
 /**
- *功能： 用户Service的实现类
- * 时间：2018年10月11日17:36:37
+ * 功能： 用户Service的实现类 时间：2018年10月11日17:36:37
  * 
  * @author 颜瑞玲
  *
  */
 public class UsersServiceImpl implements UsersService {
-	private UsersDao ud=new UsersDaoImpl();
+	private UsersDao ud = new UsersDaoImpl();
+
 	/**
 	 * 查询所有用户
 	 * 
@@ -23,13 +24,15 @@ public class UsersServiceImpl implements UsersService {
 	@Override
 	public List<Users> getAllUsers() {
 		// TODO Auto-generated method stub
-		List<Users> list=ud.queryUsers();
+		List<Users> list = ud.queryUsers();
 		return list;
 	}
-	
+
 	/**
 	 * 增加用户
-	 * @param users 用户
+	 * 
+	 * @param users
+	 *            用户
 	 * @return true 增加成功 false 增加失败
 	 */
 	@Override
@@ -40,7 +43,9 @@ public class UsersServiceImpl implements UsersService {
 
 	/**
 	 * 删除用户
-	 * @param userId 用户编号
+	 * 
+	 * @param userId
+	 *            用户编号
 	 * @return true 删除成功 false 删除失败
 	 */
 	@Override
@@ -48,9 +53,12 @@ public class UsersServiceImpl implements UsersService {
 		// TODO Auto-generated method stub
 		return ud.delUsers(userId);
 	}
+
 	/**
 	 * 更新用户信息
-	 * @param users 用户
+	 * 
+	 * @param users
+	 *            用户
 	 * @return true 更新成功 false 更新失败
 	 */
 	@Override
@@ -58,8 +66,10 @@ public class UsersServiceImpl implements UsersService {
 		// TODO Auto-generated method stub
 		return ud.updateUsers(users);
 	}
+
 	/**
 	 * 批量删除
+	 * 
 	 * @param sql
 	 * @return true 删除成功 false 删除失败
 	 */
@@ -69,15 +79,18 @@ public class UsersServiceImpl implements UsersService {
 		return ud.batchDelUsers(sql);
 	}
 	/**
-	 * 修改密码
-	 * @param Users 用户
-	 * @return true 更新成功 false 更新失败
+	 * 重置密码
+	 * 
+	 * @param userId
+	 *            用户编号
+	 * @return true 重置成功 false 重置失败
 	 */
 	@Override
-	public boolean getChangePassword(Users users) {
+	public boolean getResetPassword(int userId) {
 		// TODO Auto-generated method stub
-		return ud.changePassword(users);
+		return ud.resetPassword(userId);
 	}
+
 	/**
 	 * 修改用户的审核状态
 	 * 
@@ -108,5 +121,4 @@ public class UsersServiceImpl implements UsersService {
 		return ud.login(userName, userPwd);
 	}
 
-	
 }

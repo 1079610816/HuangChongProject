@@ -455,7 +455,7 @@
 									maxmin : true,
 									shade : 0.4,
 									title : '编辑用户信息', //显示的标题
-									content : 'usersUpdate.html', //很多种写法 其中之一直接写目标窗口(要弹出来窗口)
+									content : 'usersUpdate.jsp', //很多种写法 其中之一直接写目标窗口(要弹出来窗口)
 									success : function(layero, index) { //success可以不写
 										var body = layer.getChildFrame('body',
 												index);//建立父子联系
