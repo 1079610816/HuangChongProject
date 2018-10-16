@@ -213,7 +213,7 @@
 					<span class="l"><a href="javascript:;" id="plsc"
 						class="btn btn-danger radius"><i class="Hui-iconfont">&#xe6e2;</i>
 							批量删除</a> <a href="javascript:;"
-						onclick="member_add('添加用户','usersAdd.html','450','400')"
+						onclick="member_add('添加用户','usersAdd.jsp','450','400')"
 						class="btn btn-primary radius"><i class="Hui-iconfont">&#xe600;</i>
 							添加用户</a></span> <span class="r">共有数据：<strong><span
 							id="datarowcount"></span></strong> 条
@@ -441,7 +441,7 @@
 									maxmin : true,
 									shade : 0.4,
 									title : '编辑用户信息', //显示的标题
-									content : 'usersUpdate.html', //很多种写法 其中之一直接写目标窗口(要弹出来窗口)
+									content : 'usersUpdate.jsp', //很多种写法 其中之一直接写目标窗口(要弹出来窗口)
 									success : function(layero, index) { //success可以不写
 										var body = layer.getChildFrame('body',
 												index);//建立父子联系
