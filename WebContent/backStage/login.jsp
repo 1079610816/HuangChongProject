@@ -35,7 +35,7 @@
 				</div>
 
 				<div class="login_form">
-					<form action="../as.do?op=login" id="login_form" method="post">
+					<form>
 						<div class="form-group">
 							<label for="adminName" class="t">用户名：</label> <input id="adminName"
 								value="" name="adminName" type="text" required="required"
@@ -49,12 +49,12 @@
 						<div class="row cl">
 	
 						 <div id="slideBar" class="formControls col-xs-8 col-xs-offset-3">
-                                          </div>
+                                          1111</div>
 						</div>
 
 						<div class="form-group space">
 							<label class="t"></label> <span></span> 
-							<input type="submit"class="btn btn-primary btn-lg" 
+							<input type="button"class="btn btn-primary btn-lg" 
 								id="loginform_submit" value="登&nbsp;&nbsp;录" />
 								
 								<input type="button"class="btn btn-primary btn-lg"
@@ -94,6 +94,7 @@ $("#loginform_reset").click(function(){
 });
 
 $("#loginform_submit").click(function(){
+	console.log(1);
 	if(result==false){
 		return false;
 	}else{
@@ -103,7 +104,7 @@ $("#loginform_submit").click(function(){
 			if("true"==data){
 				location.href="index.html";
 			}else{
-				alert("用户名或密码错误")
+				alert("账号或密码错误!");
 			}
 		});
 	}
