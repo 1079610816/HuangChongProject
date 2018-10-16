@@ -103,16 +103,20 @@ $(document).ready(function() {
 		$('.search-modal').fadeOut();
 		getCityInfo_PC(e);
 	});
+	
+	//点击搜索checkinday
+	$('#sel').click(function(e) {
+		if($('#searchcityin').val()!=""){
+			console.log($('#searchcityin').val())
+			$('#searchcityin').click();
+		}
+	});
 
 	function getCityInfo_PC(e) {
 		if(this.value == this.defaultValue) {
 			this.value = "";
 		}
 		var s = $('#searchcityin').val();
-		//在输入框获取焦点时始终展示各个城市列表与是否已选中城市无关，若想采取城市关联释放if条件即可
-		/*if(null!=s&&s.length>0){
-			getSuggests(e,0);
-		}else{*/
 		var searchkey = getCookie('searchkey');
 		if(null != searchkey && searchkey.length > 0) {
 			var keys = searchkey.replace(/\"/ig, '').split(',');
