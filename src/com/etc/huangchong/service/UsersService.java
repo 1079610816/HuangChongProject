@@ -64,7 +64,6 @@ public interface UsersService {
 	 * @return true 重置成功 false 重置失败
 	 */
 	boolean getResetPassword(int userId);
-
 	/**
 	 * 修改用户的审核状态
 	 * 

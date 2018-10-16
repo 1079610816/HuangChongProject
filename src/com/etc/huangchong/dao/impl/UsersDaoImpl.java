@@ -84,7 +84,6 @@ public class UsersDaoImpl implements UsersDao {
 		// TODO Auto-generated method stub
 		return BaseDao.execute(sql) > 0;
 	}
-
 	/**
 	 * 重置密码
 	 * 

@@ -53,6 +53,7 @@ public interface UsersDao {
 	 */
 	boolean batchDelUsers(String sql);
 
+	
 	/**
 	 * 重置密码
 	 * 

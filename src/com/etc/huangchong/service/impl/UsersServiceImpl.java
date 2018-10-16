@@ -78,7 +78,6 @@ public class UsersServiceImpl implements UsersService {
 		// TODO Auto-generated method stub
 		return ud.batchDelUsers(sql);
 	}
-
 	/**
 	 * 重置密码
 	 * 
