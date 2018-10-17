@@ -341,7 +341,7 @@
 							});
 							 if(flag){
 								 
-								 var url = "../ss.action?op="+searchcity;
+								 var url = "../ss.action?op=searchlist&Area="+searchcity;
 								  if(inday!=null&&inday!=""&&inday!="入住时间"){
 										url = url + "&d1="+inday;
 										
