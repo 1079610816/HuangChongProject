@@ -9,10 +9,24 @@ public class Homestay {
 	private int accomStatus;
 	private int houseType;
 	private String userName;
+	private double price;
 	public Homestay() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
+	
+
+	/**
+	 * 没有单价的构造
+	 * @param accomId
+	 * @param accomTitle
+	 * @param accomIntro
+	 * @param accomArea
+	 * @param accomAddress
+	 * @param accomStatus
+	 * @param houseType
+	 * @param userName
+	 */
 	public Homestay(int accomId, String accomTitle, String accomIntro, String accomArea, String accomAddress,
 			int accomStatus, int houseType, String userName) {
 		super();
@@ -24,6 +38,41 @@ public class Homestay {
 		this.accomStatus = accomStatus;
 		this.houseType = houseType;
 		this.userName = userName;
+	}
+	/**
+	 * 带全部参数的构造
+	 * @param accomId
+	 * @param accomTitle
+	 * @param accomIntro
+	 * @param accomArea
+	 * @param accomAddress
+	 * @param accomStatus
+	 * @param houseType
+	 * @param userName
+	 * @param price
+	 */
+	public Homestay(int accomId, String accomTitle, String accomIntro, String accomArea, String accomAddress,
+			int accomStatus, int houseType, String userName, double price) {
+		super();
+		this.accomId = accomId;
+		this.accomTitle = accomTitle;
+		this.accomIntro = accomIntro;
+		this.accomArea = accomArea;
+		this.accomAddress = accomAddress;
+		this.accomStatus = accomStatus;
+		this.houseType = houseType;
+		this.userName = userName;
+		this.price = price;
+	}
+
+
+
+	public double getPrice() {
+		return price;
+	}
+
+	public void setPrice(double price) {
+		this.price = price;
 	}
 	public int getAccomId() {
 		return accomId;
@@ -73,12 +122,16 @@ public class Homestay {
 	public void setUserName(String userName) {
 		this.userName = userName;
 	}
+
+
 	@Override
 	public String toString() {
 		return "Homestay [accomId=" + accomId + ", accomTitle=" + accomTitle + ", accomIntro=" + accomIntro
 				+ ", accomArea=" + accomArea + ", accomAddress=" + accomAddress + ", accomStatus=" + accomStatus
-				+ ", houseType=" + houseType + ", userName=" + userName + "]";
+				+ ", houseType=" + houseType + ", userName=" + userName + ", price=" + price + "]";
 	}
+
+	
 	
 	
 	
