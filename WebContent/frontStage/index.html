@@ -17,7 +17,8 @@
 <link rel="stylesheet"
 	href="//staticnew.mayi.com/resourcesWeb/v201807/index_page_new/css/index.css?v=2018.8.8">
 <!-- <script src="js/jquery.min.js" type="text/javascript" charset="utf-8"></script> -->
-<script src="http://libs.baidu.com/jquery/1.11.1/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="http://libs.baidu.com/jquery/1.11.1/jquery.min.js"
+	type="text/javascript" charset="utf-8"></script>
 </head>
 
 <body>
@@ -329,13 +330,17 @@
 					class="fr relave search-btn f24 c_white fw600 t-center cursorpt"
 					id="indexSel" _mayi_rp="webindex|condition|button">搜索民宿</div>
 				<script type="text/javascript">
-						document.getElementById("indexSel").onclick = function() {
-							console.log(document.getElementById("searchcityin").value);
-							console.log(document.getElementById("checkinday").value);
-							console.log(document.getElementById("checkoutday").value);
-							console.log(document.getElementById("countVal").getAttribute("popnum"));
-						}
-					</script>
+					document.getElementById("indexSel").onclick = function() {
+						console
+								.log(document.getElementById("searchcityin").value);
+						console
+								.log(document.getElementById("checkinday").value);
+						console
+								.log(document.getElementById("checkoutday").value);
+						console.log(document.getElementById("countVal")
+								.getAttribute("popnum"));
+					}
+				</script>
 			</div>
 		</div>
 		<!-- 旅行,就要住民宿 -->
@@ -494,7 +499,8 @@
 						<input type="hidden" id="li_num" value="0"> <input
 							type="hidden" id="code_num" value="86">
 						<div class="input">
-							<span class="phone-icon"></span> <input class="dlargeinput"
+							<span class="phone-icon"></span> 
+							<input class="dlargeinput"
 								type="text" id="telNum" name="telNum" placeholder="手机号" value=""
 								id="introduce"
 								onafterpaste="mobileRepAndSetPos(this,/[^\d.]/g,'')"
@@ -514,12 +520,12 @@
 						<div class="largeinputbox small-top clearfix" id="maerrordiv">
 							<div class="dinput fl" id="maerrordiv">
 								<span class="password-icon"></span> <input class="dsmallinput"
-									type="text" id="loginphonecode" name="loginphonecode"
-									placeholder="短信验证码" value="" />
+									type="text" id="loginCode" name="loginCode" placeholder="短信验证码"
+									value="" />
 							</div>
 							<div class="yz-code fr">
 								<input class="sendnumber defaultsend" type="button"
-									id="getloginphonecode" name="getloginphonecode" value="获取验证码" />
+									id="getLoginCode" name="getLoginCode" value="获取验证码" />
 							</div>
 						</div>
 						<div class="logincheckbox large-top clearfix">
@@ -532,36 +538,31 @@
 							<font>未注册的手机号将自动创建为黄虫短租帐户</font>
 						</div>
 						<div class="btn-wrap btnpdt20">
-							<a href="javascript:void(0)" id="loginbymado">登录</a>
+							<a href="javascript:void(0)" id="loginByTelNum">登录</a>
 						</div>
 					</div>
 					<!-- 手机登陆 end  -->
-					
-					
+
 					<!-- 密码登陆 start -->
 					<div class="login-input" id="loginbyupdiv" name="loginbyupdiv"
 						style="display: none;">
-						<input type="hidden" id="li_num_1" value="0"> <input
-							type="hidden" id="code_num_1" value="86">
 						<div class="input">
 							<span class="user-icon"></span> <input class="dlargeinput"
-								type="text" id="username" name="username " placeholder="手机号/用户名"
+								type="text" id="userName" name="userName" placeholder="手机号/账号"
 								value="" autocomplete="off" />
 						</div>
 						<div class="input small-top">
-							<span class="password-icon"></span> 
-							<input class="dlargeinput" type="password" id="userPwd " name="userPwd " placeholder="密码"
+							<span class="password-icon"></span> <input class="dlargeinput"
+								type="password" id="userPwd" name="userPwd" placeholder="密码"
 								value="" />
-								<!-- <input type="password" class="dlargeinput" id="userPwd "/> -->
 						</div>
 						<div class="largeinputbox small-top clearfix" id="uperrordiv">
 							<div class="dinput fl" id="yui_3_5_1_1_1434542056373_108">
 								<span class="verification-icon"></span> <input type="text"
-									class="dsmallinput" id="validationCode" name="validationCode "
-									placeholder="图形验证码" value="">
+									class="dsmallinput" id="validationCode" placeholder="图形验证码"
+									value="">
 							</div>
 							<div class="yz-code fr">
-								<!-- <img src="" id="loginauthimage1" title="点击刷新"> -->
 								<img id="validationCode_img" alt="点击刷新" title="点击刷新"
 									src="../ValidateCode" width=130px height=38>
 							</div>
@@ -572,13 +573,16 @@
 							</label>
 						</div>
 						<div class="btn-wrap btnpdt20">
-							<a href="javascript:void(0)" id="loginByPassword">登录</a>
+							<a href="javascript:void(0)" id="loginByPassword"
+								_mayi_rp="web|condition|loginc">登录</a>
 						</div>
 						<p class="otherwaytitle mt20">
 							没有账号密码请 <a href="javascript:void(0)" id="changeloginbymwa">使用手机验证码登录</a>
 						</p>
 					</div>
 					<!-- 密码登陆 end -->
+
+
 				</div>
 			</div>
 			<div class="fl t-center third-party">
@@ -628,59 +632,99 @@
 		src="//staticnew.mayi.com/resourcesWeb/js/util/jquery.qrcode.min.js"></script>
 
 	<!-- 图形验证码的js开始 -->
-	<script type="text/javascript">
-
+	<!-- <script type="text/javascript">
 		$(function() {
-			
-		$("#validationCode_img").click(
-				function() {
 
-					$("#validationCode_img").attr("src",
-							"../ValidateCode?" + Math.random());
-				});
-		
-		$("#validationCode_img1").click(
-				function() {
+			$("#validationCode_img").click(
+					function() {
 
-					$("#validationCode_img1").attr("src",
-							"../ValidateCode?" + Math.random());
-				});
-		
-		/*  $.get("us.do",function  (data) {
-			$("#div01").text(data);
-			$("#div01").style.display=none;
-		});  */
-		//});
-		
+						$("#validationCode_img").attr("src",
+								"../ValidateCode?" + Math.random());
+					});
+
+			$("#validationCode_img1").click(
+					function() {
+
+						$("#validationCode_img1").attr("src",
+								"../ValidateCode?" + Math.random());
+					});
+
+			/*  $.get("us.do",function  (data) {
+				$("#div01").text(data);
+				$("#div01").style.display=none;
+			});  */
+			//});
 		});
-	</script>
+	</script> -->
 	<!-- 图形验证码的js结束 -->
-<!--  <script src="http://cdn.static.runoob.com/libs/jquery/1.10.2/jquery.min.js"></script> -->
+	<!--  <script src="http://cdn.static.runoob.com/libs/jquery/1.10.2/jquery.min.js"></script> -->
 	<!--  -->
 	<script type="text/javascript">
-			
+		$("#loginByPassword").click(
+				function() {
+					var userName = $("#userName").val();
+					//     var userPwd=$("#userPwd").val();
+					var userPwd = $("#userPwd").val();
+					var validationCode = $("#validationCode").val();
+					console.log(userPwd);
 
-	$("#loginByPassword").click(function() {
-	 	var username=$("#username").val();
- //     var userPwd=$("#userPwd").val();
-      var userPwd=$("#userPwd").val();
-      var validationCode=$("#validationCode").val();
-      console.log($('input[name="password"]').val()); 
-        
-    	 $.post("../us.action?op=loginByPwd","username="+username+"&userPwd="+userPwd+"&validationCode="+validationCode,function(data,status){
-      	 console.log(data);
-			if("2"==data){
-				window.location.reload();
-			}else if("1"==data){
-				alert("账号或密码错误!");
-				$("#username").val("");
-				$("#userPwd").val("");
-			}else{
-				alert("验证码错误！");
-			}
-		});  
-	
-	});
+					$.post("../us.action?op=loginByPwd", "userName=" + userName
+							+ "&userPwd=" + userPwd + "&validationCode="
+							+ validationCode, function(data, status) {
+						console.log(data);
+						if ("2" == data) {
+							window.location.reload();
+						} else if ("1" == data) {
+							alert("账号或密码错误!");
+							$("#username").val("");
+							$("#userPwd").val("");
+						} else {
+							alert("验证码错误！");
+						}
+					});
+
+				});
+
+		/*手机登录js代码*/
+	/* 	$("#getLoginCode").click(
+				function() {
+					var telNum = $("#telNum").val();
+					//   var loginCode=$("#loginCode").val();
+					// var validationCode1=$("#validationCode1").val();
+
+					$.post("../us.action?op=getByTelNum", "telNum=" + telNum,
+							function(data, status) {
+								console.log(data);
+								if ("1" == data) {
+									alert("验证码发送成功！");
+								} else {
+									alert("验证码发送错误！");
+								}
+							});
+
+				});
+		$("#loginByTelNum").click(
+				function() {
+					var telNum = $("#telNum").val();
+					var loginCode = $("#loginCode").val();
+					var validationCode1 = $("#validationCode1").val();
+					console.log("telNum:"+telNum+",loginCode"+loginCode+",validationCode1:"+validationCode1);
+					$.post("../us.action?op=loginByMsg", "telNum=" + telNum
+							+ "&loginCode=" + loginCode + "&validationCode1="
+							+ validationCode1, function(data, status) {
+						console.log(data);
+						if ("3" == data) {
+							window.location.reload();
+						} else if ("2" == data) {
+							alert("用户不存在");
+						} else if ("1" == data) {
+							alert("手机验证码错误！");
+						} else {
+							alert("图形验证码错误！");
+						}
+					});
+
+				}); */
 	</script>
 
 
