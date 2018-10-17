@@ -120,5 +120,15 @@ public class UsersServiceImpl implements UsersService {
 		// TODO Auto-generated method stub
 		return ud.login(userName, userPwd);
 	}
+	/**
+	 * 验证码登录操作
+	 * @param telNum 手机号码
+	 * @return  Users 用户
+	 */
+	@Override
+	public Users getLoginByMsg(String telNum) {
+		// TODO Auto-generated method stub
+		return ud.loginByMsg(telNum);
+	}
 
 }

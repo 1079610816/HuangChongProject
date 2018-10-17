@@ -19,6 +19,10 @@ public class UsersTest {
        for (Users users : list) {
 		System.out.println(users);
 	}
+       
+       
+      Users u= us.getLoginByMsg("18359009725");
+      System.out.println(u);
 	}
 
 }

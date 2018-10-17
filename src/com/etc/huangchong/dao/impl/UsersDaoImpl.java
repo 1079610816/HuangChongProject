@@ -117,7 +117,7 @@ public class UsersDaoImpl implements UsersDao {
 	}
 
 	/**
-	 * 登录操作
+	 * 密码登录操作
 	 * 
 	 * @param userName
 	 *            用户名或电话号码
@@ -131,6 +131,20 @@ public class UsersDaoImpl implements UsersDao {
 		String sql = "select * from users where (userName=? or telNum=?) and userPwd=?";
 		@SuppressWarnings("unchecked")
 		List<Users> list = (List<Users>) BaseDao.select(sql, Users.class, userName, userName, userPwd);
+		if (list.size() != 0) {
+			Users u = list.get(0);
+			return u;
+		} else {
+			return null;
+		}
+	}
+
+	@Override
+	public Users loginByMsg(String telNum) {
+		// TODO Auto-generated method stub
+		String sql = "select * from users where telNum=?";
+		@SuppressWarnings("unchecked")
+		List<Users> list = (List<Users>) BaseDao.select(sql, Users.class,telNum);
 		if (list.size() != 0) {
 			Users u = list.get(0);
 			return u;

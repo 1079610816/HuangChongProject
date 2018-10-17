@@ -85,4 +85,11 @@ public interface UsersService {
 	 * @return Users 用户
 	 */
 	Users getLogin(String userName, String userPwd);
+	
+	/**
+	 * 验证码登录操作
+	 * @param telNum 手机号码
+	 * @return  Users 用户
+	 */
+	Users getLoginByMsg(String telNum);
 }

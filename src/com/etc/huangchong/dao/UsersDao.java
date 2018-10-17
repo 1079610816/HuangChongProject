@@ -74,11 +74,17 @@ public interface UsersDao {
 	boolean changeState(int state, String identityCard);
 
 	/**
-	 * 登录操作
+	 * 密码登录操作
 	 * 
 	 * @param userName 用户名或电话号码
 	 * @param userPwd 用户密码
 	 * @return Users 用户
 	 */
 	Users login(String userName, String userPwd);
+	/**
+	 * 验证码登录操作
+	 * @param telNum 手机号码
+	 * @return  Users 用户
+	 */
+	Users loginByMsg(String telNum);
 }
