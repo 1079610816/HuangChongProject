@@ -377,7 +377,7 @@
 					error : function(data) {
 						console.log(data.msg);
 						layer.msg('删除失败!', {
-							icon : 1,
+							icon : 2,
 							time : 1000
 						});
 					},
@@ -405,7 +405,7 @@
 						error : function(data) {
 							console.log(data.msg);
 							layer.msg('重置失败!', {
-								icon : 1,
+								icon : 2,
 								time : 1000
 							});
 						},
@@ -932,7 +932,7 @@
 						},
 						error : function(data) {
 							layer.msg('删除失败!', {
-								icon : 1,
+								icon : 2,
 								time : 1000
 							});
 						},

@@ -37,7 +37,7 @@ $(document).ready(function() {
 				});
 			});
 			login_flag = false;
-			changeAuthSrc();
+			changeAuthSrc(1);
 		}
 	}
 
@@ -97,7 +97,7 @@ $(document).ready(function() {
 		$('#changeloginbyup').addClass('mayiway'); 
 		$("#loginbyupdiv").css("display","none");
 		$("#loginbymadiv").css("display","block");	
-		changeAuthSrc();
+		changeAuthSrc(1);
 		$('#changeloginbyma').removeClass('phoneway');   
 		$('#changeloginbyma').addClass('phoneway_current'); 
 	});
@@ -109,7 +109,7 @@ $(document).ready(function() {
 		$('#changeloginbyma').addClass('phoneway'); 	
 		$("#loginbymadiv").css("display","none");
 		$("#loginbyupdiv").css("display","block");
-		changeAuthSrc(1);
+		changeAuthSrc(2);
 		$('#changeloginbyup').removeClass('mayiway');   
 		$('#changeloginbyup').addClass('mayiway_current'); 
 	});
@@ -153,17 +153,23 @@ $(document).ready(function() {
 
 	//更新图片验证码		     
 	function changeAuthSrc(type){
-//		var randomNum = makeRand();
-	//	var ctx = $('#ctx').val();
-		if(type){
-			$("#validationCode_img1").attr("src","../ValidateCode?" + Math.random());
+		//Math.random()生成随机数没有实际的操作作用
+		//但是随机数的作用是进servlet
+		//$("#validationCode_img1").attr("src","../ValidateCode?op=1"); 
+		//第一次能进servlet里,当第二次掉用的时候,因为地址没有变所以浏览器认为请求相同,所以用上一次的结果,不会去访问该路径,达不到点击图片进行刷新的效果
+		//$("#validationCode_img1").attr("src","../ValidateCode?op=1&random="+makeRand());
+		//添加随机数后,每次都会访问
+		if(type==1){
+			$("#validationCode_img1").attr("src","../ValidateCode?op=1&random="+Math.random());
 		}
-		$("#validationCode_img").attr("src","../ValidateCode?" + Math.random());
+		if(type==2){
+			$("#validationCode_img").attr("src","../ValidateCode?op=2&random="+Math.random());
+		}
 	}
 
 	//点击更新
 	$('#validationCode_img').on('click',function(){
-		changeAuthSrc();	  	
+		changeAuthSrc(2);	  	
 	});
 	//点击更新
 	$('#validationCode_img1').on('click',function(){
@@ -172,6 +178,7 @@ $(document).ready(function() {
 
 	//登陆时获取手机验证码
 	$('#getLoginCode').click(function(){
+		
 		if($('#getLoginCode').hasClass("sending")){
 			return false;
 		}
@@ -192,19 +199,16 @@ $(document).ready(function() {
 				//var ctx = $('#ctx').val();
 				$.post("../us.action?op=getByTelNum", "telNum=" + telNum+"&validationCode1="+val_imagecode,function(re) {
 					if(re!=null){	
-						console.log(re);
+						
 						if(re=="1"){
-							layer.alert("短信发送成功",8,"温馨提示");
-							loginwait=60-re.error.second;					
+							layer.alert("短信发送成功",8,"温馨提示");			
 							return false;
 						}else if(re=="0"){							
 							layer.alert("短信发送失败",8,"温馨提示");
-							changeAuthSrc(1);
 							loginwait=0;					
 							return false;
 						}else{
 							layer.alert("图形验证码错误，请重新填写！",8,"温馨提示");
-//							changeAuthSrc(1);
 							loginwait=0;
 							return false;
 						}
@@ -220,10 +224,10 @@ $(document).ready(function() {
 
 	//登陆方法
 	function logindo(param1,param2,logintype){
-		if(login_flag){
+		/*if(login_flag){
 			return ;
 		}
-		login_flag = true;
+		login_flag = true;*/
 //		var ctx = $('#ctx').val();
 	/*	var val_autologin = true;
 		var areacode = '';*/
@@ -240,69 +244,46 @@ $(document).ready(function() {
 		$.post("../us.action?op=loginByMsg", "telNum=" + param1
 				+ "&loginCode=" + param2 + "&validationCode1="
 				+ validationCode1, function(data, status) {
-			console.log(data);
 			if ("3" == data) {
 				window.location.reload();
 			} else if ("2" == data) {
-				alert("用户不存在");
+				window.location.reload();
 			} else if ("1" == data) {
-				alert("手机验证码错误！");
+				$('#maerrordiv .errorprompt').remove();
+				var span = '<span class="errorprompt">手机验证码错误!</span>';
+				$('#maerrordiv').append(span);	
+				
 			} else {
-				alert("图形验证码错误！");
+				$('#maerrordiv .errorprompt').remove();
+				var span = '<span class="errorprompt">图形验证码错误!</span>';
+				$('#maerrordiv').append(span);	
 			}
 		});
 		}else{
-			
+			var	validationCode =$('#validationCode').val();
+			$.post("../us.action?op=loginByPwd", "userName=" + param1
+					+ "&userPwd=" + param2 + "&validationCode="
+					+ validationCode, function(data) {
+				if ("2" == data) {
+					window.location.reload();
+				} else if ("1" == data) {
+					$('#uperrordiv .errorprompt').remove();
+					var span = '<span class="errorprompt">账号或密码错误!</span>';
+					$('#uperrordiv').append(span);	
+					$("#userName").val("");
+					$("#userPwd").val("");
+					$("#validationCode").val("");
+					changeAuthSrc(2);
+				} else {					
+					$('#uperrordiv .errorprompt').remove();
+					var span = '<span class="errorprompt">图形验证码错误</span>';
+					$('#uperrordiv').append(span);	
+					$('#validationCode').val("");
+					changeAuthSrc(2);
+				}
+			});
 		}
 		
-		
-	/*	$.ajax({
-			url : ctx+"/userlogin.do",
-			type : 'POST',
-			async:true,
-			data : {param1:param1,param2:param2,logintype:logintype,auto_login:val_autologin,imagecode:val_imagecode,areacode:areacode,codefrom:"pclogin"},
-			dataType:'json',
-			timeout: 5000,
-			success : function(data){
-				console.log(data);
-				login_flag = false;
-				if(data.error){
-					var span = '<span class="errorprompt">'+data.error.message+'</span>';
-					if(logintype=="ma"){
-						$('#maerrordiv').append(span);
-						changeAuthSrc();
-						// layer.alert("data.error.message",8,"温馨提示");
-					}else{
-						$('#uperrordiv').append(span);
-						changeAuthSrc(1);
-						// $('#uperrordiv').append(span);
-						//layer.alert("data.error.message",8,"温馨提示");
-					}
-				}else{
-					//游客标记。从游客订单登录
-					var visit_flag=$('#visit_flag').val();
-					var nexturl = $('#loginboxdiv').attr("nexturl");
-					//此flag是用于是在顶端点击登录还是在中部点击登录。（“我的订单”页，按照产品要求有不同的跳转）
-					var flag=$('#flag').val();
-					if(flag!=null){
-						if(flag=='mid'){
-							nexturl=ctx+'/tenant/'+getCookie('MAYIUID')+'/orders';
-						}else if(flag=='head'){
-							nexturl=ctx+"/";
-						}
-					}
-					if(nexturl!=null&&nexturl!="none"){
-						location.href = nexturl;
-					}else{
-						if(visit_flag!=null){
-							location.href=$('#ctx').val(); 
-						}else{
-							resetDomain();								
-						}
-					}
-				}
-			}
-		});*/
 	}
 
 	//点击手机号输入框	
@@ -351,55 +332,51 @@ $(document).ready(function() {
 
 
 	//点击用户名输入框
-	$('#loginnamein').on('click',function(){
+	$('#userName').on('click',function(){
 		$('#uperrordiv .errorprompt').remove();
 	});
-	//点击用户名输入框
-	$('#imagecode1').on('click',function(){
+	//点击验证码的输入框
+	$('#validationCode').on('click',function(){
 		$('#uperrordiv .errorprompt').remove();
 	});
 
 	//用户名输入框 回车事件
-	$("#loginnamein").keydown(function(e){
+	$("#userName").keydown(function(e){
 		var curKey = e.which; 
 		if(curKey == 13){
-			var username = $('#loginnamein').val();
-			if(username!=null&&username!=""){
-				$("#loginpassin").focus(); 
+			var userName = $('#userName').val();
+			if(userName!=null&&userName!=""){
+				$("#userPwd").focus(); 
 			}
 		}
 	});
 
 	//点击密码输入框
-	$('#loginpassin').on('click',function(){
+	$('#userPwd').on('click',function(){
 		$('#uperrordiv .errorprompt').remove();
 	});
 
-	//密码输入框 回车事件
-	$("#loginpassin").keydown(function(e){
+	//验证码输入框 回车事件
+	$("#validationCode").keydown(function(e){
 		var curKey = e.which; 
 		if(curKey == 13){       	
-			var username = $('#loginnamein').val();
-			var pass = $('#loginpassin').val();
-			var val_imagecode = $('#imagecode1').val();
-			if(val_imagecode==null||val_imagecode==""){
+			var userName = $('#userName').val();
+			var userPwd = $('#userPwd').val();
+			var validationCode = $('#validationCode').val();
+			if(validationCode==null||validationCode==""){
 				$('#uperrordiv .errorprompt').remove();
 				var span = '<span class="errorprompt">验证码不能为空</span>';
 				$('#uperrordiv').append(span);
 				return false;
 			}
-			if(username==null||username==""||pass==null||pass==""){
-				// $('#uperrordiv.errorprompt').remove();
-				//var span = '<span class="errorprompt">用户名或密码不能为空</span>';
-				//$('#uperrordiv').append(span);
+			if(userName==null||userName==""||userPwd==null||userPwd==""){
 				$('#uperrordiv .errorprompt').remove();
 				var span = '<span class="errorprompt">用户名或密码不能为空</span>';
 				$('#uperrordiv').append(span);
 				return false;
 			}else{
 				$('#uperrordiv.errorprompt').remove();
-				var encrynewpass = $.md5(pass);
-				logindo(username,encrynewpass,'up');
+				logindo(userName,userPwd,'up');
 			}
 		}
 	});
@@ -434,31 +411,26 @@ $(document).ready(function() {
 		}
 	});
 
-	//蚂蚁账号登录按钮
-	$('#loginbyupdo').on('click',function(){
-		var username = $('#loginnamein').val();
-		var pass = $('#loginpassin').val();
-		var val_imagecode = $('#imagecode1').val();
-		if(username==null||username==""
-			||pass==null||pass==""){
-			//$('#uperrordiv .errorprompt').remove();
-			// var span = '<span class="errorprompt">用户名或密码不能为空</span>';
-			// $('#uperrordiv').append(span);
+	//黄虫账号登录按钮
+	$('#loginByPassword').on('click',function(){
+		var userName = $('#userName').val();
+		var userPwd = $('#userPwd').val();
+		var validationCode = $('#validationCode').val();
+		if(userName==null||userName==""
+			||userPwd==null||userPwd==""){
 			$('#uperrordiv .errorprompt').remove();
 			var span = '<span class="errorprompt">用户名或密码不能为空</span>';
 			$('#uperrordiv').append(span);
 			return false;
 		}
-		if(val_imagecode==null||val_imagecode==""){
+		if(validationCode==null||validationCode==""){
 			$('#uperrordiv .errorprompt').remove();
 			var span = '<span class="errorprompt">图形验证码不能为空</span>';
 			$('#uperrordiv').append(span);
 			return false;
 		}
-		//$('#uperrordiv .errorprompt').remove();
 		$('#uperrordiv .errorprompt').remove();
-		var encrynewpass = $.md5(pass);
-		logindo(username,encrynewpass,'up');
+		logindo(userName,userPwd,'up');
 	});
 
 	//qq登陆
@@ -496,11 +468,9 @@ $(document).ready(function() {
 
 	//退出
 	$('#loginoutbut').on('click',function(){
-		var ctx = $('#ctx').val();
-		$.get(ctx+"/user/loginout.do",function(re){
+		$.get("../us.action?op=loginOut",function(re){
 			if(re=="success"){
-				resetDomain();
-				//location.reload(); 
+				location.reload(); 
 			}
 		},'text'); 
 	});

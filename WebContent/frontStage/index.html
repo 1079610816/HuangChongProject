@@ -54,6 +54,52 @@
 					</li>
 					<li class="ml20 user-action">
 						<div class="login-btn t-center fw600 cursorpt " id="loginshow">登录/注册</div>
+						<div class="login-info f0 ">
+		                        <p class="top-line"></p>
+	                            <a href="javascript:menufrozen(870177979,'/tenant/870177979/orders','user')"><img class="user-head circle" src="https://i1.mayi.com/mayi57/M84/CP/NN/AUHL3K6R738JWQE3T59CJHZW99F9E8.jpg_35x35c.jpg" alt="头像"></a>
+	                            <span class="f14 fw600 ver-t">咸鱼</span>
+	                            <ul class="hover-list radius-6" style="display: none;">
+	                                <li class="t-left mb15 theme">
+	                                    <a class="f16 fw600 c_gray_dark" href="javascript:menufrozen(870177979,'/tenant/870177979/orders','user')">我是房客</a>
+	                                </li>
+	                                <li class="t-left ">
+	                                    <a class="c_gray_dark mr40" href="javascript:menufrozen(870177979,'/tenant/870177979/orders','user')">我的订单</a>
+	                                    <a class="c_gray_dark" href="javascript:menufrozen(870177979,'/user/tenant/accountmanager','user')">我的账户</a>
+	                                </li>
+	                                <li class="t-left ">
+	                                    <a class="c_gray_dark mr40" href="javascript:menufrozen(870177979,'/user/tenant/mycollection','user')">我的收藏</a>
+	                                    <a class="c_gray_dark" href="javascript:menufrozen(870177979,'/user/tenant/msgmanager','user')">消息通知</a>
+	                                </li>
+	                                <li class="t-left mb15">
+	                                    <a class="c_gray_dark mr40 Invite_friends" href="javascript:void(0);">邀请好友</a>
+	                                </li>
+	                                <hr class="mb15">
+	                                <li class="t-left theme relave fd-nav ">
+		                                <a class="f16 fw600 c_gray_dark radius-6 w100" href="javascript:menufrozen(870177979,'/landlord/870177979/orders','landlord')">我是房东</a>
+		                               	<ul class="fd-item-list radius-6 hidden">
+			                                <li class="t-left ">
+			                                    <a class="c_gray_dark mr40" href="javascript:menufrozen(870177979,'/landlord/870177979/orders','landlord')">订单管理</a>
+			                                    <a class="c_gray_dark" href="javascript:menufrozen(870177979,'/user/landlord/roommanager','landlord')">房源管理</a>
+			                                </li>
+			                                <li class="t-left ">
+			                                    <a class="c_gray_dark mr40" href="javascript:menufrozen(870177979,'/user/landlord/msgmanager','landlord')">消息通知</a>
+			                                    <a class="c_gray_dark" href="javascript:menufrozen(870177979,'/landlord/870177979/settlements','landlord')">结算管理</a>
+			                                </li>
+			                                <li class="t-left ">
+			                                    <a class="c_gray_dark mr40" href="javascript:menufrozen(870177979,'/user/landlord/landlordweixin','landlord')">房东微信</a>
+			                                    <a class="c_gray_dark mr40" href="/user/landlord/landlordhelper/">下载APP</a>
+			                                </li>
+			                                <li class="t-left ">
+			                                    <a class="c_gray_dark mr40" href="/user/landlord/microshopmanager/">房东微店</a>
+			                                    <a class="c_gray_dark mr40" href="javascript:menufrozen(870177979,'/user/landlord/accountmanager','landlord')">我的设置</a>
+			                                </li>
+		                                </ul>
+	                                 </li>
+	                                <li>
+	                                    <div class="login-out" id="loginoutbut">退出登录</div>
+	                                </li>
+	                            </ul>
+	                        </div>
 					</li>
 				</ul>
 			</div>
@@ -514,7 +560,7 @@
 							</div>
 							<div class="yz-code fr">
 								<img id="validationCode_img1" alt="点击刷新" title="点击刷新"
-									src="../ValidateCode" width=130px height=38>
+									src="" width=130px height=38>
 							</div>
 						</div>
 						<div class="largeinputbox small-top clearfix" id="maerrordiv">
@@ -564,7 +610,7 @@
 							</div>
 							<div class="yz-code fr">
 								<img id="validationCode_img" alt="点击刷新" title="点击刷新"
-									src="../ValidateCode" width=130px height=38>
+									src="" width=130px height=38>
 							</div>
 						</div>
 						<div class="logincheckbox large-top clearfix">
@@ -631,102 +677,7 @@
 	<script type="text/javascript"
 		src="//staticnew.mayi.com/resourcesWeb/js/util/jquery.qrcode.min.js"></script>
 
-	<!-- 图形验证码的js开始 -->
-	<!-- <script type="text/javascript">
-		$(function() {
-
-			$("#validationCode_img").click(
-					function() {
-
-						$("#validationCode_img").attr("src",
-								"../ValidateCode?" + Math.random());
-					});
-
-			$("#validationCode_img1").click(
-					function() {
-
-						$("#validationCode_img1").attr("src",
-								"../ValidateCode?" + Math.random());
-					});
-
-			/*  $.get("us.do",function  (data) {
-				$("#div01").text(data);
-				$("#div01").style.display=none;
-			});  */
-			//});
-		});
-	</script> -->
-	<!-- 图形验证码的js结束 -->
-	<!--  <script src="http://cdn.static.runoob.com/libs/jquery/1.10.2/jquery.min.js"></script> -->
-	<!--  -->
-	<script type="text/javascript">
-		$("#loginByPassword").click(
-				function() {
-					var userName = $("#userName").val();
-					//     var userPwd=$("#userPwd").val();
-					var userPwd = $("#userPwd").val();
-					var validationCode = $("#validationCode").val();
-					console.log(userPwd);
-
-					$.post("../us.action?op=loginByPwd", "userName=" + userName
-							+ "&userPwd=" + userPwd + "&validationCode="
-							+ validationCode, function(data, status) {
-						console.log(data);
-						if ("2" == data) {
-							window.location.reload();
-						} else if ("1" == data) {
-							alert("账号或密码错误!");
-							$("#username").val("");
-							$("#userPwd").val("");
-						} else {
-							alert("验证码错误！");
-						}
-					});
-
-				});
-
-		/*手机登录js代码*/
-	/* 	$("#getLoginCode").click(
-				function() {
-					var telNum = $("#telNum").val();
-					//   var loginCode=$("#loginCode").val();
-					// var validationCode1=$("#validationCode1").val();
-
-					$.post("../us.action?op=getByTelNum", "telNum=" + telNum,
-							function(data, status) {
-								console.log(data);
-								if ("1" == data) {
-									alert("验证码发送成功！");
-								} else {
-									alert("验证码发送错误！");
-								}
-							});
-
-				});
-		$("#loginByTelNum").click(
-				function() {
-					var telNum = $("#telNum").val();
-					var loginCode = $("#loginCode").val();
-					var validationCode1 = $("#validationCode1").val();
-					console.log("telNum:"+telNum+",loginCode"+loginCode+",validationCode1:"+validationCode1);
-					$.post("../us.action?op=loginByMsg", "telNum=" + telNum
-							+ "&loginCode=" + loginCode + "&validationCode1="
-							+ validationCode1, function(data, status) {
-						console.log(data);
-						if ("3" == data) {
-							window.location.reload();
-						} else if ("2" == data) {
-							alert("用户不存在");
-						} else if ("1" == data) {
-							alert("手机验证码错误！");
-						} else {
-							alert("图形验证码错误！");
-						}
-					});
-
-				}); */
-	</script>
-
+	
 
 	<!--公共底部-->
 	<div class="foot">

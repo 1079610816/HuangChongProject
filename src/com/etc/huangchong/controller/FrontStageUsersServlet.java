@@ -77,9 +77,9 @@ public class FrontStageUsersServlet extends HttpServlet {
 			String validationCode1 = request.getParameter("validationCode1");
 			HttpSession session = request.getSession();
 			// 获得原始的图形验证码
-			String validation_code = (String) session.getAttribute("validation_code");
+			String validation_code1 = (String) session.getAttribute("validation_code1");
 			
-			if(validationCode1.equalsIgnoreCase(validation_code)) {
+			if(validationCode1.equalsIgnoreCase(validation_code1)) {
 				
 				int number_code = (int) ((Math.random() * 9 + 1) * 100000);
 				
@@ -94,7 +94,7 @@ public class FrontStageUsersServlet extends HttpServlet {
 				}
 			}else {
 				out.print("2");
-			}			
+			}
 			out.close();
 		} else if ("loginByMsg".equals(op)) {
 			// 获得电话号码
@@ -103,21 +103,15 @@ public class FrontStageUsersServlet extends HttpServlet {
 			String validationCode1 = request.getParameter("validationCode1");
 			// 获得手机验证码
 			String loginCode = request.getParameter("loginCode");
-
-			System.out.println("telNum:" + telNum + ",loginCode" + loginCode + ",validationCode1:" + validationCode1);
 			// 创建HttpSession对象
 			HttpSession session = request.getSession();
 			// 获得原始的图形验证码
-			String validation_code = (String) session.getAttribute("validation_code");
-			
-			System.out.println(validation_code);
+			String validation_code = (String) session.getAttribute("validation_code1");
 			// 获得原始的手机验证码
 			Integer number_code = (Integer) session.getAttribute("number");
 			// 转换手机验证码的数据类型
 			String number = number_code.toString();
-
-			System.out.println(number);
-
+			
 			if (validationCode1.equalsIgnoreCase(validation_code) && loginCode.equals(number)) {
 				// 图形验证码和手机验证码都正确 执行登录
 				Users user = us.getLoginByMsg(telNum);
@@ -128,7 +122,10 @@ public class FrontStageUsersServlet extends HttpServlet {
 					out.print("3");
 				} else {
 					// 为空，执行自动增加用户
-					out.print("2");
+					boolean flag=us.getAddUsersByTel(telNum);
+					if(flag) {
+					   out.print("2");
+					}
 				}
 			} else if (validationCode1.equalsIgnoreCase(validation_code)) {
 				// 手机验证码错误
@@ -138,6 +135,10 @@ public class FrontStageUsersServlet extends HttpServlet {
 				out.print("0");
 			}
 			out.close();
+		}else if("loginOut".equals(op)) {
+			HttpSession session = request.getSession();
+			session.invalidate();
+			out.print("success");
 		}
 	}
 

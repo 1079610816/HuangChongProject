@@ -163,7 +163,7 @@ public class BackStageUsersServlet extends HttpServlet {
 		// 创建用户对象
 		Users users = new Users(userName, userPwd, nickName, imgUrl);
 		// 调用增加的方法
-		boolean flag = us.AddUsers(users);
+		boolean flag = us.getAddUsers(users);
 		// 创建gson对象
 		Gson gson = new Gson();
 		// 调用gson的方法

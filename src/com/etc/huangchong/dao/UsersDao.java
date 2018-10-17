@@ -25,7 +25,7 @@ public interface UsersDao {
 	 *            用户
 	 * @return true 增加成功 false 增加失败
 	 */
-	boolean AddUsers(Users users);
+	boolean addUsers(Users users);
 
 	/**
 	 * 删除用户
@@ -82,9 +82,18 @@ public interface UsersDao {
 	 */
 	Users login(String userName, String userPwd);
 	/**
-	 * 验证码登录操作
+	 * 手机验证码登录操作
 	 * @param telNum 手机号码
 	 * @return  Users 用户
 	 */
 	Users loginByMsg(String telNum);
+	
+	/**
+	 * 通过手机号增加用户
+	 * 
+	 * @param telNum
+	 *            手机号
+	 * @return true 增加成功 false 增加失败
+	 */
+	boolean addUsersByTel(String telNum);
 }

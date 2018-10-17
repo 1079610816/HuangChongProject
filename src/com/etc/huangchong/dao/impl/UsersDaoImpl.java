@@ -35,7 +35,7 @@ public class UsersDaoImpl implements UsersDao {
 	 * @return true 增加成功 false 增加失败
 	 */
 	@Override
-	public boolean AddUsers(Users users) {
+	public boolean addUsers(Users users) {
 		// TODO Auto-generated method stub
 		String sql = "insert into users(userName,userPwd,nickName,imgUrl) values(?,?,?,?) ";
 		int n = BaseDao.execute(sql, users.getUserName(), users.getUserPwd(), users.getNickName(), users.getImgUrl());
@@ -138,7 +138,11 @@ public class UsersDaoImpl implements UsersDao {
 			return null;
 		}
 	}
-
+	/**
+	 * 手机验证码登录操作
+	 * @param telNum 手机号码
+	 * @return  Users 用户
+	 */
 	@Override
 	public Users loginByMsg(String telNum) {
 		// TODO Auto-generated method stub
@@ -151,6 +155,20 @@ public class UsersDaoImpl implements UsersDao {
 		} else {
 			return null;
 		}
+	}
+	/**
+	 * 通过手机号增加用户
+	 * 
+	 * @param telNum
+	 *            手机号
+	 * @return true 增加成功 false 增加失败
+	 */
+	@Override
+	public boolean addUsersByTel(String telNum) {
+		// TODO Auto-generated method stub
+		String sql = "insert into users(telNum) values(?) ";
+		int n=BaseDao.execute(sql, telNum);
+		return n>0;
 	}
 
 }

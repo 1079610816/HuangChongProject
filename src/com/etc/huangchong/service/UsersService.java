@@ -28,7 +28,7 @@ public interface UsersService {
 	 *            用户
 	 * @return true 增加成功 false 增加失败
 	 */
-	boolean AddUsers(Users users);
+	boolean getAddUsers(Users users);
 
 	/**
 	 * 删除用户
@@ -92,4 +92,13 @@ public interface UsersService {
 	 * @return  Users 用户
 	 */
 	Users getLoginByMsg(String telNum);
+	
+	/**
+	 * 通过手机号增加用户
+	 * 
+	 * @param telNum
+	 *            手机号
+	 * @return true 增加成功 false 增加失败
+	 */
+	boolean getAddUsersByTel(String telNum);
 }

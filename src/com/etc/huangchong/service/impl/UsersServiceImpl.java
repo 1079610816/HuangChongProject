@@ -36,9 +36,9 @@ public class UsersServiceImpl implements UsersService {
 	 * @return true 增加成功 false 增加失败
 	 */
 	@Override
-	public boolean AddUsers(Users users) {
+	public boolean getAddUsers(Users users) {
 		// TODO Auto-generated method stub
-		return ud.AddUsers(users);
+		return ud.addUsers(users);
 	}
 
 	/**
@@ -129,6 +129,12 @@ public class UsersServiceImpl implements UsersService {
 	public Users getLoginByMsg(String telNum) {
 		// TODO Auto-generated method stub
 		return ud.loginByMsg(telNum);
+	}
+
+	@Override
+	public boolean getAddUsersByTel(String telNum) {
+		// TODO Auto-generated method stub
+		return ud.addUsersByTel(telNum);
 	}
 
 }
