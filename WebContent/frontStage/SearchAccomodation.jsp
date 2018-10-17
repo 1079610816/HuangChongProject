@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-	<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN""http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <html xmlns:wb="http://open.weibo.com/wb">
@@ -8,52 +8,50 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+<link rel="stylesheet" href="layui/css/layui.css" media="all">
 
-<title>【北京住宿短租民宿_北京短租公寓_日租房】–黄虫短租</title>
+<title>黄虫短租</title>
 <meta name="keywords" content="北京住宿，北京短租房，北京民宿，北京日租房" />
 <meta name="description"
 	content="黄虫短租网是性价比高的北京短租房、日租房在线预订平台，提供北京短租公寓、短租房、日租房、家庭旅馆、民宿等出租房房源价格、预订信息，比酒店住宿便宜50%，公寓100%真实入住点评，真实可靠。" />
 <link rel="stylesheet"
 	href="//staticnew.mayi.com/resourcesWeb/v201807/index_page_new/css/public.css">
-<link rel="stylesheet"
-	href="//staticnew.mayi.com/resourcesWeb/v201807/list_page_new/css/list_public.css">
-<link rel="stylesheet"
-	href="//staticnew.mayi.com/resourcesWeb/v201807/list_page_new/css/newlist.css">
-<link rel="stylesheet"
-	href="//staticnew.mayi.com/resourcesWeb/v201807/index_page_new/css/new_calendar.css">
-<link rel="stylesheet"
-	href="//staticnew.mayi.com/resourcesWeb/v201807/index_page_new/css/mayi_base.css">
+	<link rel="stylesheet"
+		href="//staticnew.mayi.com/resourcesWeb/v201807/list_page_new/css/list_public.css">
+		<link rel="stylesheet"
+			href="//staticnew.mayi.com/resourcesWeb/v201807/list_page_new/css/newlist.css">
+			<link rel="stylesheet"
+				href="//staticnew.mayi.com/resourcesWeb/v201807/index_page_new/css/new_calendar.css">
+				<link rel="stylesheet"
+					href="//staticnew.mayi.com/resourcesWeb/v201807/index_page_new/css/mayi_base.css">
 
-<script type="text/javascript" src="js/jquery.min.js"></script>
-<script type="text/javascript"
-	src="//staticnew.mayi.com/resourcesWeb/js/layer/layer.min.js"></script>
-<script type="text/javascript"
-	src="//staticnew.mayi.com/resourcesWeb/js/lazyload.js"></script>
-<script type="text/javascript"
-	src="//staticnew.mayi.com/resourcesWeb/js/js.js"></script>
-<script type="text/javascript"
-	src="//staticnew.mayi.com/resourcesWeb/js/index/main1.js?v=20180711"></script>
-<script type="text/javascript"
-	src="//staticnew.mayi.com/resourcesWeb/js/json.js?v=20160510"></script>
-<script type="text/javascript"
-	src="//staticnew.mayi.com/resourcesWeb/v201510/js/commom.js"></script>
-<script type="text/javascript"
-	src="//staticnew.mayi.com/resourcesWeb/js/allcity.js?V=20170414"></script>
-<script src="js/new_calendar.js" type="text/javascript" charset="utf-8"></script>
-<script type="text/javascript"
-	src="//staticnew.mayi.com/resourcesWeb/v201807/index_page_new/js/jquery.nicescroll.min.js"></script>
-<script type="text/javascript"
-	src="//staticnew.mayi.com/resourcesWeb/v201807/list_page_new/js/index_searchlist_public.js"></script>
-<script type="text/javascript"
-	src="//staticnew.mayi.com/resourcesWeb/v201807/list_page_new/js/sou_search.js"></script>
-<script type="text/javascript"
-	src="//staticnew.mayi.com/resourcesWeb/v201807/list_page_new/js/jquery.range.js"></script>
+					<script type="text/javascript" src="js/jquery.min.js"></script>
+					<script type="text/javascript"
+						src="//staticnew.mayi.com/resourcesWeb/js/layer/layer.min.js"></script>
+					<script type="text/javascript"
+						src="//staticnew.mayi.com/resourcesWeb/js/lazyload.js"></script>
+					<script type="text/javascript"
+						src="//staticnew.mayi.com/resourcesWeb/js/js.js"></script>
+					<script type="text/javascript"
+						src="//staticnew.mayi.com/resourcesWeb/js/index/main1.js?v=20180711"></script>
+					<script type="text/javascript"
+						src="//staticnew.mayi.com/resourcesWeb/js/json.js?v=20160510"></script>
+					<script type="text/javascript"
+						src="//staticnew.mayi.com/resourcesWeb/v201510/js/commom.js"></script>
+					<script type="text/javascript"
+						src="//staticnew.mayi.com/resourcesWeb/js/allcity.js?V=20170414"></script>
+					<script src="js/new_calendar.js" type="text/javascript"
+						charset="utf-8"></script>
+					<script type="text/javascript"
+						src="//staticnew.mayi.com/resourcesWeb/v201807/index_page_new/js/jquery.nicescroll.min.js"></script>
+					<script type="text/javascript"
+						src="//staticnew.mayi.com/resourcesWeb/v201807/list_page_new/js/index_searchlist_public.js"></script>
+					<script type="text/javascript"
+						src="//staticnew.mayi.com/resourcesWeb/v201807/list_page_new/js/sou_search.js"></script>
+					<script type="text/javascript"
+						src="//staticnew.mayi.com/resourcesWeb/v201807/list_page_new/js/jquery.range.js"></script>
 
-<!--Criteo-->
-
-
-
-
+					<!--Criteo-->
 </head>
 
 <body>
@@ -62,14 +60,14 @@
 	<link
 		href="//staticnew.mayi.com/resourcesWeb/v201612/headpub/css/laxin.css"
 		rel="stylesheet" type="text/css">
-	<script type="text/javascript"
-		src="//staticnew.mayi.com/resourcesWeb/js/pub/list_header.js"></script>
-	<!-- 房东权限相关 -->
-	<script type="text/javascript"
-		src="//staticnew.mayi.com/resourcesWeb/v201612/headpub/js/landlordConfig.js"></script>
-	<link rel="stylesheet"
-		href="//staticnew.mayi.com/resourcesWeb/v201807/index_page_new/css/mayi_base.css">
-	<style>
+		<script type="text/javascript"
+			src="//staticnew.mayi.com/resourcesWeb/js/pub/list_header.js"></script>
+		<!-- 房东权限相关 -->
+		<script type="text/javascript"
+			src="//staticnew.mayi.com/resourcesWeb/v201612/headpub/js/landlordConfig.js"></script>
+		<link rel="stylesheet"
+			href="//staticnew.mayi.com/resourcesWeb/v201807/index_page_new/css/mayi_base.css">
+			<style>
 .alert-box1 {
 	width: 100%;
 	height: 100%;
@@ -125,76 +123,74 @@
 	border-radius: 2px;
 }
 </style>
-	<input type="hidden" name="ctx" id="ctx" value="" />
-	<!-- 头部栏开始 -->
-	<div class="header">
-		<div class="nav index_nav line_h50">
-			<div class="headW_auto c_gray_dark clearfloat">
-				<div class="logo fl f20 c_gray_dark fw600 lineht34">
-					<a href="index.html" class="c_gray_dark"><img
-						src="//staticnew.mayi.com/resourcesWeb/v201807/index_page_new/images/logo.png"
-						width="34" alt="logo" class="radius-6"> 黄虫短租 </a>
+			<input type="hidden" name="ctx" id="ctx" value="" /> <!-- 头部栏开始 -->
+			<div class="header">
+				<div class="nav index_nav line_h50">
+					<div class="headW_auto c_gray_dark clearfloat">
+						<div class="logo fl f20 c_gray_dark fw600 lineht34">
+							<a href="index.html" class="c_gray_dark"><img
+								src="//staticnew.mayi.com/resourcesWeb/v201807/index_page_new/images/logo.png"
+								width="34" alt="logo" class="radius-6"> 黄虫短租 </a>
+						</div>
+						<ul class="fr nav-list clearfloat">
+							<li>
+								<p class="top-line"></p> <a href="index.html" class="fw600 f14"
+								_mayi_rp="weblist|head|index">首页</a>
+							</li>
+							<li>
+								<p class="top-line"></p> <span class="service fw600 f14">客服热线</span>
+								<ul
+									class="hover-list radius-6 c_gray_dark t-center pos_center w140_2">
+									<li>400-028-6868</li>
+								</ul>
+							</li>
+							<li>
+								<p class="top-line"></p> <a class="fw600 f14 "
+								href="javascript:void(0);"> 帮助中心 </a>
+								<ul
+									class="hover-list radius-6 c_gray_dark t-left pos_center w140_2">
+									<li class="mb10"><a class="c_gray_dark" target="_blank"
+										href="roomauditrule.html">房源审核规范</a></li>
+									<li class="mb10"><a class="c_gray_dark" target="_blank"
+										href="supportplan.html">房源安心计划</a></li>
+									<li class="mb10"><a class="c_gray_dark" target="_blank"
+										href="goodhouseplan.html">优质住宿计划</a></li>
+									<li class="mb10"><a class="c_gray_dark" target="_blank"
+										href="sitemap.html">网站地图</a></li>
+									<li><a class="c_gray_dark" target="_blank"
+										href="questions.html">房客帮助</a></li>
+								</ul>
+							</li>
+							<li class="user-action">
+								<div class="login-btn t-center fw600 c_gray_dark cursorpt "
+									id="loginshow">登录/注册</div>
+							</li>
+						</ul>
+					</div>
 				</div>
-				<ul class="fr nav-list clearfloat">
-					<li>
-						<p class="top-line"></p> <a href="index.html" class="fw600 f14"
-						_mayi_rp="weblist|head|index">首页</a>
-					</li>
-					<li>
-						<p class="top-line"></p> <span class="service fw600 f14">客服热线</span>
-						<ul
-							class="hover-list radius-6 c_gray_dark t-center pos_center w140_2">
-							<li>400-028-6868</li>
-						</ul>
-					</li>
-					<li>
-						<p class="top-line"></p> <a class="fw600 f14 "
-						href="javascript:void(0);"> 帮助中心 </a>
-						<ul
-							class="hover-list radius-6 c_gray_dark t-left pos_center w140_2">
-							<li class="mb10"><a class="c_gray_dark" target="_blank"
-								href="roomauditrule.html">房源审核规范</a></li>
-							<li class="mb10"><a class="c_gray_dark" target="_blank"
-								href="supportplan.html">房源安心计划</a></li>
-							<li class="mb10"><a class="c_gray_dark" target="_blank"
-								href="goodhouseplan.html">优质住宿计划</a></li>
-							<li class="mb10"><a class="c_gray_dark" target="_blank"
-								href="sitemap.html">网站地图</a></li>
-							<li><a class="c_gray_dark" target="_blank"
-								href="questions.html">房客帮助</a></li>
-						</ul>
-					</li>
-					<li class="user-action">
-						<div class="login-btn t-center fw600 c_gray_dark cursorpt "
-							id="loginshow">登录/注册</div>
-					</li>
-				</ul>
 			</div>
-		</div>
-	</div>
-	<!-- 头部栏结束 -->
-	<div class="alert-box1">
-		<div class="surveYY1"></div>
-		<div class="offmax_no">
-			<div class="alert_tit1">温馨提示</div>
-			<p class="frozeninfo">对不起，房东账号被封禁</p>
-			<p>如有疑问，请联系黄虫短租客服400-028-6868</p>
-			<div class="close-alert1">我知道了</div>
-		</div>
-	</div>
+			<!-- 头部栏结束 -->
+			<div class="alert-box1">
+				<div class="surveYY1"></div>
+				<div class="offmax_no">
+					<div class="alert_tit1">温馨提示</div>
+					<p class="frozeninfo">对不起，房东账号被封禁</p>
+					<p>如有疑问，请联系黄虫短租客服400-028-6868</p>
+					<div class="close-alert1">我知道了</div>
+				</div>
+			</div>
 
-	<input type="hidden" name="subdomain" id="subdomain" value="" />
-	<input type="hidden" name="mainsite" id="mainsite" value="" />
-	<input type="hidden" name="ctx" id="ctx" value="" />
-	<input type="hidden" name="ctx1" id="ctx1" value="//staticnew.mayi.com" />
-	<input type="hidden" name="uid" id="uid" value="0" />
-	<input type="hidden" name="loginurl" id="loginurl" value="none" />
-	<input type="hidden" name="head_userName" id="head_userName" value="">
-	<script type='text/javascript'
-		src='//webchat.7moor.com/javascripts/7moorInit.js?accessId=73859f20-f357-11e6-b43e-3b18b16942dc&autoShow=false'
-		async='async'></script>
-	<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-	<html xmlns="http://www.w3.org/1999/xhtml">
+			<input type="hidden" name="subdomain" id="subdomain" value="" /> <input
+				type="hidden" name="mainsite" id="mainsite" value="" /> <input
+				type="hidden" name="ctx" id="ctx" value="" /> <input type="hidden"
+				name="ctx1" id="ctx1" value="//staticnew.mayi.com" /> <input
+				type="hidden" name="uid" id="uid" value="0" /> <input type="hidden"
+				name="loginurl" id="loginurl" value="none" /> <input type="hidden"
+				name="head_userName" id="head_userName" value=""> <script
+					type='text/javascript'
+					src='//webchat.7moor.com/javascripts/7moorInit.js?accessId=73859f20-f357-11e6-b43e-3b18b16942dc&autoShow=false'
+					async='async'></script> <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+				<html xmlns="http://www.w3.org/1999/xhtml">
 <html xmlns:wb="http://open.weibo.com/wb">
 
 <head>
@@ -219,12 +215,12 @@
 						<div class="theme c_gray f12">目的地</div>
 						<div class="input-box active">
 							<input type="text" id="searchcityin" search typeid="3"
-								placeholder="城市、景点、商圈" value="北京" surl="/beijing" class="text"
-								clicktag="2_1" name="searchcityin" citypinyin="beijing"
-								cityname="北京" pinyin="" onkeydown="pressEve(event);"
-								onkeyup="getSuggest(event,0);" autocomplete="off"
-								_mayi_rp="weblist|sem_condition|searchcityin" /> <span
-								class="circle" id="clearCityInfo" style="display: none;">×</span>
+								placeholder="城市、景点、商圈" value="${requestScope.list[0].accomArea}"
+								surl="/beijing" class="text" clicktag="2_1" name="searchcityin"
+								citypinyin="beijing" cityname="北京" pinyin=""
+								onkeydown="pressEve(event);" onkeyup="getSuggest(event,0);"
+								autocomplete="off" _mayi_rp="weblist|sem_condition|searchcityin" />
+							<span class="circle" id="clearCityInfo" style="display: none;">×</span>
 						</div>
 					</div>
 					<div class="fl relave bor-r-eb t-center filterList time clearfloat"
@@ -234,14 +230,13 @@
 							<input id="checkinday" readonly class="f18 c_gray_light fw700"
 								_mayi_rp="weblist|sem_condition|checkindate" type="text"
 								placeholder="入住日期" value="">
-							<div class="count">
-								<span class="f12 c_gray_dark" id="zrdays">0晚</span>
-							</div>
-							<input id="checkoutday" readonly class="f18 c_gray_light fw700"
+								<div class="count">
+									<span class="f12 c_gray_dark" id="zrdays">0晚</span>
+								</div> <input id="checkoutday" readonly class="f18 c_gray_light fw700"
 								_mayi_rp="weblist|sem_condition|checkoutdate" type="text"
 								placeholder="退房日期" value=""> <input
-								id="checkinday_value" type="hidden" value=""> <input
-								id="checkoutday_value" type="hidden" value="">
+									id="checkinday_value" type="hidden" value=""> <input
+										id="checkoutday_value" type="hidden" value="">
 						</div>
 						<span class="circle clear" id="clearSelect" style="display: none;"
 							_mayi_rp="weblist|sem_condition|clearCalendar">&times;</span>
@@ -411,8 +406,8 @@
 			<div class="cont1 b_white">
 				<div class="path_link w94_94">
 					<a href="/">首页</a><label>&nbsp;&gt;&nbsp;</label>
-					<h1 class="f14">北京短租房</h1>
-					<span class="ml10 f12">北京的房源获得超过10173100次房客评价，平均得分4.9分（满分5分）</span>
+					<h1 class="f14">${requestScope.list[0].accomArea}短租房</h1>
+					<!-- <span class="ml10 f12">北京的房源获得超过10173100次房客评价，平均得分4.9分（满分5分）</span> -->
 				</div>
 				<div class="filter w94_94">
 					<ul>
@@ -645,33 +640,33 @@
 				<div>
 					<!-- 搜索到的已有房源start -->
 					<dl class="searchRoom clearfloat" id="searchRoom">
-					<c:if test="${requestScope.list==null} ">
+						<c:if test="${requestScope.list==null} ">
 							<jsp:forward page="ss.action?op='厦门'"></jsp:forward>
-							</c:if>
-							<c:forEach items="${requestScope.list}" var="s">
-						<dd id="dd_851953993" data="851953993" lid="851953993"
-							colleState="0" price="498" latlng="40.04982,116.42083">
-							<div class="room-img">
-								<div class="collect" state="1" title="收藏" id="c_851953993"
-									onClick="lodge_collect(this)"></div>
-								<!--图片切换-->
-								<div>
-									<div class="house-image">
-										<a href="javascript:void(0)" class="change-prev"
-											style="display: none;" data="851953993"
-											mainImage="${pageContext.request.contextPath}/../img/${s.accomId}/Head.jpg"></a>
-										<a href="room.html" onClick="goDetail(this)" target="_blank">
-											<img class="roomMap851953993" style="display: none" /> <img
-											id="851953993" class="lazy lodgelazy"
-											title="${s.accomTitle}"
-											src="${pageContext.request.contextPath}/../img/${s.accomId}/Head.jpg"
-											data-original="${pageContext.request.contextPath}/../img/${s.accomId}/Head.jpg"
-											alt="${s.accomTitle }" />
-										</a> <a href="javascript:void(0)" style="display: none"
-											class="change-next" data="851953993"></a>
+						</c:if>
+						<c:forEach items="${requestScope.list}" var="s">
+							<dd id="dd_851953993" data="851953993" lid="851953993"
+								colleState="0" price="498" latlng="40.04982,116.42083">
+								<div class="room-img">
+									<div class="collect" state="1" title="收藏" id="c_851953993"
+										onClick="lodge_collect(this)"></div>
+									<!--图片切换-->
+									<div>
+										<div class="house-image">
+											<a href="javascript:void(0)" class="change-prev"
+												style="display: none;" data="851953993"
+												mainImage="${pageContext.request.contextPath}/../img/${s.accomId}/Head.jpg"></a>
+											<a href="room.html" onClick="goDetail(this)" target="_blank">
+												<img class="roomMap851953993" style="display: none" /> <img
+												id="851953993" class="lazy lodgelazy"
+												title="${s.accomTitle}"
+												src="${pageContext.request.contextPath}/../img/${s.accomId}/Head.jpg"
+												data-original="${pageContext.request.contextPath}/../img/${s.accomId}/Head.jpg"
+												alt="${s.accomTitle }" />
+											</a> <a href="javascript:void(0)" style="display: none"
+												class="change-next" data="851953993"></a>
+										</div>
 									</div>
-								</div>
-							<!-- 	<p class="asote yxfy-img">
+									<!-- 	<p class="asote yxfy-img">
 									<a href="http://www.mayi.com/goodlodgeunit/" target="_blank"
 										class='yx_alink' rel="nofollow"> <img
 										src="//staticnew.mayi.com/resourcesWeb/v201807/list_page_new/images/level9-2_1.png"
@@ -679,48 +674,48 @@
 									</a>
 									夜宵活动折扣标签
 								</p> -->
-								<!-- 图片切换结束 -->
-								<b class="moy-b">
-									<p>
-										<font>￥</font>${s.price}
-									</p>
-								</b> <a title="【寒舍】鸟巢 水立方 奥林匹克 大一居"> <b class="btn-img"><img
-										src="//staticnew.mayi.com/resourcesWeb/images/index/head_default.png"
-										class="lazy landlazy"
-										data-original="//i1.mayi.com/mayi16/M71/WO/II/LANX4W4RQMQEZTQPQHKHWK2YQUXL2C.jpg_150x150c.jpg"
-										width="46" heigth="46" alt="房东头像" /></b>
-								</a>
-							</div>
-							<a href="/room/851953993" title="【寒舍】鸟巢 水立方 奥林匹克 大一居"
-								onClick="goDetail(this)" target="_blank"
-								style="position: relative;">
-								<div class="room-detail  clearfloat" style="height: 88px;">
-									<p>${s.accomTitle}</p>
-									<ul>
-										<li><span style="color: #FA8100;">5.0分 完美!</span>·</li>
-										<li>39条评论·</li>
-										<li>1居·</li>
-										<li>可住2人</li>
-									</ul>
-									<p class="room_intro_p">
-										<span class="biaoqian_style"
-											style="background: rgba(255, 205, 76, 0.25); color: #FA9A00;">速订</span>
-										<span class="biaoqian_style" style="background: #f4f4f4;">长租优惠</span>
-										<span class="biaoqian_style" style="background: #f4f4f4;">实拍</span>
-										<span class="biaoqian_style" style="background: #f4f4f4;">
-											可做饭</span>
-									</p>
-									<input type="hidden" value="0">
+									<!-- 图片切换结束 -->
+									<b class="moy-b">
+										<p>
+											<font>￥</font>${s.price}
+										</p>
+									</b> <a title="${s.accomTitle}"> <b class="btn-img"><img
+											src="//staticnew.mayi.com/resourcesWeb/images/index/head_default.png"
+											class="lazy landlazy"
+											data-original="//i1.mayi.com/mayi16/M71/WO/II/LANX4W4RQMQEZTQPQHKHWK2YQUXL2C.jpg_150x150c.jpg"
+											width="46" heigth="46" alt="房东头像" /></b>
+									</a>
 								</div>
-							</a>
-						</dd>
-						
+								<a href="/room/851953993" title="${s.accomTitle}"
+									onClick="goDetail(this)" target="_blank"
+									style="position: relative;">
+									<div class="room-detail  clearfloat" style="height: 88px;">
+										<p>${s.accomTitle}</p>
+										<ul>
+											<li><span style="color: #FA8100;">5.0分 完美!</span>·</li>
+											<li>${s.commentsum}条评论·</li>
+											<li>${s.houseType}居·</li>
+											<li>可住${s.houseType}人</li>
+										</ul>
+										<p class="room_intro_p">
+											<span class="biaoqian_style"
+												style="background: rgba(255, 205, 76, 0.25); color: #FA9A00;">速订</span>
+											<span class="biaoqian_style" style="background: #f4f4f4;">长租优惠</span>
+											<span class="biaoqian_style" style="background: #f4f4f4;">实拍</span>
+											<span class="biaoqian_style" style="background: #f4f4f4;">
+												可做饭</span>
+										</p>
+										<input type="hidden" value="0">
+									</div>
+								</a>
+							</dd>
+
 						</c:forEach>
-						
+
 					</dl>
 					<!-- Page -->
 					<div id="page" class="page">
-						<a class="pg-active" href="/beijing/1/" rel="nofollow"
+								<a class="pg-active" href="/beijing/1/" rel="nofollow"
 							_mayi_rp="weblist|sem_searchmore|pagecount">1</a> <a
 							href="/beijing/2/" rel="nofollow"
 							_mayi_rp="weblist|sem_searchmore|pagecount">2</a> <a
@@ -734,7 +729,13 @@
 						<input type="hidden" vale="30" /> <a href="/beijing/2/"
 							rel="nofollow" class="up-page"
 							_mayi_rp="weblist|sem_searchmore|pagecount">下一页</a>
+
+						<!-- layui分页开始 -->
+						<div id="searchpage" class="page" style="text-align: center"></div>
+						<!-- layui分页结束 -->
+
 					</div>
+					
 					<!-- Page END -->
 				</div>
 				<!-- 搜索到的已有房源end -->
@@ -744,8 +745,38 @@
 			</div>
 
 		</div>
+		<script src="layui/layui.js" charset="utf-8"></script>
+	<script>
+	layui.use(['laypage', 'layer'], function(){
+		var laypage = layui.laypage
+		,layer = layui.layer;
+		//完整功能
+		laypage.render({
+   		elem: 'searchpage'
+    	,count: ${pd.total}
+		,curr:${pd.page}
+		,theme:'#c00'
+    	,layout: ['count', 'prev', 'page', 'next', 'limit', 'refresh', 'skip']
+    	,jump: function(obj,first){
+     	 console.log(obj)
+     	console.log(first); //得到每页显示的条数
+         
+         //首次不执行
+         if(!first){
+           //do something
+           location.href="../ss.action?op=searchpage&page="+obj.curr+"pageSize=8";
+         }
+    	}
+  	});
+	});
+</script>
 	</div>
 </div>
+
+
+	
+
+
 
 <script type="text/javascript"
 	src="//staticnew.mayi.com/resourcesWeb/js/layer/layer.min.js"></script>
@@ -843,46 +874,46 @@
 				<div class="login-input" id="loginbymadiv" name="loginbymadiv">
 					<input type="hidden" id="li_num" value="0"> <input
 						type="hidden" id="code_num" value="86">
-					<div class="input">
-						<span class="phone-icon"></span> <input class="dlargeinput"
-							type="text" id="loginmobile" name="loginmobile" placeholder="手机号"
-							value="" id="introduce"
-							onafterpaste="mobileRepAndSetPos(this,/[^\d.]/g,'')"
-							onkeyup="mobileRepAndSetPos(this,/[^\d.]/g,'')" maxlength="11" />
-					</div>
-					<div class="largeinputbox small-top clearfix">
-						<div class="dinput fl">
-							<span class="verification-icon"></span> <input
-								class="dsmallinput" type="text" id="imagecode"
-								placeholder="图形验证码" value="" />
-						</div>
-						<div class="yz-code fr">
-							<img src="" id="loginauthimage" title="点击刷新" />
-						</div>
-					</div>
-					<div class="largeinputbox small-top clearfix" id="maerrordiv">
-						<div class="dinput fl" id="maerrordiv">
-							<span class="password-icon"></span> <input class="dsmallinput"
-								type="text" id="loginphonecode" name="loginphonecode"
-								placeholder="短信验证码" value="" />
-						</div>
-						<div class="yz-code fr">
-							<input class="sendnumber defaultsend" type="button"
-								id="getloginphonecode" name="getloginphonecode" value="获取验证码" />
-						</div>
-					</div>
-					<div class="logincheckbox large-top clearfix">
-						<label class="fl"> <input class="selectcheckbox"
-							type="checkbox" name="rememberloginstate" checked="checked"
-							value="" />自动登录
-						</label>
-					</div>
-					<div class="logincheckbox large-top clearfix">
-						<font>未注册的手机号将自动创建为黄虫短租帐户</font>
-					</div>
-					<div class="btn-wrap btnpdt20">
-						<a href="javascript:void(0)" id="loginbymado">登录</a>
-					</div>
+							<div class="input">
+								<span class="phone-icon"></span> <input class="dlargeinput"
+									type="text" id="loginmobile" name="loginmobile"
+									placeholder="手机号" value="" id="introduce"
+									onafterpaste="mobileRepAndSetPos(this,/[^\d.]/g,'')"
+									onkeyup="mobileRepAndSetPos(this,/[^\d.]/g,'')" maxlength="11" />
+							</div>
+							<div class="largeinputbox small-top clearfix">
+								<div class="dinput fl">
+									<span class="verification-icon"></span> <input
+										class="dsmallinput" type="text" id="imagecode"
+										placeholder="图形验证码" value="" />
+								</div>
+								<div class="yz-code fr">
+									<img src="" id="loginauthimage" title="点击刷新" />
+								</div>
+							</div>
+							<div class="largeinputbox small-top clearfix" id="maerrordiv">
+								<div class="dinput fl" id="maerrordiv">
+									<span class="password-icon"></span> <input class="dsmallinput"
+										type="text" id="loginphonecode" name="loginphonecode"
+										placeholder="短信验证码" value="" />
+								</div>
+								<div class="yz-code fr">
+									<input class="sendnumber defaultsend" type="button"
+										id="getloginphonecode" name="getloginphonecode" value="获取验证码" />
+								</div>
+							</div>
+							<div class="logincheckbox large-top clearfix">
+								<label class="fl"> <input class="selectcheckbox"
+									type="checkbox" name="rememberloginstate" checked="checked"
+									value="" />自动登录
+								</label>
+							</div>
+							<div class="logincheckbox large-top clearfix">
+								<font>未注册的手机号将自动创建为黄虫短租帐户</font>
+							</div>
+							<div class="btn-wrap btnpdt20">
+								<a href="javascript:void(0)" id="loginbymado">登录</a>
+							</div>
 				</div>
 				<!-- 手机登陆 end  -->
 				<!-- 密码登陆 start -->
@@ -890,37 +921,38 @@
 					style="display: none;">
 					<input type="hidden" id="li_num_1" value="0"> <input
 						type="hidden" id="code_num_1" value="86">
-					<div class="input">
-						<span class="user-icon"></span> <input class="dlargeinput"
-							type="text" id="loginnamein" name="loginnamein"
-							placeholder="手机号/邮箱/账号" value="" autocomplete="off" />
-					</div>
-					<div class="input small-top">
-						<span class="password-icon"></span> <input class="dlargeinput"
-							type="password" id="loginpassin" name="loginpassin"
-							placeholder="密码" value="" />
-					</div>
-					<div class="largeinputbox small-top clearfix" id="uperrordiv">
-						<div class="dinput fl" id="yui_3_5_1_1_1434542056373_108">
-							<span class="verification-icon"></span> <input type="text"
-								class="dsmallinput" id="imagecode1" placeholder="图形验证码" value="">
-						</div>
-						<div class="yz-code fr">
-							<img src="" id="loginauthimage1" title="点击刷新">
-						</div>
-					</div>
-					<div class="logincheckbox large-top clearfix">
-						<label class="fl"> <input class="selectcheckbox"
-							type="checkbox" name="rememberpass" checked="checked" value="" />自动登录
-						</label>
-					</div>
-					<div class="btn-wrap btnpdt20">
-						<a href="javascript:void(0)" id="loginbyupdo"
-							_mayi_rp="web|condition|loginc">登录</a>
-					</div>
-					<p class="otherwaytitle mt20">
-						没有账号密码请 <a href="javascript:void(0)" id="changeloginbymwa">使用手机验证码登录</a>
-					</p>
+							<div class="input">
+								<span class="user-icon"></span> <input class="dlargeinput"
+									type="text" id="loginnamein" name="loginnamein"
+									placeholder="手机号/邮箱/账号" value="" autocomplete="off" />
+							</div>
+							<div class="input small-top">
+								<span class="password-icon"></span> <input class="dlargeinput"
+									type="password" id="loginpassin" name="loginpassin"
+									placeholder="密码" value="" />
+							</div>
+							<div class="largeinputbox small-top clearfix" id="uperrordiv">
+								<div class="dinput fl" id="yui_3_5_1_1_1434542056373_108">
+									<span class="verification-icon"></span> <input type="text"
+										class="dsmallinput" id="imagecode1" placeholder="图形验证码"
+										value="">
+								</div>
+								<div class="yz-code fr">
+									<img src="" id="loginauthimage1" title="点击刷新">
+								</div>
+							</div>
+							<div class="logincheckbox large-top clearfix">
+								<label class="fl"> <input class="selectcheckbox"
+									type="checkbox" name="rememberpass" checked="checked" value="" />自动登录
+								</label>
+							</div>
+							<div class="btn-wrap btnpdt20">
+								<a href="javascript:void(0)" id="loginbyupdo"
+									_mayi_rp="web|condition|loginc">登录</a>
+							</div>
+							<p class="otherwaytitle mt20">
+								没有账号密码请 <a href="javascript:void(0)" id="changeloginbymwa">使用手机验证码登录</a>
+							</p>
 				</div>
 				<!-- 密码登陆 end -->
 			</div>

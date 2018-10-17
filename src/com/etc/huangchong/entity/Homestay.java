@@ -10,6 +10,7 @@ public class Homestay {
 	private int houseType;
 	private String userName;
 	private double price;
+	private int commentsum;
 	public Homestay() {
 		super();
 		// TODO Auto-generated constructor stub
@@ -40,7 +41,7 @@ public class Homestay {
 		this.userName = userName;
 	}
 	/**
-	 * 带全部参数的构造
+	 * 不带评论条数commentsum参数的构造
 	 * @param accomId
 	 * @param accomTitle
 	 * @param accomIntro
@@ -65,6 +66,44 @@ public class Homestay {
 		this.price = price;
 	}
 
+
+/**
+ * 带全部参数的构造
+ * @param accomId
+ * @param accomTitle
+ * @param accomIntro
+ * @param accomArea
+ * @param accomAddress
+ * @param accomStatus
+ * @param houseType
+ * @param userName
+ * @param price
+ * @param commentsum
+ */
+	public Homestay(int accomId, String accomTitle, String accomIntro, String accomArea, String accomAddress,
+			int accomStatus, int houseType, String userName, double price, int commentsum) {
+		super();
+		this.accomId = accomId;
+		this.accomTitle = accomTitle;
+		this.accomIntro = accomIntro;
+		this.accomArea = accomArea;
+		this.accomAddress = accomAddress;
+		this.accomStatus = accomStatus;
+		this.houseType = houseType;
+		this.userName = userName;
+		this.price = price;
+		this.commentsum = commentsum;
+	}
+
+
+	public int getCommentsum() {
+		return commentsum;
+	}
+
+
+	public void setCommentsum(int commentsum) {
+		this.commentsum = commentsum;
+	}
 
 
 	public double getPrice() {
@@ -128,8 +167,12 @@ public class Homestay {
 	public String toString() {
 		return "Homestay [accomId=" + accomId + ", accomTitle=" + accomTitle + ", accomIntro=" + accomIntro
 				+ ", accomArea=" + accomArea + ", accomAddress=" + accomAddress + ", accomStatus=" + accomStatus
-				+ ", houseType=" + houseType + ", userName=" + userName + ", price=" + price + "]";
+				+ ", houseType=" + houseType + ", userName=" + userName + ", price=" + price + ", commentsum="
+				+ commentsum + "]";
 	}
+
+
+	
 
 	
 	

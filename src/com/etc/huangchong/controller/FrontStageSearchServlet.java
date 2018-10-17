@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import com.etc.huangchong.entity.Homestay;
 import com.etc.huangchong.service.SearchService;
 import com.etc.huangchong.service.impl.SearchServiceImpl;
+import com.etc.huangchong.util.PageData;
 
 /**
  * Servlet implementation class FrontStageSearchServlet
@@ -19,7 +20,7 @@ import com.etc.huangchong.service.impl.SearchServiceImpl;
 @WebServlet("/ss.action")
 public class FrontStageSearchServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
+       private SearchService ss = new SearchServiceImpl();
     /**
      * @see HttpServlet#HttpServlet()
      */
@@ -35,24 +36,26 @@ public class FrontStageSearchServlet extends HttpServlet {
 		request.setCharacterEncoding("utf-8");
 		response.setCharacterEncoding("utf-8");
 		String op = request.getParameter("op");
-		SearchService ss = new SearchServiceImpl();
-		List<Homestay> list = ss.getQuerySearch(op);
-		System.out.println(list);
+		String Area = request.getParameter("Area");
+		if("searchlist".equals(op)) {
+		List<Homestay> list = ss.getQuerySearch(Area);
 		request.setAttribute("list", list);
 		request.getRequestDispatcher("frontStage/SearchAccomodation.jsp").forward(request, response);
-		/*if("厦门".equals(op)) {
-			request.getRequestDispatcher("frontStage/xiamen.jsp").forward(request, response);
-		}else if("福州".equals(op)) {
-			request.getRequestDispatcher("frontStage/fuzhou.jsp").forward(request, response);
-		}else if("泉州".equals(op)) {
-			request.getRequestDispatcher("frontStage/quanzhou.jsp").forward(request, response);
-		}else if("漳州".equals(op)) {
-			request.getRequestDispatcher("frontStage/fuzhou.jsp").forward(request, response);
-		}else if("泉州".equals(op)) {
-			request.getRequestDispatcher("frontStage/fuzhou.jsp").forward(request, response);
-		}else if("泉州".equals(op)) {
-			request.getRequestDispatcher("frontStage/fuzhou.jsp").forward(request, response);
-		}*/
+		}
+		if("searchpage".equals(op)) {
+			int page = 1;
+			int pageSize = 8;
+			if(request.getParameter("page")!=null) {
+				page = Integer.parseInt(request.getParameter("page"));
+			}
+			if(request.getParameter("pageSize")!=null) {
+				pageSize = Integer.parseInt(request.getParameter("pageSize"));
+			}
+			PageData pd = ss.getQuerySearchPage(page, pageSize, Area);
+			request.setAttribute("pd", pd);
+			request.getRequestDispatcher("frontStage/SearchAccomodation.jsp").forward(request, response);
+		}
+		
 		
 	}
 
