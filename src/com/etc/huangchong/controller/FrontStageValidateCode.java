@@ -90,7 +90,7 @@ public class FrontStageValidateCode extends HttpServlet {
 
 				session.setAttribute("validation_code", validationCode.toString());
 				// 关闭Graphics对象
-
+				System.out.println(session.getAttribute("validation_code"));
 				g.dispose();
 
 				OutputStream outS = response.getOutputStream();
