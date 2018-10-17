@@ -12,7 +12,7 @@ public class SearchDaoImpl implements SearchDao {
 	@Override
 	public List<Homestay> querySearch(String accomArea) {
 		// TODO Auto-generated method stub
-		String sql = "select accommodation.accomId,accommodation.accomTitle,accommodation.accomIntro,accommodation.accomArea,accommodation.accomAddress,accommodation.accomStatus,accommodation.houseType,accommodation.price,users.userName FROM accommodation,users WHERE accommodation.userId=users.userId AND accommodation.accomArea=? ";
+		String sql = "select a.accomId,a.accomTitle,a.accomIntro,a.accomArea,a.accomAddress,a.accomStatus,a.houseType,a.price,u.userName,COUNT(c.accomId) as commentsum from accommodation as a inner join users as u on a.userId=u.userId left join comment as c on a.accomId=c.accomId where a.accomArea=? group by a.accomId";
 		return (List<Homestay>)bd.select(sql, Homestay.class, accomArea);
 	}
 

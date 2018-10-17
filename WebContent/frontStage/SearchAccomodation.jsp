@@ -9,7 +9,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
 
-<title>【北京住宿短租民宿_北京短租公寓_日租房】–黄虫短租</title>
+<title>黄虫短租</title>
 <meta name="keywords" content="北京住宿，北京短租房，北京民宿，北京日租房" />
 <meta name="description"
 	content="黄虫短租网是性价比高的北京短租房、日租房在线预订平台，提供北京短租公寓、短租房、日租房、家庭旅馆、民宿等出租房房源价格、预订信息，比酒店住宿便宜50%，公寓100%真实入住点评，真实可靠。" />
@@ -219,7 +219,7 @@
 						<div class="theme c_gray f12">目的地</div>
 						<div class="input-box active">
 							<input type="text" id="searchcityin" search typeid="3"
-								placeholder="城市、景点、商圈" value="北京" surl="/beijing" class="text"
+								placeholder="城市、景点、商圈" value="${requestScope.list[0].accomArea}" surl="/beijing" class="text"
 								clicktag="2_1" name="searchcityin" citypinyin="beijing"
 								cityname="北京" pinyin="" onkeydown="pressEve(event);"
 								onkeyup="getSuggest(event,0);" autocomplete="off"
@@ -411,8 +411,8 @@
 			<div class="cont1 b_white">
 				<div class="path_link w94_94">
 					<a href="/">首页</a><label>&nbsp;&gt;&nbsp;</label>
-					<h1 class="f14">北京短租房</h1>
-					<span class="ml10 f12">北京的房源获得超过10173100次房客评价，平均得分4.9分（满分5分）</span>
+					<h1 class="f14">${requestScope.list[0].accomArea}短租房</h1>
+					<!-- <span class="ml10 f12">北京的房源获得超过10173100次房客评价，平均得分4.9分（满分5分）</span> -->
 				</div>
 				<div class="filter w94_94">
 					<ul>
@@ -684,23 +684,23 @@
 									<p>
 										<font>￥</font>${s.price}
 									</p>
-								</b> <a title="【寒舍】鸟巢 水立方 奥林匹克 大一居"> <b class="btn-img"><img
+								</b> <a title="${s.accomTitle}"> <b class="btn-img"><img
 										src="//staticnew.mayi.com/resourcesWeb/images/index/head_default.png"
 										class="lazy landlazy"
 										data-original="//i1.mayi.com/mayi16/M71/WO/II/LANX4W4RQMQEZTQPQHKHWK2YQUXL2C.jpg_150x150c.jpg"
 										width="46" heigth="46" alt="房东头像" /></b>
 								</a>
 							</div>
-							<a href="/room/851953993" title="【寒舍】鸟巢 水立方 奥林匹克 大一居"
+							<a href="/room/851953993" title="${s.accomTitle}"
 								onClick="goDetail(this)" target="_blank"
 								style="position: relative;">
 								<div class="room-detail  clearfloat" style="height: 88px;">
 									<p>${s.accomTitle}</p>
 									<ul>
 										<li><span style="color: #FA8100;">5.0分 完美!</span>·</li>
-										<li>39条评论·</li>
-										<li>1居·</li>
-										<li>可住2人</li>
+										<li>${s.commentsum}条评论·</li>
+										<li>${s.houseType}居·</li>
+										<li>可住${s.houseType}人</li>
 									</ul>
 									<p class="room_intro_p">
 										<span class="biaoqian_style"
