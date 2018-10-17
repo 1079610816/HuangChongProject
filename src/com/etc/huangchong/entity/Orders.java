@@ -1,13 +1,14 @@
 package com.etc.huangchong.entity;
 
 public class Orders {
-
+	
 	private int orderId;
 	private String bookTime;
 	private String unsubscribeTime;
 	private double fee;
 	private int orderStatus;
 	private String accomTitle;
+	private String accomAddress;
 	private String userName;
 	public int getOrderId() {
 		return orderId;
@@ -44,6 +45,12 @@ public class Orders {
 	}
 	public void setAccomTitle(String accomTitle) {
 		this.accomTitle = accomTitle;
+	}
+	public String getAccomAddress() {
+		return accomAddress;
+	}
+	public void setAccomAddress(String accomAddress) {
+		this.accomAddress = accomAddress;
 	}
 	public String getUserName() {
 		return userName;

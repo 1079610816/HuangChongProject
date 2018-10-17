@@ -20,4 +20,16 @@ public interface OrderDao {
 	boolean batchDelOrder(String sql1,String sql2);
 	//订单修改
 	boolean updateOrder(Orders o);
+	/**
+	 * 查询用户所有订单
+	 * @return 用户所有订单集合
+	 */
+	List<Orders> queryUserOrder(int userId);
+	/**
+	 * 根据订单状态查询某用户的订单
+	 * @param userId 用户id
+	 * @param orderStatus 订单状态
+	 * @return 该用户某种状态订单集合
+	 */
+	List<Orders> queryUserOrder(int userId,int orderStatus);
 }

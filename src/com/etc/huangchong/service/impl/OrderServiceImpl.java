@@ -41,4 +41,14 @@ public class OrderServiceImpl implements OrderService {
 		// TODO Auto-generated method stub
 		return od.updateOrder(o);
 	}
+
+	@Override
+	public List<Orders> queryUserOrder(int userId,int orderStatus) {
+		return od.queryUserOrder(userId,orderStatus);
+	}
+
+	@Override
+	public List<Orders> queryUserOrder(int userId) {
+		return od.queryUserOrder(userId);
+	}
 }

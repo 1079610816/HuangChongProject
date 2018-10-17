@@ -102,4 +102,17 @@ public class OrderDaoImpl implements OrderDao {
 		sql="UPDATE orderdetails SET bookTime=?, unsubscribeTime=?, fee=?, orderStatus=? WHERE orderId=?";
 		return bd.execute(sql, o.getBookTime(),o.getUnsubscribeTime(),o.getFee(),o.getOrderStatus(),o.getOrderId())>0;
 	}
+	/**
+	 * 查询用户所有的订单
+	 */
+	@Override
+	public List<Orders> queryUserOrder(int userId) {
+		sql="select o.orderId,a.accomTitle,a.accomAddress,od.bookTime,od.unsubscribeTime,od.fee,od.orderStatus from orders as o inner join accommodation as a on o.accomId=a.accomId inner join orderdetails as od on o.orderId=od.orderId where o.userId=?";
+		return (List<Orders>)bd.select(sql, Orders.class, userId);
+	}
+	@Override
+	public List<Orders> queryUserOrder(int userId,int orderStatus) {
+		sql="select o.orderId,a.accomTitle,a.accomAddress,od.bookTime,od.unsubscribeTime,od.fee,od.orderStatus from orders as o inner join accommodation as a on o.accomId=a.accomId inner join orderdetails as od on o.orderId=od.orderId where o.userId=? and od.orderStatus =?";
+		return (List<Orders>)bd.select(sql, Orders.class, userId,orderStatus);
+	}
 }
