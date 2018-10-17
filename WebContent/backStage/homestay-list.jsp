@@ -149,6 +149,7 @@
            				   	<th>民宿具体地址</th>
            				   	<th>发布状态</th>
            				   	<th>居室数</th> 
+           				   	<th>价格</th> 
            				   	<th>房东</th>
            				   	<th>操作</th>
 						</tr>
@@ -494,6 +495,7 @@ function homestay_del(obj,id){
             	}
         }},
         {"data": "houseType"},
+        {"data": "price"},
         {"data": "userName"},
         {    //创建操作那个列
         	"data":"extn",

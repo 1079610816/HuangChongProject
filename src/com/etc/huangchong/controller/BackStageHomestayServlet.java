@@ -57,9 +57,10 @@ public class BackStageHomestayServlet extends HttpServlet {
 			String homestayAddress=request.getParameter("homestayAddress");
 			int homestayStatus=Integer.parseInt(request.getParameter("homestayStatus"));
 			int houseType=Integer.parseInt(request.getParameter("houseType"));
+			double price=Double.parseDouble(request.getParameter("price"));
 			String userName=request.getParameter("userName");
-			Homestay h=new Homestay(homestayId, homestayTitle, homestayIntro, homestayArea, homestayAddress, homestayStatus, houseType, userName);
-			hs.getHomestayUpdate(h);
+			Homestay h=new Homestay(homestayId, homestayTitle, homestayIntro, homestayArea, homestayAddress, homestayStatus, houseType, userName,price);
+			hs.getHomestayUpdate(h); 
 			request.getRequestDispatcher("hs.do?op=homestaylist").forward(request, response);
 		}else if(op.equals("homestayDelete")) {
 			//System.out.println("删除了");
@@ -73,8 +74,9 @@ public class BackStageHomestayServlet extends HttpServlet {
 			String accomAddress=request.getParameter("accomAddress");
 			int accomStatus=Integer.parseInt(request.getParameter("accomStatus"));
 			int houseType=Integer.parseInt(request.getParameter("houseType"));
+			double price=Double.parseDouble(request.getParameter("price"));
 			int userId=Integer.parseInt(request.getParameter("userId"));
-			Homestay h=new Homestay(0, accomTitle, accomIntro, accomArea, accomAddress, accomStatus, houseType, null);
+			Homestay h=new Homestay(0, accomTitle, accomIntro, accomArea, accomAddress, accomStatus, houseType, null, price);
 			hs.getHomestayAdd(h, userId);
 			request.getRequestDispatcher("hs.do?op=homestaylist").forward(request, response);
 		}else if(op.equals("batchDelById")) {
