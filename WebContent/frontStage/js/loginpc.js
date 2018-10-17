@@ -123,15 +123,15 @@ $(document).ready(function() {
 	var loginwait=60;
 	function logintime(){
 		if (loginwait == 0) {
-			$('#getloginphonecode').val("获取验证码");				
-			$('#getloginphonecode').removeClass("sending");
-			$('#getloginphonecode').addClass("defaultsend");
-			changeAuthSrc();
+			$('#getLoginCode').val("获取验证码");				
+			$('#getLoginCode').removeClass("sending");
+			$('#getLoginCode').addClass("defaultsend");
+			changeAuthSrc(1);
 			loginwait =60;
 		} else {
-			$('#getloginphonecode').val(loginwait+"s");
-			$('#getloginphonecode').removeClass("defaultsend");
-			$('#getloginphonecode').addClass("sending");
+			$('#getLoginCode').val(loginwait+"s");
+			$('#getLoginCode').removeClass("defaultsend");
+			$('#getLoginCode').addClass("sending");
 			loginwait--;
 			setTimeout(
 					function() {
@@ -153,53 +153,59 @@ $(document).ready(function() {
 
 	//更新图片验证码		     
 	function changeAuthSrc(type){
-		var randomNum = makeRand();
-		var ctx = $('#ctx').val();
+//		var randomNum = makeRand();
+	//	var ctx = $('#ctx').val();
 		if(type){
-			$("#loginauthimage1").attr("src",ctx+"/common/authimage?random="+randomNum+"&width=130&height=38");
+			$("#validationCode_img1").attr("src","../ValidateCode?" + Math.random());
 		}
-		$("#loginauthimage").attr("src",ctx+"/common/authimage?random="+randomNum+"&width=130&height=38");
+		$("#validationCode_img").attr("src","../ValidateCode?" + Math.random());
 	}
 
 	//点击更新
-	$('#loginauthimage').on('click',function(){
+	$('#validationCode_img').on('click',function(){
 		changeAuthSrc();	  	
 	});
 	//点击更新
-	$('#loginauthimage1').on('click',function(){
+	$('#validationCode_img1').on('click',function(){
 		changeAuthSrc(1);	  	
 	});
 
 	//登陆时获取手机验证码
-	$('#getloginphonecode').click(function(){
-		if($('#getloginphonecode').hasClass("sending")){
+	$('#getLoginCode').click(function(){
+		if($('#getLoginCode').hasClass("sending")){
 			return false;
 		}
-		var val_mobile = $('#loginmobile').val();
-		if(val_mobile==null || val_mobile==""){
+		var telNum = $('#telNum').val();
+		if(telNum==null || telNum==""){
 			layer.alert("请输入手机号！",8,"温馨提示");
 			return false;
 		}
 		var code = $("#code_num").val();
-		var val_imagecode = $('#imagecode').val();
+		var val_imagecode = $('#validationCode1').val();
 		if(val_imagecode!=null&&val_imagecode!=""){
 			var phone_number_regex = /^0?1[3456789]\d{9}$/;
 			if(code != '86' && code != ""){
 				phone_number_regex = /^0?\d{5,11}$/;
 			}
-			if (phone_number_regex.test(val_mobile)) {			      	    
+			if (phone_number_regex.test(telNum)) {			      	    
 				logintime();//加入倒计时
-				var ctx = $('#ctx').val();
-				$.get(ctx+"/mobile/"+val_mobile+"/phonecode.do?imagecode="+val_imagecode+"&areacode="+code+"&imgcodeS=1&codefrom=pclogin",function(re) {
-					if(re.error!=null){							
-						if(re.error.errorCode==1106){
-							layer.alert(re.error.message,8,"温馨提示");
+				//var ctx = $('#ctx').val();
+				$.post("../us.action?op=getByTelNum", "telNum=" + telNum+"&validationCode1="+val_imagecode,function(re) {
+					if(re!=null){	
+						console.log(re);
+						if(re=="1"){
+							layer.alert("短信发送成功",8,"温馨提示");
 							loginwait=60-re.error.second;					
 							return false;
-						}else{							
-							layer.alert(re.error.message,8,"温馨提示");
-							changeAuthSrc();
+						}else if(re=="0"){							
+							layer.alert("短信发送失败",8,"温馨提示");
+							changeAuthSrc(1);
 							loginwait=0;					
+							return false;
+						}else{
+							layer.alert("图形验证码错误，请重新填写！",8,"温馨提示");
+//							changeAuthSrc(1);
+							loginwait=0;
 							return false;
 						}
 					}				
@@ -218,20 +224,39 @@ $(document).ready(function() {
 			return ;
 		}
 		login_flag = true;
-		var ctx = $('#ctx').val();
-		var val_autologin = true;
-		var areacode = '';
-		if(logintype=="up"){
+//		var ctx = $('#ctx').val();
+	/*	var val_autologin = true;
+		var areacode = '';*/
+		/*if(logintype=="up"){
 			val_autologin = $("input[name='rememberpass']").is(':checked'); 
 			if(code_flag == true)areacode = $("#code_num_1").val();
 		}	else if(logintype=="ma"){
 			val_autologin = $("input[name='rememberloginstate']").is(':checked'); 
 			areacode = $("#code_num").val();
+		}*/
+//		var val_imagecode =$('#imagecode').val();
+		if(logintype=="ma"){
+		var	validationCode1 =$('#validationCode1').val();
+		$.post("../us.action?op=loginByMsg", "telNum=" + param1
+				+ "&loginCode=" + param2 + "&validationCode1="
+				+ validationCode1, function(data, status) {
+			console.log(data);
+			if ("3" == data) {
+				window.location.reload();
+			} else if ("2" == data) {
+				alert("用户不存在");
+			} else if ("1" == data) {
+				alert("手机验证码错误！");
+			} else {
+				alert("图形验证码错误！");
+			}
+		});
+		}else{
+			
 		}
-		var val_imagecode =$('#imagecode1').val();
-		if(logintype=="ma")
-			val_imagecode =$('#imagecode').val();
-		$.ajax({
+		
+		
+	/*	$.ajax({
 			url : ctx+"/userlogin.do",
 			type : 'POST',
 			async:true,
@@ -277,26 +302,26 @@ $(document).ready(function() {
 					}
 				}
 			}
-		});
+		});*/
 	}
 
 	//点击手机号输入框	
-	$('#loginmobile').on('click',function(){
+	$('#telNum').on('click',function(){
 		$('#maerrordiv .errorprompt').remove();
 	});	 
 
 	//点击手机验证码输入框	
-	$('#loginphonecode').on('click',function(){
+	$('#loginCode').on('click',function(){
 		$('#maerrordiv .errorprompt').remove();
 	});
 
 	//手机验证码输入框 回车事件
-	$("#loginphonecode").keydown(function(e){
+	$("#loginCode").keydown(function(e){
 		var curKey = e.which; 
 		if(curKey == 13){
-			var mobile = $('#loginmobile').val();
-			var phonecode = $('#loginphonecode').val();
-			var val_imagecode = $('#imagecode').val();
+			var mobile = $('#telNum').val();
+			var phonecode = $('#loginCode').val();
+			var val_imagecode = $('#validationCode1').val();
 			if(val_imagecode==null||val_imagecode==""){
 				$('#maerrordiv .errorprompt').remove();
 				var span = '<span class="errorprompt">验证码不能为空</span>';
@@ -380,10 +405,10 @@ $(document).ready(function() {
 	});
 
 	//手机登陆按钮
-	$('#loginbymado').on('click',function(){
-		var mobile = $('#loginmobile').val();
-		var phonecode = $('#loginphonecode').val();
-		var val_imagecode = $('#imagecode').val();		
+	$('#loginByTelNum').on('click',function(){
+		var mobile = $('#telNum').val();
+		var phonecode = $('#loginCode').val();
+		var val_imagecode = $('#validationCode1').val();		
 		if(mobile==null||mobile==""
 			||phonecode==null||phonecode==""){
 			$('#maerrordiv .errorprompt').remove();
