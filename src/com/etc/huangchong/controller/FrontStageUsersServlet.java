@@ -1,6 +1,8 @@
 package com.etc.huangchong.controller;
 
+import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.OutputStream;
 import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.List;
@@ -17,6 +19,8 @@ import com.etc.huangchong.service.UsersService;
 import com.etc.huangchong.service.impl.UsersServiceImpl;
 import com.etc.huangchong.util.IndustrySMS;
 import com.etc.huangchong.util.MD5Util;
+
+import sun.misc.BASE64Decoder;
 
 /**
  * Servlet implementation class FrontStageUsersServlet
@@ -125,12 +129,12 @@ public class FrontStageUsersServlet extends HttpServlet {
 				} else {
 					// 为空，执行自动增加用户
 					List<String> list=new ArrayList<>();
-					list.add("/HuangChong/../img/head/1.jpg");
-					list.add("/HuangChong/../img/head/2.jpg");
-					list.add("/HuangChong/../img/head/3.jpg");
-					list.add("/HuangChong/../img/head/4.jpg");
-					list.add("/HuangChong/../img/head/5.jpg");
-					boolean flag=us.getAddUsersByTel(telNum,telNum,list.get((int)(Math.random()*5)));
+					list.add("/img/head/1.jpg");
+					list.add("/img/head/2.jpg");
+					list.add("/img/head/3.jpg");
+					list.add("/img/head/4.jpg");
+					list.add("/img/head/5.jpg");
+					boolean flag=us.getAddUsersByTel(telNum,telNum,telNum,list.get((int)(Math.random()*5)));
 					if(flag) {
 						user = us.getLoginByMsg(telNum);
 						session.setAttribute("user", user);
@@ -144,12 +148,39 @@ public class FrontStageUsersServlet extends HttpServlet {
 				// 图形验证码错误
 				out.print("0");
 			}
-			out.close();
 		}else if("loginOut".equals(op)) {
 			HttpSession session = request.getSession();
 			session.invalidate();
 			out.print("success");
+		}else if("upUserInfo".equals(op)) {
+			String nickName=request.getParameter("nickName");
+			String userName=request.getParameter("userName");
+			String base64=request.getParameter("base64");
+			if(!"null".equals(base64) && nickName!=null && userName!=null) {
+				if(!GenerateImage(base64.substring(23), userName)) {
+					out.println("false");
+				}else {
+					if(us.upUserInfo(userName, nickName, "/img/head/"+userName+".jpg")) {
+						out.println("true");
+					}else {
+						out.println("false");
+					}
+				}
+			}else if(nickName!=null && userName!=null){
+				System.out.println(this.getServletConfig().getServletContext().getRealPath("/"));
+				System.out.println(request.getSession().getServletContext().getRealPath(""));
+				System.out.println(request.getRequestURL());
+				System.out.println(request.getRequestURI());
+				if(us.upUserInfo(userName, nickName)) {
+					out.println("true");
+				}else {
+					out.println("false");
+				}
+			}else {
+				out.println("false");
+			}
 		}
+		out.close();
 	}
 
 	/**
@@ -161,5 +192,36 @@ public class FrontStageUsersServlet extends HttpServlet {
 		// TODO Auto-generated method stub
 		doGet(request, response);
 	}
+	
+	//base64字符串转化成图片  
+    public static boolean GenerateImage(String base64,String userName)  
+    {   //对字节数组字符串进行Base64解码并生成图片  
+        if (base64 == null) //图像数据为空  
+            return false;  
+        BASE64Decoder decoder = new BASE64Decoder();  
+        try   
+        {  
+            //Base64解码  
+            byte[] b = decoder.decodeBuffer(base64);  
+            for(int i=0;i<b.length;++i)  
+            {  
+                if(b[i]<0)  
+                {//调整异常数据  
+                    b[i]+=256;  
+                }  
+            }  
+            //生成jpeg图片  D:\eclipse\apache-tomcat-8.5.13\webapps\img\head
+            String imgFilePath = "D:\\eclipse\\apache-tomcat-8.5.13\\webapps\\img\\head\\"+userName+".jpg";//新生成的图片  
+            OutputStream out = new FileOutputStream(imgFilePath);      
+            out.write(b);  
+            out.flush();  
+            out.close();  
+            return true;  
+        }   
+        catch (Exception e)   
+        {  
+            return false;  
+        }  
+    }
 
 }

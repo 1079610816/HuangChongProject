@@ -692,7 +692,7 @@
 										<a href="javascript:searchOrder('','allUserOrders')" target="_self" id="myorder" rel="nofollow" _mayi_rp="webaround|userinfo|order">我的订单</a>
 									</p>
 									<p>
-										<a href="javascript:menufrozen(870177979,'/user/tenant/accountmanager','user')" target="_self" id="myorder" rel="nofollow" class="slideactive" _mayi_rp="webaround|userinfo|account">我的账户</a>
+										<a href="frontStage/userinfo.jsp" target="_self" id="myorder" rel="nofollow" class="slideactive" _mayi_rp="webaround|userinfo|account">我的账户</a>
 									</p>
 									<p class="textCt">
 										<a href="javascript:void(0)" id="loginoutbut" target="_self" class="stclick" clicktag="1_6">退出登录</a>
@@ -956,8 +956,7 @@
 			<div class="personalCenter clearfix ">
 				<ul class="center-sidebar ">
 					<li><a class="slideactive "  href="javascript:searchOrder('','allUserOrders')">订单管理<span class="ddgl_current " ></span></a></li>
-					<li><a    href="/user/tenant/accountmanager ">账户管理<span class="zhgl " ></span></a></li>
-					<li><a    href="/user/tenant/mycollection ">我的收藏<span class="save_Li " ></span></a></li>
+					<li><a    href="frontStage/userinfo.jsp">账户管理<span class="zhgl " ></span></a></li>
 				</ul>
 			<div class="centerCon ">
 				<ul class="centerTab ">
@@ -1014,7 +1013,7 @@
 							</div>
 					    </div>
 					 </div>
-					 </c:forEach>
+				  </c:forEach>
 					 <!-- 订单循环结束 -->
 			</div>
 	</div>

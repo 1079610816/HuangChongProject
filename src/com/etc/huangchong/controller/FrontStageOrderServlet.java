@@ -44,25 +44,32 @@ public class FrontStageOrderServlet extends HttpServlet {
 		switch (op) {
 		case "userAll":
 			orderList=os.queryUserOrder(1);
+			request.setAttribute("orderStatus", orderStatus);
+			request.setAttribute("orderList", orderList);
+			request.getRequestDispatcher("frontStage/ordersinfo.jsp").forward(request, response);
 			break;
 		case "userPayed":
 			//userId=((Users)request.getSession().getAttribute("user")).getUserId();
 			userId=1;
 			orderStatus=Integer.parseInt(request.getParameter("orderStatus"));
 			orderList=os.queryUserOrder(userId,orderStatus);
+			request.setAttribute("orderStatus", orderStatus);
+			request.setAttribute("orderList", orderList);
+			request.getRequestDispatcher("frontStage/ordersinfo.jsp").forward(request, response);
 			break;
 		case "userPaying":
 			//userId=((Users)request.getSession().getAttribute("user")).getUserId();
 			userId=1;
 			orderStatus=Integer.parseInt(request.getParameter("orderStatus"));
 			orderList=os.queryUserOrder(userId,orderStatus);
+			request.setAttribute("orderStatus", orderStatus);
+			request.setAttribute("orderList", orderList);
+			request.getRequestDispatcher("frontStage/ordersinfo.jsp").forward(request, response);
 			break;
 		default:
 			break;
 		}
-		request.setAttribute("orderStatus", orderStatus);
-		request.setAttribute("orderList", orderList);
-		request.getRequestDispatcher("frontStage/ordersinfo.jsp").forward(request, response);
+		
 	}
 
 	/**

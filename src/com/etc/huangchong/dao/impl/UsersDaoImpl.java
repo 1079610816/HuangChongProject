@@ -164,10 +164,24 @@ public class UsersDaoImpl implements UsersDao {
 	 * @return true 增加成功 false 增加失败
 	 */
 	@Override
-	public boolean addUsersByTel(String nickName,String telNum,String imgUrl) {
+	public boolean addUsersByTel(String userName,String nickName,String telNum,String imgUrl) {
 		// TODO Auto-generated method stub
 		String sql = "insert into users(nickName,telNum,imgUrl) values(?,?,?)";
 		int n=BaseDao.execute(sql, telNum,telNum,imgUrl);
+		return n>0;
+	}
+
+	@Override
+	public boolean upUserInfo(String userName, String nickName) {
+		String sql="update users set nickName = ? where userName = ?";
+		int n=BaseDao.execute(sql, nickName,userName);
+		return n>0;
+	}
+
+	@Override
+	public boolean upUserInfo(String userName, String nickName, String headUrl) {
+		String sql="update users set nickName = ?,imgUrl = ? where userName = ?";
+		int n=BaseDao.execute(sql, nickName,headUrl,userName);
 		return n>0;
 	}
 
