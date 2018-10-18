@@ -1898,6 +1898,10 @@
 						<a href="#pingjia" name="pingjia"></a>
 						<div class="pingjia" name="pingjia">
 							<ul class="pingjiaTit no_score clearfloat">
+								<li id="landComment" class="on ping_up"><i>本房源评价（${homestay.commentsum }）</i>
+									<p id="landCommentP" style="display: none;"><span id="ffComment"></span></p>
+								</li>
+								
 								
 							</ul>
 							<!--本房源评价-->
