@@ -116,4 +116,10 @@ public interface UsersService {
 	 * @return true 修改成功  false修改失败
 	 */
 	boolean upUserInfo(String userName,String nickName,String headUrl);
+	/**
+	 * 修改用户密码
+	 * @param userPwd 用户密码
+	 * @return true 修改成功  false修改失败
+	 */
+	boolean upUserPwd(String userName,String userPwd);
 }

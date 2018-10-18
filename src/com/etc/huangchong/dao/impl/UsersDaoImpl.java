@@ -185,4 +185,11 @@ public class UsersDaoImpl implements UsersDao {
 		return n>0;
 	}
 
+	@Override
+	public boolean upUserPwd(String userName,String userPwd) {
+		String sql="update users set userPwd = ? where userName =?";
+		int n =BaseDao.execute(sql,userPwd, userName);
+		return n>0;
+	}
+
 }
