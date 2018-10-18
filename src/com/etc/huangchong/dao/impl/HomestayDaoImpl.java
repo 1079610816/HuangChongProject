@@ -40,6 +40,13 @@ public class HomestayDaoImpl implements HomestayDao {
 		return BaseDao.execute(sql)>0;
 	}
 
+	@Override
+	public Homestay singleHomestay(int id) {
+		String sql="select * from accommodation where accomId = ?";
+		List<Homestay> list=(List<Homestay>)BaseDao.select(sql, Homestay.class, id);
+		return list.get(0);
+	}
+
 	
 
 }

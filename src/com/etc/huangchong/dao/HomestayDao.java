@@ -11,4 +11,5 @@ public interface HomestayDao {
 	boolean homestaydel(int id);
 	boolean homestayAdd(Homestay h,int userId);
 	boolean homestayBatchDel(String sql);
+	Homestay singleHomestay(int id);
 }

@@ -10,4 +10,5 @@ public interface HomestayService {
 	boolean getHomestayDel(int id);
 	boolean getHomestayAdd(Homestay h,int id);
 	boolean getHomestayBatchDel(String sql);
+	Homestay getSingleHomestay(int id);
 }
