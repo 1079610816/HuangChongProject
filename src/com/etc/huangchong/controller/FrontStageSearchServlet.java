@@ -10,7 +10,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.etc.huangchong.entity.Homestay;
+import com.etc.huangchong.service.HomestayService;
 import com.etc.huangchong.service.SearchService;
+import com.etc.huangchong.service.impl.HomestayServiceImpl;
 import com.etc.huangchong.service.impl.SearchServiceImpl;
 import com.etc.huangchong.util.PageData;
 
@@ -20,7 +22,8 @@ import com.etc.huangchong.util.PageData;
 @WebServlet("/ss.action")
 public class FrontStageSearchServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       private SearchService ss = new SearchServiceImpl();
+    private SearchService ss = new SearchServiceImpl();
+    private HomestayService hs=new HomestayServiceImpl();
     /**
      * @see HttpServlet#HttpServlet()
      */
@@ -54,6 +57,14 @@ public class FrontStageSearchServlet extends HttpServlet {
 			PageData pd = ss.getQuerySearchPage(page, pageSize, Area);
 			request.setAttribute("pd", pd);
 			request.getRequestDispatcher("frontStage/SearchAccomodation.jsp").forward(request, response);
+		}else if(op.equals("todetail")) {
+			
+			int accomId=Integer.parseInt(request.getParameter("accomId"));
+			System.out.println(accomId);
+			Homestay h=hs.getSingleHomestay(accomId);
+			System.out.println(h);
+			request.setAttribute("homestay", h);
+			request.getRequestDispatcher("frontStage/detail.jsp").forward(request, response);
 		}
 		
 		
