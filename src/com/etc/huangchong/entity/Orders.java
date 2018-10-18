@@ -7,6 +7,7 @@ public class Orders {
 	private String unsubscribeTime;
 	private double fee;
 	private int orderStatus;
+	private int accomId;
 	private String accomTitle;
 	private String accomAddress;
 	private String userName;
@@ -39,6 +40,12 @@ public class Orders {
 	}
 	public void setOrderStatus(int orderStatus) {
 		this.orderStatus = orderStatus;
+	}
+	public int getAccomId() {
+		return accomId;
+	}
+	public void setAccomId(int accomId) {
+		this.accomId = accomId;
 	}
 	public String getAccomTitle() {
 		return accomTitle;

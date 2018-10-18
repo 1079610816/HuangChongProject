@@ -6,11 +6,11 @@
 	<c:redirect url="index.jsp"></c:redirect>
 </c:if>
 --%>
-<%-- 判断是不是从servlet转发过来,如果不是就跳转到servlet
+<%-- 判断是不是从servlet转发过来,如果不是就跳转到servlet--%>
 <c:if test="${orderList==null}">
-	<c:redirect url="../os.action?op=allUserOrders&userId="${user.userId}></c:redirect>
+	<c:redirect url="../os.action?op=allUserOrders&userId=1"></c:redirect>
 </c:if>
---%>
+
 <c:set var="user" scope="session" value="123"/>
 <!DOCTYPE html>
 <html>
@@ -171,25 +171,8 @@
 		<script type="text/javascript">
 			//初始化样式展示
 			$(function() {
-				var state = "0";
-				if(state == 0) {
-					$("#all").addClass("active");
-				} else if(state == 1) {
-					$("#confirm").addClass("active");
-				} else if(state == 2) {
-					$("#paying").addClass("active");
-				} else if(state == 3) {
-					$("#payed").addClass("active");
-				} else if(state == 6) {
-					var state_type = "0";
-					if(state_type == 6) {
-						$("#refund").addClass("active");
-					} else if(state_type == 2) {
-						$("#invalid").addClass("active");
-					}
-				}
+				
 				$(".MtList").show();
-				$("#state").val(state);
 				$("#state_type").val("0");
 			});
 
@@ -328,7 +311,7 @@
 
 			//查询订单
 			function searchOrder(state,op) {
-				var url = "../servlet?op=" +op+ "&orderStatus="+state;
+				var url = "os.action?op=" +op+ "&orderStatus="+state;
 				window.location.href = url;
 			}
 
@@ -706,7 +689,7 @@
 							<div class="head_pop">
 								<div class="pop_column">
 									<p>
-										<a href="javascript:searchOrder('','all')" target="_self" id="myorder" rel="nofollow" _mayi_rp="webaround|userinfo|order">我的订单</a>
+										<a href="javascript:searchOrder('','allUserOrders')" target="_self" id="myorder" rel="nofollow" _mayi_rp="webaround|userinfo|order">我的订单</a>
 									</p>
 									<p>
 										<a href="javascript:menufrozen(870177979,'/user/tenant/accountmanager','user')" target="_self" id="myorder" rel="nofollow" class="slideactive" _mayi_rp="webaround|userinfo|account">我的账户</a>
@@ -972,7 +955,7 @@
 			</ul> 
 			<div class="personalCenter clearfix ">
 				<ul class="center-sidebar ">
-					<li><a class="slideactive "  href="javascript:searchOrder('','all')">订单管理<span class="ddgl_current " ></span></a></li>
+					<li><a class="slideactive "  href="javascript:searchOrder('','allUserOrders')">订单管理<span class="ddgl_current " ></span></a></li>
 					<li><a    href="/user/tenant/accountmanager ">账户管理<span class="zhgl " ></span></a></li>
 					<li><a    href="/user/tenant/mycollection ">我的收藏<span class="save_Li " ></span></a></li>
 				</ul>
@@ -980,11 +963,22 @@
 				<ul class="centerTab ">
 					<input type="hidden " id="state "/>
 					<input type="hidden " id="state_type "/>
-					<li id="all" onclick="searchOrder('','all') " class="active">全部订单</li>
+					<li id="all" onclick="searchOrder('2','allUserOrders')">全部订单</li>
 					<li id="payed" onclick="searchOrder('0','payed') " >待支付</li>
 					<li id="paying" onclick="searchOrder('1','paying') ">已支付</li>
 				</ul>
-<div class="accountMt clearfix ">
+				
+				<script>
+				//设置激活状态
+					if(${orderStatus==0}){
+						 $("#payed").addClass("active");
+					}else if(${orderStatus==1}){
+						$("#paying").addClass("active");
+					}else{
+						$("#all").addClass("active");
+					}
+				</script>
+	<div class="accountMt clearfix ">
 			<div class="MtList pd00 ">
 			<!-- 订单循环显示 -->
 				<c:forEach items="${orderList}" var="o">
@@ -996,7 +990,7 @@
 						</div>
 						<div class="order-con clearfix ">
 							<div class="order-img ">
-								<a href="http://www.mayi.com/room/851850411 " rel="nofollow "><img src="https://i1.mayi.com/mayi99/M61/OE/FP/XQMDCSL8A2P5AR8GFQ7LMLPYQLXUWB.jpg_110x110c.jpg " alt=" "/></a>
+								<a href="http://www.mayi.com/room/851850411 " rel="nofollow "><img src="${pageContext.request.contextPath }/../img/${o.accomId }/Head.jpg" width="112" height="112" alt=" " /></a>
 							</div>
 							<div class="order-title ">
 								<h2><a href="http://www.mayi.com/room/851850411 ">${o.accomTitle}</a></h2>
@@ -1013,10 +1007,10 @@
 								<p class="feedbackp mgtp30 ">
 									<span class="feedback">${o.orderStatus == 0 ? "未付款" : o.orderStatus == 1?"已付款":"交易失败" }  </span>
 								</p>
-								<p class="feedbackp "><a href="/tenant/870177979/order/857507649?state=0&state_type=0 ">订单详情</a></p>
+								<p class="feedbackp "><a href="javascript:void(0)">订单详情</a></p>
 							</div>
 							<div class="order-handle " style="overflow:visible;position:relative; ">
-    	  	    <p class="textcenter " style="line-height:111px; "><a class="blue " href="http://www.mayi.com/room/851850411 ">重新下单</a></p>
+    	  	    				<p class="textcenter " style="line-height:111px; "><a class="blue " href="javascript:void(0)">评价</a></p>
 							</div>
 					    </div>
 					 </div>

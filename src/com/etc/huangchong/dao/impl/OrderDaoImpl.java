@@ -107,12 +107,12 @@ public class OrderDaoImpl implements OrderDao {
 	 */
 	@Override
 	public List<Orders> queryUserOrder(int userId) {
-		sql="select o.orderId,a.accomTitle,a.accomAddress,od.bookTime,od.unsubscribeTime,od.fee,od.orderStatus from orders as o inner join accommodation as a on o.accomId=a.accomId inner join orderdetails as od on o.orderId=od.orderId where o.userId=?";
+		sql="select o.orderId,a.accomId,a.accomTitle,a.accomAddress,od.bookTime,od.unsubscribeTime,od.fee,od.orderStatus from orders as o inner join accommodation as a on o.accomId=a.accomId inner join orderdetails as od on o.orderId=od.orderId where o.userId=?";
 		return (List<Orders>)bd.select(sql, Orders.class, userId);
 	}
 	@Override
 	public List<Orders> queryUserOrder(int userId,int orderStatus) {
-		sql="select o.orderId,a.accomTitle,a.accomAddress,od.bookTime,od.unsubscribeTime,od.fee,od.orderStatus from orders as o inner join accommodation as a on o.accomId=a.accomId inner join orderdetails as od on o.orderId=od.orderId where o.userId=? and od.orderStatus =?";
+		sql="select o.orderId,a.accomId,a.accomTitle,a.accomAddress,od.bookTime,od.unsubscribeTime,od.fee,od.orderStatus from orders as o inner join accommodation as a on o.accomId=a.accomId inner join orderdetails as od on o.orderId=od.orderId where o.userId=? and od.orderStatus =?";
 		return (List<Orders>)bd.select(sql, Orders.class, userId,orderStatus);
 	}
 }

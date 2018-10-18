@@ -18,13 +18,13 @@ import com.etc.huangchong.service.impl.OrderServiceImpl;
  * Servlet implementation class OrderServlet
  */
 @WebServlet("/os.action")
-public class FrontOrderServlet extends HttpServlet {
+public class FrontStageOrderServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private OrderService os = new OrderServiceImpl();
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public FrontOrderServlet() {
+    public FrontStageOrderServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -37,29 +37,30 @@ public class FrontOrderServlet extends HttpServlet {
 		// 设置请求编码和响应编码
 		request.setCharacterEncoding("utf-8");
 		response.setCharacterEncoding("utf-8");
-		//String op=request.getParameter("op");
-		String op="allUserOrders";
+		String op=request.getParameter("op");
 		List<Orders> orderList=null;
 		int userId;
-		int orderStatus;
+		int orderStatus=2;
 		switch (op) {
-		case "allUserOrders":
-			//int userId=Integer.parseInt(request.getParameter("op"));
+		case "userAll":
 			orderList=os.queryUserOrder(1);
 			break;
-		case "payed":
-			userId=((Users)request.getSession().getAttribute("user")).getUserId();
+		case "userPayed":
+			//userId=((Users)request.getSession().getAttribute("user")).getUserId();
+			userId=1;
 			orderStatus=Integer.parseInt(request.getParameter("orderStatus"));
 			orderList=os.queryUserOrder(userId,orderStatus);
 			break;
-		case "paying":
-			userId=((Users)request.getSession().getAttribute("user")).getUserId();
+		case "userPaying":
+			//userId=((Users)request.getSession().getAttribute("user")).getUserId();
+			userId=1;
 			orderStatus=Integer.parseInt(request.getParameter("orderStatus"));
 			orderList=os.queryUserOrder(userId,orderStatus);
 			break;
 		default:
 			break;
 		}
+		request.setAttribute("orderStatus", orderStatus);
 		request.setAttribute("orderList", orderList);
 		request.getRequestDispatcher("frontStage/ordersinfo.jsp").forward(request, response);
 	}
