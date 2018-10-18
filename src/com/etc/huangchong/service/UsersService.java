@@ -100,5 +100,5 @@ public interface UsersService {
 	 *            手机号
 	 * @return true 增加成功 false 增加失败
 	 */
-	boolean getAddUsersByTel(String telNum);
+	boolean getAddUsersByTel(String nickName,String telNum,String imgUrl);
 }
