@@ -95,5 +95,5 @@ public interface UsersDao {
 	 *            手机号
 	 * @return true 增加成功 false 增加失败
 	 */
-	boolean addUsersByTel(String telNum);
+	boolean addUsersByTel(String nickName,String telNum,String imgUrl);
 }

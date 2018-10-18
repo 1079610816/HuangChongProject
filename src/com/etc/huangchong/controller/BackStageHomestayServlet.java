@@ -87,7 +87,7 @@ public class BackStageHomestayServlet extends HttpServlet {
 			//循环拼接ID
 			for (String string : accomId) {
 				sql+=string+",";
-			}
+			} 
 			//最后的SQL语句
 			sql=sql.substring(0,sql.lastIndexOf(","))+")";
 			boolean flag=hs.getHomestayBatchDel(sql);

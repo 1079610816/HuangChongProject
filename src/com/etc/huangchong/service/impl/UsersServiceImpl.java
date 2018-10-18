@@ -132,9 +132,9 @@ public class UsersServiceImpl implements UsersService {
 	}
 
 	@Override
-	public boolean getAddUsersByTel(String telNum) {
+	public boolean getAddUsersByTel(String nickName,String telNum,String imgUrl) {
 		// TODO Auto-generated method stub
-		return ud.addUsersByTel(telNum);
+		return ud.addUsersByTel(nickName,telNum,imgUrl);
 	}
 
 }

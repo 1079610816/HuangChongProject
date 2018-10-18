@@ -2,6 +2,8 @@ package com.etc.huangchong.controller;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -122,8 +124,16 @@ public class FrontStageUsersServlet extends HttpServlet {
 					out.print("3");
 				} else {
 					// 为空，执行自动增加用户
-					boolean flag=us.getAddUsersByTel(telNum);
+					List<String> list=new ArrayList<>();
+					list.add("/HuangChong/../img/head/1.jpg");
+					list.add("/HuangChong/../img/head/2.jpg");
+					list.add("/HuangChong/../img/head/3.jpg");
+					list.add("/HuangChong/../img/head/4.jpg");
+					list.add("/HuangChong/../img/head/5.jpg");
+					boolean flag=us.getAddUsersByTel(telNum,telNum,list.get((int)(Math.random()*5)));
 					if(flag) {
+						user = us.getLoginByMsg(telNum);
+						session.setAttribute("user", user);
 					   out.print("2");
 					}
 				}

@@ -309,66 +309,15 @@
 						<!-- 热门目的地的内容-->
 						<ul class="select-citycon clearfloat tab-content"
 							id="cityselectul" name="cityselectul">
-							<li class="citylili"><a class="cityselecta"
-								href="javascript:void(0)" cityname="北京" citypinyin="beijing">北京</a>
-							</li>
-							<li class="citylili"><a class="cityselecta"
-								href="javascript:void(0)" cityname="上海" citypinyin="shanghai">上海</a>
-							</li>
-							<li class="citylili"><a class="cityselecta"
-								href="javascript:void(0)" cityname="广州" citypinyin="guangzhou">广州</a>
-							</li>
-							<li class="citylili"><a class="cityselecta"
-								href="javascript:void(0)" cityname="深圳" citypinyin="shenzhen">深圳</a>
-							</li>
-							<li class="citylili"><a class="cityselecta"
-								href="javascript:void(0)" cityname="三亚" citypinyin="sanya">三亚</a>
-							</li>
-							<li class="citylili"><a class="cityselecta"
-								href="javascript:void(0)" cityname="成都" citypinyin="chengdu">成都</a>
-							</li>
-							<li class="citylili"><a class="cityselecta"
-								href="javascript:void(0)" cityname="武汉" citypinyin="wuhan">武汉</a>
-							</li>
-							<li class="citylili"><a class="cityselecta"
-								href="javascript:void(0)" cityname="南京" citypinyin="nanjing">南京</a>
-							</li>
-							<li class="citylili"><a class="cityselecta"
-								href="javascript:void(0)" cityname="重庆" citypinyin="chongqing">重庆</a>
-							</li>
-							<li class="citylili"><a class="cityselecta"
-								href="javascript:void(0)" cityname="杭州" citypinyin="hangzhou">杭州</a>
-							</li>
-							<li class="citylili"><a class="cityselecta"
-								href="javascript:void(0)" cityname="香港" citypinyin="xianggang">香港</a>
-							</li>
-							<li class="citylili"><a class="cityselecta"
-								href="javascript:void(0)" cityname="厦门" citypinyin="xiamen">厦门</a>
-							</li>
-							<li class="citylili"><a class="cityselecta"
-								href="javascript:void(0)" cityname="西安" citypinyin="xian">西安</a>
-							</li>
-							<li class="citylili"><a class="cityselecta"
-								href="javascript:void(0)" cityname="长沙" citypinyin="changsha">长沙</a>
-							</li>
-							<li class="citylili"><a class="cityselecta"
-								href="javascript:void(0)" cityname="苏州" citypinyin="suzhou">苏州</a>
-							</li>
-							<li class="citylili"><a class="cityselecta"
-								href="javascript:void(0)" cityname="桂林.阳朔" citypinyin="guilin">桂林.阳朔</a>
-							</li>
-							<li class="citylili"><a class="cityselecta"
-								href="javascript:void(0)" cityname="昆明" citypinyin="kunming">昆明</a>
-							</li>
-							<li class="citylili"><a class="cityselecta"
-								href="javascript:void(0)" cityname="沈阳" citypinyin="shenyang">沈阳</a>
-							</li>
-							<li class="citylili"><a class="cityselecta"
-								href="javascript:void(0)" cityname="天津" citypinyin="tianjin">天津</a>
-							</li>
-							<li class="citylili"><a class="cityselecta"
-								href="javascript:void(0)" cityname="哈尔滨" citypinyin="haerbin">哈尔滨</a>
-							</li>
+							<li class="citylili"><a class="cityselecta" href="javascript:void(0)">厦门</a></li>
+							<li class="citylili"><a class="cityselecta" href="javascript:void(0)">福州</a></li>
+							<li class="citylili"><a class="cityselecta" href="javascript:void(0)">泉州</a></li>
+							<li class="citylili"><a class="cityselecta" href="javascript:void(0)">漳州</a></li>
+							<li class="citylili"><a class="cityselecta" href="javascript:void(0)">宁德</a></li>
+							<li class="citylili"><a class="cityselecta" href="javascript:void(0)">三明</a></li>
+							<li class="citylili"><a class="cityselecta" href="javascript:void(0)">莆田</a></li>
+							<li class="citylili"><a class="cityselecta" href="javascript:void(0)">龙岩</a></li>
+							<li class="citylili"><a class="cityselecta" href="javascript:void(0)">南平</a></li>
 						</ul>
 						<div class="hotmore  hint f12 c_gray">温馨提示：支持中文/拼音/简拼输入</div>
 					</div>
@@ -655,7 +604,7 @@
 											<a href="javascript:void(0)" class="change-prev"
 												style="display: none;" data="851953993"
 												mainImage="${pageContext.request.contextPath}/../img/${s.accomId}/Head.jpg"></a>
-											<a href="room.html" onClick="goDetail(this)" target="_blank">
+											<a href="../HuangChongProject/ss.action?op=todetail&accomId=${s.accomId }" onClick="goDetail(this)" target="_blank">
 												<img class="roomMap851953993" style="display: none" /> <img
 												id="851953993" class="lazy lodgelazy"
 												title="${s.accomTitle}"
@@ -686,7 +635,7 @@
 											width="46" heigth="46" alt="房东头像" /></b>
 									</a>
 								</div>
-								<a href="/room/851953993" title="${s.accomTitle}"
+								<a href="../HuangChongProject/ss.action?op=todetail&accomId=${s.accomId }" title="${s.accomTitle}"
 									onClick="goDetail(this)" target="_blank"
 									style="position: relative;">
 									<div class="room-detail  clearfloat" style="height: 88px;">
@@ -857,121 +806,125 @@
 		</div>
 	</div>
 </div>
+
 <!-- 登录弹窗 -->
-<!-- 登录弹窗 -->
-<div class="loginbox" id="loginboxdiv" nexturl="none" name="loginboxdiv"
-	style="display: none;">
-	<a class="login-colse" id="loginclose" name="loginclose" onClick=""
-		href="javascript:void(0)"></a>
-	<div class="login-ways clearfloat">
-		<div class="fl phone-account">
-			<ul class="c322c27 clearfloat f18">
-				<li class="phoneway_current" id="changeloginbyma">手机验证码登录</li>
-				<li class="mayiway" id="changeloginbyup">帐号密码登录</li>
-			</ul>
-			<div class="login-phone-account">
-				<!-- 手机登陆 -->
-				<div class="login-input" id="loginbymadiv" name="loginbymadiv">
-					<input type="hidden" id="li_num" value="0"> <input
-						type="hidden" id="code_num" value="86">
-							<div class="input">
-								<span class="phone-icon"></span> <input class="dlargeinput"
-									type="text" id="loginmobile" name="loginmobile"
-									placeholder="手机号" value="" id="introduce"
-									onafterpaste="mobileRepAndSetPos(this,/[^\d.]/g,'')"
-									onkeyup="mobileRepAndSetPos(this,/[^\d.]/g,'')" maxlength="11" />
+	<div class="loginbox" id="loginboxdiv" nexturl="none"
+		name="loginboxdiv" style="display: none;">
+		<a class="login-colse" id="loginclose" name="loginclose" onClick=""
+			href="javascript:void(0)"></a>
+		<div class="login-ways clearfloat">
+			<div class="fl phone-account">
+				<ul class="c322c27 clearfloat f18">
+					<li class="phoneway_current" id="changeloginbyma">手机验证码登录</li>
+					<li class="mayiway" id="changeloginbyup">帐号密码登录</li>
+				</ul>
+				<div class="login-phone-account">
+					<!-- 手机登陆 -->
+					<div class="login-input" id="loginbymadiv" name="loginbymadiv">
+						<input type="hidden" id="li_num" value="0"> <input
+							type="hidden" id="code_num" value="86">
+						<div class="input">
+							<span class="phone-icon"></span> 
+							<input class="dlargeinput"
+								type="text" id="telNum" name="telNum" placeholder="手机号" value=""
+								id="introduce"
+								onafterpaste="mobileRepAndSetPos(this,/[^\d.]/g,'')"
+								onkeyup="mobileRepAndSetPos(this,/[^\d.]/g,'')" maxlength="11" />
+						</div>
+						<div class="largeinputbox small-top clearfix">
+							<div class="dinput fl">
+								<span class="verification-icon"></span> <input
+									class="dsmallinput" type="text" id="validationCode1"
+									placeholder="图形验证码" value="" />
 							</div>
-							<div class="largeinputbox small-top clearfix">
-								<div class="dinput fl">
-									<span class="verification-icon"></span> <input
-										class="dsmallinput" type="text" id="imagecode"
-										placeholder="图形验证码" value="" />
-								</div>
-								<div class="yz-code fr">
-									<img src="" id="loginauthimage" title="点击刷新" />
-								</div>
+							<div class="yz-code fr">
+								<img id="validationCode_img1" alt="点击刷新" title="点击刷新"
+									src="" width=130px height=38>
 							</div>
-							<div class="largeinputbox small-top clearfix" id="maerrordiv">
-								<div class="dinput fl" id="maerrordiv">
-									<span class="password-icon"></span> <input class="dsmallinput"
-										type="text" id="loginphonecode" name="loginphonecode"
-										placeholder="短信验证码" value="" />
-								</div>
-								<div class="yz-code fr">
-									<input class="sendnumber defaultsend" type="button"
-										id="getloginphonecode" name="getloginphonecode" value="获取验证码" />
-								</div>
+						</div>
+						<div class="largeinputbox small-top clearfix" id="maerrordiv">
+							<div class="dinput fl" id="maerrordiv">
+								<span class="password-icon"></span> <input class="dsmallinput"
+									type="text" id="loginCode" name="loginCode" placeholder="短信验证码"
+									value="" />
 							</div>
-							<div class="logincheckbox large-top clearfix">
-								<label class="fl"> <input class="selectcheckbox"
-									type="checkbox" name="rememberloginstate" checked="checked"
-									value="" />自动登录
-								</label>
+							<div class="yz-code fr">
+								<input class="sendnumber defaultsend" type="button"
+									id="getLoginCode" name="getLoginCode" value="获取验证码" />
 							</div>
-							<div class="logincheckbox large-top clearfix">
-								<font>未注册的手机号将自动创建为黄虫短租帐户</font>
+						</div>
+						<div class="logincheckbox large-top clearfix">
+							<label class="fl"> <input class="selectcheckbox"
+								type="checkbox" name="rememberloginstate" checked="checked"
+								value="" />自动登录
+							</label>
+						</div>
+						<div class="logincheckbox large-top clearfix">
+							<font>未注册的手机号将自动创建为黄虫短租帐户</font>
+						</div>
+						<div class="btn-wrap btnpdt20">
+							<a href="javascript:void(0)" id="loginByTelNum">登录</a>
+						</div>
+					</div>
+					<!-- 手机登陆 end  -->
+
+					<!-- 密码登陆 start -->
+					<div class="login-input" id="loginbyupdiv" name="loginbyupdiv"
+						style="display: none;">
+						<div class="input">
+							<span class="user-icon"></span> <input class="dlargeinput"
+								type="text" id="userName" name="userName" placeholder="手机号/账号"
+								value="" autocomplete="off" />
+						</div>
+						<div class="input small-top">
+							<span class="password-icon"></span> <input class="dlargeinput"
+								type="password" id="userPwd" name="userPwd" placeholder="密码"
+								value="" />
+						</div>
+						<div class="largeinputbox small-top clearfix" id="uperrordiv">
+							<div class="dinput fl" id="yui_3_5_1_1_1434542056373_108">
+								<span class="verification-icon"></span> <input type="text"
+									class="dsmallinput" id="validationCode" placeholder="图形验证码"
+									value="">
 							</div>
-							<div class="btn-wrap btnpdt20">
-								<a href="javascript:void(0)" id="loginbymado">登录</a>
+							<div class="yz-code fr">
+								<img id="validationCode_img" alt="点击刷新" title="点击刷新"
+									src="" width=130px height=38>
 							</div>
+						</div>
+						<div class="logincheckbox large-top clearfix">
+							<label class="fl"> <input class="selectcheckbox"
+								type="checkbox" name="rememberpass" checked="checked" value="" />自动登录
+							</label>
+						</div>
+						<div class="btn-wrap btnpdt20">
+							<a href="javascript:void(0)" id="loginByPassword"
+								_mayi_rp="web|condition|loginc">登录</a>
+						</div>
+						<p class="otherwaytitle mt20">
+							没有账号密码请 <a href="javascript:void(0)" id="changeloginbymwa">使用手机验证码登录</a>
+						</p>
+					</div>
+					<!-- 密码登陆 end -->
+
+
 				</div>
-				<!-- 手机登陆 end  -->
-				<!-- 密码登陆 start -->
-				<div class="login-input" id="loginbyupdiv" name="loginbyupdiv"
-					style="display: none;">
-					<input type="hidden" id="li_num_1" value="0"> <input
-						type="hidden" id="code_num_1" value="86">
-							<div class="input">
-								<span class="user-icon"></span> <input class="dlargeinput"
-									type="text" id="loginnamein" name="loginnamein"
-									placeholder="手机号/邮箱/账号" value="" autocomplete="off" />
-							</div>
-							<div class="input small-top">
-								<span class="password-icon"></span> <input class="dlargeinput"
-									type="password" id="loginpassin" name="loginpassin"
-									placeholder="密码" value="" />
-							</div>
-							<div class="largeinputbox small-top clearfix" id="uperrordiv">
-								<div class="dinput fl" id="yui_3_5_1_1_1434542056373_108">
-									<span class="verification-icon"></span> <input type="text"
-										class="dsmallinput" id="imagecode1" placeholder="图形验证码"
-										value="">
-								</div>
-								<div class="yz-code fr">
-									<img src="" id="loginauthimage1" title="点击刷新">
-								</div>
-							</div>
-							<div class="logincheckbox large-top clearfix">
-								<label class="fl"> <input class="selectcheckbox"
-									type="checkbox" name="rememberpass" checked="checked" value="" />自动登录
-								</label>
-							</div>
-							<div class="btn-wrap btnpdt20">
-								<a href="javascript:void(0)" id="loginbyupdo"
-									_mayi_rp="web|condition|loginc">登录</a>
-							</div>
-							<p class="otherwaytitle mt20">
-								没有账号密码请 <a href="javascript:void(0)" id="changeloginbymwa">使用手机验证码登录</a>
-							</p>
-				</div>
-				<!-- 密码登陆 end -->
+			</div>
+			<div class="fl t-center third-party">
+				<h3 class="f16 mb10">关注我们</h3>
+				<img src="img/loginewm.jpg" style="width: 200px; height: 200px;">
 			</div>
 		</div>
-		<div class="fl t-center third-party">
-			<h3 class="f16 mb10">关注我们</h3>
-			<img src="img/loginewm.jpg" style="width: 200px; height: 200px;">
-		</div>
 	</div>
-</div>
-<!-- 登录弹窗 END -->
-<!-- 登录弹窗 END -->
+
+	<!-- 登录弹窗 END -->
+
 <!--公共尾部结束-->
 <script type="text/javascript"
 	src="//staticnew.mayi.com/resourcesWeb/js/layer/layer.min.js"></script>
 <script type="text/javascript"
 	src="//staticnew.mayi.com/resourcesWeb/js/jQuery.md5.js"></script>
-<script type="text/javascript"
-	src="//staticnew.mayi.com/resourcesWeb/js/loginpc.js"></script>
+<script src="js/loginpc.js" type="text/javascript" charset="utf-8"></script>
 
 <script type="text/javascript">
 	$(document).ready(
@@ -1514,5 +1467,39 @@
 		}
 	})
 </script>
-
+<script type="text/javascript">
+	
+	$(".help").mouseover(function () {
+		$("#helpUser").css("display","block");
+	});
+	$(".help").mouseout(function () {
+		$("#helpUser").css("display","none");
+	});
+	
+	$(".Service").mouseover(function () {
+		$("#Service").css("display","block");
+	});
+	$(".Service").mouseout(function () {
+		$("#Service").css("display","none");
+	});
+	if(${user!=null}){
+		$("#loginshow").css("display","none");
+		$(".login-info").css("display","block");
+		
+		$(".user-action").mouseover(function () {
+			$("#info").css("display","block");
+		});
+		$(".user-action").mouseout(function () {
+			$("#info").css("display","none");
+		});
+			 
+	}else{
+		$("#loginshow").css("display","block");
+	}
+	
+	
+	function fdMenu () {	
+			$("#fangdong").css("display","block");
+	}
+	</script>
 </html>
