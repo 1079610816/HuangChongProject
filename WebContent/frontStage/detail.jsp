@@ -2,6 +2,7 @@
     pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 	<html xmlns:wb="http://open.weibo.com/wb">
 
 	<head>
@@ -1597,8 +1598,6 @@
 										<br>
 									</div>
 									
-									<a href="javascript:;" class="more_Instro relave" style="display:none"><span></span> 更多交通、周边、房客守则
-										<i class='absot more_btn'></i></a>
 								</div>
 							</div>
 							<!--基本信息-->
@@ -1898,18 +1897,53 @@
 						<a href="#pingjia" name="pingjia"></a>
 						<div class="pingjia" name="pingjia">
 							<ul class="pingjiaTit no_score clearfloat">
-								<li id="landComment" class="on ping_up"><i>本房源评价（${homestay.commentsum }）</i>
+								<li id="landComment" class="on ping_up"><i>本房源评价（${requestScope.commentSum}）</i>
 									<p id="landCommentP" style="display: none;"><span id="ffComment"></span></p>
 								</li>
 								
 								
 							</ul>
-							<!--本房源评价-->
-							<div class="attached" id="contact_roomer">
-								<div class="score" style="display:none;" id="lodge_score"></div>
-								<!--本房源评价End-->
-								<div id='lodgeunitPJ_cnt'></div>
-							</div>
+					
+					<div class="attached" id="contact_roomer">
+								<!--本房源评价（评分、满意度）-->
+								<div class="score" style="display:none;" id="lodge_score">
+									
+								</div>
+								<!--本房源评价（评分、满意度）End-->
+								
+								<!--本房源客户评价-->
+								<div id="lodgeunitPJ_cnt">
+	<c:forEach items="${requestScope.list}" var="show">
+	<div class="pingjiaDes clearfloat">
+		<div class="roomer_photo fl">
+			<img src="//i1.mayi.com//mayi26/M53/WN/IK/FJUT8NVVNAHDLYQPB8SHVVWUM7YM49.jpg_54x54c.jpg" alt=""><span>${show.nickName}</span>
+		</div>
+		<div id="houseDes" class="fl">
+			<div class="pingjia_tiao relave">
+				<div class="des">
+					<div class="pingjia_cnt1">${show.content}
+					</div>
+
+				</div>
+			</div>
+		</div>
+	</div>
+	</c:forEach>
+
+	<div class="page_turn" id="lodgeunitPJ_cntpage">
+		<a class="pg-active" href="javascript:loadPageComment('1','1')" rel="nofollow">1</a>
+		<a class="" href="javascript:loadPageComment('2','1')" rel="nofollow">2</a>
+		<a class="" href="javascript:loadPageComment('3','1')" rel="nofollow">3</a>
+		<a class="" href="javascript:loadPageComment('4','1')" rel="nofollow">4</a>
+		<a class="" href="javascript:loadPageComment('5','1')" rel="nofollow">5</a>
+		<a href="javascript:loadPageComment('2','1')" rel="nofollow" class="up-page">&gt;</a>
+	</div>
+</div>
+</div>
+								
+								<!--本房源客户评价结束-->
+
+																	
 
 							<!--房东收到的所有房源评价-->
 							<div class="attached" id="attached_home02">
@@ -1918,7 +1952,7 @@
 								<div id='lordPJ_cnt'></div>
 								<!--房源评价结束-->
 							</div>
-						</div>
+					</div>
 					</div>
 				</div>
 				<!-- 详情页第三部分结束 -->
