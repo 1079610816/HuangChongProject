@@ -20,11 +20,13 @@
 		<script type="text/javascript" src="//staticnew.mayi.com/resourcesWeb/js/jquery-1.9.1.min.js"></script>
 		<script type="text/javascript" language="javascript">
 			$(function() {
-				m = {
-					roomid: '852883945',
-					minday: '1',
-					detialJson: '{"from":2,"checkinOfWeek":"周五","checkoutOfWeek":"周三","promotionModel":{"accountEntityList":[],"userCouponEntityList":[]},"checkinday":"'+${requestScope.inday}+'","checkoutday":"'+${requestScope.outday}+'","showtotalprice":'+${requestScope.totalPrice}+',"payRuleRate":100,"allrefundday":"2018-10-16","specialdiscount":true,"refundRullno":"退款政策：下单后取消订单，将收取未住房费的50%作为违约金支付给房东。","totalPrice":131100,"nights":5,"onlinePayAmount":1311.0,"originalPrice":1311.0,"onlineAmount":131100,"priceDetailModel":{"showtotalPrice":1311.0,"sum":131100,"items":[{"type":10,"date":"2018-10-19","price":39900,"dayAmount":399.0,"priceShow":399.0,"weekNum":5,"originalPrice":399},{"type":10,"date":"2018-10-20","price":22800,"dayAmount":228.0,"priceShow":228.0,"weekNum":6,"originalPrice":228},{"type":10,"date":"2018-10-21","price":22800,"dayAmount":228.0,"priceShow":228.0,"originalPrice":228},{"type":10,"date":"2018-10-22","price":22800,"dayAmount":228.0,"priceShow":228.0,"weekNum":1,"originalPrice":228},{"type":10,"date":"2018-10-23","price":22800,"dayAmount":228.0,"priceShow":228.0,"weekNum":2,"originalPrice":228}]},"roomNum":1,"haveStock":1}'
-				};
+				 m={
+					        roomid:'851519508',
+					   	 	minday:'1',
+					    	detialJson:'{"from":2,"checkinOfWeek":"${checkinOfWeek}","checkoutOfWeek":"${checkoutOfWeek}","promotionModel":{"accountEntityList":[],"userCouponEntityList":[]},"checkinday":"${requestScope.inday}","checkoutday":"${requestScope.outday}","showtotalprice":${price*nights},"payRuleRate":100,"refunddays":1007,"allrefundday":"2018-10-03","specialdiscount":true,"deposit":30000,"refundRullno":"退款政策：下单后取消订单，将收取未住房费的50%作为违约金支付给房东。","totalPrice":${price*nights},"nights":${nights},"onlinePayAmount":${price*nights},"originalPrice":${price*nights},"onlineAmount":${price*nights},"priceDetailModel":{"showtotalPrice":${price*nights},"sum":${price*nights},"items":[{"type":10,"date":"2018-10-18","price":${price},"dayAmount":${price},"priceShow":${price},"weekNum":4,"originalPrice":${price}}]},"roomNum":1,"haveStock":1}'
+					    };
+
+
 				
 				$('.App_download').mouseover(function() {
 					$(this).find('.order_head_pop').show();
@@ -2204,7 +2206,7 @@
 		<input type="hidden" name="loginurl" id="loginurl" value="none" />
 		<input type="hidden" name="head_userName" id="head_userName" value="">
 		<script type='text/javascript' src='//webchat.7moor.com/javascripts/7moorInit.js?accessId=73859f20-f357-11e6-b43e-3b18b16942dc&autoShow=false' async='async'></script>
-		<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+		<!-- <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 		<html xmlns="http://www.w3.org/1999/xhtml">
 		<html xmlns:wb="http://open.weibo.com/wb">
 
@@ -2215,7 +2217,7 @@
 		<body>
 		</body>
 
-		</html>
+		</html> -->
 		
 		<!--header-->
 
@@ -2294,7 +2296,7 @@
 							<div class='fl bt-border'>
 								<dl class='cnt1_dl clearfloat mt15'>
 									<dt class='fl'>预订日期</dt>
-									<dd class='fl roomer_cnt'><input type="text" readonly="readonly" id="checkinday" class='date1' value='' autocomplete="off" /><span id="checkinOfWeek"></span>&nbsp;&nbsp;至&nbsp;&nbsp;<input type="text" readonly="readonly" id="checkoutday" class='date2' value='' autocomplete="off" /><span id="checkoutOfWeek"></span>&nbsp;&nbsp;&nbsp;&nbsp;共<span id='nights'></span>晚
+									<dd class='fl roomer_cnt'><input type="text" readonly="" id="checkinday" class='date1' value='' autocomplete="off" /><span id="checkinOfWeek"></span>&nbsp;&nbsp;至&nbsp;&nbsp;<input type="text" readonly="" id="checkoutday" class='date2' value='' autocomplete="off" /><span id="checkoutOfWeek"></span>&nbsp;&nbsp;&nbsp;&nbsp;共<span id='nights'>${requestScope.nights}</span>晚
 									</dd>
 								</dl>
 								<!--预订套数-->
@@ -2315,10 +2317,10 @@
 									<dt class="fl">联系人手机号</dt>
 									<dd class='fl relative'>
 										<input type="text" placeholder="必填" class='import fl' tabindex="3" id="tenantmobile" name="tenantmobile" value="" autocomplete="off" />
-										<input type="hidden" id="mobileareacode" name="mobileareacode" value="86" />
+										<!-- <input type="hidden" id="mobileareacode" name="mobileareacode" value="86" />
 										<div class="tel_type other">
 											<i id="areaCode" code="86">+86</i>
-											<!-- <span class="UP_down choice_nation_open"></span> -->
+											<span class="UP_down choice_nation_open"></span>
 										</div>
 										<div class="nation_list_order other" id="nation_list">
 											<ul class="continent_list_order" id="continent_list">
@@ -2361,7 +2363,7 @@
 													<a href="javascript:void(0);" value="64">新西兰&nbsp;&nbsp;+64</a>
 												</li>
 											</ul>
-										</div>
+										</div> -->
 										<span class='relave error error_mobile'><i class='absot gou'></i><b>手机号错误，请重新尝试！</b></span>
 									</dd>
 								</dl>
@@ -2492,7 +2494,7 @@
 									<div style='width:130px;'>¥<i id="showtotalprice2"></i>
 										<p id="nightShowPrice2" style="display:inline-block;font-size:14px; margin-left:8px;line-height:45px;text-decoration: line-through;color:#777" class="f16"></p><span class='tab_tan tab_tan2'></span>
 										<!--房费弹出层-->
-										<div class='asote price_par price_par2' style='display:none;'>
+										<%-- <div class='asote price_par price_par2' style='display:none;'>
 											<p class="sanj sanj2 asote"></p>
 											<table class='price price_fixed'>
 												<tr class='relave'>
@@ -2515,10 +2517,10 @@
 												</table>
 											</div>
 											<div class='tfoot relave'>
-												<div class='fr_fu'>共<b id='totlenight2'></b>晚&nbsp;合计¥<b id='totleprice2'></b></div>
+												<div class='fr_fu'>共<b id='totlenight2'></b>晚&nbsp;合计¥<b id='totleprice2'>${requestScope.totalPrice}</b></div>
 												<ul class='fl_fu' id='rlandlordrule'></ul>
 											</div>
-										</div>
+										</div> --%>
 									</div>
 								</td>
 							</tr>
@@ -3109,6 +3111,9 @@
 		<!--ganji end-->
 
 		<!--360聚效推广的访客找回 -->
+		
+	
+
 	</body>
 
 	</html>

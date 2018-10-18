@@ -7,6 +7,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.etc.huangchong.util.WeekUtil;
+
 /**
  * Servlet implementation class FrontStageBookServlet
  */
@@ -41,15 +43,18 @@ public class FrontStageBookServlet extends HttpServlet {
 		String price = request.getParameter("price");
 		//用户订单总价
 		String totalPrice = request.getParameter("totalPrice");
+		//几晚
+		String nights = request.getParameter("nights");
 		request.setAttribute("inday", "2018-10-16");
 		request.setAttribute("outday", "2018-10-28");
+		request.setAttribute("checkinOfWeek", WeekUtil.CalculateWeekDay("2018-10-16"));
+		request.setAttribute("checkoutOfWeek", WeekUtil.CalculateWeekDay("2018-10-28"));
 		request.setAttribute("peopleNum", "3");
-		request.setAttribute("price", "100");
-		request.setAttribute("totalPrice", "200");
-		if("book".equals(op)) {
-			System.out.println("尽力啊");
+		request.setAttribute("price", 100);
+		request.setAttribute("totalPrice", 200);
+		request.setAttribute("nights", WeekUtil.daysBetween("2018-10-16", "2018-10-28"));
 		request.getRequestDispatcher("frontStage/bookorder.jsp").forward(request, response);
-		}
+		
 		
 		
 		
