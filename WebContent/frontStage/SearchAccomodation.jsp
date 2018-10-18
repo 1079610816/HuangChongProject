@@ -604,7 +604,7 @@
 											<a href="javascript:void(0)" class="change-prev"
 												style="display: none;" data="851953993"
 												mainImage="${pageContext.request.contextPath}/../img/${s.accomId}/Head.jpg"></a>
-											<a href="room.html" onClick="goDetail(this)" target="_blank">
+											<a href="../HuangChongProject/ss.action?op=todetail&accomId=${s.accomId }" onClick="goDetail(this)" target="_blank">
 												<img class="roomMap851953993" style="display: none" /> <img
 												id="851953993" class="lazy lodgelazy"
 												title="${s.accomTitle}"
@@ -635,7 +635,7 @@
 											width="46" heigth="46" alt="房东头像" /></b>
 									</a>
 								</div>
-								<a href="/room/851953993" title="${s.accomTitle}"
+								<a href="../HuangChongProject/ss.action?op=todetail&accomId=${s.accomId }" title="${s.accomTitle}"
 									onClick="goDetail(this)" target="_blank"
 									style="position: relative;">
 									<div class="room-detail  clearfloat" style="height: 88px;">
