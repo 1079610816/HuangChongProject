@@ -172,10 +172,13 @@
 				type: "d"
 			}, {
 				event: "viewItem",
-				item: 851953993
+				item: ${homestay.accomId}
 			});
 
 			function criteoClick(flag) {
+				var userName = $("#head_userName").val();
+				//alert(userName);
+				if(userName!=""){
 				var d1 = $('#checkinday').val();
 				var d2 = $('#checkoutday').val();
 				var pric = $('#priceL').find('span').text();
@@ -184,24 +187,26 @@
 				var time = dateout.getTime() - datein.getTime();
 				var days = Math.floor(time / (24 * 60 * 60 * 1000));
 				var timestamp = new Date().getTime() + "" + Math.floor(Math.random() * 10) + Math.floor(Math.random() * 10);
+				alert(timestamp);
 				if(flag == "sale") {
 					window.criteo_q.push({
-						event: "setAccount",
+						event: "setAccount",//设置账户ID事件参数
 						account: 28930
 					}, {
-						event: "setSiteType",
-						type: "d"
+						event: "setSiteType",//设置网站版本参数
+						type: "d"	//d表示台式机,m表示手机,t表示平板电脑
 					}, {
 						event: "trackTransaction",
 						id: timestamp,
 						item: [{
-							id: 851953993,
+							id: ${homestay.accomId},
 							price: pric,
 							quantity: days
 						}],
 						checkin_date: d1,
 						checkout_date: d2
 					});
+					location.href="bs.action?checkinday="+d1+"&checkoutday="+d2+"&price="+pric+"&orderId="+timestamp;
 				} else {
 					window.criteo_q.push({
 						event: "setAccount",
@@ -212,13 +217,16 @@
 					}, {
 						event: "viewBasket",
 						item: [{
-							id: 851953993,
+							id: ${homestay.accomId},
 							price: pric,
 							quantity: days
 						}],
 						checkin_date: d1,
 						checkout_date: d2
 					});
+				}
+				}else{
+					alert("请先登录");
 				}
 			}
 		</script>
@@ -228,7 +236,7 @@
 				mainsite: ''
 			};
 			$(function() {
-				<!-- 日历-->
+				<!-- 日历  -->
 				strBODY = ".date", dTop = 41, dLeft = -212;
 				YUI({}).use('trip-calendar', function(Y) {
 					var oCal = new Y.TripCalendar({
@@ -1024,7 +1032,7 @@
 		<input type="hidden" name="ctx1" id="ctx1" value="//staticnew.mayi.com" />
 		<input type="hidden" name="uid" id="uid" value="870129001" />
 		<input type="hidden" name="loginurl" id="loginurl" value="none" />
-		<input type="hidden" name="head_userName" id="head_userName" value="用户3453">
+		<input type="hidden" name="head_userName" id="head_userName" value="123">
 		<script type="text/javascript">
 			$(document).ready(function() {
 				var userName = $("#head_userName").val();
@@ -1300,7 +1308,7 @@
 					</li>
 					<li class="price clearfloat fr relave" id="yui_3_5_1_1_1450765892279_80">
 						<div class="priceL" id="priceL">
-							￥<span>498</span>/晚
+							￥<span id="price" name="price">${homestay.price}</span>/晚
 						</div>
 						<div class='suding'>
 							<img src="//staticnew.mayi.com/resourcesWeb/images/v2016/suding_icon.png" alt="速订房源" class='suding_icon' />
@@ -1458,7 +1466,7 @@
 							<li class="w258">
 								<div class='clearfloat feature_chansu'>
 									<img src="//staticnew.mayi.com/resourcesWeb/v201510/images/ruzhu.png" class='fl' />
-									<span class='fl'>可住${homestay.houseType }人</span>
+									<span class='fl' >可住${homestay.houseType }人</span>
 								</div>
 								<p>
 									<span>不可加床</span>
@@ -1475,7 +1483,7 @@
 						<div class="price clearfloat relave">
 							<div class="clearfloat">
 								<div class="priceL" id="priceL">
-									￥<span>${homestay.price }</span>/晚
+									￥<span id="price" name="price">${homestay.price }</span>/晚
 								</div>
 								<div class='suding'>
 									<img src="//staticnew.mayi.com/resourcesWeb/images/v2016/suding_icon.png" alt="速订房源" class='suding_icon' />
@@ -1494,13 +1502,13 @@
 							<div class="date fl relave inputfliter">
 								<div>
 									<div id="timeL" class="inputfliterL">
-										<label class="stclick" for="checkinday"></label><input id="checkinday" type="text" class="f-text" value="2018-10-09" autocomplete="off" readonly="readonly" />
+										<label class="stclick" for="checkinday"></label><input id="checkinday" name="checkinday" type="text" class="f-text" value="2018-10-09" autocomplete="off" readonly="readonly" />
 									</div>
 								</div>
 								<div class='fl riq'>至</div>
 								<div>
 									<div id="timeR" class="inputfliterR">
-										<label class="stclick" for="checkoutday"></label><input id="checkoutday" type="text" class="f-text" value="2018-10-10" autocomplete="off" readonly="readonly" />
+										<label class="stclick" for="checkoutday"></label><input id="checkoutday" name="checkoutday" type="text" class="f-text" value="2018-10-10" autocomplete="off" readonly="readonly" />
 									</div>
 								</div>
 							</div>

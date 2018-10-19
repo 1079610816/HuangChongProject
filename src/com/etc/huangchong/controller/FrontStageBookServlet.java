@@ -32,31 +32,27 @@ public class FrontStageBookServlet extends HttpServlet {
 		request.setCharacterEncoding("utf-8");
 		response.setCharacterEncoding("utf-8");
 		response.setContentType("text/html;charset=utf-8");
-		String op = request.getParameter("op");
+		
 		//获得入住时间
-		String inday = request.getParameter("inday");
+		String checkinday = request.getParameter("checkinday");
 		//获得退房时间
-		String outday = request.getParameter("outday");
-		//详情页获得的入住人数
-		String peopleNum = request.getParameter("peopleNum");
+		String checkoutday = request.getParameter("checkoutday");
+
 		//民宿单天单价
 		String price = request.getParameter("price");
-		//用户订单总价
-		String totalPrice = request.getParameter("totalPrice");
+		//订单编号
+		String orderId = request.getParameter("orderId");
 		//几晚
-		String nights = request.getParameter("nights");
-		request.setAttribute("inday", "2018-10-16");
-		request.setAttribute("outday", "2018-10-28");
-		request.setAttribute("checkinOfWeek", WeekUtil.CalculateWeekDay("2018-10-16"));
-		request.setAttribute("checkoutOfWeek", WeekUtil.CalculateWeekDay("2018-10-28"));
-		request.setAttribute("peopleNum", "3");
-		request.setAttribute("price", 100);
-		request.setAttribute("totalPrice", 200);
-		request.setAttribute("nights", WeekUtil.daysBetween("2018-10-16", "2018-10-28"));
+		int nights = WeekUtil.daysBetween(checkinday, checkoutday);
+		
+		request.setAttribute("checkinday", checkinday);
+		request.setAttribute("checkoutday", checkoutday);
+		request.setAttribute("checkinOfWeek", WeekUtil.CalculateWeekDay(checkinday));
+		request.setAttribute("checkoutOfWeek", WeekUtil.CalculateWeekDay(checkoutday));
+		request.setAttribute("price", price);
+		request.setAttribute("nights",nights);
+		request.setAttribute("orderId",orderId);
 		request.getRequestDispatcher("frontStage/bookorder.jsp").forward(request, response);
-		
-		
-		
 		
 	}
 

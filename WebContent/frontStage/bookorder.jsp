@@ -23,7 +23,7 @@
 				 m={
 					        roomid:'851519508',
 					   	 	minday:'1',
-					    	detialJson:'{"from":2,"checkinOfWeek":"${checkinOfWeek}","checkoutOfWeek":"${checkoutOfWeek}","promotionModel":{"accountEntityList":[],"userCouponEntityList":[]},"checkinday":"${requestScope.inday}","checkoutday":"${requestScope.outday}","showtotalprice":${price*nights},"payRuleRate":100,"refunddays":1007,"allrefundday":"2018-10-03","specialdiscount":true,"deposit":30000,"refundRullno":"退款政策：下单后取消订单，将收取未住房费的50%作为违约金支付给房东。","totalPrice":${price*nights},"nights":${nights},"onlinePayAmount":${price*nights},"originalPrice":${price*nights},"onlineAmount":${price*nights},"priceDetailModel":{"showtotalPrice":${price*nights},"sum":${price*nights},"items":[{"type":10,"date":"2018-10-18","price":${price},"dayAmount":${price},"priceShow":${price},"weekNum":4,"originalPrice":${price}}]},"roomNum":1,"haveStock":1}'
+					    	detialJson:'{"from":2,"checkinOfWeek":"${checkinOfWeek}","checkoutOfWeek":"${checkoutOfWeek}","promotionModel":{"accountEntityList":[],"userCouponEntityList":[]},"checkinday":"${requestScope.checkinday}","checkoutday":"${requestScope.checkoutday}","showtotalprice":${price*nights},"payRuleRate":100,"refunddays":1007,"allrefundday":"2018-10-03","specialdiscount":true,"deposit":30000,"refundRullno":"退款政策：下单后取消订单，将收取未住房费的50%作为违约金支付给房东。","totalPrice":${price*nights},"nights":${nights},"onlinePayAmount":${price*nights},"originalPrice":${price*nights},"onlineAmount":${price*nights},"priceDetailModel":{"showtotalPrice":${price*nights},"sum":${price*nights},"items":[{"type":10,"date":"2018-10-18","price":${price},"dayAmount":${price},"priceShow":${price},"weekNum":4,"originalPrice":${price}}]},"roomNum":1,"haveStock":1}'
 					    };
 
 
@@ -2294,6 +2294,12 @@
 							<!--预订信息-->
 							<h2>预订信息</h2>
 							<div class='fl bt-border'>
+							<dl class='cnt1_dl clearfloat mt15'>
+							<dt class='fl'>订单编号：</dt>
+							<dd class='fl roomer_cnt'>
+							<label style="font-size: 15px;">${orderId}</label>
+							</dd>
+							</dl>
 								<dl class='cnt1_dl clearfloat mt15'>
 									<dt class='fl'>预订日期</dt>
 									<dd class='fl roomer_cnt'><input type="text" readonly="" id="checkinday" class='date1' value='' autocomplete="off" /><span id="checkinOfWeek"></span>&nbsp;&nbsp;至&nbsp;&nbsp;<input type="text" readonly="" id="checkoutday" class='date2' value='' autocomplete="off" /><span id="checkoutOfWeek"></span>&nbsp;&nbsp;&nbsp;&nbsp;共<span id='nights'>${requestScope.nights}</span>晚
