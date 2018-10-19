@@ -629,7 +629,7 @@
 											<font>￥</font>${s.price}
 										</p>
 									</b> <a title="${s.accomTitle}"> <b class="btn-img"><img
-											src="//staticnew.mayi.com/resourcesWeb/images/index/head_default.png"
+											src="/img/head/${s.userId}.jpg"
 											class="lazy landlazy"
 											data-original="//i1.mayi.com/mayi16/M71/WO/II/LANX4W4RQMQEZTQPQHKHWK2YQUXL2C.jpg_150x150c.jpg"
 											width="46" heigth="46" alt="房东头像" /></b>
