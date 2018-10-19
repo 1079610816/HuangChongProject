@@ -43,7 +43,7 @@
 .refuse_info .t_area{height:80px;}
 .refuse_info_input label.formCbx {line-height: 22px;}
 </style>
-<title>订单-房东</title>
+<title>房东-房源</title>
 <script type="text/javascript" src="//staticnew.mayi.com/resourcesWeb/js/jquery-1.9.1.min.js"></script>
 <script type="text/javascript" src="//staticnew.mayi.com/resourcesWeb/js/zebra_datepicker.js"></script>
 <!--   
@@ -320,19 +320,13 @@
 	                </div>
                </li>          
             	<li>
-	            	<div class="showinfo" id="s_islandlord" hidden>
+	            	<div class="showinfo" id="s_islandlord">
 	            		<a href="javascript:loginowner(870177979)" target="_self" class="stclick">我是房东</a>
 	                	<div class="head_pop">
 		                	<div class="pop_column plr10">
-		                        <p><a href="javascript:menufrozen(870177979,'/landlord/870177979/orders','landlord')">订单管理</a></p>
-		                        <p><a href="javascript:menufrozen(870177979,'/user/landlord/roommanager','landlord')">房源管理</a></p>
-		                        <p><a href="javascript:menufrozen(870177979,'/user/landlord/msgmanager','landlord')">消息通知</a></p>
-		                        <p><a href="javascript:menufrozen(870177979,'/landlord/870177979/settlements','landlord')">结算管理</a></p>
-		                        <p><a href="javascript:menufrozen(870177979,'/user/landlord/landlordweixin','landlord')">关注房东微信</a></p>
-		                        <!-- 四元组控制下载元素显示情况 -->
-  									<p><a href="/user/landlord/landlordhelper/">下载APP</a></p>
-		                        <p hidden id="s_micro"><a href="/user/landlord/microshopmanager/">房东微店</a></p>
-		                        <p><a href="javascript:menufrozen(870177979,'/user/landlord/accountmanager','landlord')">我的设置</a></p>
+		                        <p><a href="ls.action?op=allLandlordOrders&orderStatus=-1">订单管理</a></p>
+		                        <p><a href="ls.action?op=allPublish&accomStatus=-1)">房源管理</a></p>  
+		                        
 		                    </div>
 	                	</div>
 	                </div>
@@ -381,8 +375,7 @@
 <script type="text/javascript" src="//staticnew.mayi.com/resourcesWeb/im1/jquery-ui.js"></script>  
 <script type="text/javascript" src="//staticnew.mayi.com/resourcesWeb/im1/IM.js"></script>  
 <script type="text/javascript" src="//staticnew.mayi.com/resourcesWeb/js/account/ajaxfileupload.js"></script>  
-<script type="text/javascript" src="//staticnew.mayi.com/resourcesWeb/im1/operator.js"></script>  
-<script type="text/javascript" src="//staticnew.mayi.com/resourcesWeb/im1/webim.js"></script>  
+<script type="text/javascript" src="//staticnew.mayi.com/resourcesWeb/im1/operator.js"></script>   
 <script type="text/javascript" src="//staticnew.mayi.com/resourcesWeb/im1/chat.js"></script>  
 <link rel="stylesheet" href="//staticnew.mayi.com/resourcesWeb/im/css/IM.css" />  
 <link rel="stylesheet" href="//staticnew.mayi.com/resourcesWeb/im/css/jquery-ui.css" />  
@@ -398,7 +391,7 @@
 	#layer_settimeout{width:280px;height:60px;border-radius:5px;background:rgba(0,0,0,.7);color:#fff;position:fixed;top:300px;left:50%;margin-left:-140px;z-index:999999999;line-height:60px;text-align:center;display:none}
 </style>
 
-<script type="text/javascript" src="//staticnew.mayi.com/resourcesWeb/tentantIndex/js/fk_index.js" ></script>
+
 
 <input type="hidden" name="btnCanGo" id="btnCanGo" value="1" />
 
@@ -450,11 +443,7 @@
 	
 </script>
 </html>		
-	<div style="" class="Online_btn">
-    	<span class="border-left"></span>
-         <a href="javascript:void(0)" id="live800iconlink" _mayi_rp="room|sem_contact|message"><img border="0" onclick="qimoChatClick()" src="http://i1.mayi.com/mayi98/M99/OK/GL/5635PVPKQGH6CND3UTE6WAYHLUXAXB.jpg" id="live800icon" name="live800icon"></a>
-    </div>
-	<!-- Header END -->
+	
 	
 	 <!--挂件开始  -->
     <!--挂件结束  -->
@@ -464,29 +453,16 @@
 		
 		<ul class="breadcrumb clearfix">
 			<li><a href="/landlord/870177979/orders">我是房东</a> <span class="divider">》</span></li>
-			<li>订单管理</li>  
+			<li>房源管理</li>  
 		</ul>
 		<input id="ownerId" type="hidden" value="870177979" />
 		<div class="personalCenter clearfix">
-<ul class="center-sidebar">
-			<li><a href="javascript:searchOrder('-1','orderLandlordList')">订单管理<span class="ddgl_current" ></span></a></li>
-		<li><a class="slideactive" href="searchOrder('4','allPublish')">房源管理<span class="fygl" ></span></a></li>
-	
-		<li><a  href="/landlord/870177979/settlements">结算管理<span class="jsgl" ></span></a></li>
-		
+          <ul class="center-sidebar">
+			<li><a href="ls.action?op=allLandlordOrders&orderStatus=-1">订单管理<span class="ddgl" ></span></a></li>
+		<li><a class="slideactive" href="ls.action?op=allPublish&accomStatus=4">房源管理<span class="fygl_current" ></span></a></li>		
     
-		<li><a   href="/user/landlord/authentication">身份验证<span  class="sfyz" ></span></a></li>
-		<li style="position:relative" class="discountManage">
-			<a  style="overflow:visible;"  href="/user/landlord/accountmanager">我的设置<span class="zhgl"></span>
-			</a>
-		  	<div class="discountManageUl">
-		  	   	<a class="" href="/user/landlord/accountmanager"><i></i>个人信息</a>
-                <a href="/user/landlord/paymentmanager"><i></i>收款设置</a>
-                <a href="/user/landlord/passwordmanager"><i></i>密码设置</a>
-            </div>
-			<i style="background:url(//staticnew.mayi.com/resourcesWeb/images/Pcenter/helper_icon.png) no-repeat;background-position: -168px -110px;"></i>
-			<i class="fdshop" style="display:none;position:absolute;top:-40px;right:128px;width:35px;height:125px;color:#ff8800;font-size:12px;background:url(//staticnew.mayi.com/resourcesWeb/images/refusetobg.png) no-repeat;"></i>
-		</li>
+		<li><a href="frontStage/landlordAuthentication.jsp">身份验证<span  class="sfyz" ></span></a></li>
+		
 	
 </ul>
 <script type="text/javascript">
@@ -497,10 +473,10 @@
 </script>
 			<div class="centerCon">
 				<ul class="centerTab">
+				    <li id="allPublish" onclick="searchOrder('4','allPublish')">全部房屋</li>
 					<li id="published" onclick="searchOrder('1','published')">发布成功</li>
 					<li id="publishFail" onclick="searchOrder('0','publishFail')">发布失败</li>
 					<li id="publishing" onclick="searchOrder('2','publishing')">未发布</li>
-					<li id="allPublish" onclick="searchOrder('4','allPublish')">全部房屋</li>
 					<li id="publish" onclick="searchOrder('3','publish')">发布房屋</li>
 					<script>
 				//设置激活状态
@@ -550,8 +526,8 @@
 								<!-- <p class="feedbackp "><a href="javascript:void(0)">删除房屋</a></p> -->
 							</div>
 							<div class="order-handle " style="overflow:visible;position:relative; ">
-							<p class="textcenter " style="line-height:111px; "><a class="blue " href="javascript:void(0)">删除房屋</a></p>
-    	  	    				<p class="textcenter " style="line-height:111px; "><a class="blue " href="javascript:void(0)">编辑房屋</a></p>
+							<p class="textcenter " style="line-height:80px; "><a class="blue " href="javascript:void(0)">删除房屋</a></p>
+    	  	    				<p class="textcenter "><a class="blue " href="javascript:void(0)">编辑房屋</a></p>
 							</div>
 					    </div>
 					 </div>

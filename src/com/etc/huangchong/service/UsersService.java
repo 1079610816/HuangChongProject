@@ -92,12 +92,17 @@ public interface UsersService {
 	 * @return  Users 用户
 	 */
 	Users getLoginByMsg(String telNum);
-	
 	/**
 	 * 通过手机号增加用户
 	 * 
+	 * @param userName
+	 *            用户名
+	 * @param nickName
+	 *            用户昵称
 	 * @param telNum
-	 *            手机号
+	 *            手机号码
+	 * @param imgUrl
+	 *            头像地址
 	 * @return true 增加成功 false 增加失败
 	 */
 	boolean getAddUsersByTel(String userName,String nickName,String telNum,String imgUrl);
@@ -122,4 +127,16 @@ public interface UsersService {
 	 * @return true 修改成功  false修改失败
 	 */
 	boolean upUserPwd(String userName,String userPwd);
+	/**
+	 * 增加用户的真实信息
+	 * 
+	 * @param realName
+	 *            真实姓名
+	 * @param identityCard
+	 *            身份证
+	 * @param userId
+	 *            用户编号
+	 * @return true 增加成功 false 增加失败
+	 */
+	boolean getAddUserRealInfo(String realName, String identityCard, int userId);
 }

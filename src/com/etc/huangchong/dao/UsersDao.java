@@ -53,11 +53,11 @@ public interface UsersDao {
 	 */
 	boolean batchDelUsers(String sql);
 
-	
 	/**
 	 * 重置密码
 	 * 
-	 * @param userId 用户编号
+	 * @param userId
+	 *            用户编号
 	 * @return true 重置成功 false 重置失败
 	 */
 	boolean resetPassword(int userId);
@@ -76,45 +76,81 @@ public interface UsersDao {
 	/**
 	 * 密码登录操作
 	 * 
-	 * @param userName 用户名或电话号码
-	 * @param userPwd 用户密码
+	 * @param userName
+	 *            用户名或电话号码
+	 * @param userPwd
+	 *            用户密码
 	 * @return Users 用户
 	 */
 	Users login(String userName, String userPwd);
+
 	/**
 	 * 手机验证码登录操作
-	 * @param telNum 手机号码
-	 * @return  Users 用户
+	 * 
+	 * @param telNum
+	 *            手机号码
+	 * @return Users 用户
 	 */
 	Users loginByMsg(String telNum);
-	
+
 	/**
 	 * 通过手机号增加用户
 	 * 
+	 * @param userName
+	 *            用户名
+	 * @param nickName
+	 *            用户昵称
 	 * @param telNum
-	 *            手机号
+	 *            手机号码
+	 * @param imgUrl
+	 *            头像地址
 	 * @return true 增加成功 false 增加失败
 	 */
-	boolean addUsersByTel(String userName,String nickName,String telNum,String imgUrl);
+	boolean addUsersByTel(String userName, String nickName, String telNum, String imgUrl);
+
 	/**
 	 * 修改用户信息
-	 * @param userName 用户名
-	 * @param nickName 用户昵称
-	 * @return true 修改成功  false修改失败
+	 * 
+	 * @param userName
+	 *            用户名
+	 * @param nickName
+	 *            用户昵称
+	 * @return true 修改成功 false修改失败
 	 */
-	boolean upUserInfo(String userName,String nickName);
+	boolean upUserInfo(String userName, String nickName);
+
 	/**
 	 * 修改用户信息
-	 * @param userName 用户名
-	 * @param nickName 用户昵称
-	 * @param headUrl 头像地址
-	 * @return true 修改成功  false修改失败
+	 * 
+	 * @param userName
+	 *            用户名
+	 * @param nickName
+	 *            用户昵称
+	 * @param headUrl
+	 *            头像地址
+	 * @return true 修改成功 false修改失败
 	 */
-	boolean upUserInfo(String userName,String nickName,String headUrl);
+	boolean upUserInfo(String userName, String nickName, String headUrl);
+
 	/**
 	 * 修改用户密码
-	 * @param userPwd 用户密码
-	 * @return true 修改成功  false修改失败
+	 * 
+	 * @param userPwd
+	 *            用户密码
+	 * @return true 修改成功 false修改失败
 	 */
-	boolean upUserPwd(String userName,String userPwd);
+	boolean upUserPwd(String userName, String userPwd);
+
+	/**
+	 * 增加用户的真实信息
+	 * 
+	 * @param realName
+	 *            真实姓名
+	 * @param identityCard
+	 *            身份证
+	 * @param userId
+	 *            用户编号
+	 * @return true 增加成功 false 增加失败
+	 */
+	boolean addUserRealInfo(String realName, String identityCard, int userId);
 }

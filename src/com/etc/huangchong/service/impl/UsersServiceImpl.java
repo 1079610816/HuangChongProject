@@ -152,4 +152,10 @@ public class UsersServiceImpl implements UsersService {
 		return ud.upUserPwd(userName, userPwd);
 	}
 
+	@Override
+	public boolean getAddUserRealInfo(String realName, String identityCard, int userId) {
+		// TODO Auto-generated method stub
+		return ud.addUserRealInfo(realName, identityCard, userId);
+	}
+
 }

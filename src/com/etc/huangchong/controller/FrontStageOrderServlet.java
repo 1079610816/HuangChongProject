@@ -66,58 +66,10 @@ public class FrontStageOrderServlet extends HttpServlet {
 			request.setAttribute("orderList", orderList);		
 			request.getRequestDispatcher("frontStage/ordersinfo.jsp").forward(request, response);
 			break;
-		case "allLandlordOrders":
-			doQueryAllOrder(request, response);
-			break;
-		case "payingList":
-			//待支付
-			 doQueryAllOrderByLandlord(request, response);
-			break;
-		case "payedList":
-			//已支付
-			 doQueryAllOrderByLandlord(request, response);
-			break;
-		case "tradedefeatList":
-			//交易失败
-			 doQueryAllOrderByLandlord(request, response);
-			break;
-		case "refundList":
-			//退款订单
-           doQueryAllOrderByLandlord(request, response);
-			break;
-		default:
-			break;
 		}
 		
 	}
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
-	protected void doQueryAllOrderByLandlord(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		int userId=1;
-		int orderStatus;
-		List<Orders> orderLandlordList=null;
-         orderStatus=Integer.parseInt(request.getParameter("orderStatus"));
-         orderLandlordList=os.getQueryLandlordOrder(userId, orderStatus);
- 		 request.setAttribute("orderStatus", orderStatus);
-		 request.setAttribute("orderLandlordList", orderLandlordList);
-		 request.getRequestDispatcher("frontStage/landlordOrder.jsp").forward(request, response);
-	}
 	
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
-	protected void doQueryAllOrder(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		
-		int orderStatus=-1;
-		List<Orders> orderLandlordList=null;
-		orderLandlordList=os.getQueryLandlordOrder(2);
-		request.setAttribute("orderStatus", orderStatus);
-		request.setAttribute("orderLandlordList", orderLandlordList);
-		request.getRequestDispatcher("frontStage/landlordOrder.jsp").forward(request, response);
-	}
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
