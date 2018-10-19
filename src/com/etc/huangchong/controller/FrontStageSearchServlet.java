@@ -51,8 +51,7 @@ public class FrontStageSearchServlet extends HttpServlet {
 			List<Homestay> list = ss.getQuerySearch(Area);
 			request.setAttribute("list", list);
 			request.getRequestDispatcher("frontStage/SearchAccomodation.jsp").forward(request, response);
-		}
-		if ("searchpage".equals(op)) {
+		} else if ("searchpage".equals(op)) {
 			int page = 1;
 			int pageSize = 8;
 			if (request.getParameter("page") != null) {
@@ -65,8 +64,8 @@ public class FrontStageSearchServlet extends HttpServlet {
 			request.setAttribute("pd", pd);
 			request.getRequestDispatcher("frontStage/SearchAccomodation.jsp").forward(request, response);
 		} else if (op.equals("todetail")) {
-			//详情页评论
-			//获得民宿Id
+			// 详情页评论
+			// 获得民宿Id
 			int accomId = Integer.parseInt(request.getParameter("accomId"));
 			Homestay h = hs.getSingleHomestay(accomId);
 			request.setAttribute("homestay", h);

@@ -1565,7 +1565,7 @@
 								</p>
 								<p>
 									<b>收到评价</b>
-									<b id="add_hom"><span id="landLordCommentCnt">${homestay.commentsum }条</span></b>
+									<b id="add_hom"><span id="landLordCommentCnt">${requestScope.commentSum}条</span></b>
 								</p>
 							</div>
 							<div class="hfCodeBox">

@@ -10,10 +10,13 @@ import com.etc.huangchong.util.PageData;
 public class SearchDaoImpl implements SearchDao {
 
 	private BaseDao bd = new BaseDao();
+	/**
+	 * 通过房源编号显示对应的评论内容
+	 */
 	@Override
 	public List<Homestay> querySearch(String accomArea) {
 		// TODO Auto-generated method stub
-		String sql = "select a.accomId,a.accomTitle,a.accomIntro,a.accomArea,a.accomAddress,a.accomStatus,a.houseType,a.price,u.userName,COUNT(c.accomId) as commentsum from accommodation as a inner join users as u on a.userId=u.userId left join comment as c on a.accomId=c.accomId where a.accomArea=? group by a.accomId";
+		String sql = "select a.accomId,a.accomTitle,a.accomIntro,a.accomArea,a.accomAddress,a.accomStatus,a.houseType,a.price,a.userId,u.userName,COUNT(c.accomId) as commentsum from accommodation as a inner join users as u on a.userId=u.userId left join comment as c on a.accomId=c.accomId where a.accomArea=? group by a.accomId";
 		return (List<Homestay>)bd.select(sql, Homestay.class, accomArea);
 	}
 
