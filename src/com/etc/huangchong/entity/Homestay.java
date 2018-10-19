@@ -10,7 +10,11 @@ public class Homestay {
 	private int houseType;
 	private String userName;
 	private double price;
+
+
+
 	private int commentsum;
+	private int userId;
 	public Homestay() {
 		super();
 		// TODO Auto-generated constructor stub
@@ -68,7 +72,7 @@ public class Homestay {
 
 
 /**
- * 带全部参数的构造
+ * 不含userId参数的构造
  * @param accomId
  * @param accomTitle
  * @param accomIntro
@@ -94,6 +98,37 @@ public class Homestay {
 		this.price = price;
 		this.commentsum = commentsum;
 	}
+	
+/**
+ * 带全部参数构造
+ * @param accomId
+ * @param accomTitle
+ * @param accomIntro
+ * @param accomArea
+ * @param accomAddress
+ * @param accomStatus
+ * @param houseType
+ * @param userName
+ * @param price
+ * @param commentsum
+ * @param userId
+ */
+
+	public Homestay(int accomId, String accomTitle, String accomIntro, String accomArea, String accomAddress,
+		int accomStatus, int houseType, String userName, double price, int commentsum, int userId) {
+	super();
+	this.accomId = accomId;
+	this.accomTitle = accomTitle;
+	this.accomIntro = accomIntro;
+	this.accomArea = accomArea;
+	this.accomAddress = accomAddress;
+	this.accomStatus = accomStatus;
+	this.houseType = houseType;
+	this.userName = userName;
+	this.price = price;
+	this.commentsum = commentsum;
+	this.userId = userId;
+}
 
 
 	public int getCommentsum() {
@@ -161,6 +196,12 @@ public class Homestay {
 	public void setUserName(String userName) {
 		this.userName = userName;
 	}
+	public int getUserId() {
+		return userId;
+	}
+	public void setUserId(int userId) {
+		this.userId = userId;
+	}
 
 
 	@Override
@@ -168,8 +209,9 @@ public class Homestay {
 		return "Homestay [accomId=" + accomId + ", accomTitle=" + accomTitle + ", accomIntro=" + accomIntro
 				+ ", accomArea=" + accomArea + ", accomAddress=" + accomAddress + ", accomStatus=" + accomStatus
 				+ ", houseType=" + houseType + ", userName=" + userName + ", price=" + price + ", commentsum="
-				+ commentsum + "]";
+				+ commentsum + ", userId=" + userId + "]";
 	}
+
 
 
 	
