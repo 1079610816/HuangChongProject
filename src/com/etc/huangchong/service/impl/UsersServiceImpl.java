@@ -147,4 +147,9 @@ public class UsersServiceImpl implements UsersService {
 		return ud.upUserInfo(userName, nickName, headUrl);
 	}
 
+	@Override
+	public boolean upUserPwd(String userName,String userPwd) {
+		return ud.upUserPwd(userName, userPwd);
+	}
+
 }

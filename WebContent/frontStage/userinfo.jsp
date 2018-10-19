@@ -1,6 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%-- 判断用户有没有登录 --%>
+<c:if test="${user==null}">
+	<c:redirect url="index.jsp"></c:redirect>
+</c:if>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 	<html xmlns:wb="http://open.weibo.com/wb">
@@ -306,8 +310,14 @@
 										<a href="javascript:menufrozen(870177979,'/user/tenant/accountmanager','user')" target="_self" id="myorder" rel="nofollow" class="slideactive" _mayi_rp="webaround|userinfo|account">我的账户</a>
 									</p>
 									<p class="textCt">
-										<a href="javascript:void(0)" id="loginoutbut" target="_self" class="stclick" clicktag="1_6">退出登录</a>
+										<a href="javascript:void(0)" id="exit" target="_self" class="stclick" clicktag="1_6">退出登录</a>
 									</p>
+									<!-- 退出登录 -->
+									<script type="text/javascript">
+										$("#exit").click(function () {
+											<c:remove var="user"/>
+										})
+									</script>
 								</div>
 							</div>
 						</div>
@@ -318,30 +328,21 @@
 							<div class="head_pop">
 								<div class="pop_column plr10">
 									<p>
-										<a href="../os.action?op=userAll&orderStatus=2">订单管理</a>
+										<a href="../os.action?op=userAll&orderStatus=-1">订单管理</a>
 									</p>
 									<p>
-										<a href="javascript:menufrozen(870177979,'/user/landlord/roommanager','landlord')">房源管理</a>
+										<a href="#">房源管理</a>
 									</p>
 									<p>
-										<a href="javascript:menufrozen(870177979,'/user/landlord/msgmanager','landlord')">消息通知</a>
+										<a href="#">消息通知</a>
 									</p>
 									<p>
-										<a href="javascript:menufrozen(870177979,'/landlord/870177979/settlements','landlord')">结算管理</a>
+										<a href="#">结算管理</a>
 									</p>
 									<p>
-										<a href="javascript:menufrozen(870177979,'/user/landlord/landlordweixin','landlord')">关注房东微信</a>
+										<a href="#">关注房东微信</a>
 									</p>
-									<!-- 四元组控制下载元素显示情况 -->
-									<p>
-										<a href="/user/landlord/landlordhelper/">下载APP</a>
-									</p>
-									<p hidden id="s_micro">
-										<a href="/user/landlord/microshopmanager/">房东微店</a>
-									</p>
-									<p>
-										<a href="javascript:menufrozen(870177979,'/user/landlord/accountmanager','landlord')">我的设置</a>
-									</p>
+									
 								</div>
 							</div>
 						</div>
@@ -849,7 +850,7 @@
 				<!-- Center-sidebar -->
 				<ul class="center-sidebar">
 					<li>
-						<a href="../os.action?op=userAll&orderStatus=2">订单管理<span class="ddgl"></span></a>
+						<a href="../os.action?op=userAll&orderStatus=-1">订单管理<span class="ddgl"></span></a>
 					</li>
 					<li>
 						<a class="slideactive" href="/user/tenant/accountmanager">账户管理<span class="zhgl_current"></span></a>
@@ -893,10 +894,6 @@
 					</ul>
 					<div class="accountMt clearfix">
 						<!-- 个人信息 -->
-						<input type="hidden" name="issetpass" id="issetpass" value="false" />
-						<input type="hidden" name="isbandmobile" id="isbandmobile" value="false" />
-						<input type="hidden" name="usertype" id="usertype" value="tenant" />
-						<input type="hidden" name="bjlandlord" id="bjlandlord" value="0" />
 						<div class="MtList" style="display:block;">
 							<div class="avatar-box">
 								<div class="avatar" id="headimage_div">
@@ -910,15 +907,15 @@
 								<ul class="userInfo">
 									<li class="clearfix">
 										<li class="clearfix userName">
-											<span class="infoTitle">用 &nbsp;户&nbsp;名：</span>123
-											<input type="hidden" name="userName" id="userName" value="张三"/>
+											<span class="infoTitle">用 &nbsp;户&nbsp;名：</span>${user.userName}
+											<input type="hidden" name="userName" id="userName" value="${user.userName}"/>
 										</li>
 										<li class="clearfix">
 											<span class="infoTitle">昵&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;称：</span>
-											<input class="personLargeInput" type="text" name="nickname" placeholder="4-20个字符（汉字、字母、数字、下划线）" id="nickname" value="咸鱼" style="width:276px;" />
+											<input class="personLargeInput" type="text" name="nickname" placeholder="4-20个字符（汉字、字母、数字、下划线）" id="nickname" value="${user.nickName}" style="width:276px;" />
 										</li>
 										<li class="clearfix">
-											<span class="infoTitle">手机号码：</span>15059943453
+											<span class="infoTitle">手机号码：</span>${user.telNum}
 										</li>
 										<li class="clearfix">
 											
@@ -938,15 +935,8 @@
 						<!-- 个人信息 END -->
 
 						<div class="MtList" style="display: none;">
-							<input type="hidden" name="issetpass" id="issetpass" value="true">
-							<input type="hidden" name="isbandmobile" id="isbandmobile" value="false">
 							<ul class="userInfo">
-								<li class="clearfix"><span class="infoTitle">登录账号：</span> #t_870177979</li>
-								<li class="clearfix">
-									<span class="infoTitle">旧密码：</span>
-									<input type="password" value="" name="setpoldpass" id="setpoldpass" class="personLargeInput">
-									<span class="prompt">第一次修改密码留空</span>
-								</li>
+								<li class="clearfix"><span class="infoTitle">登录账号：</span> ${user.userName}</li>
 								<li class="clearfix">
 									<span class="infoTitle">新密码：</span>
 									<input type="password" value="" name="newpass" id="newpass" class="personLargeInput">

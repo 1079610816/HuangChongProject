@@ -158,26 +158,30 @@ public class FrontStageUsersServlet extends HttpServlet {
 			String base64=request.getParameter("base64");
 			if(!"null".equals(base64) && nickName!=null && userName!=null) {
 				if(!GenerateImage(base64.substring(23), userName)) {
-					out.println("false");
+					out.print("false");
 				}else {
 					if(us.upUserInfo(userName, nickName, "/img/head/"+userName+".jpg")) {
-						out.println("true");
+						out.print("true");
 					}else {
-						out.println("false");
+						out.print("false");
 					}
 				}
 			}else if(nickName!=null && userName!=null){
-				System.out.println(this.getServletConfig().getServletContext().getRealPath("/"));
-				System.out.println(request.getSession().getServletContext().getRealPath(""));
-				System.out.println(request.getRequestURL());
-				System.out.println(request.getRequestURI());
 				if(us.upUserInfo(userName, nickName)) {
-					out.println("true");
+					out.print("true");
 				}else {
-					out.println("false");
+					out.print("false");
 				}
 			}else {
-				out.println("false");
+				out.print("false");
+			}
+		}else if("upUserPwd".equals(op)) {
+			String userName=request.getParameter("userName");
+			String userPwd=MD5Util.getEncodeByMd5(request.getParameter("userPwd"));
+			if(us.upUserPwd(userName, userPwd)) {
+				out.print("true");
+			}else {
+				out.print("false");
 			}
 		}
 		out.close();
