@@ -2,7 +2,7 @@ package com.etc.huangchong.entity;
 
 public class Orders {
 	
-	private int orderId;
+	private String orderId;
 	private String bookTime;
 	private String unsubscribeTime;
 	private double fee;
@@ -11,10 +11,10 @@ public class Orders {
 	private String accomTitle;
 	private String accomAddress;
 	private String userName;
-	public int getOrderId() {
+	public String getOrderId() {
 		return orderId;
 	}
-	public void setOrderId(int orderId) {
+	public void setOrderId(String orderId) {
 		this.orderId = orderId;
 	}
 	public String getBookTime() {
@@ -72,7 +72,7 @@ public class Orders {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-	public Orders(int orderId, String bookTime, String unsubscribeTime, double fee, int orderStatus, String accomTitle,
+	public Orders(String orderId, String bookTime, String unsubscribeTime, double fee, int orderStatus, String accomTitle,
 			String userName) {
 		super();
 		this.orderId = orderId;
@@ -91,7 +91,7 @@ public class Orders {
 	 * @param fee
 	 * @param orderStatus
 	 */
-	public Orders(int orderId, String bookTime, String unsubscribeTime, double fee, int orderStatus) {
+	public Orders(String orderId, String bookTime, String unsubscribeTime, double fee, int orderStatus) {
 		super();
 		this.orderId = orderId;
 		this.bookTime = bookTime;

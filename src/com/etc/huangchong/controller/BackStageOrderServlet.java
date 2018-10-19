@@ -134,7 +134,7 @@ public class BackStageOrderServlet extends HttpServlet {
 		String unsubscribeTime = request.getParameter("unsubscribeTime");
 		String fee = request.getParameter("fee");
 		String orderStatus = request.getParameter("selectorderStatus");
-		Orders o = new Orders(Integer.parseInt(orderId),bookTime,unsubscribeTime,Double.parseDouble(fee),Integer.parseInt(orderStatus));
+		Orders o = new Orders(orderId,bookTime,unsubscribeTime,Double.parseDouble(fee),Integer.parseInt(orderStatus));
 		boolean flag = os.getUpdateOrder(o);
 		if(flag) {
 			request.getRequestDispatcher("os.do?op=olist").forward(request, response);
