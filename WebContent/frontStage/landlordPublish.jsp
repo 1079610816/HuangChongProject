@@ -7,8 +7,8 @@
 </c:if>
 --%>
 <%-- 判断是不是从servlet转发过来,如果不是就跳转到servlet--%>
-<c:if test="${orderLandlordList==null}">
-	<c:redirect url="../os.action?op=allLandlordOrders&userId=2"></c:redirect>
+<c:if test="${allHomeList==null}">
+	<c:redirect url="../ls.action?op=allPublish"></c:redirect>
 </c:if>
     
     
@@ -147,7 +147,7 @@
 	
 	//查询订单
 	function searchOrder(state,op) {
-		var url = "os.action?op=" +op+ "&accomStatus="+state;
+		var url = "ls.action?op=" +op+ "&accomStatus="+state;
 		window.location.href = url;
 	}
 	
@@ -470,7 +470,7 @@
 		<div class="personalCenter clearfix">
 <ul class="center-sidebar">
 			<li><a href="javascript:searchOrder('-1','orderLandlordList')">订单管理<span class="ddgl_current" ></span></a></li>
-		<li><a class="slideactive" href="javascript:searchOrder('-1','orderLandlordList')">房源管理<span class="fygl" ></span></a></li>
+		<li><a class="slideactive" href="searchOrder('4','allPublish')">房源管理<span class="fygl" ></span></a></li>
 	
 		<li><a  href="/landlord/870177979/settlements">结算管理<span class="jsgl" ></span></a></li>
 		
@@ -497,18 +497,21 @@
 </script>
 			<div class="centerCon">
 				<ul class="centerTab">
-					<li id="publishSuccess" onclick="searchOrder('0','payingList')">发布成功</li>
-					<li id="publishFail" onclick="searchOrder('1','payedList')">发布失败</li>
-					<li id="allPublish" onclick="searchOrder('2','payedList')">全部房屋</li>
-					<li id="publish" onclick="searchOrder('3','payedList')">发布房屋</li>
+					<li id="published" onclick="searchOrder('1','published')">发布成功</li>
+					<li id="publishFail" onclick="searchOrder('0','publishFail')">发布失败</li>
+					<li id="publishing" onclick="searchOrder('2','publishing')">未发布</li>
+					<li id="allPublish" onclick="searchOrder('4','allPublish')">全部房屋</li>
+					<li id="publish" onclick="searchOrder('3','publish')">发布房屋</li>
 					<script>
 				//设置激活状态
-					if(${accomStatus==2}){
-						 $("#allPublish").addClass("active");
-					}else if(${accomStatus==0}){
-						$("#publishSuccess").addClass("active");
+					if(${accomStatus==4}){
+						$("#allPublish").addClass("active");
 					}else if(${accomStatus==1}){
+						$("#published").addClass("active");
+					}else if(${accomStatus==0}){
 						$("#publishFail").addClass("active");
+					}else if(${accomStatus==2}){
+						$("#publishing").addClass("active");
 					}else{
 						$("#publish").addClass("active");
 						
@@ -519,41 +522,42 @@
 			<div class="MtList pd00">
 			
 			<!-- 订单循环显示 -->
-				<c:forEach items="${orderLandlordList}" var="ol">
+				<c:forEach items="${allHomeList}" var="hl">
 				    <div class="order-box " id="houseInfo">
 					    <div class="order-info ">
 							<div class="fl ">
-								<span>订单号：${ol.orderId}</span>
+								<span>房间编号：${hl.accomId}</span>
 							</div>									
 						</div>
 						<div class="order-con clearfix ">
 							<div class="order-img ">
-								<a href="# " rel="nofollow "><img src="${pageContext.request.contextPath }/../img/${ol.accomId }/Head.jpg" width="112" height="112" alt=" " /></a>
+								<a href="# " rel="nofollow "><img src="${pageContext.request.contextPath }/../img/${hl.accomId }/Head.jpg" width="112" height="112" alt=" " /></a>
 							</div>
 							<div class="order-title ">
-								<h2><a href="#">${ol.accomTitle}</a></h2>
-								<p class="adress ">${ol.accomAddress}</p>
+								<h2><a href="#">${hl.accomTitle}</a></h2>
+								<p class="adress ">${hl.accomAddress}</p>
 							</div>
 							<div class="order-book ">
-								<p class="book ">入住时间：<br/>${ol.bookTime}</p>
-								<p class="book ">退房时间：<br/>${ol.unsubscribeTime}</p>
+								<p class="book ">详细介绍：<br/>${hl.accomIntro}</p>
 							</div>
 							<div class="order-money ">	
-							    	<p class="money mgtp10 ">订单总额：${ol.fee}</p>
+							    	<p class="money mgtp10 ">价格：${hl.price}</p>
 							</div>
 							<div class="order-feedback ">
 								<p class="feedbackp mgtp30 ">
-									<span class="feedback">${ol.orderStatus == 0 ? "未付款" : ol.orderStatus == 1?"已付款":"交易失败" }  </span>
+									<span class="feedback">${hl.accomStatus == 0 ? "发布失败" :hl.accomStatus == 1?"发布成功":"未发布" }  </span>
 								</p>
-								<p class="feedbackp "><a href="javascript:void(0)">订单详情</a></p>
+								<!-- <p class="feedbackp "><a href="javascript:void(0)">删除房屋</a></p> -->
 							</div>
 							<div class="order-handle " style="overflow:visible;position:relative; ">
-    	  	    				<p class="textcenter " style="line-height:111px; "><a class="blue " href="javascript:void(0)">查看评价</a></p>
+							<p class="textcenter " style="line-height:111px; "><a class="blue " href="javascript:void(0)">删除房屋</a></p>
+    	  	    				<p class="textcenter " style="line-height:111px; "><a class="blue " href="javascript:void(0)">编辑房屋</a></p>
 							</div>
 					    </div>
 					 </div>
 					 </c:forEach>
 					 <!-- 订单循环结束 -->
+					 <!-- 发布房屋的div先隐藏，当单击时显示这个隐藏上面的div -->
 					  <div class="order-box " id="publishHouse" style="display: none">
 					    
 					 </div>

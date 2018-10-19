@@ -50,8 +50,16 @@ public class HomestayDaoImpl implements HomestayDao {
 	@Override
 	public List<Homestay> queryLandlordHomestay(int userId) {
 		// TODO Auto-generated method stub
-		String sql="SELECT accommodation.accomId,accommodation.accomTitle,accommodation.accomIntro,accommodation.accomArea,accommodation.accomAddress,accomStatus, accommodation.houseType,accommodation.price,users.userName FROM accommodation ,users WHERE accommodation.userId = users.userId and accommodation.userId=?";
+		String sql="SELECT accomId,accomTitle,accomIntro,accomArea,accomAddress,accomStatus, houseType,price FROM accommodation WHERE  userId=?";
 		List<Homestay> list=(List<Homestay>)BaseDao.select(sql, Homestay.class, userId);
+		return list;
+	}
+
+	@Override
+	public List<Homestay> queryLandlordHomestay(int userId, int accomStatus) {
+		// TODO Auto-generated method stub
+		String sql="SELECT accomId,accomTitle,accomIntro,accomArea,accomAddress,accomStatus, houseType,price FROM accommodation WHERE userId=? and accomStatus=?";
+		List<Homestay> list=(List<Homestay>)BaseDao.select(sql, Homestay.class, userId,accomStatus);
 		return list;
 	}
 

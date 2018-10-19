@@ -8,7 +8,7 @@
 --%>
 <%-- 判断是不是从servlet转发过来,如果不是就跳转到servlet--%>
 <c:if test="${orderLandlordList==null}">
-	<c:redirect url="../os.action?op=allLandlordOrders&userId=2"></c:redirect>
+	<c:redirect url="../os.action?op=allLandlordOrders"></c:redirect>
 </c:if>
     
     
@@ -469,8 +469,8 @@
 		<input id="ownerId" type="hidden" value="870177979" />
 		<div class="personalCenter clearfix">
 <ul class="center-sidebar">
-			<li><a class="slideactive" href="javascript:searchOrder('-1','orderLandlordList')">订单管理<span class="ddgl_current" ></span></a></li>
-		<li><a href="/user/landlord/roommanager">房源管理<span class="fygl" ></span></a></li>
+			<li><a  href="javascript:searchOrder('-1','orderLandlordList')">订单管理<span class="ddgl" ></span></a></li>
+		<li><a class="slideactive" href="javascript:searchOrder('2','allPublish')">房源管理<span class="fygl_current" ></span></a></li>
 	
 		<li><a  href="/landlord/870177979/settlements">结算管理<span class="jsgl" ></span></a></li>
 		
