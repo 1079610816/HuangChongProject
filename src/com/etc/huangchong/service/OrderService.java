@@ -27,4 +27,18 @@ public interface OrderService {
 	 * @return 该用户某种状态订单集合
 	 */
 	List<Orders> queryUserOrder(int userId,int orderStatus);
+	/**
+	 * 查询某房东所有订单
+	 * @param userId 房东Id
+	 * @return 该房东所有订单集合
+	 */
+	List<Orders> getQueryLandlordOrder(int userId);
+	
+	/**
+	 * 查询某房东某种状态的订单
+	 * @param userId 用户Id
+	 * @param orderStatus 订单状态
+	 * @return 该房东某种状态订单集合
+	 */
+	List<Orders> getQueryLandlordOrder(int userId,int orderStatus);
 }

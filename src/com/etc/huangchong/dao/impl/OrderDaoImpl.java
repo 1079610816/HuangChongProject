@@ -115,4 +115,29 @@ public class OrderDaoImpl implements OrderDao {
 		sql="select o.orderId,a.accomId,a.accomTitle,a.accomAddress,od.bookTime,od.unsubscribeTime,od.fee,od.orderStatus from orders as o inner join accommodation as a on o.accomId=a.accomId inner join orderdetails as od on o.orderId=od.orderId where o.userId=? and od.orderStatus =?";
 		return (List<Orders>)bd.select(sql, Orders.class, userId,orderStatus);
 	}
+	/**
+	 * 查询房东的所有订单
+	 * @return 房东所有订单集合
+	 */
+	@Override
+	public List<Orders> queryLandlordOrder(int userId) {
+		// TODO Auto-generated method stub
+		String sql="select orderdetails.orderId,orderdetails.bookTime,orderdetails.unsubscribeTime,orderdetails.fee,orderdetails.orderStatus,accommodation.accomTitle,accommodation.accomId,accommodation.accomAddress from orderdetails inner join orders on orders.orderId=orderdetails.orderId inner join accommodation on orders.accomId=accommodation.accomId where accommodation.userId=?";
+		List<Orders>list=(List<Orders>)bd.select(sql, Orders.class, userId);
+		return list;
+	}
+	/**
+	 * 根据订单状态查询某房东的订单
+	 * @param userId 用户id
+	 * @param orderStatus 订单状态
+	 * @return 该房东某种状态订单集合
+	 */
+	@Override
+	public List<Orders> queryLandlordOrder(int userId, int orderStatus) {
+		// TODO Auto-generated method stub
+		String sql="select orderdetails.orderId,orderdetails.bookTime,orderdetails.unsubscribeTime,orderdetails.fee,orderdetails.orderStatus,accommodation.accomTitle,accommodation.accomId,accommodation.accomAddress from orderdetails inner join orders on orders.orderId=orderdetails.orderId inner join accommodation on orders.accomId=accommodation.accomId where accommodation.userId=? and orderdetails.orderStatus=? ";
+		List<Orders>list=(List<Orders>)bd.select(sql, Orders.class, userId,orderStatus);
+		return list;
+	}
+	
 }

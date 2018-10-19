@@ -78,7 +78,7 @@
 		                                <a class="f16 fw600 c_gray_dark radius-6 w100" href="javascript:fdMenu()" >我是房东</a>
 		                               	<ul class="fd-item-list radius-6 hidden" id="fangdong">
 			                                <li class="t-left ">
-			                                    <a class="c_gray_dark mr40" href="javascript:menufrozen(870177979,'/landlord/870177979/orders','landlord')">订单管理</a>
+			                                    <a class="c_gray_dark mr40" href="landlord.jsp">订单管理</a>
 			                                    <a class="c_gray_dark" href="javascript:menufrozen(870177979,'/user/landlord/roommanager','landlord')">房源管理</a>
 			                                </li>
 			                                <li class="t-left ">

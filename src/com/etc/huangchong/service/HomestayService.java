@@ -11,4 +11,10 @@ public interface HomestayService {
 	boolean getHomestayAdd(Homestay h,int id);
 	boolean getHomestayBatchDel(String sql);
 	Homestay getSingleHomestay(int id);
+	/**
+	 * 查询某个房东的发布全部房屋
+	 * @param userId  房东
+	 * @return List<Homestay>房屋集合
+	 */
+	List<Homestay> getQueryLandlordHomestay(int userId);
 }

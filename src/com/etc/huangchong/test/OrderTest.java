@@ -13,9 +13,12 @@ public class OrderTest {
 		OrderDao os = new OrderDaoImpl();
 		//List<Orders> list = os.queryOrder();
 		//list.forEach(System.out::println);
-		boolean flag = os.delOrder(6);
-		System.out.println(flag);
-
+//		boolean flag = os.delOrder(6);
+//		System.out.println(flag);
+       List<Orders>list= os.queryLandlordOrder(2);
+       for (Orders orders : list) {
+		System.out.println(orders);
+	}
 	}
 
 }

@@ -51,4 +51,26 @@ public class OrderServiceImpl implements OrderService {
 	public List<Orders> queryUserOrder(int userId) {
 		return od.queryUserOrder(userId);
 	}
+	/**
+	 * 查询某房东所有订单
+	 * @param userId 房东Id
+	 * @return 该房东所有订单集合
+	 */
+	@Override
+	public List<Orders> getQueryLandlordOrder(int userId) {
+		// TODO Auto-generated method stub
+		return od.queryLandlordOrder(userId);
+	}
+	/**
+	 * 查询某房东某种状态的订单
+	 * @param userId 用户Id
+	 * @param orderStatus 订单状态
+	 * @return 该房东某种状态订单集合
+	 */
+	@Override
+	public List<Orders> getQueryLandlordOrder(int userId, int orderStatus) {
+		// TODO Auto-generated method stub
+		return od.queryLandlordOrder(userId, orderStatus);
+	}
+	
 }

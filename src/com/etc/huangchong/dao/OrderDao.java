@@ -32,4 +32,19 @@ public interface OrderDao {
 	 * @return 该用户某种状态订单集合
 	 */
 	List<Orders> queryUserOrder(int userId,int orderStatus);
+	/**
+	 * 查询房东的所有订单
+	 * @return 房东所有订单集合
+	 */
+	List<Orders> queryLandlordOrder(int userId);
+	
+	/**
+	 * 根据订单状态查询某房东的订单
+	 * @param userId 用户id
+	 * @param orderStatus 订单状态
+	 * @return 该房东某种状态订单集合
+	 */
+	List<Orders> queryLandlordOrder(int userId,int orderStatus);
+	
+	
 }
