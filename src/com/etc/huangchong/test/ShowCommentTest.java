@@ -11,11 +11,12 @@ public class ShowCommentTest {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		ShowCommentDao scd=new ShowCommentDaoImpl();
-		System.out.println(scd.queryComment(1));
+		/*System.out.println(scd.queryComment(1));
 		System.out.println(scd.queryComment(1).size());
 		ShowCommentService ss=new ShowCommentServiceImpl();
 		System.out.println(ss.getQueryShowComment(1));
-		System.out.println(ss.getQueryShowComment(1).size());
+		System.out.println(ss.getQueryShowComment(1).size());*/
+		System.out.println(scd.landlordPhoto(1));
 	}
 
 }

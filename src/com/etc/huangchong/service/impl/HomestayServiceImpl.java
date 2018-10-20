@@ -49,6 +49,14 @@ public class HomestayServiceImpl implements HomestayService {
 		// TODO Auto-generated method stub
 		return hd.queryLandlordHomestay(userId, accomStatus);
 	}
+	@Override
+	public boolean relHouse(Homestay h) {
+		return hd.relHouse(h);
+	}
+	@Override
+	public int selAccomId(Homestay h) {
+		return hd.selAccomId(h);
+	}
 	
 
 }
