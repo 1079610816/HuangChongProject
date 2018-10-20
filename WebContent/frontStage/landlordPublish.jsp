@@ -303,14 +303,14 @@
 		<div class='head_cnt relave'> 	
 			<ul class="nav_R asote nav_right">
 				
-            	 <li style="margin-left:-100px;">
+            	 <li>
 	                <div class="showinfo">
-	                    <a href="javascript:menufrozen(870177979,'/tenant/870177979/orders','user')" target="_self"><img src="https://i1.mayi.com/mayi57/M84/CP/NN/AUHL3K6R738JWQE3T59CJHZW99F9E8.jpg_35x35c.jpg" id="aaa" class="user_img">                	
+	                    <a href="javascript:menufrozen(870177979,'/tenant/870177979/orders','user')" target="_self"><img src="${user!=null?user.imgUrl:' '}" id="aaa" class="user_img">                	
 	                    <span class="name" id="head_nickname"></span></a>
 	                    <div class="head_pop">
 	                        <div class="pop_column">
-	                            <p><a href="javascript:menufrozen(870177979,'/tenant/870177979/orders','user')" target="_self" id="myorder" rel="nofollow" _mayi_rp="webaround|userinfo|order">我的订单</a></p>
-	                            <p><a href="javascript:menufrozen(870177979,'/user/tenant/accountmanager','user')" target="_self" id="myorder" rel="nofollow" class="slideactive" _mayi_rp="webaround|userinfo|account">我的账户</a></p>
+	                            <p><a href="${pageContext.request.contextPath }/frontStage/ordersinfo.jsp" target="_self" id="myorder" rel="nofollow" _mayi_rp="webaround|userinfo|order">我的订单</a></p>
+	                            <p><a href="${pageContext.request.contextPath }/frontStage/userinfo.jsp" target="_self" id="myorder" rel="nofollow" class="slideactive" _mayi_rp="webaround|userinfo|account">我的账户</a></p>
 	               
 	                            <p class="textCt"><a href="javascript:void(0)" id="loginoutbut" target="_self" class="stclick" clicktag="1_6">退出登录</a></p>
 	                        </div>
@@ -358,7 +358,7 @@
 <input  type="hidden" name="ctx1" id="ctx1" value="//staticnew.mayi.com" />
 <input  type="hidden" name="uid" id="uid" value="870177979" />
 <input  type="hidden" name="loginurl" id="loginurl" value="none" />
-<input type="hidden" name="head_userName" id="head_userName" value="咸鱼">
+<input type="hidden" name="head_userName" id="head_userName" value="${user!=null?user.nickName:' '}">
 <script type='text/javascript' src='//webchat.7moor.com/javascripts/7moorInit.js?accessId=73859f20-f357-11e6-b43e-3b18b16942dc&autoShow=false' async='async'></script>
  <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"><html xmlns:wb="http://open.weibo.com/wb">
