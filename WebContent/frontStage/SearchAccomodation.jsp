@@ -127,7 +127,8 @@
 	border-radius: 2px;
 }
 </style>
-			<input type="hidden" name="ctx" id="ctx" value="" /> <!-- 头部栏开始 -->
+			<input type="hidden" name="ctx" id="ctx" value="" /> 
+			<!-- 头部栏开始 -->
 			<div class="header">
 				<div class="nav index_nav line_h70">
 				<span style="text-align: left;font-size: 30px;color: white;font-weight: bolder;width: 80%;position: absolute;">黄虫短租</span>

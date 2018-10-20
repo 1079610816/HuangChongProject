@@ -28,25 +28,24 @@
 		rel="stylesheet" type="text/css" />
 	<link rel="stylesheet"
 		href="//staticnew.mayi.com/resourcesWeb/v201807/index_page_new/css/mayi_base.css" />
+		
 	<link rel="stylesheet"
 		href="//staticnew.mayi.com/resourcesWeb/v201807/index_page_new/css/public.css" />
 	<link rel="stylesheet"
 		href="//staticnew.mayi.com/resourcesWeb/v201807/index_page_new/css/jquery.bxslider.css" />
 <link rel="stylesheet"
-	href="//staticnew.mayi.com/resourcesWeb/js/layer/skin/layer.css">
+	href="//staticnew.mayi.com/resourcesWeb/js/layer/skin/layer.css"/>
 	<!-- 途家配套设施样式 -->
 	<link
 		href="//staticnew.mayi.com/resourcesWeb/v201510/css/tujia_facilitie.css"
-		rel="stylesheet">
+		rel="stylesheet"/>
+		<!--  -->
+<script src="http://libs.baidu.com/jquery/1.10.2/jquery.min.js"></script>
 
-		<script type="text/javascript"
-			src="${pageContext.request.contextPath }/frontStage/js/jquery.min.js"></script>
-
-		<script src="http://libs.baidu.com/jquery/1.11.1/jquery.min.js"
-			type="text/javascript" charset="utf-8"></script>
-
-
-
+<script src="http://libs.baidu.com/jquery/1.11.1/jquery.min.js"
+			type="text/javascript" charset="utf-8"></script>  
+			
+			
 		<script type="text/javascript"
 			src="//staticnew.mayi.com/resourcesWeb/js/jquery-migrate-1.1.1.js"></script>
 		<script type="text/javascript"
@@ -961,64 +960,55 @@ span.search {
 /*搜索样式结束*/
 </style>
 		<input type="hidden" name="ctx" id="ctx" value="" />
+		
 		<div class='header relave'>
 
 			<div class='head_cnt relave'>
-				<span class='search'></span> <input type="text" placeholder='目的地、城市'
-					id='searchcityin' name="searchcityin" onkeydown="pressEve(event);"
-					onkeyup="getSuggest(event);" class="inpt_header" />
-				<div class="error_tip_list" id="tip_searchcity">
-					<p>请输入关键字</p>
-				</div>
-				<!--推荐-->
-				<div style="" class="suggest_results" id="suggest">
-					<ul>
-					</ul>
-				</div>
+				<span style="text-align: left;font-size: 30px;color: #009900;font-weight: bolder;width: 80%;position: absolute;">黄虫短租</span>
+				
 				<ul class="nav_R asote nav_right">
 					<li style="margin-left: -211px;"><b class="mayi_tel_top"><img
-							src="//staticnew.mayi.com/resourcesWeb/v201510/images/commom/tel_green_icon.png"><span
+							src="//staticnew.mayi.com/resourcesWeb/v201510/images/commom/tel_green_icon.png"/><span
 								style="font-family: &amp; quot; Hiragino Sans GB&amp;quot; , Arial , Verdana, Tahoma, &amp;quot; 微软雅黑 &amp;quot; ! important; font-size: 14px;"
 								hiragino="" sans="" gb",="" arial,="" verdana,="" tahoma,=""
 								"微软雅黑"="" !important;font-size:="" 14px;"="">客服电话：</span>400-028-6868</b>
 					</li>
-					<li><a href="javascript:void(0)" id="loginshow" rel="nofollow"
-						target="_self">登录/注册</a></li>
-					<div class="login-info f0 " style="display: none;">
-						<p class="top-line"></p>
-						<a href="#"> <img class="user-head circle"
-							src="${user!=null?user.imgUrl:' '}" alt="头像"></a> <span
-							class="f14 fw600 ver-t">${sessionScope.user.nickName}</span>
-						<ul class="hover-list radius-6" style="display: none;" id="info">
-							<li class="t-left mb15 theme"><a
-								class="f16 fw600 c_gray_dark"
-								href="javascript:menufrozen(870177979,'/tenant/870177979/orders','user')">我是房客</a>
-							</li>
-							<li class="t-left "><a class="c_gray_dark mr40"
-								href="../os.action?op=allUserOrders&userId='${user.userId}'">我的订单</a>
-								<a class="c_gray_dark"
-								href="javascript:menufrozen(870177979,'/user/tenant/accountmanager','user')">我的账户</a>
-							</li>
-
-
-							<hr class="mb15">
-								<li class="t-left theme relave fd-nav "><a
-									class="f16 fw600 c_gray_dark radius-6 w100"
-									href="javascript:fdMenu()">我是房东</a>
-									<ul class="fd-item-list radius-6 hidden" id="fangdong">
-										<li class="t-left "><a class="c_gray_dark mr40"
-											href="landlord.jsp">订单管理</a> <a class="c_gray_dark"
-											href="javascript:menufrozen(870177979,'/user/landlord/roommanager','landlord')">房源管理</a>
-										</li>
-
-
-
-									</ul></li>
-								<li>
-									<div class="login-out" id="loginoutbut">退出登录</div>
-								</li>
-						</ul>
-					</div>
+					<li class="ml20 user-action">
+						<div class="login-btn t-center fw600 cursorpt " id="loginshow">登录/注册</div>
+						<div class="login-info f0 " style="display: none;">
+		                        <p class="top-line"></p>
+	         
+	                            <img class="user-head circle" width="45px" height="45px" src="${user!=null?user.imgUrl:' '}" alt="头像"/>
+	                            <span class="f14 fw600 ver-t">${sessionScope.user.nickName}</span>
+	                            <ul class="hover-list radius-6" style="display: none;" id="info">
+	                                <li class="t-left mb15 theme">
+	                                    <a class="f16 fw600 c_gray_dark" href="javascript:menufrozen(870177979,'/tenant/870177979/orders','user')">我是房客</a>
+	                                </li>
+	                                <li class="t-left ">
+	                                    <a class="c_gray_dark mr40" href="../os.action?op=allUserOrders&userId='${user.userId}'">我的订单</a>
+	                                   
+	                                </li>	                     
+	                               <li class="t-left ">
+	                       
+	                                    <a class="c_gray_dark" href="javascript:menufrozen(870177979,'/user/tenant/accountmanager','user')">我的账户</a>
+	                                </li>
+	                                  <li class="t-left ">
+			                                    <a class="c_gray_dark mr40" href="landlord.jsp">房东订单管理</a>
+			                                   
+			                          </li>	
+			                           <li class="t-left ">
+			                                 
+			                                    <a class="c_gray_dark" href="javascript:menufrozen(870177979,'/user/landlord/roommanager','landlord')">房东房源管理</a>
+			                                </li>
+			                                
+	                                <hr class="mb15">
+	                       
+	                                <li>
+	                                    <div class="login-out" id="loginoutbut">退出登录</div>
+	                                </li>
+	                            </ul>
+	                        </div>
+					</li>
 
 					<li><a rel="nofollow" href="javascript:publish(0)"
 						class="room-btn f16 t-center"
@@ -1168,7 +1158,7 @@ span.search {
 		</div>
 		<!--导航条结束-->
 		<div class="path">
-			<a href="#">首页</a>&nbsp;>&nbsp; <a href="#">${homestay.accomArea}</a>&nbsp;>&nbsp;
+			<a href="${pageContext.request.contextPath}/frontStage/index.jsp">首页</a>&nbsp;>&nbsp; <a href="#">${homestay.accomArea}</a>&nbsp;>&nbsp;
 			<a href="#">${homestay.accomAddress}</a>&nbsp;>&nbsp; <a
 				style="color: #999">房间编号：${homestay.accomId}</a>
 			<link rel="stylesheet"
@@ -1930,24 +1920,13 @@ span.search {
 		src="//staticnew.mayi.com/resourcesWeb/js/layer/layer.min.js"></script>
 	<script type="text/javascript"
 		src="//staticnew.mayi.com/resourcesWeb/js/jQuery.md5.js"></script>
+	
+		
 	<script
 		src="${pageContext.request.contextPath}/frontStage/js/loginpc2.js"
 		type="text/javascript" charset="utf-8"></script>
 	<script type="text/javascript">
 	
-	$(".help").mouseover(function () {
-		$("#helpUser").css("display","block");
-	});
-	$(".help").mouseout(function () {
-		$("#helpUser").css("display","none");
-	});
-	
-	$(".Service").mouseover(function () {
-		$("#Service").css("display","block");
-	});
-	$(".Service").mouseout(function () {
-		$("#Service").css("display","none");
-	});
 	if(${user!=null}){
 		$("#loginshow").css("display","none");
 		$(".login-info").css("display","block");
@@ -2099,12 +2078,12 @@ span.search {
 	</script>
 <script type="text/javascript"
 	src="//staticnew.mayi.com/resourcesWeb/v201510/js/pageModel.js"></script>
-<!-- <script type="text/javascript" src="//staticnew.mayi.com/resourcesWeb/v201510/js/room_detail.js"></script> -->
+
 <script type="text/javascript"
 	src="//staticnew.mayi.com/resourcesWeb/v201510/js/landlordDesR.js"></script>
 
 <!--分享 -->
 <script type="text/javascript"
 	src="//staticnew.mayi.com/resourcesWeb/js/util/jquery.qrcode.min.js"></script>
-
+	
 </html>
