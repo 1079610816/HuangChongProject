@@ -9,30 +9,17 @@
 
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>【${homestay.accomAddress} 短租房】${homestay.accomTitle}_黄虫短租</title>
-<link rel="stylesheet"
+	<link rel="stylesheet"
 	href="//staticnew.mayi.com/resourcesWeb/v201510/css/small-public.css" />
-<link
-	href="//staticnew.mayi.com/resourcesWeb/v201510/css/public_element.css"
-	rel="stylesheet">
-	<link
-		href="//staticnew.mayi.com/resourcesWeb/v201510/css/details_new.css"
-		rel="stylesheet" type="text/css" />
-	<link
-		href="//staticnew.mayi.com/resourcesWeb/v201510/css/index_list_calendar.css"
-		rel="stylesheet" type="text/css" />
-	<link
-		href="//staticnew.mayi.com/resourcesWeb/css/fdexperience/about-fyDetail.css"
-		rel="stylesheet" type="text/css" />
-	<link
-		href="//staticnew.mayi.com/resourcesWeb/v201510/css/landlordDesR.css"
-		rel="stylesheet" type="text/css" />
-	<link rel="stylesheet"
-		href="//staticnew.mayi.com/resourcesWeb/v201807/index_page_new/css/mayi_base.css" />
-		
-	<link rel="stylesheet"
-		href="//staticnew.mayi.com/resourcesWeb/v201807/index_page_new/css/jquery.bxslider.css" />
-	<link rel="stylesheet"
-	href="//staticnew.mayi.com/resourcesWeb/js/layer/skin/layer.css"/>
+    <link href="//staticnew.mayi.com/resourcesWeb/v201510/css/public_element.css" rel="stylesheet">
+	<link href="//staticnew.mayi.com/resourcesWeb/v201510/css/details_new.css" rel="stylesheet" type="text/css" />
+	<link href="//staticnew.mayi.com/resourcesWeb/v201510/css/index_list_calendar.css" rel="stylesheet" type="text/css" />
+	<link href="//staticnew.mayi.com/resourcesWeb/css/fdexperience/about-fyDetail.css" rel="stylesheet" type="text/css" />
+	<link href="//staticnew.mayi.com/resourcesWeb/v201510/css/landlordDesR.css" rel="stylesheet" type="text/css" />
+	<link rel="stylesheet" href="//staticnew.mayi.com/resourcesWeb/v201807/index_page_new/css/mayi_base.css" />
+	<link rel="stylesheet" href="//staticnew.mayi.com/resourcesWeb/v201807/index_page_new/css/public.css"/>
+	<link rel="stylesheet" href="//staticnew.mayi.com/resourcesWeb/v201807/index_page_new/css/jquery.bxslider.css" />
+	<link rel="stylesheet" href="//staticnew.mayi.com/resourcesWeb/js/layer/skin/layer.css"/>
 	<!-- 途家配套设施样式 -->
 	<link
 		href="//staticnew.mayi.com/resourcesWeb/v201510/css/tujia_facilitie.css"
