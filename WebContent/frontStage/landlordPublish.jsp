@@ -16,6 +16,8 @@
 <html>
 	
 <head>
+
+		
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="keywords" content=""/>
@@ -44,8 +46,13 @@
 .refuse_info_input label.formCbx {line-height: 22px;}
 </style>
 <title>房东-房源</title>
-<script type="text/javascript" src="//staticnew.mayi.com/resourcesWeb/js/jquery-1.9.1.min.js"></script>
+<script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
 <script type="text/javascript" src="//staticnew.mayi.com/resourcesWeb/js/zebra_datepicker.js"></script>
+<!-- 下面四个上传图片有用 -->
+<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath }/frontStage/css/webuploader.css" />
+<script type="text/javascript" src="${pageContext.request.contextPath }/frontStage/js/webuploader.min.js"></script> 
+<script type="text/javascript" src="${pageContext.request.contextPath }/frontStage/js/upload.js"></script>
+
 <!--   
 <script type="text/javascript" src="//staticnew.mayi.com/resourcesWeb/js/order_uc.js"></script> 
 --> 
@@ -469,30 +476,16 @@
 	
 	
 </script>
-			<div class="centerCon">
+	<div class="centerCon">
 				<ul class="centerTab">
 				    <li id="allPublish" onclick="searchOrder('4','allPublish')">全部房屋</li>
 					<li id="published" onclick="searchOrder('1','published')">发布成功</li>
 					<li id="publishFail" onclick="searchOrder('0','publishFail')">发布失败</li>
 					<li id="publishing" onclick="searchOrder('2','publishing')">未发布</li>
-					<li id="publish" onclick="searchOrder('3','publish')">发布房屋</li>
-					<script>
-				//设置激活状态
-					if(${accomStatus==4}){
-						$("#allPublish").addClass("active");
-					}else if(${accomStatus==1}){
-						$("#published").addClass("active");
-					}else if(${accomStatus==0}){
-						$("#publishFail").addClass("active");
-					}else if(${accomStatus==2}){
-						$("#publishing").addClass("active");
-					}else{
-						$("#publish").addClass("active");
-						
-					}
-				</script>
+					<li id="publish">发布房屋</li>
 				</ul>
-<div class="accountMt clearfix">
+				
+		<div class="accountMt clearfix div1">
 			<div class="MtList pd00">
 			
 			<!-- 订单循环显示 -->
@@ -538,8 +531,94 @@
 					 
 			</div>
 	</div>
+	<div class="accountMt clearfix div2" style="position:absolute;top:-999em;">
+					<div class="tabCon">
+								<ul class="userInfo">
+									<li class="clearfix">
+									</li>
+									<li class="clearfix">
+									</li>
+									<li class="clearfix">
+										<span class="infoTitle">标 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;题：</span>
+										<input class="personLargeInput" type="text" name="accomTitle" id="accomTitle" style="width:276px;">
+									</li>
+									<li class="clearfix">
+										<span class="infoTitle">介&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;绍：</span>
+										<textarea name="accomIntro" id="accomIntro" rows="20" cols="50" style="border: 1px solid;resize:none;"></textarea>
+									</li>
+									<li class="clearfix">
+										<span class="infoTitle">地&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;区：</span>
+										<input class="personLargeInput" type="text" name="accomArea" id="accomArea" style="width:276px;">
+									</li>
+									<li class="clearfix">
+										<span class="infoTitle">详细地址：</span>
+										<input class="personLargeInput" type="text" name="accomAddress" id="accomAddress" style="width:276px;">
+									</li>
+									<li class="clearfix">
+										<span class="infoTitle">价&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;格：</span>
+										<input class="personLargeInput" type="text" name="price" id="price" style="width:276px;">
+									</li>
+									<li class="clearfix">
+									</li>
+									<li class="clearfix">
+									</li>
+									<li class="clearfix">
+										<span class="infoTitle">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;注意：</span>图片上传最多七张!第七张之后的将覆盖第七张!
+									</li>
+								</ul>
+							</div>
+					<div class="accountMt clearfix">
+						<div class="uploader-list-container">
+							<div class="queueList">
+								<div id="dndArea" class="placeholder">
+									<div id="filePicker-2"></div>
+									<p>或将照片拖到这里，单次最多可选300张</p>
+								</div>
+							</div>
+							<div class="statusBar" style="display:none;">
+								<div class="progress"> <span class="text">0%</span> <span class="percentage"></span> </div>
+								<div class="info"></div>
+								<div class="btns">
+									<div id="filePicker2"></div>
+									<div class="uploadBtn">开始上传</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
 			
 				<!-- Page -->
+				
+				<script>
+				//设置激活状态
+					if(${accomStatus==4}){
+						$("#allPublish").addClass("active");
+						//$(".div2").css("display","none");
+					}else if(${accomStatus==1}){
+						$("#published").addClass("active");
+					}else if(${accomStatus==0}){
+						$("#publishFail").addClass("active");
+					}else if(${accomStatus==2}){
+						$("#publishing").addClass("active");
+					}else{
+						$("#publish").addClass("active");
+						$(".div1").css("display","none");
+					}
+					$("#publish").click(function () {
+						
+						$("#allPublish").removeClass("active");
+						$("#published").removeClass("active");
+						$("#publishFail").removeClass("active");
+						$("#publishing").removeClass("active");
+						$("#publish").addClass("active");
+						$(".div1").css("display","none");
+						$(".div2").css({"position":"","top":"0"});
+					});
+				</script>
+				
+				
+				
+				
 <script type="text/javascript">
 $(document).ready(function(){
     
