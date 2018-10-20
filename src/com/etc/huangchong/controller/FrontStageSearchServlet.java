@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.etc.huangchong.entity.FangDong;
 import com.etc.huangchong.entity.Homestay;
 import com.etc.huangchong.entity.ShowComment;
 import com.etc.huangchong.service.HomestayService;
@@ -73,6 +74,8 @@ public class FrontStageSearchServlet extends HttpServlet {
 			request.setAttribute("list", list);
 			int commentSum = list.size();
 			request.setAttribute("commentSum", commentSum);
+			FangDong fd=scs.getLandlordPhoto(accomId);
+			request.setAttribute("fd", fd);
 			request.getRequestDispatcher("frontStage/detail.jsp").forward(request, response);
 		}
 
