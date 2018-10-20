@@ -6,7 +6,7 @@ public class FangDong {
 	public FangDong() {
 		super();
 		// TODO Auto-generated constructor stub
-	}
+	} 
 
 	public FangDong(String headImage) {
 		super();
