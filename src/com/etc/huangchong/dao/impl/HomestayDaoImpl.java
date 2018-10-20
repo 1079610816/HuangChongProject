@@ -63,6 +63,20 @@ public class HomestayDaoImpl implements HomestayDao {
 		return list;
 	}
 
+	@Override
+	public boolean relHouse(Homestay h) {
+		String sql="insert into accommodation(accomTitle,accomIntro,accomArea,accomAddress,accomStatus,userId,price) value(?,?,?,?,?,?,?)";
+		return BaseDao.execute(sql, h.getAccomTitle(),h.getAccomIntro(),h.getAccomArea(),h.getAccomAddress(),h.getAccomStatus(),h.getUserId(),h.getPrice())>0;
+	}
+
+	@Override
+	public int selAccomId(Homestay h) {
+		String sql="select accomId from accommodation where accomTitle=? and accomIntro=? and accomArea=? and accomAddress=? and accomStatus=? and userId=? and price=?";
+		return ((List<Homestay>)BaseDao.select(sql, Homestay.class, h.getAccomTitle(),h.getAccomIntro(),h.getAccomArea(),h.getAccomAddress(),h.getAccomStatus(),h.getUserId(),h.getPrice())).get(0).getAccomId();
+	}
+	
+	
+
 	
 
 }

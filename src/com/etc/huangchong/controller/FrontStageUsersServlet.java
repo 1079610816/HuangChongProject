@@ -156,6 +156,7 @@ public class FrontStageUsersServlet extends HttpServlet {
 			String nickName=request.getParameter("nickName");
 			String userName=request.getParameter("userName");
 			String base64=request.getParameter("base64");
+			//对头像数据进行判断,如果不为空,就是有进行头像修改
 			if(!"null".equals(base64) && nickName!=null && userName!=null) {
 				if(!GenerateImage(base64.substring(23), userName)) {
 					out.print("false");

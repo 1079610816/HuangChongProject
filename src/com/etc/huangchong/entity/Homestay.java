@@ -131,6 +131,20 @@ public class Homestay {
 }
 
 
+	
+	public Homestay(String accomTitle, String accomIntro, String accomArea, String accomAddress, int accomStatus,
+		double price, int userId) {
+	super();
+	this.accomTitle = accomTitle;
+	this.accomIntro = accomIntro;
+	this.accomArea = accomArea;
+	this.accomAddress = accomAddress;
+	this.accomStatus = accomStatus;
+	this.price = price;
+	this.userId = userId;
+}
+
+
 	public int getCommentsum() {
 		return commentsum;
 	}

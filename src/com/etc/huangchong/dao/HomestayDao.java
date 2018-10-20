@@ -26,4 +26,16 @@ public interface HomestayDao {
 	 * @return List<Homestay>房屋集合
 	 */
 	List<Homestay> queryLandlordHomestay(int userId,int accomStatus);
+	/**
+	 * 发布房屋
+	 * @param h 房屋对象
+	 * @return true成功  false失败
+	 */
+	boolean relHouse(Homestay h);
+	/**
+	 * 查询房屋Id
+	 * @param h 房屋对象
+	 * @return 房屋Id
+	 */
+	int selAccomId(Homestay h);
 }
