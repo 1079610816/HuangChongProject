@@ -250,22 +250,6 @@ citys[102]=new Array('jx','嘉兴.西塘','jiaxingxitang','jx','29','zhejiang','
 */
 function initCityList()
 {
-	$.get("/getListOfOpenAndHot/", function(data) 
-	{
-	    if(data.opencitys != null && data.opencitys.length > 0)
-	    {
-	    	var t=0;
-			for(var i = 0;i < data.opencitys.length;i++)
-			{
-				var city = data.opencitys[i];
-				citys[i] = new Array(city.simplespellcn,city.namechinese,city.spellchinese,city.simplespellcn,'',city.spellprovince,city.province,'','',city.internation);
-				if(city.ishotcity==1)
-				{
-					hotcitys[t]=new Array(city.simplespellcn,city.namechinese,city.spellchinese,city.simplespellcn,'',city.spellprovince,city.province,'','',city.internation);
-					t++;
-				}
-			}
-	    }
-	},'JSON');
+	
 }
 initCityList();

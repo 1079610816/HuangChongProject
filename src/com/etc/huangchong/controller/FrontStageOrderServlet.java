@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.etc.huangchong.entity.Orders;
+import com.etc.huangchong.entity.Users;
 import com.etc.huangchong.service.OrderService;
 import com.etc.huangchong.service.impl.OrderServiceImpl;
 
@@ -38,35 +39,26 @@ public class FrontStageOrderServlet extends HttpServlet {
 		response.setCharacterEncoding("utf-8");
 		String op=request.getParameter("op");
 		List<Orders> orderList=null;
-		
 		int userId;
 		int orderStatus=-1;
 		switch (op) {
-		case "userAll":
+		case "allUserOrders":
 			orderList=os.queryUserOrder(1);
-			request.setAttribute("orderStatus", orderStatus);
-			request.setAttribute("orderList", orderList);		
-			request.getRequestDispatcher("frontStage/ordersinfo.jsp").forward(request, response);
 			break;
-		case "userPayed":
-			//userId=((Users)request.getSession().getAttribute("user")).getUserId();
-			userId=1;
+		case "payed":
+			userId=((Users)request.getSession().getAttribute("user")).getUserId();
 			orderStatus=Integer.parseInt(request.getParameter("orderStatus"));
 			orderList=os.queryUserOrder(userId,orderStatus);
-			request.setAttribute("orderStatus", orderStatus);
-			request.setAttribute("orderList", orderList);		
-			request.getRequestDispatcher("frontStage/ordersinfo.jsp").forward(request, response);
 			break;
-		case "userPaying":
-			//userId=((Users)request.getSession().getAttribute("user")).getUserId();
-			userId=1;
+		case "paying":
+			userId=((Users)request.getSession().getAttribute("user")).getUserId();
 			orderStatus=Integer.parseInt(request.getParameter("orderStatus"));
 			orderList=os.queryUserOrder(userId,orderStatus);
-			request.setAttribute("orderStatus", orderStatus);
-			request.setAttribute("orderList", orderList);		
-			request.getRequestDispatcher("frontStage/ordersinfo.jsp").forward(request, response);
 			break;
 		}
+		request.setAttribute("orderStatus", orderStatus);
+		request.setAttribute("orderList", orderList);		
+		request.getRequestDispatcher("frontStage/ordersinfo.jsp").forward(request, response);
 		
 	}
 	

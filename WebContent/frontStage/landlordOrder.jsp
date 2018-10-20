@@ -1,11 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%-- 判断用户有没有登录 
+<%-- 判断用户有没有登录 --%>
 <c:if test="${sessionScope.user==null}">
-	<c:redirect url="index.jsp"></c:redirect>
+	<c:redirect url="frontStage/index.jsp"></c:redirect>
 </c:if>
---%>
+
 <%-- 判断是不是从servlet转发过来,如果不是就跳转到servlet--%>
 <c:if test="${orderLandlordList==null}">
 	<c:redirect url="../ls.action?op=allLandlordOrders"></c:redirect>
@@ -305,7 +305,7 @@
 				
             	 <li style="margin-left:-100px;">
 	                <div class="showinfo">
-	                    <a href="javascript:menufrozen(870177979,'/tenant/870177979/orders','user')" target="_self"><img src="https://i1.mayi.com/mayi57/M84/CP/NN/AUHL3K6R738JWQE3T59CJHZW99F9E8.jpg_35x35c.jpg" id="aaa" class="user_img">                	
+	                    <a href="javascript:void(0)" target="_self"><img src="${user!=null?user.imgUrl:' '}" id="aaa" class="user_img">                	
 	                    <span class="name" id="head_nickname"></span></a>
 	                    <div class="head_pop">
 	                        <div class="pop_column">
@@ -360,7 +360,7 @@
 <input  type="hidden" name="ctx1" id="ctx1" value="//staticnew.mayi.com" />
 <input  type="hidden" name="uid" id="uid" value="870177979" />
 <input  type="hidden" name="loginurl" id="loginurl" value="none" />
-<input type="hidden" name="head_userName" id="head_userName" value="咸鱼">
+<input type="hidden" name="head_userName" id="head_userName" value="${user!=null?user.userName:' '}">
 <script type='text/javascript' src='//webchat.7moor.com/javascripts/7moorInit.js?accessId=73859f20-f357-11e6-b43e-3b18b16942dc&autoShow=false' async='async'></script>
  <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"><html xmlns:wb="http://open.weibo.com/wb">

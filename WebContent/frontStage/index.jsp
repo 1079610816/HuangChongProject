@@ -28,9 +28,8 @@
 
 <body>
 	<div class="header">
-		<div class="nav index_nav line_h70">		
+		<div class="nav index_nav line_h70">
 			<div class="w1050 c_white clearfloat">
-			<span style="text-align: left;font-size: 30px;color: white;font-weight: bolder;width: 80%;position: absolute;">黄虫短租</span>
 				<ul class="fr nav-list clearfloat">
 					
                    <li class="Service">
@@ -66,12 +65,8 @@
 	                                    <a class="f16 fw600 c_gray_dark" href="javascript:menufrozen(870177979,'/tenant/870177979/orders','user')">我是房客</a>
 	                                </li>
 	                                <li class="t-left ">
-	                                    <a class="c_gray_dark mr40" href="../os.action?op=allUserOrders&userId='${user.userId}'">我的订单</a>
-	                                    <a class="c_gray_dark" href="javascript:menufrozen(870177979,'/user/tenant/accountmanager','user')">我的账户</a>
-	                                </li>
-	                                <li class="t-left ">
-	                                    <a class="c_gray_dark mr40" href="javascript:menufrozen(870177979,'/user/tenant/mycollection','user')">我的收藏</a>
-	                                    <a class="c_gray_dark" href="javascript:menufrozen(870177979,'/user/tenant/msgmanager','user')">消息通知</a>
+	                                    <a class="c_gray_dark mr40" href="${pageContext.request.contextPath }/frontStage/ordersinfo.jsp">我的订单</a>
+	                                    <a class="c_gray_dark" href="${pageContext.request.contextPath }/frontStage/userinfo.jsp">我的账户</a>
 	                                </li>
 	                               
 	                                <hr class="mb15">
@@ -79,18 +74,8 @@
 		                                <a class="f16 fw600 c_gray_dark radius-6 w100" href="javascript:fdMenu()" >我是房东</a>
 		                               	<ul class="fd-item-list radius-6 hidden" id="fangdong">
 			                                <li class="t-left ">
-			                                    <a class="c_gray_dark mr40" href="landlord.jsp">订单管理</a>
+			                                    <a class="c_gray_dark mr40" href="${pageContext.request.contextPath }/frontStage/landlordOrder.jsp">订单管理</a>
 			                                    <a class="c_gray_dark" href="javascript:menufrozen(870177979,'/user/landlord/roommanager','landlord')">房源管理</a>
-			                                </li>
-			                                <li class="t-left ">
-			                                    <a class="c_gray_dark mr40" href="javascript:menufrozen(870177979,'/user/landlord/msgmanager','landlord')">消息通知</a>
-			                                    <a class="c_gray_dark" href="javascript:menufrozen(870177979,'/landlord/870177979/settlements','landlord')">结算管理</a>
-			                                </li>
-			                                <li class="t-left ">
-			                                    <a class="c_gray_dark mr40" href="javascript:menufrozen(870177979,'/user/landlord/landlordweixin','landlord')">房东微信</a>     
-			                                </li>
-			                                <li class="t-left ">
-			                                    <a class="c_gray_dark mr40" href="javascript:menufrozen(870177979,'/user/landlord/accountmanager','landlord')">我的设置</a>
 			                                </li>
 		                                </ul>
 	                                 </li>
@@ -337,7 +322,7 @@
 									
 									location.href=url;
 							 }else{
-								 alert("请输入正确的地址!");
+								 layer.alert("请输入地区!",8,"温馨提示");
 							 }
 					
 						});
@@ -623,7 +608,7 @@
 	<script
 		src="//staticnew.mayi.com/resourcesWeb/v201807/index_page_new/js/jquery.nicescroll.min.js"></script>
 	<script
-		src="//staticnew.mayi.com/resourcesWeb/js/allcity.js?V=20170414"></script>
+		src="js/allcity.js"></script>
 	<script
 		src="//staticnew.mayi.com/resourcesWeb/v201807/index_page_new/js/index_PCown.js"></script>
 	<script

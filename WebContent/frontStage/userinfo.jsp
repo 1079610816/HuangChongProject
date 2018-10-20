@@ -1,11 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%-- 判断用户有没有登录 
+<%-- 判断用户有没有登录 --%>
 <c:if test="${user==null}">
 	<c:redirect url="index.jsp"></c:redirect>
 </c:if>
---%>
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 	<html xmlns:wb="http://open.weibo.com/wb">
@@ -32,6 +32,7 @@
 		<script type="text/javascript" src="//staticnew.mayi.com/resourcesWeb/js/regx/idcard.js"></script>
 		<script type="text/javascript" src="//staticnew.mayi.com/resourcesWeb/js/account/cropper.js"></script>
 		<script type="text/javascript" src="//staticnew.mayi.com/resourcesWeb/js/account/ui/jquery-ui-1.9.2.custom.min.js"></script>
+		<script src="${pageContext.request.contextPath}/frontStage/js/loginpc2.js" type="text/javascript" charset="utf-8"></script>
 		<script type="text/javascript">
 			$(function() {
 				var CenterTab = $('.centerTab li')
@@ -161,7 +162,6 @@
 	</head>
 
 	<body>
-		<input type="hidden" id="ctx1" value="//staticnew.mayi.com" />
 		<!-- Header -->
 		<!-- 拉新入口 -->
 		<link href="//staticnew.mayi.com/resourcesWeb/v201612/headpub/css/laxin.css" rel="stylesheet" type="text/css">
@@ -300,7 +300,7 @@
 					</li>
 					<li>
 						<div class="showinfo">
-							<a href="javascript:menufrozen(870177979,'/tenant/870177979/orders','user')" target="_self"><img src="https://i1.mayi.com/mayi89/M92/EI/JE/YWC2P2R8BLA6K7HC57CASFZN7PH4XP.jpg_35x35c.jpg" id="aaa" class="user_img">
+							<a href="javascript:menufrozen(870177979,'/tenant/870177979/orders','user')" target="_self"><img src="${user!=null?user.imgUrl:' '}" id="aaa" class="user_img" />
 								<span class="name" id="head_nickname"></span></a>
 							<div class="head_pop">
 								<div class="pop_column">
@@ -314,11 +314,6 @@
 										<a href="javascript:void(0)" id="exit" target="_self" class="stclick" clicktag="1_6">退出登录</a>
 									</p>
 									<!-- 退出登录 -->
-									<script type="text/javascript">
-										$("#exit").click(function () {
-											<c:remove var="user"/>
-										})
-									</script>
 								</div>
 							</div>
 						</div>
@@ -433,7 +428,7 @@
 		<input type="hidden" name="ctx1" id="ctx1" value="//staticnew.mayi.com" />
 		<input type="hidden" name="uid" id="uid" value="870177979" />
 		<input type="hidden" name="loginurl" id="loginurl" value="none" />
-		<input type="hidden" name="head_userName" id="head_userName" value="咸鱼">
+		<input type="hidden" name="head_userName" id="head_userName" value="${user!=null?user.userName:' '}">
 		<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 		<html xmlns="http://www.w3.org/1999/xhtml">
 		<html xmlns:wb="http://open.weibo.com/wb">
@@ -898,7 +893,7 @@
 						<div class="MtList" style="display:block;">
 							<div class="avatar-box">
 								<div class="avatar" id="headimage_div">
-									<img id="headimage" style="width:100px;height:100px;" src="https://i1.mayi.com/mayi89/M92/EI/JE/YWC2P2R8BLA6K7HC57CASFZN7PH4XP.jpg_240x240c.jpg" alt="" />
+									<img id="headimage" style="width:100px;height:100px;" src="${user!=null?user.imgUrl:' '}" alt="" />
 								</div>
 								<p>
 									<a id="upheadimgdo" class="alertAvatar" rel="nofollow" href="javascript:void(0)">[修改头像]</a>

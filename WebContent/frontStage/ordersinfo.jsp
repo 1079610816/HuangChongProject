@@ -1,17 +1,16 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%-- 判断用户有没有登录 
+<%-- 判断用户有没有登录 --%>
 <c:if test="${sessionScope.user==null}">
 	<c:redirect url="index.jsp"></c:redirect>
 </c:if>
---%>
+
 <%-- 判断是不是从servlet转发过来,如果不是就跳转到servlet--%>
 <c:if test="${orderList==null}">
-	<c:redirect url="../os.action?op=allUserOrders&userId=1"></c:redirect>
+	<c:redirect url="../os.action?op=allUserOrders"></c:redirect>
 </c:if>
 
-<c:set var="user" scope="session" value="123"/>
 <!DOCTYPE html>
 <html>
 	
@@ -37,6 +36,7 @@
 		<script type="text/javascript" src="//staticnew.mayi.com/resourcesWeb/js/layer/layer.min.js"></script>
 		<script type="text/javascript" src="//staticnew.mayi.com/resourcesWeb/js/comment_div.js?V=201310162028"></script>
 		<script type="text/javascript" src="//staticnew.mayi.com/resourcesWeb/js/lottery.js"></script>
+		<script src="${pageContext.request.contextPath}/frontStage/js/loginpc2.js" type="text/javascript" charset="utf-8"></script>
 		<!--wt20161103-->
 		<style>
 			.yx_shishui_btn {
@@ -684,15 +684,15 @@
 				<ul class="nav_R asote nav_right">
 					<li>
 						<div class="showinfo">
-							<a href="javascript:menufrozen(870177979,'/tenant/870177979/orders','user')" target="_self"><img src="https://i1.mayi.com//mayi21/M13/PI/QW/9Q9J28QBYT9ZESFQG4VWMY3KWVXAQW.jpg_35x35c.jpg" id="aaa" class="user_img">
-								<span class="name" id="head_nickname">${user}</span></a>
+							<a href="javascript:menufrozen(870177979,'/tenant/870177979/orders','user')" target="_self"><img src="${user!=null?user.imgUrl:' '}" class="user_img">
+								<span class="name" id="head_nickname"></span></a>
 							<div class="head_pop">
 								<div class="pop_column">
 									<p>
 										<a href="javascript:searchOrder('','allUserOrders')" target="_self" id="myorder" rel="nofollow" _mayi_rp="webaround|userinfo|order">我的订单</a>
 									</p>
 									<p>
-										<a href="frontStage/userinfo.jsp" target="_self" id="myorder" rel="nofollow" class="slideactive" _mayi_rp="webaround|userinfo|account">我的账户</a>
+										<a href="${pageContext.request.contextPath }/frontStage/userinfo.jsp" target="_self" id="myorder" rel="nofollow" class="slideactive" _mayi_rp="webaround|userinfo|account">我的账户</a>
 									</p>
 									<p class="textCt">
 										<a href="javascript:void(0)" id="loginoutbut" target="_self" class="stclick" clicktag="1_6">退出登录</a>
@@ -756,7 +756,7 @@
 		<input type="hidden" name="ctx1" id="ctx1" value="//staticnew.mayi.com" />
 		<input type="hidden" name="uid" id="uid" value="870177979" />
 		<input type="hidden" name="loginurl" id="loginurl" value="none" />
-		<input type="hidden" name="head_userName" id="head_userName" value="${user}">
+		<input type="hidden" name="head_userName" id="head_userName" value="${user!=null?user.userName:' '}">
 		<script type='text/javascript' src='//webchat.7moor.com/javascripts/7moorInit.js?accessId=73859f20-f357-11e6-b43e-3b18b16942dc&autoShow=false' async='async'></script>
 		<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 		<html xmlns="http://www.w3.org/1999/xhtml">
@@ -949,7 +949,7 @@
 		<div class="main">
 			<ul class="breadcrumb clearfix">
 				<li>
-					<a href="/tenant/870177979/orders" ">我是房客</a> <span class="divider "></span>
+					<a href="/tenant/870177979/orders" ">我是房客</a> <span class="divider">》</span>
 				</li>
 				<li>订单管理<span class="divider "></span></li>
 			</ul> 
