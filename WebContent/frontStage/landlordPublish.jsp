@@ -323,7 +323,7 @@
 	                	<div class="head_pop">
 		                	<div class="pop_column plr10">
 		                        <p><a href="ls.action?op=allLandlordOrders&orderStatus=-1&userId=${user.userId }">订单管理</a></p>
-		                        <p><a href="ls.action?op=allPublish&accomStatus=4&userId=${user.userId })">房源管理</a></p>  
+		                        <p><a href="ls.action?op=allPublish&accomStatus=4&userId=${user.userId }">房源管理</a></p>  
 		                        
 		                    </div>
 	                	</div>

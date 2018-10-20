@@ -492,7 +492,7 @@
 		<div class='head_cnt relave'>
 			<ul class="nav_R asote nav_right">
 
-				<li style="margin-left: -100px;">
+				<li>
 					<div class="showinfo">
 						<a href="javascript:void(0)" target="_self">
 							<img src="${user!=null?user.imgUrl:' '}" id="aaa" class="user_img"> 
