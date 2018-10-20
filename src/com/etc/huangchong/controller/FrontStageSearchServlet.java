@@ -54,7 +54,7 @@ public class FrontStageSearchServlet extends HttpServlet {
 			request.getRequestDispatcher("frontStage/SearchAccomodation.jsp").forward(request, response);
 		} else if ("searchpage".equals(op)) {
 			int page = 1;
-			int pageSize = 8;
+			int pageSize = 4;
 			if (request.getParameter("page") != null) {
 				page = Integer.parseInt(request.getParameter("page"));
 			}
@@ -64,19 +64,24 @@ public class FrontStageSearchServlet extends HttpServlet {
 			PageData<Homestay>  pd = ss.getQuerySearchPage(page, pageSize, Area);
 			request.setAttribute("pd", pd);
 			request.getRequestDispatcher("frontStage/SearchAccomodation.jsp").forward(request, response);
-		} else if (op.equals("todetail")) {
-			// 详情页评论
-			// 获得民宿Id
+		} else if ("todetailPage".equals(op)) {
+			int page = 1;
+			int pageSize = 4;
+			if (request.getParameter("page") != null) {
+				page = Integer.parseInt(request.getParameter("page"));
+			}
+			if (request.getParameter("pageSize") != null) {
+				pageSize = Integer.parseInt(request.getParameter("pageSize"));
+			}
 			int accomId = Integer.parseInt(request.getParameter("accomId"));
 			Homestay h = hs.getSingleHomestay(accomId);
 			request.setAttribute("homestay", h);
-			List<ShowComment> list = scs.getQueryShowComment(accomId);
-			request.setAttribute("list", list);
-			int commentSum = list.size();
-			request.setAttribute("commentSum", commentSum);
+			PageData<ShowComment> pd = scs.getQueryShowCommentByPage(page, pageSize, accomId);
+			request.setAttribute("pd", pd);
 			FangDong fd=scs.getLandlordPhoto(accomId);
 			request.setAttribute("fd", fd);
 			request.getRequestDispatcher("frontStage/detail.jsp").forward(request, response);
+			
 		}
 
 	}

@@ -894,6 +894,14 @@ function setPayCuponPrice() {
 			</div>
 		</div>
 		<div class='pay_parent'>
+		<dl class='clearfloat'>
+				<dt class='fl'>订单编号：</dt>
+				<dd class='fl color_tao'><span id="orderId">${orderId}</span></dd>
+			</dl>
+			<dl class='clearfloat'>
+				<dt class='fl'>民宿名称：</dt>
+				<dd class='fl color_tao'><span id="accomTitle">${accomTitle}</span></dd>
+			</dl>
 			<dl class='clearfloat'>
 				<dt class='fl'>线上支付到黄虫</dt>
 				<dd class='fl color_tao'><span id="onlinePayAmountShow"></span>元</dd>
@@ -926,7 +934,7 @@ function setPayCuponPrice() {
 				</dd>
 			</dl>
 		</div>
-		<div class='go_pay'><a id="gopay" onclick="pay();">去支付</a></div>
+		<div class='go_pay'><a id="gopay">去支付</a></div>
 	</div>
 	</form>
 	
@@ -1161,11 +1169,11 @@ if (bsource != null){
 </script>
 <!--ganji end-->
 <script type="text/javascript">
-$("#gopay").click(function(){
+ $("#gopay").click(function(){
 	
-	location.href="../index.jsp";
+	location.href="bs.action?op=gopay&onlinePayAmountShow=${onlinePayAmountShow}&orderId=${orderId}&accomId=${accomId}";
 	
-});
+}); 
 
 </script>
 

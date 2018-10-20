@@ -7,6 +7,7 @@ import com.etc.huangchong.dao.impl.ShowCommentDaoImpl;
 import com.etc.huangchong.entity.FangDong;
 import com.etc.huangchong.entity.ShowComment;
 import com.etc.huangchong.service.ShowCommentService;
+import com.etc.huangchong.util.PageData;
 
 public class ShowCommentServiceImpl implements ShowCommentService {
 	ShowCommentDao scd=new ShowCommentDaoImpl();
@@ -20,5 +21,11 @@ public class ShowCommentServiceImpl implements ShowCommentService {
 		// TODO Auto-generated method stub
 		return scd.landlordPhoto(accomId);
 	}
+	@Override
+	public PageData<ShowComment> getQueryShowCommentByPage(int page, int pageSize, int accomId) {
+		// TODO Auto-generated method stub
+		return scd.queryCommentByPage(page, pageSize, accomId);
+	}
+	
 
 }

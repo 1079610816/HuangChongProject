@@ -19,17 +19,21 @@
 	<link rel="stylesheet" href="//staticnew.mayi.com/resourcesWeb/v201807/index_page_new/css/mayi_base.css" />
 	<link rel="stylesheet" href="//staticnew.mayi.com/resourcesWeb/v201807/index_page_new/css/public.css"/>
 	<link rel="stylesheet" href="//staticnew.mayi.com/resourcesWeb/v201807/index_page_new/css/jquery.bxslider.css" />
-	<link rel="stylesheet" href="//staticnew.mayi.com/resourcesWeb/js/layer/skin/layer.css"/>
+
 	<!-- 途家配套设施样式 -->
 	<link
 		href="//staticnew.mayi.com/resourcesWeb/v201510/css/tujia_facilitie.css"
 		rel="stylesheet"/>
+	
+	
+			
 		<!--  -->
 <script src="http://libs.baidu.com/jquery/1.10.2/jquery.min.js"></script>
 
 <script src="http://libs.baidu.com/jquery/1.11.1/jquery.min.js"
-			type="text/javascript" charset="utf-8"></script>  
-			
+			type="text/javascript" charset="utf-8"></script> 
+
+	
 			
 		<script type="text/javascript"
 			src="//staticnew.mayi.com/resourcesWeb/js/jquery-migrate-1.1.1.js"></script>
@@ -196,7 +200,6 @@
 				var time = dateout.getTime() - datein.getTime();
 				var days = Math.floor(time / (24 * 60 * 60 * 1000));
 				var timestamp = new Date().getTime() + "" + Math.floor(Math.random() * 10) + Math.floor(Math.random() * 10);
-				alert(timestamp);
 				if(flag == "sale") {
 					window.criteo_q.push({
 						event: "setAccount",//设置账户ID事件参数
@@ -215,7 +218,7 @@
 						checkin_date: d1,
 						checkout_date: d2
 					});
-					location.href="bs.action?op=bookOrder&checkinday="+d1+"&checkoutday="+d2+"&price="+pric+"&orderId="+timestamp;
+					location.href="bs.action?accomId=${homestay.accomId}&op=bookOrder&checkinday="+d1+"&checkoutday="+d2+"&orderId="+timestamp;
 				} else {
 					window.criteo_q.push({
 						event: "setAccount",
@@ -1377,7 +1380,7 @@ span.search {
 								<b>订单确认时间</b> <b><span id="confirmMinute"></span></b>
 							</p>
 							<p>
-								<b>收到评价</b> <b id="add_hom"><span id="landLordCommentCnt">${requestScope.commentSum}条</span></b>
+								<b>收到评价</b> <b id="add_hom"><span id="landLordCommentCnt">${pd.total}条</span></b>
 							</p>
 						</div>
 
@@ -1635,7 +1638,7 @@ span.search {
 					<a href="#pingjia" name="pingjia"></a>
 					<div class="pingjia" name="pingjia">
 						<ul class="pingjiaTit no_score clearfloat">
-							<li id="landComment" class="on ping_up"><i>本房源评价（${requestScope.commentSum}）</i>
+							<li id="landComment" class="on ping_up"><i>本房源评价（${pd.total}）</i>
 								<p id="landCommentP" style="display: none;">
 									<span id="ffComment"></span>
 								</p></li>
@@ -1652,7 +1655,7 @@ span.search {
 
 							<!--本房源客户评价-->
 							<div id="lodgeunitPJ_cnt">
-								<c:forEach items="${requestScope.list}" var="show">
+								<c:forEach items="${requestScope.pd.data}" var="show">
 									<div class="pingjiaDes clearfloat">
 										<div class="roomer_photo fl">
 											<img
@@ -1670,23 +1673,41 @@ span.search {
 									</div>
 								</c:forEach>
 
-								<div class="page_turn" id="lodgeunitPJ_cntpage">
-									<a class="pg-active" href="javascript:loadPageComment('1','1')"
-										rel="nofollow">1</a> <a class=""
-										href="javascript:loadPageComment('2','1')" rel="nofollow">2</a>
-									<a class="" href="javascript:loadPageComment('3','1')"
-										rel="nofollow">3</a> <a class=""
-										href="javascript:loadPageComment('4','1')" rel="nofollow">4</a>
-									<a class="" href="javascript:loadPageComment('5','1')"
-										rel="nofollow">5</a> <a
-										href="javascript:loadPageComment('2','1')" rel="nofollow"
-										class="up-page">&gt;</a>
-								</div>
-							</div>
+						
 						</div>
+<link rel="stylesheet" href="${pageContext.request.contextPath}/frontStage/layui/css/layui.css" media="all" />
+ <script src="${pageContext.request.contextPath}/frontStage/layui/layui.js" charset="utf-8"></script>
+ 
+	  	 	 	  	 	 <!-- layui分页开始 -->
+						<div id="demo7" style="text-align: center"></div>
+						<!-- layui分页结束 -->
 
+							</div>
 						<!--本房源客户评价结束-->
-
+ 		
+		<script>
+layui.use(['laypage', 'layer'], function(){
+  var laypage = layui.laypage
+  ,layer = layui.layer;
+  
+  
+  //完整功能
+  laypage.render({
+    elem: 'demo7'
+    ,count: ${pd.total}
+  ,curr:${pd.page},
+  limit:${pd.pageSize}
+    ,layout: ['count', 'prev', 'page', 'next', 'limit', 'refresh', 'skip']
+    ,jump: function(obj,first){
+      if(!first){
+    	  location.href="ss.action?op=todetailPage&page="+obj.curr+"&pageSize="+obj.limit+"&accomId="+${homestay.accomId};
+      }
+    }
+  });
+  
+  
+});
+</script>
 
 
 						<!--房东收到的所有房源评价-->
@@ -1710,6 +1731,9 @@ span.search {
 	<!--底部浮层显示，默认是隐藏-->
 	<!-- <script type="text/javascript" src="//staticnew.mayi.com/resourcesWeb/v201510/js/rightlayer.js"></script> -->
 	<!--公共尾部-->
+		<link rel="stylesheet" href="//staticnew.mayi.com/resourcesWeb/js/layer/skin/layer.css"/>
+	<script type="text/javascript"
+		src="//staticnew.mayi.com/resourcesWeb/js/layer/layer.min.js"></script>
 	<link rel="stylesheet"
 		href="//staticnew.mayi.com/resourcesWeb/seo/common/footer/seoFooter.css" />
 	<script
@@ -1901,8 +1925,7 @@ span.search {
 	<!-- 登录弹窗 END -->
 
 	<!--公共尾部结束-->
-	<script type="text/javascript"
-		src="//staticnew.mayi.com/resourcesWeb/js/layer/layer.min.js"></script>
+
 	<script type="text/javascript"
 		src="//staticnew.mayi.com/resourcesWeb/js/jQuery.md5.js"></script>
 	

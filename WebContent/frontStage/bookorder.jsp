@@ -21,10 +21,11 @@
 		<script type="text/javascript" language="javascript">
 			$(function() {
 				 m={
-					        roomid:'851519508',
+					        roomid:'852883945',
 					   	 	minday:'1',
-					    	detialJson:'{"from":2,"checkinOfWeek":"${checkinOfWeek}","checkoutOfWeek":"${checkoutOfWeek}","promotionModel":{"accountEntityList":[],"userCouponEntityList":[]},"checkinday":"${requestScope.checkinday}","checkoutday":"${requestScope.checkoutday}","showtotalprice":${price*nights},"payRuleRate":100,"refunddays":1007,"allrefundday":"2018-10-03","specialdiscount":true,"deposit":30000,"refundRullno":"退款政策：下单后取消订单，将收取未住房费的50%作为违约金支付给房东。","totalPrice":${price*nights},"nights":${nights},"onlinePayAmount":${price*nights},"originalPrice":${price*nights},"onlineAmount":${price*nights},"priceDetailModel":{"showtotalPrice":${price*nights},"sum":${price*nights},"items":[{"type":10,"date":"2018-10-18","price":${price},"dayAmount":${price},"priceShow":${price},"weekNum":4,"originalPrice":${price}}]},"roomNum":1,"haveStock":1}'
+					    	detialJson:'{"checkinday":"${checkinday}","checkoutday":"${checkoutday}","specialdiscount":true,"checkinOfWeek":"${checkinOfWeek}","checkoutOfWeek":"${checkoutOfWeek}","nights":${nights},"roomNum":1,"totalPrice":${price*nights},"showtotalprice":${price*nights},"onlinePayAmount":${price*nights},"onlineAmount":${price*nights},"payRuleRate":100,"allrefundday":"2018-10-18","promotionModel":{"userCouponEntityList":[],"accountEntityList":[]},"priceDetailModel":{"sum":${price*nights},"showtotalPrice":${price*nights},"items":[{"date":"2018-10-21","originalPrice":228,"price":${price},"priceShow":${price},"type":10,"dayAmount":${price}},{"date":"2018-10-22","originalPrice":${price},"price":${price},"priceShow":${price},"type":10,"dayAmount":${price},"weekNum":1}]},"haveStock":1,"from":2,"originalPrice":${price*nights},"refundRullno":"退款政策：下单后取消订单，将收取未住房费的50%作为违约金支付给房东。"}'
 					    };
+
 
 
 				
@@ -2297,9 +2298,15 @@
 							<label style="font-size: 15px;">${orderId}</label>
 							</dd>
 							</dl>
+							<dl class='cnt1_dl clearfloat mt15'>
+							<dt class='fl'>民宿标题：</dt>
+							<dd class='fl roomer_cnt'>
+							<label style="font-size: 15px;">${accomTitle}</label>
+							</dd>
+							</dl>
 								<dl class='cnt1_dl clearfloat mt15'>
 									<dt class='fl'>预订日期</dt>
-									<dd class='fl roomer_cnt'><input type="text" readonly="readonly" id="checkinday" class='date1' value='' autocomplete="off" /><span id="checkinOfWeek"></span>&nbsp;&nbsp;至&nbsp;&nbsp;<input type="text" readonly="readonly" id="checkoutday" class='date2' value='' autocomplete="off" /><span id="checkoutOfWeek"></span>&nbsp;&nbsp;&nbsp;&nbsp;共<span id='nights'>${requestScope.nights}</span>晚
+									<dd class='fl roomer_cnt'><input type="text" readonly="readonly" id="checkinday" class='date1' value='' autocomplete="off"/><span id="checkinOfWeek"></span>&nbsp;&nbsp;至&nbsp;&nbsp;<input type="text" readonly="readonly" id="checkoutday" class='date2' value='' autocomplete="off" /><span id="checkoutOfWeek"></span>&nbsp;&nbsp;&nbsp;&nbsp;共<span id='nights'>${requestScope.nights}</span>晚
 									</dd>
 								</dl>
 								<!--预订套数-->
@@ -2409,11 +2416,11 @@
 				<!--右侧开始-->
 				<div class="fr content_right  pin" id="pin1">
 					<div class='right_cnt'>
-						<img src="//i1.mayi.com/mayi62/M87/IX/UJ/Y9J4LERXX88LYMF4DEL5HHY8C66DTB.jpg_/both/338x228/quality/65/unsharp/true/format/jpg" style="vertical-align: middle" />
+						<img src="${pageContext.request.contextPath}/../img/${accomId}/1.png" width="338" height="228" style="vertical-align: middle" />
 						<!--右侧房间开始-->
 						<div class='room_intro relave clearfloat'>
-							<strong>环岛路近曾厝安厦大会展可做饭家庭双床房</strong>
-							<span>厦门思明区黄厝社</span>
+							<strong>${accomTitle}</strong>
+							<!-- <span>厦门思明区黄厝社</span> -->
 						</div>
 						
 						<div class='time_true'>
@@ -2982,7 +2989,7 @@
 			
 			var onlinePayAmountShow = $("#onlinePayAmountShow").html();
 			
-			location.href="bs.action?op=pay&onlinePayAmountShow="+onlinePayAmountShow;
+			location.href="bs.action?op=pay&onlinePayAmountShow="+onlinePayAmountShow+"&orderId=${orderId}&accomId=${accomId}";
 			
 		});
 		

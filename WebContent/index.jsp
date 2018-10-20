@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
 	pageEncoding="utf-8"%>
+	<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -393,9 +394,9 @@ h2 {
 		sNow += String(vNow.getMinutes());
 		sNow += String(vNow.getSeconds());
 		sNow += String(vNow.getMilliseconds());
-		document.getElementById("WIDout_trade_no").value = "123456";
-		document.getElementById("WIDsubject").value = "测试";
-		document.getElementById("WIDtotal_amount").value = "0.01";
+		document.getElementById("WIDout_trade_no").value = "${orderId}";
+		document.getElementById("WIDsubject").value = "${accomTitle}";
+		document.getElementById("WIDtotal_amount").value = "${onlinePayAmountShow}";
 	}
 	GetDateNow();
 </script>

@@ -6,6 +6,7 @@ import com.etc.huangchong.dao.ShowCommentDao;
 import com.etc.huangchong.entity.FangDong;
 import com.etc.huangchong.entity.ShowComment;
 import com.etc.huangchong.util.BaseDao;
+import com.etc.huangchong.util.PageData;
 
 public class ShowCommentDaoImpl implements ShowCommentDao {
 
@@ -23,5 +24,14 @@ public class ShowCommentDaoImpl implements ShowCommentDao {
 		List<FangDong> list=(List<FangDong>)BaseDao.select(sql, FangDong.class, accomId);
 		return list.get(0);
 	}
+
+	@Override
+	public PageData<ShowComment> queryCommentByPage(int page, int pageSize, int accomId) {
+		// TODO Auto-generated method stub
+		String sql = "SELECT comment.content,users.nickName,users.imgUrl FROM comment LEFT JOIN users on comment.userId = users.userId WHERE comment.accomId=?";
+		return BaseDao.getPage(sql, page, pageSize, ShowComment.class,accomId);
+	}
+	
+	
 
 }

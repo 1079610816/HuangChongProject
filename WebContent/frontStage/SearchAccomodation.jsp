@@ -244,7 +244,7 @@
 						<div class="theme c_gray f12">目的地</div>
 						<div class="input-box active">
 							<input type="text" id="searchcityin" search typeid="3"
-								placeholder="城市、景点、商圈" value="${requestScope.list[0].accomArea}"
+								placeholder="城市、景点、商圈" value="${requestScope.pd.data[0].accomArea}"
 								surl="/beijing" class="text" clicktag="2_1" name="searchcityin"
 								citypinyin="beijing" cityname="北京" pinyin=""
 								onkeydown="pressEve(event);" onkeyup="getSuggest(event,0);"
@@ -643,7 +643,7 @@
 												style="display: none;" data="851953993"
 												mainImage="${pageContext.request.contextPath}/../img/${s.accomId}/Head.jpg"></a>
 											<a
-												href="../HuangChongProject/ss.action?op=todetail&accomId=${s.accomId }"
+												href="../HuangChongProject/ss.action?op=todetailPage&accomId=${s.accomId }"
 												 target="_blank"> <img
 												class="roomMap851953993" style="display: none" /> <img
 												id="851953993" class="lazy lodgelazy"
@@ -675,7 +675,7 @@
 									</a>
 								</div>
 								<a
-									href="../HuangChongProject/ss.action?op=todetail&accomId=${s.accomId }"
+									href="../HuangChongProject/ss.action?op=todetailPage&accomId=${s.accomId }"
 									title="${s.accomTitle}" onClick="goDetail(this)"
 									target="_blank" style="position: relative;">
 									<div class="room-detail  clearfloat" style="height: 88px;">
@@ -702,13 +702,13 @@
 						</c:forEach>
 
 					</dl>
+					<!-- layui分页开始 -->
+						<div id="searchpage" style="text-align: center"></div>
+						<!-- layui分页结束 -->
 					
 				</div>
 				<!-- 搜索到的已有房源end -->
-	             <!-- layui分页开始 -->
-						<div id="searchpage" style="text-align: center"></div>
-						<!-- layui分页结束 -->
-
+	             
 				<!-- 全部推荐房源开始 start -->
 				<!-- 全部推荐房源结束 end-->
 			</div>
@@ -725,17 +725,16 @@
 		laypage.render({
    		elem: 'searchpage'
     	,count: ${pd.total}
-		,curr:${pd.page}
+		,curr:${pd.page},
+		limit:${pd.pageSize}
 		,theme:'#c00'
     	,layout: ['count', 'prev', 'page', 'next', 'limit', 'refresh', 'skip']
     	,jump: function(obj,first){
-     	 console.log(obj)
-     	console.log(first); //得到每页显示的条数
          
          //首次不执行
          if(!first){
            //do something
-           location.href="../ss.action?op=searchpage&page="+obj.curr+"pageSize=8";
+           location.href="ss.action?op=searchpage&page="+obj.curr+"&pageSize="+obj.limit+"&Area=${requestScope.pd.data[0].accomArea}";
          }
     	}
   	});
