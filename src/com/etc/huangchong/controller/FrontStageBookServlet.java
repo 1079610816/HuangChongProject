@@ -32,19 +32,18 @@ public class FrontStageBookServlet extends HttpServlet {
 		request.setCharacterEncoding("utf-8");
 		response.setCharacterEncoding("utf-8");
 		response.setContentType("text/html;charset=utf-8");
-		
+		String op = request.getParameter("op");
+		if("bookOrder".equals(op)) {
 		//获得入住时间
 		String checkinday = request.getParameter("checkinday");
 		//获得退房时间
 		String checkoutday = request.getParameter("checkoutday");
-
 		//民宿单天单价
 		String price = request.getParameter("price");
 		//订单编号
 		String orderId = request.getParameter("orderId");
 		//几晚
 		int nights = WeekUtil.daysBetween(checkinday, checkoutday);
-		
 		request.setAttribute("checkinday", checkinday);
 		request.setAttribute("checkoutday", checkoutday);
 		request.setAttribute("checkinOfWeek", WeekUtil.CalculateWeekDay(checkinday));
@@ -53,6 +52,11 @@ public class FrontStageBookServlet extends HttpServlet {
 		request.setAttribute("nights",nights);
 		request.setAttribute("orderId",orderId);
 		request.getRequestDispatcher("frontStage/bookorder.jsp").forward(request, response);
+		}else if("pay".equals(op)) {
+			String onlinePayAmountShow = request.getParameter("onlinePayAmountShow");
+			request.setAttribute("onlinePayAmountShow", onlinePayAmountShow);
+			request.getRequestDispatcher("frontStage/pay.jsp").forward(request, response);
+		}
 		
 	}
 

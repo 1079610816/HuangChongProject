@@ -8,7 +8,7 @@
 		<meta charset="UTF-8" />
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<title>下单页</title>
-
+		<link rel="stylesheet" href="//staticnew.mayi.com/resourcesWeb/v201807/index_page_new/css/public.css" />
 		<link rel="stylesheet" href="//staticnew.mayi.com/resourcesWeb/newbaoxian/css/order.css" />
 		<link href="//staticnew.mayi.com/resourcesWeb/v201510/css/public_element.css" rel="stylesheet">
 		<link href="//staticnew.mayi.com/resourcesWeb/ordernew/css/order_public.css" rel="stylesheet">
@@ -2117,9 +2117,6 @@
 				<span class='search'></span>
 				<ul class="nav_R asote nav_right">
 
-					<li>
-						<a href="javascript:void(0)" id="loginshow" rel="nofollow" target="_self">登录/注册</a>
-					</li>
 					
 					<li>
 						<a rel="nofollow" href="javascript:publish(0)" class="room-btn f16 t-center" _mayi_rp="webaround|activity|freepublish">免费发布房源</a>
@@ -2302,7 +2299,7 @@
 							</dl>
 								<dl class='cnt1_dl clearfloat mt15'>
 									<dt class='fl'>预订日期</dt>
-									<dd class='fl roomer_cnt'><input type="text" readonly="" id="checkinday" class='date1' value='' autocomplete="off" /><span id="checkinOfWeek"></span>&nbsp;&nbsp;至&nbsp;&nbsp;<input type="text" readonly="" id="checkoutday" class='date2' value='' autocomplete="off" /><span id="checkoutOfWeek"></span>&nbsp;&nbsp;&nbsp;&nbsp;共<span id='nights'>${requestScope.nights}</span>晚
+									<dd class='fl roomer_cnt'><input type="text" readonly="readonly" id="checkinday" class='date1' value='' autocomplete="off" /><span id="checkinOfWeek"></span>&nbsp;&nbsp;至&nbsp;&nbsp;<input type="text" readonly="readonly" id="checkoutday" class='date2' value='' autocomplete="off" /><span id="checkoutOfWeek"></span>&nbsp;&nbsp;&nbsp;&nbsp;共<span id='nights'>${requestScope.nights}</span>晚
 									</dd>
 								</dl>
 								<!--预订套数-->
@@ -2319,74 +2316,7 @@
 									</dd>
 								</dl>
 								<!-- 联系人手机号 -->
-								<dl class="cnt1_dl clearfloat tel_box mt15">
-									<dt class="fl">联系人手机号</dt>
-									<dd class='fl relative'>
-										<input type="text" placeholder="必填" class='import fl' tabindex="3" id="tenantmobile" name="tenantmobile" value="" autocomplete="off" />
-										<!-- <input type="hidden" id="mobileareacode" name="mobileareacode" value="86" />
-										<div class="tel_type other">
-											<i id="areaCode" code="86">+86</i>
-											<span class="UP_down choice_nation_open"></span>
-										</div>
-										<div class="nation_list_order other" id="nation_list">
-											<ul class="continent_list_order" id="continent_list">
-												<li class="avtive_green_order">亚洲</li>
-												<li>欧洲</li>
-												<li>美洲</li>
-												<li>大洋洲</li>
-											</ul>
-											<ul class="nation_tel_list_order" id="nation_tel_list_order_ul">
-												<li style="display: block;">
-													<a href="javascript:void(0);" value="86">中国大陆&nbsp;&nbsp;+86</a>
-													<a href="javascript:void(0);" value="82">韩国&nbsp;&nbsp;+82</a>
-													<a href="javascript:void(0);" value="60">马来西亚&nbsp;&nbsp;+60</a>
-													<a href="javascript:void(0);" value="81">日本&nbsp;&nbsp;+81</a>
-													<a href="javascript:void(0);" value="66">泰国&nbsp;&nbsp;+66</a>
-													<a href="javascript:void(0);" value="65">新加坡&nbsp;&nbsp;+65</a>
-													<a href="javascript:void(0);" value="91">印度&nbsp;&nbsp;+91</a>
-													<a href="javascript:void(0);" value="62">印度尼西亚&nbsp;&nbsp;+62</a>
-													<a href="javascript:void(0);" value="84">越南&nbsp;&nbsp;+84</a>
-													<a href="javascript:void(0);" value="853">中国澳门&nbsp;&nbsp;+853</a>
-													<a href="javascript:void(0);" value="852">中国香港&nbsp;&nbsp;+852</a>
-													<a href="javascript:void(0);" value="886">中国台湾&nbsp;&nbsp;+886</a>
-												</li>
-												<li style="display: none;">
-													<a href="javascript:void(0);" value="49">德国&nbsp;&nbsp;+49</a>
-													<a href="javascript:void(0);" value="7">俄罗斯&nbsp;&nbsp;+7</a>
-													<a href="javascript:void(0);" value="33">法国&nbsp;&nbsp;+33</a>
-													<a href="javascript:void(0);" value="380">乌克兰&nbsp;&nbsp;+380</a>
-													<a href="javascript:void(0);" value="34">西班牙&nbsp;&nbsp;+34</a>
-													<a href="javascript:void(0);" value="39">意大利&nbsp;&nbsp;+39</a>
-													<a href="javascript:void(0);" value="44">英国&nbsp;&nbsp;+44</a>
-												</li>
-												<li style="display: none;">
-													<a href="javascript:void(0);" value="55">巴西&nbsp;&nbsp;+55</a>
-													<a href="javascript:void(0);" value="1">加拿大&nbsp;&nbsp;+1</a>
-													<a href="javascript:void(0);" value="1">美国&nbsp;&nbsp;+1</a>
-												</li>
-												<li style="display: none;">
-													<a href="javascript:void(0);" value="61">澳大利亚&nbsp;&nbsp;+61</a>
-													<a href="javascript:void(0);" value="64">新西兰&nbsp;&nbsp;+64</a>
-												</li>
-											</ul>
-										</div> -->
-										<span class='relave error error_mobile'><i class='absot gou'></i><b>手机号错误，请重新尝试！</b></span>
-									</dd>
-								</dl>
-								<dl class='cnt1_dl clearfloat tel_box mt15' id="imgcode">
-									<dt class='fl'>&nbsp;</dt>
-									<dd class='fl' style="width: 340px;">
-										<input type="text" placeholder="图片验证码" id="bookimagecode" value="" class='import fl' tabindex="3" /><img src="/common/authimage?random=0000&width=130&height=38" id="bookauthimage" title="点击刷新" class="img_yan" />
-										<span class='relave fl error error_img'><i class='absot gou'></i><b>图片验证码错误，请重新尝试！</b></span>
-									</dd>
-								</dl>
-								<dl class='cnt1_dl clearfloat tel_box mt15' id="mobilecode">
-									<dt class='fl'>&nbsp;</dt>
-									<dd class='fl'>
-										<!--验证码错误时span的class="gou" ，， 正确时class='gou dui'-->
-										<input class="fl" type="text" tabindex="4" placeholder="短信验证码" id="phonecode" name="phonecode" /> &nbsp;&nbsp;<input type="button" style="cursor: pointer;" value='获取验证码' name='egetmobilecode' class='yanzm fl' id='egetmobilecode' /><input type="submit" value='60s' name='验证码' class='yanzm_s' /><span id="errorMessage"></span>&nbsp;&nbsp;<span id="checkinfo" class="gou dui" style="display:none;"></span>
-									</dd>
-								</dl>
+								
 								<!--是否开发票-->
 								<input type="hidden" id="isOnlineInvoice" name="isOnlineInvoice" value="2" />
 							</div>
@@ -2471,7 +2401,7 @@
 					<div class='cnt_foot' style="position:relative;">
 						<!--温馨提示暂时无特色服务相关的费用 ，以及您选定房东提供的特色服务费用 -->
 						<div class='order_sub_parent'>
-							<a class='submit fl' onclick='submitOrder();'>提交订单</a>
+							<a class='submit fl' id="submitOrder">提交订单</a>
 						</div>
 					</div>
 
@@ -2721,148 +2651,77 @@
 		<!--footer-->
 		<!--底部统计加登录-->
 		<div class="foot index-foot">
-			<div class="footer pt30 over-hidden pb20">
-				<ul>
-					<li class="pl60 w30">
-						<h3 class="f16 mb10">联系我们</h3>
-						<p>客户服务</p>
-						<p class="f20">400-028-6868</p>
-						<p>Email：service@mayi.com</p>
-						<p>商务合作</p>
-						<p>QQ：2656860348</p>
-						<p>Email：marketing@mayi.com</p>
-					</li>
-					<li class="pl60 w20">
-						<h3 class="f16 mb10">帮助中心</h3>
-						<p>
-							<a href="/platprofile/" target="_blank">我是房客</a>
-						</p>
-						<p>
-							<a href="/platprofile/" target="_blank">我是房东</a>
-						</p>
-						<p>
-							<a href="/roomauditrule/" target="_blank">房源审核规范</a>
-						</p>
-						<p>
-							<a href="/supportplan/" target="_blank">房客安心计划</a>
-						</p>
-						<p>
-							<a href="/sitemap/" target="_blank">房客安心计划</a>
-						</p>
-					</li>
-					<li class="pl40 w10">
-						<h3 class="f16 mb10">公司信息</h3>
-						<p>
-							<a href="/aboutcompany/" target="">关于黄虫</a>
-						</p>
-						<p>
-							<a href="/mediareport/" target="_blank">媒体报道</a>
-						</p>
-						<p>
-							<a href="/agreement/" target="_blank">服务协议</a>
-						</p>
-						<p>
-							<a href="/privacypolicy/" target="_blank">隐私条款</a>
-						</p>
-					</li>
-					
-				</ul>
-			</div>
+			<div class="w1050 pb20 clearfloat">
+		<div class="footer pt30 over-hidden pb20">
+			<ul>
+				<li>
+					<h3 class="f16 mb10">联系我们</h3>
+					<p class="mb15">客户服务</p>
+					<p class="f22">400-000-0000</p>
+					<p>Email：service@huangchong.com</p>
+					<p class="mb10 mt25">商务合作</p>
+					<p>QQ：1079610816</p>
+					<p>Email：1079610816@qq.com</p>
+				</li>
+				<li>
+					<h3 class="f16 mb10">帮助中心</h3>
+					<p>
+						<a href="/roomauditrule/" target="_blank">房源审核规范</a>
+					</p>
+					<p>
+						<a href="/supportplan/" target="_blank">房客安心计划</a>
+					</p>
+					<p>
+						<a href="/goodhouseplan/" target="_blank">优质住宿计划</a>
+					</p>
+					<p>
+						<a href="/sitemap/" target="_blank">网站地图</a>
+					</p>
+					<p>
+						<a href="questions.html" target="_blank">房客帮助</a>
+					</p>
+				</li>
+				<li>
+					<h3 class="f16 mb10">公司信息</h3>
+					<p>
+						<a rel="nofollow" href="/aboutcompany/" target="">关于黄虫</a>
+					</p>
+					<p>
+						<a rel="nofollow" href="/culture/" target="">加入我们</a>
+					</p>
+					<p>
+						<a rel="nofollow" href="/partner/" target="">战略合作</a>
+					</p>
+					<p>
+						<a rel="nofollow" href="http://iyoujia.mayi.com/mayilod/"
+							target="_blank">业主招募</a>
+					</p>
+					<p>
+						<a rel="nofollow" href="/mediareport/" target="_blank">媒体报道</a>
+					</p>
+					<p>
+						<a rel="nofollow" href="/agreement/" target="_blank">服务协议</a>
+					</p>
+					<p>
+						<a rel="nofollow" href="/privacypolicy/" target="_blank">隐私政策</a>
+					</p>
+					<p>
+						<a rel="nofollow" href="/webdisclaimer/" target="_blank">免责声明</a>
+					</p>
+				</li>
+				<li>
+					<h3 class="f16 mb10">关注我们</h3> <img
+					src="${pageContext.request.contextPath}/frontStage/img/qqewm.png"
+					class=" rt-app1"> <img
+						src="${pageContext.request.contextPath}/frontStage/img/wxewm.png"
+						class=" rt-app1">
+				</li>
+			</ul>
+		</div>
+	</div>
 			
 			
 		</div>
-		<!-- 登录弹窗 -->
-		<div class="loginbox" id="loginboxdiv" nexturl="none" name="loginboxdiv" style="display:none;">
-			<a class="login-colse" id="loginclose" name="loginclose" onClick="" href="javascript:void(0)"></a>
-			<div class="login-ways clearfloat">
-				<div class="fl phone-account">
-					<ul class="c322c27 clearfloat f18">
-						<li class="phoneway_current" id="changeloginbyma">手机验证码登录</li>
-						<li class="mayiway" id="changeloginbyup">帐号密码登录</li>
-					</ul>
-					<div class="login-phone-account">
-						<!-- 手机登陆 -->
-						<div class="login-input" id="loginbymadiv" name="loginbymadiv">
-							<div class="input">
-								<span class="phone-icon"></span>
-								<input class="dlargeinput" type="text" id="loginmobile" name="loginmobile" placeholder="手机号" value="" />
-							</div>
-							<div class="largeinputbox small-top clearfix">
-								<div class="dinput fl">
-									<span class="verification-icon"></span>
-									<input class="dsmallinput" type="text" id="imagecode" placeholder="图形验证码" value="" />
-								</div>
-								<div class="yz-code fr">
-									<img src="" id="loginauthimage" title="点击刷新" />
-								</div>
-							</div>
-							<div class="largeinputbox small-top clearfix" id="maerrordiv">
-								<div class="dinput fl" id="maerrordiv">
-									<span class="password-icon"></span>
-									<input class="dsmallinput" type="text" id="loginphonecode" name="loginphonecode" placeholder="短信验证码" value="" />
-								</div>
-								<div class="yz-code fr">
-									<input class="sendnumber defaultsend" type="button" id="getloginphonecode" name="getloginphonecode" value="获取验证码" />
-								</div>
-							</div>
-							<div class="logincheckbox large-top clearfix">
-								<label class="fl">
-                        <input class="selectcheckbox" type="checkbox" name="rememberloginstate" checked="checked" value=""/>自动登录
-                    </label>
-							</div>
-							<div class="logincheckbox large-top clearfix">
-								<font>未注册的手机号将自动创建为黄虫短租帐户</font>
-							</div>
-							<div class="btn-wrap btnpdt20">
-								<a href="javascript:void(0)" id="loginbymado">登录</a>
-							</div>
-						</div>
-						<!-- 手机登陆 end  -->
-						<!-- 密码登陆 start -->
-						<div class="login-input" id="loginbyupdiv" name="loginbyupdiv" style="display:none;">
-							<div class="input">
-								<span class="user-icon"></span>
-								<input class="dlargeinput" type="text" id="loginnamein" name="loginnamein" placeholder="手机号/邮箱/账号" value="" />
-							</div>
-							<div class="input small-top">
-								<span class="password-icon"></span>
-								<input class="dlargeinput" type="password" id="loginpassin" name="loginpassin" placeholder="密码" value="" />
-							</div>
-							<div class="largeinputbox small-top clearfix" id="uperrordiv">
-								<div class="dinput fl" id="yui_3_5_1_1_1434542056373_108">
-									<span class="verification-icon"></span>
-									<input type="text" class="dsmallinput" id="imagecode1" placeholder="图形验证码" value="">
-								</div>
-								<div class="yz-code fr">
-									<img src="" id="loginauthimage1" title="点击刷新">
-								</div>
-							</div>
-							<div class="logincheckbox large-top clearfix">
-								<label class="fl">
-                        <input class="selectcheckbox" type="checkbox" name="rememberpass" checked="checked" value=""/>自动登录
-                    </label>
-							</div>
-							<div class="btn-wrap btnpdt20">
-								<a href="javascript:void(0)" id="loginbyupdo">登录</a>
-							</div>
-							<p class="otherwaytitle mt20">没有账号密码请
-								<a href="javascript:void(0)" id="changeloginbymwa">使用手机验证码登录</a>
-							</p>
-						</div>
-						<!-- 密码登陆 end -->
-					</div>
-				</div>
-				<div class="fl t-center third-party">
-					<p class="f18 c322c27 mb20">其他登录方式</p>
-					<ul class="otherway c322c27">
-						<li class="wxway" id="loginbywx">微信登录</li>
-						<li class="sinaway" id="loginbysina">微博登录</li>
-						<li class="qqway" id="loginbyqq">QQ登录</li>
-					</ul>
-				</div>
-			</div>
-		</div>
-		<!-- 登录弹窗 END -->
 		<!--公共尾部结束-->
 		<script type="text/javascript" src="//staticnew.mayi.com/resourcesWeb/js/layer/layer.min.js"></script>
 		<script type="text/javascript" src="//staticnew.mayi.com/resourcesWeb/js/jQuery.md5.js"></script>
@@ -3118,6 +2977,19 @@
 
 		<!--360聚效推广的访客找回 -->
 		
+		<script type="text/javascript">
+		$("#submitOrder").click(function(){
+			
+			var onlinePayAmountShow = $("#onlinePayAmountShow").html();
+			
+			location.href="bs.action?op=pay&onlinePayAmountShow="+onlinePayAmountShow;
+			
+		});
+		
+		
+		
+		
+		</script>
 	
 
 	</body>

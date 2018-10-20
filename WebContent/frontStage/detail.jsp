@@ -30,10 +30,8 @@
 		href="//staticnew.mayi.com/resourcesWeb/v201807/index_page_new/css/mayi_base.css" />
 		
 	<link rel="stylesheet"
-		href="//staticnew.mayi.com/resourcesWeb/v201807/index_page_new/css/public.css" />
-	<link rel="stylesheet"
 		href="//staticnew.mayi.com/resourcesWeb/v201807/index_page_new/css/jquery.bxslider.css" />
-<link rel="stylesheet"
+	<link rel="stylesheet"
 	href="//staticnew.mayi.com/resourcesWeb/js/layer/skin/layer.css"/>
 	<!-- 途家配套设施样式 -->
 	<link
@@ -230,7 +228,7 @@
 						checkin_date: d1,
 						checkout_date: d2
 					});
-					location.href="bs.action?checkinday="+d1+"&checkoutday="+d2+"&price="+pric+"&orderId="+timestamp;
+					location.href="bs.action?op=bookOrder&checkinday="+d1+"&checkoutday="+d2+"&price="+pric+"&orderId="+timestamp;
 				} else {
 					window.criteo_q.push({
 						event: "setAccount",
