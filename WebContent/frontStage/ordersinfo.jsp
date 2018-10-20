@@ -3,12 +3,12 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%-- 判断用户有没有登录 --%>
 <c:if test="${sessionScope.user==null}">
-	<c:redirect url="frontStage/index.jsp"></c:redirect>
+	<c:redirect url="index.jsp"></c:redirect>
 </c:if>
 
 <%-- 判断是不是从servlet转发过来,如果不是就跳转到servlet--%>
 <c:if test="${orderList==null}">
-	<c:redirect url="../os.action?op=allUserOrders"></c:redirect>
+	<c:redirect url="../os.action?op=allUserOrders&userId=${user.userId }"></c:redirect>
 </c:if>
 
 <!DOCTYPE html>
@@ -312,7 +312,8 @@
 
 			//查询订单
 			function searchOrder(state,op) {
-				var url = "os.action?op=" +op+ "&orderStatus="+state;
+				var url = "os.action?op=" +op+ "&orderStatus="+state+"&userId="+${user.userId};
+				console.log(url);
 				window.location.href = url;
 			}
 
@@ -683,6 +684,9 @@
 			<div class='head_cnt relave'>
 				<span class='search'></span>
 				<ul class="nav_R asote nav_right">
+					<li style="margin-left:-211px;">
+						<b class="mayi_tel_top"><img src="//staticnew.mayi.com/resourcesWeb/v201510/images/commom/tel_green_icon.png"><span style="font-family: &quot;Hiragino Sans GB&quot;, Arial, Verdana, Tahoma, &quot;微软雅黑&quot; !important;font-size: 14px;" hiragino="" sans="" gb",="" arial,="" verdana,="" tahoma,="" "微软雅黑"="" !important;font-size:="" 14px;"="">客服电话：</span>400-028-6868</b>
+					</li>
 					<li>
 						<div class="showinfo">
 							<a href="javascript:menufrozen(870177979,'/tenant/870177979/orders','user')" target="_self"><img src="${user!=null?user.imgUrl:' '}" class="user_img">
@@ -690,7 +694,7 @@
 							<div class="head_pop">
 								<div class="pop_column">
 									<p>
-										<a href="javascript:searchOrder('','allUserOrders')" target="_self" id="myorder" rel="nofollow" _mayi_rp="webaround|userinfo|order">我的订单</a>
+										<a href="javascript:searchOrder('-1','allUserOrders')" target="_self" id="myorder" rel="nofollow" _mayi_rp="webaround|userinfo|order">我的订单</a>
 									</p>
 									<p>
 										<a href="${pageContext.request.contextPath }/frontStage/userinfo.jsp" target="_self" id="myorder" rel="nofollow" class="slideactive" _mayi_rp="webaround|userinfo|account">我的账户</a>
@@ -708,20 +712,17 @@
 							<div class="head_pop">
 								<div class="pop_column plr10">
 									<p>
-										<a href="javascript:menufrozen(870177979,'/landlord/870177979/orders','landlord')">订单管理</a>
+										<a href="frontStage/landlordOrder.jsp">订单管理</a>
 									</p>
 									<p>
-										<a href="javascript:menufrozen(870177979,'/user/landlord/roommanager','landlord')">房源管理</a>
-									</p>
-									<p>
-										<a href="javascript:menufrozen(870177979,'/user/landlord/accountmanager','landlord')">我的设置</a>
+										<a href="frontStage/landlordPublish.jsp">房源管理</a>
 									</p>
 								</div>
 							</div>
 						</div>
 					</li>
 					<li>
-						<a rel="nofollow" href="javascript:publish(870177979)" class="room-btn f16 t-center" _mayi_rp="webaround|activity|freepublish">免费发布房源</a>
+						<a rel="nofollow" href="${pageContext.request.contextPath }/frontStage/relHouse.jsp" class="room-btn f16 t-center" _mayi_rp="webaround|activity|freepublish">免费发布房源</a>
 						<!--   
                 <a rel="nofollow" href="javascript:publish(870177979)" class="room-btn f16 t-center" _mayi_rp="webaround|activity|freepublish">免费发布房源</a>
              -->
@@ -757,7 +758,7 @@
 		<input type="hidden" name="ctx1" id="ctx1" value="//staticnew.mayi.com" />
 		<input type="hidden" name="uid" id="uid" value="870177979" />
 		<input type="hidden" name="loginurl" id="loginurl" value="none" />
-		<input type="hidden" name="head_userName" id="head_userName" value="${user!=null?user.userName:' '}">
+		<input type="hidden" name="head_userName" id="head_userName" value="${user!=null?user.nickName:' '}">
 		<script type='text/javascript' src='//webchat.7moor.com/javascripts/7moorInit.js?accessId=73859f20-f357-11e6-b43e-3b18b16942dc&autoShow=false' async='async'></script>
 		<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 		<html xmlns="http://www.w3.org/1999/xhtml">
@@ -956,16 +957,17 @@
 			</ul> 
 			<div class="personalCenter clearfix ">
 				<ul class="center-sidebar ">
-					<li><a class="slideactive "  href="javascript:searchOrder('','allUserOrders')">订单管理<span class="ddgl_current " ></span></a></li>
+					<li><a class="slideactive "  href="javascript:searchOrder('-1','allUserOrders')">订单管理<span class="ddgl_current " ></span></a></li>
 					<li><a    href="frontStage/userinfo.jsp">账户管理<span class="zhgl " ></span></a></li>
 				</ul>
 			<div class="centerCon ">
 				<ul class="centerTab ">
 					<input type="hidden " id="state "/>
 					<input type="hidden " id="state_type "/>
-					<li id="all" onclick="searchOrder('2','allUserOrders')">全部订单</li>
+					<li id="all" onclick="searchOrder('-1','allUserOrders')">全部订单</li>
 					<li id="payed" onclick="searchOrder('0','payed') " >待支付</li>
 					<li id="paying" onclick="searchOrder('1','paying') ">已支付</li>
+					<li id="fail" onclick="searchOrder('2','fail') ">交易失败</li>
 				</ul>
 				
 				<script>
@@ -974,6 +976,8 @@
 						 $("#payed").addClass("active");
 					}else if(${orderStatus==1}){
 						$("#paying").addClass("active");
+					}else if(${orderStatus==2}){
+						$("#fail").addClass("active");
 					}else{
 						$("#all").addClass("active");
 					}

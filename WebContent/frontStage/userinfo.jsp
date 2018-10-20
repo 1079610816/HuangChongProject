@@ -324,21 +324,11 @@
 							<div class="head_pop">
 								<div class="pop_column plr10">
 									<p>
-										<a href="../os.action?op=userAll&orderStatus=-1">订单管理</a>
+										<a href="landlordOrder.jsp">订单管理</a>
 									</p>
 									<p>
-										<a href="#">房源管理</a>
+										<a href="landlordPublish.jsp">房源管理</a>
 									</p>
-									<p>
-										<a href="#">消息通知</a>
-									</p>
-									<p>
-										<a href="#">结算管理</a>
-									</p>
-									<p>
-										<a href="#">关注房东微信</a>
-									</p>
-									
 								</div>
 							</div>
 						</div>
@@ -346,7 +336,7 @@
 					<li>
 					</li>
 					<li>
-						<a rel="nofollow" href="javascript:publish(870177979)" class="room-btn f16 t-center" _mayi_rp="webaround|activity|freepublish">免费发布房源</a>
+						<a rel="nofollow" href="${pageContext.request.contextPath }/frontStage/relHouse.jsp" class="room-btn f16 t-center" _mayi_rp="webaround|activity|freepublish">免费发布房源</a>
 						<!--   
                 <a rel="nofollow" href="javascript:publish(870177979)" class="room-btn f16 t-center" _mayi_rp="webaround|activity|freepublish">免费发布房源</a>
              -->
