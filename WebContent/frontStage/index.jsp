@@ -75,7 +75,7 @@
 		                               	<ul class="fd-item-list radius-6 hidden" id="fangdong">
 			                                <li class="t-left ">
 			                                    <a class="c_gray_dark mr40" href="${pageContext.request.contextPath }/frontStage/landlordOrder.jsp">订单管理</a>
-			                                    <a class="c_gray_dark" href="javascript:menufrozen(870177979,'/user/landlord/roommanager','landlord')">房源管理</a>
+			                                    <a class="c_gray_dark" href="${pageContext.request.contextPath }/frontStage/landlordPublish.jsp">房源管理</a>
 			                                </li>
 		                                </ul>
 	                                 </li>
@@ -311,7 +311,7 @@
 							});
 							 if(flag){
 								 
-								 var url = "../ss.action?op=searchlist&Area="+searchcity;
+								 var url = "../ss.action?op=searchpage&Area="+searchcity;
 								  if(inday!=null&&inday!=""&&inday!="入住时间"){
 										url = url + "&d1="+inday;
 										
@@ -608,7 +608,7 @@
 	<script
 		src="//staticnew.mayi.com/resourcesWeb/v201807/index_page_new/js/jquery.nicescroll.min.js"></script>
 	<script
-		src="js/allcity.js"></script>
+		src="${pageContext.request.contextPath}/frontStage/js/allcity.js"></script>
 	<script
 		src="//staticnew.mayi.com/resourcesWeb/v201807/index_page_new/js/index_PCown.js"></script>
 	<script

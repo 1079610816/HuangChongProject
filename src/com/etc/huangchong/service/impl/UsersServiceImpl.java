@@ -158,4 +158,9 @@ public class UsersServiceImpl implements UsersService {
 		return ud.addUserRealInfo(realName, identityCard, userId);
 	}
 
+	@Override
+	public Users getUser(String userName) {
+		return ud.getUser(userName);
+	}
+
 }

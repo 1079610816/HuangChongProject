@@ -162,6 +162,7 @@ public class FrontStageUsersServlet extends HttpServlet {
 					out.print("false");
 				}else {
 					if(us.upUserInfo(userName, nickName, "/img/head/"+userName+".jpg")) {
+						request.getSession().setAttribute("user", us.getUser(userName));
 						out.print("true");
 					}else {
 						out.print("false");
@@ -169,6 +170,7 @@ public class FrontStageUsersServlet extends HttpServlet {
 				}
 			}else if(nickName!=null && userName!=null){
 				if(us.upUserInfo(userName, nickName)) {
+					request.getSession().setAttribute("user", us.getUser(userName));
 					out.print("true");
 				}else {
 					out.print("false");

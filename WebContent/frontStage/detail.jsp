@@ -1669,7 +1669,7 @@ span.search {
 									<div class="pingjiaDes clearfloat">
 										<div class="roomer_photo fl">
 											<img
-												src="//i1.mayi.com//mayi26/M53/WN/IK/FJUT8NVVNAHDLYQPB8SHVVWUM7YM49.jpg_54x54c.jpg"
+												src="${show.imgUrl }"
 												alt=""><span>${show.nickName}</span>
 										</div>
 										<div id="houseDes" class="fl">

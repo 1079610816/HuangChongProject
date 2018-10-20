@@ -19,7 +19,7 @@ public interface SearchDao {
 	 * @param accomArea
 	 * @return
 	 */
-	PageData querySearchPage(int page ,int pageSize,String accomArea);
+	PageData<Homestay> querySearchPage(int page ,int pageSize,String accomArea);
 	
 
 }

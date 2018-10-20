@@ -148,7 +148,7 @@
             swf: '../Uploader.swf',
             chunked: false,
             chunkSize: 512 * 1024,
-            server: '../file.do?op=uploadImg',
+            server: '../ls.action?op=uploadImg',
             // runtimeOrder: 'flash',
 
             // accept: {
@@ -545,7 +545,7 @@
         $upload.on('click', function() {
         	//先用ajax插入房屋信息,如果插入成功进行图片上传
         	$.ajax({
-    			url : "../file.do?op=relHouse",
+    			url : "../ls.action?op=relHouse",
     			type : 'POST',
     			async:true,
     			data : {'accomTitle':$("#accomTitle").val(),'accomIntro':$("#accomIntro").val(),'accomArea':$("#accomArea").val(),'accomAddress':$("#accomAddress").val(),'price':$("#price").val()},

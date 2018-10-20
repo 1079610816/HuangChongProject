@@ -478,7 +478,7 @@
 					<div class="fr">
 						<label>按订单号或手机号</label>
 						<input class="inputcolor" type="text" id="orderOrMoblie" name="orderOrMoblie" value=""/>
-						<input class="small-btn" type="button" name="" onclick='searchOrder("0","0")' value="搜索"/>
+						<input class="small-btn" type="button" name="" onclick="" value="搜索"/>
 					</div>
 				</div>
 				<ul class="centerTab">

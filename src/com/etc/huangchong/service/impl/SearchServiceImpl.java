@@ -17,7 +17,7 @@ public class SearchServiceImpl implements SearchService {
 		return sd.querySearch(accomArea);
 	}
 	@Override
-	public PageData getQuerySearchPage(int page, int pageSize, String accomArea) {
+	public PageData<Homestay> getQuerySearchPage(int page, int pageSize, String accomArea) {
 		// TODO Auto-generated method stub
 		return sd.querySearchPage(page, pageSize, accomArea);
 	}
