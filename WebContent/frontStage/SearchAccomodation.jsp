@@ -27,22 +27,20 @@
 	href="//staticnew.mayi.com/resourcesWeb/v201807/index_page_new/css/new_calendar.css" />
 <link rel="stylesheet"
 	href="//staticnew.mayi.com/resourcesWeb/v201807/index_page_new/css/mayi_base.css" />
-<script type="text/javascript"
-	src="//staticnew.mayi.com/resourcesWeb/js/allcity.js?V=20170414"></script>
+<script src="${pageContext.request.contextPath}/frontStage/js/allcity.js"></script>
 <script type="text/javascript"
 	src="//staticnew.mayi.com/resourcesWeb/js/layer/layer.min.js"></script>
 <script type="text/javascript"
 	src="//staticnew.mayi.com/resourcesWeb/js/lazyload.js"></script>
 <script type="text/javascript"
 	src="//staticnew.mayi.com/resourcesWeb/js/js.js"></script>
-<script type="text/javascript"
-	src="//staticnew.mayi.com/resourcesWeb/js/index/main1.js?v=20180711"></script>
+<!-- <script type="text/javascript"
+	src="//staticnew.mayi.com/resourcesWeb/js/index/main1.js?v=20180711"></script> -->
 <script type="text/javascript"
 	src="//staticnew.mayi.com/resourcesWeb/js/json.js?v=20160510"></script>
 <script type="text/javascript"
 	src="//staticnew.mayi.com/resourcesWeb/v201510/js/commom.js"></script>
-<script type="text/javascript"
-	src="//staticnew.mayi.com/resourcesWeb/js/allcity.js?V=20170414"></script>
+
 <script
 	src="${pageContext.request.contextPath}/frontStage/js/new_calendar.js"
 	type="text/javascript" charset="utf-8"></script>
@@ -631,10 +629,10 @@
 				<div>
 					<!-- 搜索到的已有房源start -->
 					<dl class="searchRoom clearfloat" id="searchRoom">
-						<c:if test="${requestScope.list==null} ">
+						<c:if test="${requestScope.pd==null} ">
 							<jsp:forward page="ss.action?op='厦门'"></jsp:forward>
 						</c:if>
-						<c:forEach items="${requestScope.list}" var="s">
+						<c:forEach items="${requestScope.pd.data}" var="s">
 							<dd id="dd_851953993" data="851953993" lid="851953993"
 								colleState="0" price="498" latlng="40.04982,116.42083">
 								<div class="room-img">
@@ -648,7 +646,7 @@
 												mainImage="${pageContext.request.contextPath}/../img/${s.accomId}/Head.jpg"></a>
 											<a
 												href="../HuangChongProject/ss.action?op=todetail&accomId=${s.accomId }"
-												onClick="goDetail(this)" target="_blank"> <img
+												 target="_blank"> <img
 												class="roomMap851953993" style="display: none" /> <img
 												id="851953993" class="lazy lodgelazy"
 												title="${s.accomTitle}"
@@ -706,32 +704,12 @@
 						</c:forEach>
 
 					</dl>
-					<!-- Page -->
-					<div id="page" class="page">
-						<a class="pg-active" href="/beijing/1/" rel="nofollow"
-							_mayi_rp="weblist|sem_searchmore|pagecount">1</a> <a
-							href="/beijing/2/" rel="nofollow"
-							_mayi_rp="weblist|sem_searchmore|pagecount">2</a> <a
-							href="/beijing/3/" rel="nofollow"
-							_mayi_rp="weblist|sem_searchmore|pagecount">3</a> <a
-							href="/beijing/4/" rel="nofollow"
-							_mayi_rp="weblist|sem_searchmore|pagecount">4</a> <a
-							href="/beijing/5/" rel="nofollow"
-							_mayi_rp="weblist|sem_searchmore|pagecount">5</a> <input
-							type="hidden" vale="30" /> <a href="javascript:void(0)">...</a>
-						<input type="hidden" vale="30" /> <a href="/beijing/2/"
-							rel="nofollow" class="up-page"
-							_mayi_rp="weblist|sem_searchmore|pagecount">下一页</a>
-
-						<!-- layui分页开始 -->
-						<div id="searchpage" class="page" style="text-align: center"></div>
-						<!-- layui分页结束 -->
-
-					</div>
-
-					<!-- Page END -->
+					
 				</div>
 				<!-- 搜索到的已有房源end -->
+	             <!-- layui分页开始 -->
+						<div id="searchpage" style="text-align: center"></div>
+						<!-- layui分页结束 -->
 
 				<!-- 全部推荐房源开始 start -->
 				<!-- 全部推荐房源结束 end-->

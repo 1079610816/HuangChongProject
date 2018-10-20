@@ -8,5 +8,5 @@ import com.etc.huangchong.util.PageData;
 public interface SearchService {
 
 	List<Homestay> getQuerySearch(String accomArea);
-	PageData getQuerySearchPage(int page,int pageSize,String accomArea);
+	PageData<Homestay> getQuerySearchPage(int page,int pageSize,String accomArea);
 }
