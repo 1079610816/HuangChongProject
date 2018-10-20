@@ -151,7 +151,7 @@ public class FrontStageLandlordServlet extends HttpServlet {
 	protected void doQueryAllOrderByLandlord(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		int userId = 1;
+		int userId = Integer.parseInt(request.getParameter("userId"));
 		int orderStatus;
 		List<Orders> orderLandlordList = null;
 		orderStatus = Integer.parseInt(request.getParameter("orderStatus"));
@@ -171,7 +171,8 @@ public class FrontStageLandlordServlet extends HttpServlet {
 
 		int orderStatus = -1;
 		List<Orders> orderLandlordList = null;
-		orderLandlordList = os.getQueryLandlordOrder(1);
+		int userId = Integer.parseInt(request.getParameter("userId"));
+		orderLandlordList = os.getQueryLandlordOrder(userId);
 		request.setAttribute("orderStatus", orderStatus);
 		request.setAttribute("orderLandlordList", orderLandlordList);
 		request.getRequestDispatcher("frontStage/landlordOrder.jsp").forward(request, response);
@@ -187,7 +188,8 @@ public class FrontStageLandlordServlet extends HttpServlet {
 			throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		String accomStatus = request.getParameter("accomStatus");
-		List<Homestay> allHomeList = hs.getQueryLandlordHomestay(1, Integer.parseInt(accomStatus));
+		int userId = Integer.parseInt(request.getParameter("userId"));
+		List<Homestay> allHomeList = hs.getQueryLandlordHomestay(userId, Integer.parseInt(accomStatus));
 		request.setAttribute("allHomeList", allHomeList);
 		request.setAttribute("accomStatus", accomStatus);
 		request.getRequestDispatcher("frontStage/landlordPublish.jsp").forward(request, response);
@@ -202,8 +204,9 @@ public class FrontStageLandlordServlet extends HttpServlet {
 	protected void doQueryAllHome(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		// TODO Auto-generated method stub
+		int userId = Integer.parseInt(request.getParameter("userId"));
 		int accomStatus=4;
-		List<Homestay> allHomeList = hs.getQueryLandlordHomestay(1);		
+		List<Homestay> allHomeList = hs.getQueryLandlordHomestay(userId);		
 		request.setAttribute("allHomeList", allHomeList);
 		request.setAttribute("accomStatus", accomStatus);
 		request.getRequestDispatcher("frontStage/landlordPublish.jsp").forward(request, response);

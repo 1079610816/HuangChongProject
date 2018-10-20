@@ -980,23 +980,23 @@ span.search {
 	                            <span class="f14 fw600 ver-t">${sessionScope.user.nickName}</span>
 	                            <ul class="hover-list radius-6" style="display: none;" id="info">
 	                                <li class="t-left mb15 theme">
-	                                    <a class="f16 fw600 c_gray_dark" href="javascript:menufrozen(870177979,'/tenant/870177979/orders','user')">我是房客</a>
+	                                    <a class="f16 fw600 c_gray_dark" href="#">我是房客</a>
 	                                </li>
 	                                <li class="t-left ">
-	                                    <a class="c_gray_dark mr40" href="../os.action?op=allUserOrders&userId='${user.userId}'">我的订单</a>
+	                                    <a class="c_gray_dark mr40" href="${pageContext.request.contextPath }/frontStage/ordersinfo.jsp">我的订单</a>
 	                                   
 	                                </li>	                     
 	                               <li class="t-left ">
 	                       
-	                                    <a class="c_gray_dark" href="javascript:menufrozen(870177979,'/user/tenant/accountmanager','user')">我的账户</a>
+	                                    <a class="c_gray_dark" href="${pageContext.request.contextPath }/frontStage/userinfo.jsp">我的账户</a>
 	                                </li>
 	                                  <li class="t-left ">
-			                                    <a class="c_gray_dark mr40" href="landlord.jsp">房东订单管理</a>
+			                                    <a class="c_gray_dark mr40" href="${pageContext.request.contextPath }/frontStage/landlordOrder.jsp">房东订单管理</a>
 			                                   
 			                          </li>	
 			                           <li class="t-left ">
 			                                 
-			                                    <a class="c_gray_dark" href="javascript:menufrozen(870177979,'/user/landlord/roommanager','landlord')">房东房源管理</a>
+			                                    <a class="c_gray_dark" href="${pageContext.request.contextPath }/frontStage/landlordPublish.jsp">房东房源管理</a>
 			                                </li>
 			                                
 	                                <hr class="mb15">

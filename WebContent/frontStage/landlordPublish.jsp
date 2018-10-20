@@ -8,7 +8,7 @@
 --%>
 <%-- 判断是不是从servlet转发过来,如果不是就跳转到servlet--%>
 <c:if test="${allHomeList==null}">
-	<c:redirect url="../ls.action?op=allPublish"></c:redirect>
+	<c:redirect url="../ls.action?op=allPublish&userId=${user.userId}"></c:redirect>
 </c:if>
     
     
@@ -147,7 +147,7 @@
 	
 	//查询订单
 	function searchOrder(state,op) {
-		var url = "ls.action?op=" +op+ "&accomStatus="+state;
+		var url = "ls.action?op=" +op+ "&accomStatus="+state+"&userId="+${user.userId };
 		window.location.href = url;
 	}
 	
@@ -311,9 +311,7 @@
 	                        <div class="pop_column">
 	                            <p><a href="javascript:menufrozen(870177979,'/tenant/870177979/orders','user')" target="_self" id="myorder" rel="nofollow" _mayi_rp="webaround|userinfo|order">我的订单</a></p>
 	                            <p><a href="javascript:menufrozen(870177979,'/user/tenant/accountmanager','user')" target="_self" id="myorder" rel="nofollow" class="slideactive" _mayi_rp="webaround|userinfo|account">我的账户</a></p>
-	                            <p><a href="javascript:menufrozen(870177979,'/user/tenant/mycollection','user')" target="_self" id="mycollect" rel="nofollow" _mayi_rp="webaround|userinfo|collection">我的收藏</a></p>
-	                            <p><a href="javascript:menufrozen(870177979,'/user/tenant/msgmanager','user')" target="_self" id="mymsg" rel="nofollow" _mayi_rp="webaround|userinfo|inform">消息通知</a></p>
-	                            <p class="Invite_friends" _mayi_rp="webaround|userinfo|invite">邀请好友</p>
+	               
 	                            <p class="textCt"><a href="javascript:void(0)" id="loginoutbut" target="_self" class="stclick" clicktag="1_6">退出登录</a></p>
 	                        </div>
 	                    </div>
@@ -324,8 +322,8 @@
 	            		<a href="javascript:loginowner(870177979)" target="_self" class="stclick">我是房东</a>
 	                	<div class="head_pop">
 		                	<div class="pop_column plr10">
-		                        <p><a href="ls.action?op=allLandlordOrders&orderStatus=-1">订单管理</a></p>
-		                        <p><a href="ls.action?op=allPublish&accomStatus=-1)">房源管理</a></p>  
+		                        <p><a href="ls.action?op=allLandlordOrders&orderStatus=-1&userId=${user.userId }">订单管理</a></p>
+		                        <p><a href="ls.action?op=allPublish&accomStatus=4&userId=${user.userId })">房源管理</a></p>  
 		                        
 		                    </div>
 	                	</div>
@@ -458,8 +456,8 @@
 		<input id="ownerId" type="hidden" value="870177979" />
 		<div class="personalCenter clearfix">
           <ul class="center-sidebar">
-			<li><a href="ls.action?op=allLandlordOrders&orderStatus=-1">订单管理<span class="ddgl" ></span></a></li>
-		<li><a class="slideactive" href="ls.action?op=allPublish&accomStatus=4">房源管理<span class="fygl_current" ></span></a></li>		
+			<li><a href="ls.action?op=allLandlordOrders&orderStatus=-1&userId=${user.userId }">订单管理<span class="ddgl" ></span></a></li>
+		<li><a class="slideactive" href="ls.action?op=allPublish&accomStatus=4&userId=${user.userId }">房源管理<span class="fygl_current" ></span></a></li>		
     
 		<li><a href="frontStage/landlordAuthentication.jsp">身份验证<span  class="sfyz" ></span></a></li>
 		

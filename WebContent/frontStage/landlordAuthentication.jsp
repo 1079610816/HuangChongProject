@@ -542,10 +542,10 @@
 						<div class="head_pop">
 							<div class="pop_column plr10">
 								<p>
-									<a href="../ls.action?op=allLandlordOrders&orderStatus=-1">订单管理</a>
+									<a href="../ls.action?op=allLandlordOrders&orderStatus=-1&userId=${user.userId }">订单管理</a>
 								</p>
 								<p>
-									<a href="../ls.action?op=allPublish&accomStatus=-1">房源管理</a>
+									<a href="../ls.action?op=allPublish&accomStatus=4&userId=${user.userId }">房源管理</a>
 								</p>
 								
 							</div>
@@ -690,16 +690,16 @@
 <div class="main">
 
 	<ul class="breadcrumb clearfix">
-		<li><a href="ls.action?op=allLandlordOrders&orderStatus=-1">我是房东</a>
+		<li><a href="ls.action?op=allLandlordOrders&orderStatus=-1&userId=${user.userId }">我是房东</a>
 			<span class="divider">》</span></li>
 		<li>身份验证</li>
 	</ul>
 	<input id="ownerId" type="hidden" value="870177979" />
 	<div class="personalCenter clearfix">
 		<ul class="center-sidebar">
-			<li><a href="../ls.action?op=allLandlordOrders&orderStatus=-1">订单管理<span
+			<li><a href="../ls.action?op=allLandlordOrders&orderStatus=-1&userId=${user.userId }">订单管理<span
 					class="ddgl"></span></a></li>
-			<li><a href="../ls.action?op=allPublish&accomStatus=4">房源管理<span
+			<li><a href="../ls.action?op=allPublish&accomStatus=4&userId=${user.userId }">房源管理<span
 					class="fygl"></span></a></li>
 			<li><a class="slideactive" href="landlordAuthentication.jsp">身份验证<span
 					class="sfyz_current"></span></a></li>
@@ -746,7 +746,7 @@
 				var identityCard=$("#identityCard").val();
 				var userId=1;
 					//${user.userId};
-				$.post("../ls.action?op=AddUserRealInfo","realName="+realName+"&identityCard="+identityCard+"userId="+userId,function(data) {
+				$.post("../ls.action?op=AddUserRealInfo","realName="+realName+"&identityCard="+identityCard+"&userId="+${user.userId},function(data) {
 					if("success"==data){
 						layer.alert("信息提交成功",8,"温馨提示");			
 					}else{
