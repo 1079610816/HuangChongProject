@@ -32,7 +32,7 @@
 		<script type="text/javascript" src="//staticnew.mayi.com/resourcesWeb/js/regx/idcard.js"></script>
 		<script type="text/javascript" src="//staticnew.mayi.com/resourcesWeb/js/account/cropper.js"></script>
 		<script type="text/javascript" src="//staticnew.mayi.com/resourcesWeb/js/account/ui/jquery-ui-1.9.2.custom.min.js"></script>
-		<script src="${pageContext.request.contextPath}/frontStage/js/loginpc2.js" type="text/javascript" charset="utf-8"></script>
+		<script src="${pageContext.request.contextPath}/frontStage/js/loginpc.js" type="text/javascript" charset="utf-8"></script>
 		<script type="text/javascript">
 			$(function() {
 				var CenterTab = $('.centerTab li')
@@ -305,13 +305,13 @@
 							<div class="head_pop">
 								<div class="pop_column">
 									<p>
-										<a href="javascript:menufrozen(870177979,'/tenant/870177979/orders','user')" target="_self" id="myorder" rel="nofollow" _mayi_rp="webaround|userinfo|order">我的订单</a>
+										<a href="ordersinfo.jsp" target="_self" id="myorder" rel="nofollow" _mayi_rp="webaround|userinfo|order">我的订单</a>
 									</p>
 									<p>
 										<a href="javascript:menufrozen(870177979,'/user/tenant/accountmanager','user')" target="_self" id="myorder" rel="nofollow" class="slideactive" _mayi_rp="webaround|userinfo|account">我的账户</a>
 									</p>
 									<p class="textCt">
-										<a href="javascript:void(0)" id="exit" target="_self" class="stclick" clicktag="1_6">退出登录</a>
+										<a href="javascript:void(0)" id="loginoutbut" target="_self" class="stclick" clicktag="1_6">退出登录</a>
 									</p>
 									<!-- 退出登录 -->
 								</div>
@@ -428,7 +428,7 @@
 		<input type="hidden" name="ctx1" id="ctx1" value="//staticnew.mayi.com" />
 		<input type="hidden" name="uid" id="uid" value="870177979" />
 		<input type="hidden" name="loginurl" id="loginurl" value="none" />
-		<input type="hidden" name="head_userName" id="head_userName" value="${user!=null?user.userName:' '}">
+		<input type="hidden" name="head_userName" id="head_userName" value="${user!=null?user.nickName:' '}">
 		<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 		<html xmlns="http://www.w3.org/1999/xhtml">
 		<html xmlns:wb="http://open.weibo.com/wb">
@@ -846,10 +846,10 @@
 				<!-- Center-sidebar -->
 				<ul class="center-sidebar">
 					<li>
-						<a href="../os.action?op=userAll&orderStatus=-1">订单管理<span class="ddgl"></span></a>
+						<a href="ordersinfo.jsp">订单管理<span class="ddgl"></span></a>
 					</li>
 					<li>
-						<a class="slideactive" href="/user/tenant/accountmanager">账户管理<span class="zhgl_current"></span></a>
+						<a class="slideactive" href="javascrupt:void(0)">账户管理<span class="zhgl_current"></span></a>
 					</li>
 				</ul>
 				<script type="text/javascript">
@@ -1842,7 +1842,7 @@
 				</h5>
 					<div class="col col-3">
 						<div class="cropper-preview" id="cropper-preview">
-							<img src="https://i1.mayi.com/mayi89/M92/EI/JE/YWC2P2R8BLA6K7HC57CASFZN7PH4XP.jpg_240x240c.jpg" alt="" />
+							<img src="${user!=null?user.imgUrl:' '}" alt="" />
 						</div>
 					</div>
 					<p>

@@ -75,7 +75,7 @@
 		                               	<ul class="fd-item-list radius-6 hidden" id="fangdong">
 			                                <li class="t-left ">
 			                                    <a class="c_gray_dark mr40" href="${pageContext.request.contextPath }/frontStage/landlordOrder.jsp">订单管理</a>
-			                                    <a class="c_gray_dark" href="javascript:menufrozen(870177979,'/user/landlord/roommanager','landlord')">房源管理</a>
+			                                    <a class="c_gray_dark" href="${pageContext.request.contextPath }/frontStage/landlordPublish.jsp">房源管理</a>
 			                                </li>
 		                                </ul>
 	                                 </li>

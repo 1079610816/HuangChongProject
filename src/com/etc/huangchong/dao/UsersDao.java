@@ -153,4 +153,10 @@ public interface UsersDao {
 	 * @return true 增加成功 false 增加失败
 	 */
 	boolean addUserRealInfo(String realName, String identityCard, int userId);
+	/**
+	 * 根据用户名得到一个用户
+	 * @param userName 用户名
+	 * @return 用户对象
+	 */
+	Users getUser(String userName);
 }

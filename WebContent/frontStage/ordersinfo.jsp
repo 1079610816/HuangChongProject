@@ -3,7 +3,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%-- 判断用户有没有登录 --%>
 <c:if test="${sessionScope.user==null}">
-	<c:redirect url="index.jsp"></c:redirect>
+	<c:redirect url="frontStage/index.jsp"></c:redirect>
 </c:if>
 
 <%-- 判断是不是从servlet转发过来,如果不是就跳转到servlet--%>
@@ -32,7 +32,8 @@
 			}
 		</style>
 		<title>订单-房客</title>
-		<script type="text/javascript" src="${pageContext.request.contextPath}/frontStage/js/jquery.min.js"></script>
+		<script src="http://libs.baidu.com/jquery/1.11.1/jquery.min.js"
+	type="text/javascript" charset="utf-8"></script>
 		<script type="text/javascript" src="//staticnew.mayi.com/resourcesWeb/js/layer/layer.min.js"></script>
 		<script type="text/javascript" src="//staticnew.mayi.com/resourcesWeb/js/comment_div.js?V=201310162028"></script>
 		<script type="text/javascript" src="//staticnew.mayi.com/resourcesWeb/js/lottery.js"></script>

@@ -200,4 +200,16 @@ public class UsersDaoImpl implements UsersDao {
 		return n>0;
 	}
 
+	@Override
+	public Users getUser(String userName) {
+		String sql = "select * from users where userName=?";
+		List<Users> list = (List<Users>) BaseDao.select(sql, Users.class, userName);
+		if (list.size() != 0) {
+			Users u = list.get(0);
+			return u;
+		} else {
+			return null;
+		}
+	}
+
 }
