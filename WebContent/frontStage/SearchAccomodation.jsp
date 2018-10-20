@@ -7,51 +7,55 @@
 
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
-<link rel="stylesheet" href="layui/css/layui.css" media="all">
+<script src="http://libs.baidu.com/jquery/1.11.1/jquery.min.js"
+	type="text/javascript" charset="utf-8"></script>
+<link rel="stylesheet"
+	href="${pageContext.request.contextPath}/frontStage/layui/css/layui.css"
+	media="all" />
 
 <title>黄虫短租</title>
 <meta name="keywords" content="北京住宿，北京短租房，北京民宿，北京日租房" />
 <meta name="description"
 	content="黄虫短租网是性价比高的北京短租房、日租房在线预订平台，提供北京短租公寓、短租房、日租房、家庭旅馆、民宿等出租房房源价格、预订信息，比酒店住宿便宜50%，公寓100%真实入住点评，真实可靠。" />
 <link rel="stylesheet"
-	href="//staticnew.mayi.com/resourcesWeb/v201807/index_page_new/css/public.css">
-	<link rel="stylesheet"
-		href="//staticnew.mayi.com/resourcesWeb/v201807/list_page_new/css/list_public.css">
-		<link rel="stylesheet"
-			href="//staticnew.mayi.com/resourcesWeb/v201807/list_page_new/css/newlist.css">
-			<link rel="stylesheet"
-				href="//staticnew.mayi.com/resourcesWeb/v201807/index_page_new/css/new_calendar.css">
-				<link rel="stylesheet"
-					href="//staticnew.mayi.com/resourcesWeb/v201807/index_page_new/css/mayi_base.css">
+	href="//staticnew.mayi.com/resourcesWeb/v201807/index_page_new/css/public.css" />
+<link rel="stylesheet"
+	href="//staticnew.mayi.com/resourcesWeb/v201807/list_page_new/css/list_public.css" />
+<link rel="stylesheet"
+	href="//staticnew.mayi.com/resourcesWeb/v201807/list_page_new/css/newlist.css" />
+<link rel="stylesheet"
+	href="//staticnew.mayi.com/resourcesWeb/v201807/index_page_new/css/new_calendar.css" />
+<link rel="stylesheet"
+	href="//staticnew.mayi.com/resourcesWeb/v201807/index_page_new/css/mayi_base.css" />
+<script type="text/javascript"
+	src="//staticnew.mayi.com/resourcesWeb/js/allcity.js?V=20170414"></script>
+<script type="text/javascript"
+	src="//staticnew.mayi.com/resourcesWeb/js/layer/layer.min.js"></script>
+<script type="text/javascript"
+	src="//staticnew.mayi.com/resourcesWeb/js/lazyload.js"></script>
+<script type="text/javascript"
+	src="//staticnew.mayi.com/resourcesWeb/js/js.js"></script>
+<script type="text/javascript"
+	src="//staticnew.mayi.com/resourcesWeb/js/index/main1.js?v=20180711"></script>
+<script type="text/javascript"
+	src="//staticnew.mayi.com/resourcesWeb/js/json.js?v=20160510"></script>
+<script type="text/javascript"
+	src="//staticnew.mayi.com/resourcesWeb/v201510/js/commom.js"></script>
+<script type="text/javascript"
+	src="//staticnew.mayi.com/resourcesWeb/js/allcity.js?V=20170414"></script>
+<script
+	src="${pageContext.request.contextPath}/frontStage/js/new_calendar.js"
+	type="text/javascript" charset="utf-8"></script>
+<script type="text/javascript"
+	src="//staticnew.mayi.com/resourcesWeb/v201807/index_page_new/js/jquery.nicescroll.min.js"></script>
+<script type="text/javascript"
+	src="//staticnew.mayi.com/resourcesWeb/v201807/list_page_new/js/index_searchlist_public.js"></script>
+<script type="text/javascript"
+	src="//staticnew.mayi.com/resourcesWeb/v201807/list_page_new/js/sou_search.js"></script>
+<script type="text/javascript"
+	src="//staticnew.mayi.com/resourcesWeb/v201807/list_page_new/js/jquery.range.js"></script>
 
-					<script type="text/javascript" src="js/jquery.min.js"></script>
-					<script type="text/javascript"
-						src="//staticnew.mayi.com/resourcesWeb/js/layer/layer.min.js"></script>
-					<script type="text/javascript"
-						src="//staticnew.mayi.com/resourcesWeb/js/lazyload.js"></script>
-					<script type="text/javascript"
-						src="//staticnew.mayi.com/resourcesWeb/js/js.js"></script>
-					<script type="text/javascript"
-						src="//staticnew.mayi.com/resourcesWeb/js/index/main1.js?v=20180711"></script>
-					<script type="text/javascript"
-						src="//staticnew.mayi.com/resourcesWeb/js/json.js?v=20160510"></script>
-					<script type="text/javascript"
-						src="//staticnew.mayi.com/resourcesWeb/v201510/js/commom.js"></script>
-					<script type="text/javascript"
-						src="//staticnew.mayi.com/resourcesWeb/js/allcity.js?V=20170414"></script>
-					<script src="js/new_calendar.js" type="text/javascript"
-						charset="utf-8"></script>
-					<script type="text/javascript"
-						src="//staticnew.mayi.com/resourcesWeb/v201807/index_page_new/js/jquery.nicescroll.min.js"></script>
-					<script type="text/javascript"
-						src="//staticnew.mayi.com/resourcesWeb/v201807/list_page_new/js/index_searchlist_public.js"></script>
-					<script type="text/javascript"
-						src="//staticnew.mayi.com/resourcesWeb/v201807/list_page_new/js/sou_search.js"></script>
-					<script type="text/javascript"
-						src="//staticnew.mayi.com/resourcesWeb/v201807/list_page_new/js/jquery.range.js"></script>
-
-					<!--Criteo-->
+<!--Criteo-->
 </head>
 
 <body>
@@ -125,72 +129,99 @@
 </style>
 			<input type="hidden" name="ctx" id="ctx" value="" /> <!-- 头部栏开始 -->
 			<div class="header">
-				<div class="nav index_nav line_h50">
-					<div class="headW_auto c_gray_dark clearfloat">
-						<div class="logo fl f20 c_gray_dark fw600 lineht34">
-							<a href="index.html" class="c_gray_dark"><img
-								src="//staticnew.mayi.com/resourcesWeb/v201807/index_page_new/images/logo.png"
-								width="34" alt="logo" class="radius-6"> 黄虫短租 </a>
-						</div>
+				<div class="nav index_nav line_h70">
+					<div class="w1050 c_white clearfloat">
 						<ul class="fr nav-list clearfloat">
-							<li>
-								<p class="top-line"></p> <a href="index.html" class="fw600 f14"
-								_mayi_rp="weblist|head|index">首页</a>
-							</li>
-							<li>
-								<p class="top-line"></p> <span class="service fw600 f14">客服热线</span>
-								<ul
-									class="hover-list radius-6 c_gray_dark t-center pos_center w140_2">
+
+							<li class="Service">
+								<p class="top-line"></p> <span class="c_white fw600 f14">客服热线</span>
+								<ul class="hover-list radius-6 c_gray_dark t-center"
+									id="Service">
 									<li>400-028-6868</li>
 								</ul>
 							</li>
-							<li>
-								<p class="top-line"></p> <a class="fw600 f14 "
+							<li class="help">
+								<p class="top-line"></p> <a class="fw600 f14 c_white"
 								href="javascript:void(0);"> 帮助中心 </a>
-								<ul
-									class="hover-list radius-6 c_gray_dark t-left pos_center w140_2">
+								<ul class="hover-list radius-6 c_gray_dark t-left left42"
+									id="helpUser">
 									<li class="mb10"><a class="c_gray_dark" target="_blank"
-										href="roomauditrule.html">房源审核规范</a></li>
+										href="questions.html">搜索房源</a></li>
 									<li class="mb10"><a class="c_gray_dark" target="_blank"
-										href="supportplan.html">房源安心计划</a></li>
+										href="questions.html">预订房源</a></li>
 									<li class="mb10"><a class="c_gray_dark" target="_blank"
-										href="goodhouseplan.html">优质住宿计划</a></li>
+										href="questions.html">订单操作</a></li>
 									<li class="mb10"><a class="c_gray_dark" target="_blank"
-										href="sitemap.html">网站地图</a></li>
-									<li><a class="c_gray_dark" target="_blank"
-										href="questions.html">房客帮助</a></li>
+										href="questions.html">入住评论</a></li>
 								</ul>
 							</li>
-							<li class="user-action">
-								<div class="login-btn t-center fw600 c_gray_dark cursorpt "
-									id="loginshow">登录/注册</div>
+
+							<li class="ml20 user-action">
+								<div class="login-btn t-center fw600 cursorpt " id="loginshow">登录/注册</div>
+								<div class="login-info f0 " style="display: none;">
+									<p class="top-line"></p>
+									<a href="#">
+										<img style="width: 50px;height: 50px" class="user-head circle"  src="${user!=null?user.imgUrl:' '}" alt="头像">
+									</a> <span class="f14 fw600 ver-t">${sessionScope.user.nickName}</span>
+									<ul class="hover-list radius-6" style="display: none;"
+										id="info">
+										<li class="t-left mb15 theme"><a
+											class="f16 fw600 c_gray_dark"
+											href="javascript:menufrozen(870177979,'/tenant/870177979/orders','user')">我是房客</a>
+										</li>
+										<li class="t-left "><a class="c_gray_dark mr40"
+											href="../os.action?op=allUserOrders&userId='${user.userId}'">我的订单</a>
+											<a class="c_gray_dark"
+											href="javascript:menufrozen(870177979,'/user/tenant/accountmanager','user')">我的账户</a>
+										</li>
+					
+
+										<hr class="mb15">
+											<li class="t-left theme relave fd-nav "><a
+												class="f16 fw600 c_gray_dark radius-6 w100"
+												href="javascript:fdMenu()">我是房东</a>
+												<ul class="fd-item-list radius-6 hidden" id="fangdong">
+													<li class="t-left "><a class="c_gray_dark mr40"
+														href="landlord.jsp">订单管理</a> <a class="c_gray_dark"
+														href="javascript:menufrozen(870177979,'/user/landlord/roommanager','landlord')">房源管理</a>
+													</li>
+							
+												
+													
+												</ul></li>
+											<li>
+												<div class="login-out" id="loginoutbut">退出登录</div>
+											</li>
+									</ul>
+								</div>
 							</li>
 						</ul>
 					</div>
 				</div>
 			</div>
 			<!-- 头部栏结束 -->
-			<div class="alert-box1">
-				<div class="surveYY1"></div>
-				<div class="offmax_no">
-					<div class="alert_tit1">温馨提示</div>
-					<p class="frozeninfo">对不起，房东账号被封禁</p>
-					<p>如有疑问，请联系黄虫短租客服400-028-6868</p>
-					<div class="close-alert1">我知道了</div>
-				</div>
-			</div>
+	<div class="alert-box1">
+		<div class="surveYY1"></div>
+		<div class="offmax_no">
+			<div class="alert_tit1">温馨提示</div>
+			<p class="frozeninfo">对不起，房东账号被封禁</p>
+			<p>如有疑问，请联系黄虫短租客服400-028-6868</p>
+			<div class="close-alert1">我知道了</div>
+		</div>
+	</div>
 
-			<input type="hidden" name="subdomain" id="subdomain" value="" /> <input
-				type="hidden" name="mainsite" id="mainsite" value="" /> <input
-				type="hidden" name="ctx" id="ctx" value="" /> <input type="hidden"
-				name="ctx1" id="ctx1" value="//staticnew.mayi.com" /> <input
-				type="hidden" name="uid" id="uid" value="0" /> <input type="hidden"
-				name="loginurl" id="loginurl" value="none" /> <input type="hidden"
-				name="head_userName" id="head_userName" value=""> <script
-					type='text/javascript'
-					src='//webchat.7moor.com/javascripts/7moorInit.js?accessId=73859f20-f357-11e6-b43e-3b18b16942dc&autoShow=false'
-					async='async'></script> <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-				<html xmlns="http://www.w3.org/1999/xhtml">
+	<input type="hidden" name="subdomain" id="subdomain" value="" />
+	<input type="hidden" name="mainsite" id="mainsite" value="" />
+	<input type="hidden" name="ctx" id="ctx" value="" />
+	<input type="hidden" name="ctx1" id="ctx1" value="//staticnew.mayi.com" />
+	<input type="hidden" name="uid" id="uid" value="0" />
+	<input type="hidden" name="loginurl" id="loginurl" value="none" />
+	<input type="hidden" name="head_userName" id="head_userName" value="" />
+	<script type='text/javascript'
+		src='//webchat.7moor.com/javascripts/7moorInit.js?accessId=73859f20-f357-11e6-b43e-3b18b16942dc&autoShow=false'
+		async='async'></script>
+	<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
 <html xmlns:wb="http://open.weibo.com/wb">
 
 <head>
@@ -309,15 +340,24 @@
 						<!-- 热门目的地的内容-->
 						<ul class="select-citycon clearfloat tab-content"
 							id="cityselectul" name="cityselectul">
-							<li class="citylili"><a class="cityselecta" href="javascript:void(0)">厦门</a></li>
-							<li class="citylili"><a class="cityselecta" href="javascript:void(0)">福州</a></li>
-							<li class="citylili"><a class="cityselecta" href="javascript:void(0)">泉州</a></li>
-							<li class="citylili"><a class="cityselecta" href="javascript:void(0)">漳州</a></li>
-							<li class="citylili"><a class="cityselecta" href="javascript:void(0)">宁德</a></li>
-							<li class="citylili"><a class="cityselecta" href="javascript:void(0)">三明</a></li>
-							<li class="citylili"><a class="cityselecta" href="javascript:void(0)">莆田</a></li>
-							<li class="citylili"><a class="cityselecta" href="javascript:void(0)">龙岩</a></li>
-							<li class="citylili"><a class="cityselecta" href="javascript:void(0)">南平</a></li>
+							<li class="citylili"><a class="cityselecta"
+								href="javascript:void(0)">厦门</a></li>
+							<li class="citylili"><a class="cityselecta"
+								href="javascript:void(0)">福州</a></li>
+							<li class="citylili"><a class="cityselecta"
+								href="javascript:void(0)">泉州</a></li>
+							<li class="citylili"><a class="cityselecta"
+								href="javascript:void(0)">漳州</a></li>
+							<li class="citylili"><a class="cityselecta"
+								href="javascript:void(0)">宁德</a></li>
+							<li class="citylili"><a class="cityselecta"
+								href="javascript:void(0)">三明</a></li>
+							<li class="citylili"><a class="cityselecta"
+								href="javascript:void(0)">莆田</a></li>
+							<li class="citylili"><a class="cityselecta"
+								href="javascript:void(0)">龙岩</a></li>
+							<li class="citylili"><a class="cityselecta"
+								href="javascript:void(0)">南平</a></li>
 						</ul>
 						<div class="hotmore  hint f12 c_gray">温馨提示：支持中文/拼音/简拼输入</div>
 					</div>
@@ -427,7 +467,7 @@
 									<div class="add relave">
 										<a href="/beijing/y7/"
 											_mayi_rp="weblist|sem_condition|recommend5">石竹山</a> <span
-											class="add_title" style="width: 14em;">石竹山坐落在福清市西郊10公里处，属闽中戴云山余脉西山山脉南段，主峰状元峰海拔534米。</span>
+											class="add_title" style="width: 14em;">石竹山坐落在福清市西郊10公里处</span>
 									</div>
 									<div class="add relave">
 										<a href="/beijing/y3/"
@@ -437,23 +477,23 @@
 									<div class="add relave">
 										<a href="/beijing/y8/"
 											_mayi_rp="weblist|sem_condition|recommend4">金鸡山公园</a> <span
-											class="add_title" style="width: 8em;">金鸡山公园位于福州晋安区金鸡山麓，总占地面积约110公顷。</span>
+											class="add_title" style="width: 8em;">金鸡山公园位于福州晋安区金鸡山麓</span>
 									</div>
 
 									<div class="add relave">
 										<a href="/beijing/y8/"
 											_mayi_rp="weblist|sem_condition|recommend4">西禅寺</a> <span
-											class="add_title" style="width: 8em;">西禅寺名列福州五大禅林之一，为全国重点寺庙，位于西郊怡山之麓，工业路西边南侧。</span>
+											class="add_title" style="width: 8em;">西禅寺名列福州五大禅林之一</span>
 									</div>
 									<div class="add relave">
 										<a href="/beijing/y8/"
 											_mayi_rp="weblist|sem_condition|recommend4">平潭岛</a> <span
-											class="add_title" style="width: 8em;">平潭岛，亦称海坛岛，为我国第五大岛，福建第一大岛，岛上时常“东来岚气弥漫”，别称“东岚”，距福州128公里。</span>
+											class="add_title" style="width: 8em;">平潭岛，亦称海坛岛，为我国第五大岛</span>
 									</div>
 									<div class="add relave">
 										<a href="/beijing/y8/"
 											_mayi_rp="weblist|sem_condition|recommend4">溪山温泉</a> <span
-											class="add_title" style="width: 8em;">背倚松竹苍翠之汤岭，面傍波光粼粼之鳌江，潺潺西溪环绕而过，优质温泉闻名遐迩，</span>
+											class="add_title" style="width: 8em;">优质温泉闻名遐迩</span>
 									</div>
 									<div class="add relave">
 										<a href="/beijing/y8/"
@@ -604,8 +644,10 @@
 											<a href="javascript:void(0)" class="change-prev"
 												style="display: none;" data="851953993"
 												mainImage="${pageContext.request.contextPath}/../img/${s.accomId}/Head.jpg"></a>
-											<a href="../HuangChongProject/ss.action?op=todetail&accomId=${s.accomId }" onClick="goDetail(this)" target="_blank">
-												<img class="roomMap851953993" style="display: none" /> <img
+											<a
+												href="../HuangChongProject/ss.action?op=todetail&accomId=${s.accomId }"
+												onClick="goDetail(this)" target="_blank"> <img
+												class="roomMap851953993" style="display: none" /> <img
 												id="851953993" class="lazy lodgelazy"
 												title="${s.accomTitle}"
 												src="${pageContext.request.contextPath}/../img/${s.accomId}/Head.jpg"
@@ -629,15 +671,15 @@
 											<font>￥</font>${s.price}
 										</p>
 									</b> <a title="${s.accomTitle}"> <b class="btn-img"><img
-											src="/img/head/${s.userId}.jpg"
-											class="lazy landlazy"
+											src="/img/head/${s.userId}.jpg" class="lazy landlazy"
 											data-original="//i1.mayi.com/mayi16/M71/WO/II/LANX4W4RQMQEZTQPQHKHWK2YQUXL2C.jpg_150x150c.jpg"
 											width="46" heigth="46" alt="房东头像" /></b>
 									</a>
 								</div>
-								<a href="../HuangChongProject/ss.action?op=todetail&accomId=${s.accomId }" title="${s.accomTitle}"
-									onClick="goDetail(this)" target="_blank"
-									style="position: relative;">
+								<a
+									href="../HuangChongProject/ss.action?op=todetail&accomId=${s.accomId }"
+									title="${s.accomTitle}" onClick="goDetail(this)"
+									target="_blank" style="position: relative;">
 									<div class="room-detail  clearfloat" style="height: 88px;">
 										<p>${s.accomTitle}</p>
 										<ul>
@@ -664,7 +706,7 @@
 					</dl>
 					<!-- Page -->
 					<div id="page" class="page">
-								<a class="pg-active" href="/beijing/1/" rel="nofollow"
+						<a class="pg-active" href="/beijing/1/" rel="nofollow"
 							_mayi_rp="weblist|sem_searchmore|pagecount">1</a> <a
 							href="/beijing/2/" rel="nofollow"
 							_mayi_rp="weblist|sem_searchmore|pagecount">2</a> <a
@@ -684,7 +726,7 @@
 						<!-- layui分页结束 -->
 
 					</div>
-					
+
 					<!-- Page END -->
 				</div>
 				<!-- 搜索到的已有房源end -->
@@ -694,8 +736,10 @@
 			</div>
 
 		</div>
-		<script src="layui/layui.js" charset="utf-8"></script>
-	<script>
+		<script
+			src="${pageContext.request.contextPath}/frontStage/layui/layui.js"
+			charset="utf-8"></script>
+		<script>
 	layui.use(['laypage', 'layer'], function(){
 		var laypage = layui.laypage
 		,layer = layui.layer;
@@ -723,7 +767,7 @@
 </div>
 
 
-	
+
 
 
 
@@ -799,8 +843,11 @@
 					</p>
 				</li>
 				<li>
-					<h3 class="f16 mb10">关注我们</h3> <img src="img/qqewm.png"
-					class=" rt-app1"> <img src="img/wxewm.png" class=" rt-app1">
+					<h3 class="f16 mb10">关注我们</h3> <img
+					src="${pageContext.request.contextPath}/frontStage/img/qqewm.png"
+					class=" rt-app1"> <img
+						src="${pageContext.request.contextPath}/frontStage/img/wxewm.png"
+						class=" rt-app1">
 				</li>
 			</ul>
 		</div>
@@ -808,123 +855,126 @@
 </div>
 
 <!-- 登录弹窗 -->
-	<div class="loginbox" id="loginboxdiv" nexturl="none"
-		name="loginboxdiv" style="display: none;">
-		<a class="login-colse" id="loginclose" name="loginclose" onClick=""
-			href="javascript:void(0)"></a>
-		<div class="login-ways clearfloat">
-			<div class="fl phone-account">
-				<ul class="c322c27 clearfloat f18">
-					<li class="phoneway_current" id="changeloginbyma">手机验证码登录</li>
-					<li class="mayiway" id="changeloginbyup">帐号密码登录</li>
-				</ul>
-				<div class="login-phone-account">
-					<!-- 手机登陆 -->
-					<div class="login-input" id="loginbymadiv" name="loginbymadiv">
-						<input type="hidden" id="li_num" value="0"> <input
-							type="hidden" id="code_num" value="86">
-						<div class="input">
-							<span class="phone-icon"></span> 
-							<input class="dlargeinput"
-								type="text" id="telNum" name="telNum" placeholder="手机号" value=""
-								id="introduce"
-								onafterpaste="mobileRepAndSetPos(this,/[^\d.]/g,'')"
-								onkeyup="mobileRepAndSetPos(this,/[^\d.]/g,'')" maxlength="11" />
+<div class="loginbox" id="loginboxdiv" nexturl="none" name="loginboxdiv"
+	style="display: none;">
+	<a class="login-colse" id="loginclose" name="loginclose" onClick=""
+		href="javascript:void(0)"></a>
+	<div class="login-ways clearfloat">
+		<div class="fl phone-account">
+			<ul class="c322c27 clearfloat f18">
+				<li class="phoneway_current" id="changeloginbyma">手机验证码登录</li>
+				<li class="mayiway" id="changeloginbyup">帐号密码登录</li>
+			</ul>
+			<div class="login-phone-account">
+				<!-- 手机登陆 -->
+				<div class="login-input" id="loginbymadiv" name="loginbymadiv">
+					<input type="hidden" id="li_num" value="0"> <input
+						type="hidden" id="code_num" value="86" />
+					<div class="input">
+						<span class="phone-icon"></span> <input class="dlargeinput"
+							type="text" id="telNum" name="telNum" placeholder="手机号" value=""
+							id="introduce"
+							onafterpaste="mobileRepAndSetPos(this,/[^\d.]/g,'')"
+							onkeyup="mobileRepAndSetPos(this,/[^\d.]/g,'')" maxlength="11" />
+					</div>
+					<div class="largeinputbox small-top clearfix">
+						<div class="dinput fl">
+							<span class="verification-icon"></span> <input
+								class="dsmallinput" type="text" id="validationCode1"
+								placeholder="图形验证码" value="" />
 						</div>
-						<div class="largeinputbox small-top clearfix">
-							<div class="dinput fl">
-								<span class="verification-icon"></span> <input
-									class="dsmallinput" type="text" id="validationCode1"
-									placeholder="图形验证码" value="" />
-							</div>
-							<div class="yz-code fr">
-								<img id="validationCode_img1" alt="点击刷新" title="点击刷新"
-									src="" width=130px height=38>
-							</div>
-						</div>
-						<div class="largeinputbox small-top clearfix" id="maerrordiv">
-							<div class="dinput fl" id="maerrordiv">
-								<span class="password-icon"></span> <input class="dsmallinput"
-									type="text" id="loginCode" name="loginCode" placeholder="短信验证码"
-									value="" />
-							</div>
-							<div class="yz-code fr">
-								<input class="sendnumber defaultsend" type="button"
-									id="getLoginCode" name="getLoginCode" value="获取验证码" />
-							</div>
-						</div>
-						<div class="logincheckbox large-top clearfix">
-							<label class="fl"> <input class="selectcheckbox"
-								type="checkbox" name="rememberloginstate" checked="checked"
-								value="" />自动登录
-							</label>
-						</div>
-						<div class="logincheckbox large-top clearfix">
-							<font>未注册的手机号将自动创建为黄虫短租帐户</font>
-						</div>
-						<div class="btn-wrap btnpdt20">
-							<a href="javascript:void(0)" id="loginByTelNum">登录</a>
+						<div class="yz-code fr">
+							<img id="validationCode_img1" alt="点击刷新" title="点击刷新" src=""
+								width=130px height=38 />
 						</div>
 					</div>
-					<!-- 手机登陆 end  -->
-
-					<!-- 密码登陆 start -->
-					<div class="login-input" id="loginbyupdiv" name="loginbyupdiv"
-						style="display: none;">
-						<div class="input">
-							<span class="user-icon"></span> <input class="dlargeinput"
-								type="text" id="userName" name="userName" placeholder="手机号/账号"
-								value="" autocomplete="off" />
-						</div>
-						<div class="input small-top">
-							<span class="password-icon"></span> <input class="dlargeinput"
-								type="password" id="userPwd" name="userPwd" placeholder="密码"
+					<div class="largeinputbox small-top clearfix" id="maerrordiv">
+						<div class="dinput fl" id="maerrordiv">
+							<span class="password-icon"></span> <input class="dsmallinput"
+								type="text" id="loginCode" name="loginCode" placeholder="短信验证码"
 								value="" />
 						</div>
-						<div class="largeinputbox small-top clearfix" id="uperrordiv">
-							<div class="dinput fl" id="yui_3_5_1_1_1434542056373_108">
-								<span class="verification-icon"></span> <input type="text"
-									class="dsmallinput" id="validationCode" placeholder="图形验证码"
-									value="">
-							</div>
-							<div class="yz-code fr">
-								<img id="validationCode_img" alt="点击刷新" title="点击刷新"
-									src="" width=130px height=38>
-							</div>
+						<div class="yz-code fr">
+							<input class="sendnumber defaultsend" type="button"
+								id="getLoginCode" name="getLoginCode" value="获取验证码" />
 						</div>
-						<div class="logincheckbox large-top clearfix">
-							<label class="fl"> <input class="selectcheckbox"
-								type="checkbox" name="rememberpass" checked="checked" value="" />自动登录
-							</label>
-						</div>
-						<div class="btn-wrap btnpdt20">
-							<a href="javascript:void(0)" id="loginByPassword"
-								_mayi_rp="web|condition|loginc">登录</a>
-						</div>
-						<p class="otherwaytitle mt20">
-							没有账号密码请 <a href="javascript:void(0)" id="changeloginbymwa">使用手机验证码登录</a>
-						</p>
 					</div>
-					<!-- 密码登陆 end -->
-
-
+					<div class="logincheckbox large-top clearfix">
+						<label class="fl"> <input class="selectcheckbox"
+							type="checkbox" name="rememberloginstate" checked="checked"
+							value="" />自动登录
+						</label>
+					</div>
+					<div class="logincheckbox large-top clearfix">
+						<font>未注册的手机号将自动创建为黄虫短租帐户</font>
+					</div>
+					<div class="btn-wrap btnpdt20">
+						<a href="javascript:void(0)" id="loginByTelNum">登录</a>
+					</div>
 				</div>
-			</div>
-			<div class="fl t-center third-party">
-				<h3 class="f16 mb10">关注我们</h3>
-				<img src="img/loginewm.jpg" style="width: 200px; height: 200px;">
+				<!-- 手机登陆 end  -->
+
+				<!-- 密码登陆 start -->
+				<div class="login-input" id="loginbyupdiv" name="loginbyupdiv"
+					style="display: none;">
+					<div class="input">
+						<span class="user-icon"></span> <input class="dlargeinput"
+							type="text" id="userName" name="userName" placeholder="手机号/账号"
+							value="" autocomplete="off" />
+					</div>
+					<div class="input small-top">
+						<span class="password-icon"></span> <input class="dlargeinput"
+							type="password" id="userPwd" name="userPwd" placeholder="密码"
+							value="" />
+					</div>
+					<div class="largeinputbox small-top clearfix" id="uperrordiv">
+						<div class="dinput fl" id="yui_3_5_1_1_1434542056373_108">
+							<span class="verification-icon"></span> <input type="text"
+								class="dsmallinput" id="validationCode" placeholder="图形验证码"
+								value="">
+						</div>
+						<div class="yz-code fr">
+							<img id="validationCode_img" alt="点击刷新" title="点击刷新" src=""
+								width=130px height=38>
+						</div>
+					</div>
+					<div class="logincheckbox large-top clearfix">
+						<label class="fl"> <input class="selectcheckbox"
+							type="checkbox" name="rememberpass" checked="checked" value="" />自动登录
+						</label>
+					</div>
+					<div class="btn-wrap btnpdt20">
+						<a href="javascript:void(0)" id="loginByPassword"
+							_mayi_rp="web|condition|loginc">登录</a>
+					</div>
+					<p class="otherwaytitle mt20">
+						没有账号密码请 <a href="javascript:void(0)" id="changeloginbymwa">使用手机验证码登录</a>
+					</p>
+				</div>
+				<!-- 密码登陆 end -->
+
+
 			</div>
 		</div>
+		<div class="fl t-center third-party">
+			<h3 class="f16 mb10">关注我们</h3>
+			<img
+				src="${pageContext.request.contextPath}/frontStage/img/loginewm.jpg"
+				style="width: 200px; height: 200px;">
+		</div>
 	</div>
+</div>
 
-	<!-- 登录弹窗 END -->
+<!-- 登录弹窗 END -->
 
 <!--公共尾部结束-->
 <script type="text/javascript"
 	src="//staticnew.mayi.com/resourcesWeb/js/layer/layer.min.js"></script>
 <script type="text/javascript"
 	src="//staticnew.mayi.com/resourcesWeb/js/jQuery.md5.js"></script>
-<script src="js/loginpc.js" type="text/javascript" charset="utf-8"></script>
+<script
+	src="${pageContext.request.contextPath}/frontStage/js/loginpc2.js"
+	type="text/javascript" charset="utf-8"></script>
 
 <script type="text/javascript">
 	$(document).ready(
@@ -1018,33 +1068,7 @@
 <script src="//tjs.sjs.sinajs.cn/open/api/js/wb.js"
 	type="text/javascript" charset="utf-8"></script>
 <!-- load statistics js -->
-<!--[statistics start]-->
-<!-- load End-->
-<!--底部浮层显示，默认是隐藏-->
-<!--跟踪代码-->
-<script type="text/javascript">
-	var _py = _py || [];
-	_py.push([ 'a', '_V..9lG-o_-K8tLjk83g1WAOcX' ]);
-	_py.push([ 'domain', 'stats.ipinyou.com' ]);
-	_py.push([ 'e', '' ]);
-	-function(d) {
-		var f = 'https:' == location.protocol;
-		f = (f ? 'https' : 'http') + '://'
-				+ (f ? 'file.ipinyou.com' : 'file.ipinyou.com.cn')
-				+ '/j/adv.js';
-		d.write('<script src="' + f + '"><\/script>');
-	}(document)
-</script>
-<noscript>
-	<img src="//stats.ipinyou.com/adv.gif?a=_V..9lG-o_-K8tLjk83g1WAOcX&e="
-		style="display: none;" />
-</noscript>
-<!--判断是否推送给赶集-->
-<input type="hidden" name="channel_ganji" id="channel_ganji" value="" />
-<!-- 黄虫点击 -->
-<script src="//staticnew.mayi.com/duanzu/resources/common/js/mayi.js"></script>
-<!-- 黄虫分析 -->
-<script src="//staticnew.mayi.com/resources/js/mayi/mayi_rp.js"></script>
+
 </body>
 <!--广告图-->
 <script type="text/javascript">

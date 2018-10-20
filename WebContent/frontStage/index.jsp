@@ -9,17 +9,17 @@
 <meta charset="utf-8">
 <title>【黄虫短租】民宿预订首选</title>
 <link rel="stylesheet"
-	href="//staticnew.mayi.com/resourcesWeb/v201807/index_page_new/css/mayi_base.css">
+	href="//staticnew.mayi.com/resourcesWeb/v201807/index_page_new/css/mayi_base.css"/>
 <link rel="stylesheet"
-	href="//staticnew.mayi.com/resourcesWeb/v201807/index_page_new/css/public.css">
+	href="//staticnew.mayi.com/resourcesWeb/v201807/index_page_new/css/public.css"/>
 <link rel="stylesheet"
-	href="//staticnew.mayi.com/resourcesWeb/v201807/index_page_new/css/jquery.bxslider.css">
+	href="//staticnew.mayi.com/resourcesWeb/v201807/index_page_new/css/jquery.bxslider.css"/>
 <link rel="stylesheet"
-	href="//staticnew.mayi.com/resourcesWeb/js/layer/skin/layer.css">
+	href="//staticnew.mayi.com/resourcesWeb/js/layer/skin/layer.css"/>
 <link rel="stylesheet"
-	href="//staticnew.mayi.com/resourcesWeb/v201807/index_page_new/css/new_calendar.css">
+	href="//staticnew.mayi.com/resourcesWeb/v201807/index_page_new/css/new_calendar.css"/>
 <link rel="stylesheet"
-	href="//staticnew.mayi.com/resourcesWeb/v201807/index_page_new/css/index.css?v=2018.8.8">
+	href="//staticnew.mayi.com/resourcesWeb/v201807/index_page_new/css/index.css?v=2018.8.8"/>
 <!-- <script src="js/jquery.min.js" type="text/javascript" charset="utf-8"></script> -->
 <script src="http://libs.baidu.com/jquery/1.11.1/jquery.min.js"
 	type="text/javascript" charset="utf-8"></script>

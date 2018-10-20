@@ -197,7 +197,7 @@ $(document).ready(function() {
 			if (phone_number_regex.test(telNum)) {			      	    
 				logintime();//加入倒计时
 				//var ctx = $('#ctx').val();
-				$.post("../us.action?op=getByTelNum", "telNum=" + telNum+"&validationCode1="+val_imagecode,function(re) {
+				$.post("us.action?op=getByTelNum", "telNum=" + telNum+"&validationCode1="+val_imagecode,function(re) {
 					if(re!=null){	
 						
 						if(re=="1"){
@@ -240,28 +240,28 @@ $(document).ready(function() {
 		}*/
 //		var val_imagecode =$('#imagecode').val();
 		if(logintype=="ma"){
-		var	validationCode1 =$('#validationCode1').val();
-		$.post("../us.action?op=loginByMsg", "telNum=" + param1
-				+ "&loginCode=" + param2 + "&validationCode1="
-				+ validationCode1, function(data, status) {
-			if ("3" == data) {
-				window.location.reload();
-			} else if ("2" == data) {
-				window.location.reload();
-			} else if ("1" == data) {
-				$('#maerrordiv .errorprompt').remove();
-				var span = '<span class="errorprompt">手机验证码错误!</span>';
-				$('#maerrordiv').append(span);	
-				
-			} else {
-				$('#maerrordiv .errorprompt').remove();
-				var span = '<span class="errorprompt">图形验证码错误!</span>';
-				$('#maerrordiv').append(span);	
-			}
-		});
+			var	validationCode1 =$('#validationCode1').val();
+			$.post("us.action?op=loginByMsg", "telNum=" + param1
+					+ "&loginCode=" + param2 + "&validationCode1="
+					+ validationCode1, function(data, status) {
+				if ("3" == data) {
+					window.location.reload();
+				} else if ("2" == data) {
+					window.location.reload();
+				} else if ("1" == data) {
+					$('#maerrordiv .errorprompt').remove();
+					var span = '<span class="errorprompt">手机验证码错误!</span>';
+					$('#maerrordiv').append(span);	
+					
+				} else {
+					$('#maerrordiv .errorprompt').remove();
+					var span = '<span class="errorprompt">图形验证码错误!</span>';
+					$('#maerrordiv').append(span);	
+				}
+			});
 		}else{
 			var	validationCode =$('#validationCode').val();
-			$.post("../us.action?op=loginByPwd", "userName=" + param1
+			$.post("us.action?op=loginByPwd", "userName=" + param1
 					+ "&userPwd=" + param2 + "&validationCode="
 					+ validationCode, function(data) {
 				if ("2" == data) {
@@ -385,7 +385,7 @@ $(document).ready(function() {
 	$('#loginByTelNum').on('click',function(){
 		var mobile = $('#telNum').val();
 		var phonecode = $('#loginCode').val();
-		var val_imagecode = $('#validationCode1').val();		
+		var val_imagecode = $('#validationCode1').val();
 		if(mobile==null||mobile==""
 			||phonecode==null||phonecode==""){
 			$('#maerrordiv .errorprompt').remove();
@@ -468,7 +468,7 @@ $(document).ready(function() {
 
 	//退出
 	$('#loginoutbut').on('click',function(){
-		$.get("../us.action?op=loginOut",function(re){
+		$.get("us.action?op=loginOut",function(re){
 			if(re=="success"){
 				location.reload(); 
 			}
