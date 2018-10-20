@@ -61,7 +61,7 @@ public class FrontStageSearchServlet extends HttpServlet {
 			if (request.getParameter("pageSize") != null) {
 				pageSize = Integer.parseInt(request.getParameter("pageSize"));
 			}
-			PageData pd = ss.getQuerySearchPage(page, pageSize, Area);
+			PageData<Homestay>  pd = ss.getQuerySearchPage(page, pageSize, Area);
 			request.setAttribute("pd", pd);
 			request.getRequestDispatcher("frontStage/SearchAccomodation.jsp").forward(request, response);
 		} else if (op.equals("todetail")) {

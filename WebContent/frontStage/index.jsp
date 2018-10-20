@@ -311,7 +311,7 @@
 							});
 							 if(flag){
 								 
-								 var url = "../ss.action?op=searchlist&Area="+searchcity;
+								 var url = "../ss.action?op=searchpage&Area="+searchcity;
 								  if(inday!=null&&inday!=""&&inday!="入住时间"){
 										url = url + "&d1="+inday;
 										
@@ -608,7 +608,7 @@
 	<script
 		src="//staticnew.mayi.com/resourcesWeb/v201807/index_page_new/js/jquery.nicescroll.min.js"></script>
 	<script
-		src="js/allcity.js"></script>
+		src="${pageContext.request.contextPath}/frontStage/js/allcity.js"></script>
 	<script
 		src="//staticnew.mayi.com/resourcesWeb/v201807/index_page_new/js/index_PCown.js"></script>
 	<script
