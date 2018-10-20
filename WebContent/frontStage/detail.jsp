@@ -1378,7 +1378,7 @@ span.search {
 					<div class="landlordDes">
 						<div class="landlordDesL">
 							<img rel="nofollow"
-								src="//i1.mayi.com/mayi16/M71/WO/II/LANX4W4RQMQEZTQPQHKHWK2YQUXL2C.jpg_150x150c.jpg"
+								src="${pageContext.request.contextPath}/../${fd.headImage}"
 								alt="" />
 							<div></div>
 						</div>
