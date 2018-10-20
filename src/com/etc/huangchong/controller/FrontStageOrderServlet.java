@@ -43,15 +43,21 @@ public class FrontStageOrderServlet extends HttpServlet {
 		int orderStatus=-1;
 		switch (op) {
 		case "allUserOrders":
-			orderList=os.queryUserOrder(1);
+			userId=Integer.parseInt(request.getParameter("userId"));
+			orderList=os.queryUserOrder(userId);
 			break;
 		case "payed":
-			userId=((Users)request.getSession().getAttribute("user")).getUserId();
+			userId=Integer.parseInt(request.getParameter("userId"));
 			orderStatus=Integer.parseInt(request.getParameter("orderStatus"));
 			orderList=os.queryUserOrder(userId,orderStatus);
 			break;
 		case "paying":
-			userId=((Users)request.getSession().getAttribute("user")).getUserId();
+			userId=Integer.parseInt(request.getParameter("userId"));
+			orderStatus=Integer.parseInt(request.getParameter("orderStatus"));
+			orderList=os.queryUserOrder(userId,orderStatus);
+			break;
+		case "fail":
+			userId=Integer.parseInt(request.getParameter("userId"));
 			orderStatus=Integer.parseInt(request.getParameter("orderStatus"));
 			orderList=os.queryUserOrder(userId,orderStatus);
 			break;
