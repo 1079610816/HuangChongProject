@@ -307,6 +307,9 @@
 							<div class="head_pop">
 								<div class="pop_column">
 									<p>
+										<a href="ordersinfo.jsp">订单管理</a>
+									</p>
+									<p>
 										<a href="javascript:void(0)" target="_self" id="myorder" rel="nofollow" class="slideactive" _mayi_rp="webaround|userinfo|account">我的账户</a>
 									</p>
 									<p class="textCt">
@@ -319,7 +322,7 @@
 					</li>
 					<li>
 						<div class="showinfo" id="s_islandlord">
-							<a href="javascript:loginowner(870177979)" target="_self" class="stclick">我是房东</a>
+							<a href="javascript:void(0)" target="_self" class="stclick">我是房东</a>
 							<div class="head_pop">
 								<div class="pop_column plr10">
 									<p>

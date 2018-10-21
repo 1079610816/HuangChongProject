@@ -519,7 +519,7 @@
 				</li>
 				<li>
 					<div class="showinfo" id="s_islandlord">
-						<a href="javascript:loginowner(870177979)" target="_self"
+						<a href="javascript:void(0)" target="_self"
 							class="stclick">我是房东</a>
 						<div class="head_pop">
 							<div class="pop_column plr10">

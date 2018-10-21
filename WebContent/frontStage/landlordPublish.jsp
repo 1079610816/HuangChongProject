@@ -315,7 +315,7 @@
 				
             	 <li>
 	                <div class="showinfo">
-	                    <a href="javascript:menufrozen(870177979,'/tenant/870177979/orders','user')" target="_self"><img src="${user!=null?user.imgUrl:' '}" id="aaa" class="user_img">                	
+	                    <a href="javascript:void(0)" target="_self"><img src="${user!=null?user.imgUrl:' '}" id="aaa" class="user_img">                	
 	                    <span class="name" id="head_nickname"></span></a>
 	                    <div class="head_pop">
 	                        <div class="pop_column">
@@ -329,7 +329,7 @@
                </li>          
             	<li>
 	            	<div class="showinfo" id="s_islandlord">
-	            		<a href="javascript:loginowner(870177979)" target="_self" class="stclick">我是房东</a>
+	            		<a href="javascript:void(0)" target="_self" class="stclick">我是房东</a>
 	                	<div class="head_pop">
 		                	<div class="pop_column plr10">
 		                        <p><a href="ls.action?op=allLandlordOrders&orderStatus=-1&userId=${user.userId }">订单管理</a></p>
