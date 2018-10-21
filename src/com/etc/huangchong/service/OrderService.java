@@ -41,4 +41,21 @@ public interface OrderService {
 	 * @return 该房东某种状态订单集合
 	 */
 	List<Orders> getQueryLandlordOrder(int userId,int orderStatus);
+	
+	/**
+	 * 增加订单
+	 * @param o
+	 * @param userId
+	 * @param accomId
+	 * @return
+	 */
+	boolean getAddOrder(Orders o,int userId,int accomId);
+	/**
+	 * 根据orderId修改订单状态
+	 * @param orderId
+	 * @param orderStatus
+	 * @return
+	 */
+	boolean getUpdateOrder(String orderId,int orderStatus);
+	
 }

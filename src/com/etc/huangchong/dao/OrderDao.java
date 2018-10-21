@@ -45,6 +45,20 @@ public interface OrderDao {
 	 * @return 该房东某种状态订单集合
 	 */
 	List<Orders> queryLandlordOrder(int userId,int orderStatus);
-	
+	/**
+	 * 增加订单
+	 * @param o
+	 * @param userId
+	 * @param accomId
+	 * @return
+	 */
+	boolean addOrder(Orders o,int userId,int accomId);
+	/**
+	 * 根据orderId修改订单状态
+	 * @param orderId
+	 * @param orderStatus
+	 * @return
+	 */
+	boolean updateOrder(String orderId,int orderStatus);
 	
 }

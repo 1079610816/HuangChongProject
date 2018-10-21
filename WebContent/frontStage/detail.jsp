@@ -218,7 +218,7 @@
 						checkin_date: d1,
 						checkout_date: d2
 					});
-					location.href="bs.action?accomId=${homestay.accomId}&op=bookOrder&checkinday="+d1+"&checkoutday="+d2+"&orderId="+timestamp;
+					location.href="bs.action?accomId=${homestay.accomId}&userId=${user.userId}&op=bookOrder&checkinday="+d1+"&checkoutday="+d2+"&orderId="+timestamp;
 				} else {
 					window.criteo_q.push({
 						event: "setAccount",

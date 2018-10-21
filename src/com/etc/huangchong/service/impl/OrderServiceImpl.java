@@ -73,4 +73,26 @@ public class OrderServiceImpl implements OrderService {
 		return od.queryLandlordOrder(userId, orderStatus);
 	}
 	
+	/**
+	 * 增加订单
+	 * @param o
+	 * @return
+	 */
+	@Override
+	public boolean getAddOrder(Orders o,int userId,int accomId) {
+		// TODO Auto-generated method stub
+		return od.addOrder(o,userId,accomId);
+	}
+	/**
+	 * 根据orderId修改订单状态
+	 * @param orderId
+	 * @param orderStatus
+	 * @return
+	 */
+	@Override
+	public boolean getUpdateOrder(String orderId, int orderStatus) {
+		// TODO Auto-generated method stub
+		return od.updateOrder(orderId, orderStatus);
+	}
+	
 }

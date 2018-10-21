@@ -8,7 +8,7 @@
 
 <%-- 判断是不是从servlet转发过来,如果不是就跳转到servlet--%>
 <c:if test="${orderList==null}">
-	<c:redirect url="../os.action?op=allUserOrders&userId=${user.userId }"></c:redirect>
+	<c:redirect url="${pageContext.request.contextPath}/../os.action?op=allUserOrders&userId=${user.userId }"></c:redirect>
 </c:if>
 
 <!DOCTYPE html>

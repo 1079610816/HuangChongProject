@@ -139,5 +139,53 @@ public class OrderDaoImpl implements OrderDao {
 		List<Orders>list=(List<Orders>)bd.select(sql, Orders.class, userId,orderStatus);
 		return list;
 	}
+	/**
+	 * 增加订单
+	 * @param o
+	 * @return
+	 */
+	@Override
+	public boolean addOrder(Orders o,int userId,int accomId) {
+		// TODO Auto-generated method stub
+		Connection conn = bd.getConn();
+		boolean flag = false;
+		try {
+			conn.setAutoCommit(false);
+			sql="INSERT INTO orderdetails (orderId, bookTime, unsubscribeTime, fee, orderStatus) VALUES (?, ?, ?, ?, ?)";
+			int a1 = bd.execute(sql, o.getOrderId(),o.getBookTime(),o.getUnsubscribeTime(),o.getFee(),o.getOrderStatus());
+			String sql2 = "INSERT INTO orders (orderId,userId,accomId) VALUES (?, ?, ?)";
+			int a2 = bd.execute(sql2,o.getOrderId(), userId,accomId);
+			if(a1>0&&a2>0) {
+				flag = true;
+				conn.commit();
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			try {
+				conn.rollback();
+			} catch (SQLException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
+		}finally {
+			
+			return flag;
+		}
+		
+		
+	}
+	/**
+	 * 根据orderId修改订单状态
+	 * @param orderId
+	 * @param orderStatus
+	 * @return
+	 */
+	@Override
+	public boolean updateOrder(String orderId,int orderStatus) {
+		// TODO Auto-generated method stub
+		sql="UPDATE orderdetails SET orderStatus=? WHERE orderId=?";
+		return bd.execute(sql, orderStatus, orderId)>0;
+	}
 	
 }
