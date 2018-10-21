@@ -121,7 +121,6 @@ public class FrontStageUsersServlet extends HttpServlet {
 			if (validationCode1.equalsIgnoreCase(validation_code) && loginCode.equals(number)) {
 				// 图形验证码和手机验证码都正确 执行登录
 				Users user = us.getLoginByMsg(telNum);
-				System.out.println(user);
 				if (null != user) {
 					// 用户不为空 ，将user放进session中
 					session.setAttribute("user", user);
@@ -158,7 +157,7 @@ public class FrontStageUsersServlet extends HttpServlet {
 			String base64=request.getParameter("base64");
 			//对头像数据进行判断,如果不为空,就是有进行头像修改
 			if(!"null".equals(base64) && nickName!=null && userName!=null) {
-				if(!GenerateImage(base64.substring(23), userName)) {
+				if(!GenerateImage(base64.substring(23), userName,request.getSession().getServletContext().getRealPath("")+"..\\img\\head\\")) {
 					out.print("false");
 				}else {
 					if(us.upUserInfo(userName, nickName, "/img/head/"+userName+".jpg")) {
@@ -202,10 +201,12 @@ public class FrontStageUsersServlet extends HttpServlet {
 	}
 	
 	//base64字符串转化成图片  
-    public static boolean GenerateImage(String base64,String userName)  
+    public static boolean GenerateImage(String base64,String userName,String imgUrl)  
     {   //对字节数组字符串进行Base64解码并生成图片  
-        if (base64 == null) //图像数据为空  
-            return false;  
+    	//图像数据为空  
+        if (base64 == null) {
+            return false; 
+        }
         BASE64Decoder decoder = new BASE64Decoder();  
         try   
         {  
@@ -219,7 +220,8 @@ public class FrontStageUsersServlet extends HttpServlet {
                 }  
             }  
             //生成jpeg图片  D:\eclipse\apache-tomcat-8.5.13\webapps\img\head
-            String imgFilePath = "D:\\eclipse\\apache-tomcat-8.5.13\\webapps\\img\\head\\"+userName+".jpg";//新生成的图片  
+            
+            String imgFilePath = imgUrl+userName+".jpg";//新生成的图片  
             OutputStream out = new FileOutputStream(imgFilePath);      
             out.write(b);  
             out.flush();  
