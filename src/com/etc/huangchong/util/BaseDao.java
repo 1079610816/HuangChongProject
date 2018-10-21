@@ -18,7 +18,7 @@ public class BaseDao {
 	private static final String DRIVER = "com.mysql.jdbc.Driver";
 	private static final String URL = "jdbc:mysql://localhost:3306/homestay?useunicode=true&characterEncoding=utf-8";
 	private static final String USER = "root"; // 用户名
-	private static final String PASSWORD = "root";// 密码
+	private static final String PASSWORD = "1";// 密码
 
 	/**
 	 * 获取连接对象
@@ -238,7 +238,7 @@ public class BaseDao {
 	 */
 	public static Object convert(ResultSet rs, Class cla) {
 		try {
-			if (cla.getName().equals("java.lang.Object")) {
+			if ("java.lang.Object".equals(cla.getName())) {
 				return rs.getObject(1);
 			}
 			// 创建实体类的实例 Class类对象的方法，创建指定对象的实例
@@ -285,8 +285,9 @@ public class BaseDao {
 		//记录总数/每页的记录数
 		int totalPage = count / pageSize;
 		//判断是否有余数,如果有就再加一页
-		if (count % pageSize != 0)
+		if (count % pageSize != 0) {
 			totalPage++;
+		}
 		//判断page是否超出总的记录,如果超出就显示最后一页
 		if (page > totalPage) {
 			page = totalPage;

@@ -11,7 +11,7 @@ import com.etc.huangchong.util.BaseDao;
 public class OrderDaoImpl implements OrderDao {
 
 	private String sql;
-	private BaseDao bd = new BaseDao();
+	
 /**
  * 查询订单信息
  * 返回Orders的集合
@@ -20,7 +20,7 @@ public class OrderDaoImpl implements OrderDao {
 	public List<Orders> queryOrder() {
 		// TODO Auto-generated method stub
 		sql = "SELECT orders.orderId, orderdetails.bookTime, orderdetails.unsubscribeTime, orderdetails.fee, orderdetails.orderStatus, users.userName, accommodation.accomTitle FROM orders ,orderdetails ,users ,accommodation WHERE orders.orderId = orderdetails.orderId AND orders.accomId = accommodation.accomId AND orders.userId = users.userId";
-		List<Orders> list = (List<Orders>) bd.select(sql, Orders.class);
+		List<Orders> list = (List<Orders>) BaseDao.select(sql, Orders.class);
 		return list;
 	}
 /**
@@ -36,9 +36,9 @@ public class OrderDaoImpl implements OrderDao {
 			// 设置自动提交为false
 			conn.setAutoCommit(false);
 			String sql1 = "DELETE FROM orderdetails WHERE orderId=?";
-			int s1 = bd.execute(sql1, orderId);
+			int s1 = BaseDao.execute(sql1, orderId);
 			sql = "DELETE FROM orders WHERE orderId=?";
-			int s2 = bd.execute(sql, orderId);
+			int s2 = BaseDao.execute(sql, orderId);
 			// 若两条SQL都操作成功则
 			if (s1 > 0 && s2 > 0) {
 				flag = true;
@@ -67,12 +67,12 @@ public class OrderDaoImpl implements OrderDao {
 	@Override
 	public boolean batchDelOrder(String sql1, String sql2) {
 		// TODO Auto-generated method stub
-		Connection conn = bd.getConn();
+		Connection conn = BaseDao.getConn();
 		boolean flag = false;
 		try {
 			conn.setAutoCommit(false);
-			boolean flag1 = bd.execute(sql1)>0;
-			boolean flag2 = bd.execute(sql2)>0;
+			boolean flag1 = BaseDao.execute(sql1)>0;
+			boolean flag2 = BaseDao.execute(sql2)>0;
 			if(flag1&&flag2) {
 				flag=true;
 			}
@@ -100,7 +100,7 @@ public class OrderDaoImpl implements OrderDao {
 	public boolean updateOrder(Orders o) {
 		// TODO Auto-generated method stub
 		sql="UPDATE orderdetails SET bookTime=?, unsubscribeTime=?, fee=?, orderStatus=? WHERE orderId=?";
-		return bd.execute(sql, o.getBookTime(),o.getUnsubscribeTime(),o.getFee(),o.getOrderStatus(),o.getOrderId())>0;
+		return BaseDao.execute(sql, o.getBookTime(),o.getUnsubscribeTime(),o.getFee(),o.getOrderStatus(),o.getOrderId())>0;
 	}
 	/**
 	 * 查询用户所有的订单
@@ -108,12 +108,12 @@ public class OrderDaoImpl implements OrderDao {
 	@Override
 	public List<Orders> queryUserOrder(int userId) {
 		sql="select o.orderId,a.accomId,a.accomTitle,a.accomAddress,od.bookTime,od.unsubscribeTime,od.fee,od.orderStatus from orders as o inner join accommodation as a on o.accomId=a.accomId inner join orderdetails as od on o.orderId=od.orderId where o.userId=?";
-		return (List<Orders>)bd.select(sql, Orders.class, userId);
+		return (List<Orders>)BaseDao.select(sql, Orders.class, userId);
 	}
 	@Override
 	public List<Orders> queryUserOrder(int userId,int orderStatus) {
 		sql="select o.orderId,a.accomId,a.accomTitle,a.accomAddress,od.bookTime,od.unsubscribeTime,od.fee,od.orderStatus from orders as o inner join accommodation as a on o.accomId=a.accomId inner join orderdetails as od on o.orderId=od.orderId where o.userId=? and od.orderStatus =?";
-		return (List<Orders>)bd.select(sql, Orders.class, userId,orderStatus);
+		return (List<Orders>)BaseDao.select(sql, Orders.class, userId,orderStatus);
 	}
 	/**
 	 * 查询房东的所有订单
@@ -123,7 +123,7 @@ public class OrderDaoImpl implements OrderDao {
 	public List<Orders> queryLandlordOrder(int userId) {
 		// TODO Auto-generated method stub
 		String sql="select orderdetails.orderId,orderdetails.bookTime,orderdetails.unsubscribeTime,orderdetails.fee,orderdetails.orderStatus,accommodation.accomTitle,accommodation.accomId,accommodation.accomAddress from orderdetails inner join orders on orders.orderId=orderdetails.orderId inner join accommodation on orders.accomId=accommodation.accomId where accommodation.userId=?";
-		List<Orders>list=(List<Orders>)bd.select(sql, Orders.class, userId);
+		List<Orders>list=(List<Orders>)BaseDao.select(sql, Orders.class, userId);
 		return list;
 	}
 	/**
@@ -136,7 +136,7 @@ public class OrderDaoImpl implements OrderDao {
 	public List<Orders> queryLandlordOrder(int userId, int orderStatus) {
 		// TODO Auto-generated method stub
 		String sql="select orderdetails.orderId,orderdetails.bookTime,orderdetails.unsubscribeTime,orderdetails.fee,orderdetails.orderStatus,accommodation.accomTitle,accommodation.accomId,accommodation.accomAddress from orderdetails inner join orders on orders.orderId=orderdetails.orderId inner join accommodation on orders.accomId=accommodation.accomId where accommodation.userId=? and orderdetails.orderStatus=? ";
-		List<Orders>list=(List<Orders>)bd.select(sql, Orders.class, userId,orderStatus);
+		List<Orders>list=(List<Orders>)BaseDao.select(sql, Orders.class, userId,orderStatus);
 		return list;
 	}
 	/**
@@ -147,14 +147,14 @@ public class OrderDaoImpl implements OrderDao {
 	@Override
 	public boolean addOrder(Orders o,int userId,int accomId) {
 		// TODO Auto-generated method stub
-		Connection conn = bd.getConn();
+		Connection conn = BaseDao.getConn();
 		boolean flag = false;
 		try {
 			conn.setAutoCommit(false);
 			sql="INSERT INTO orderdetails (orderId, bookTime, unsubscribeTime, fee, orderStatus) VALUES (?, ?, ?, ?, ?)";
-			int a1 = bd.execute(sql, o.getOrderId(),o.getBookTime(),o.getUnsubscribeTime(),o.getFee(),o.getOrderStatus());
+			int a1 = BaseDao.execute(sql, o.getOrderId(),o.getBookTime(),o.getUnsubscribeTime(),o.getFee(),o.getOrderStatus());
 			String sql2 = "INSERT INTO orders (orderId,userId,accomId) VALUES (?, ?, ?)";
-			int a2 = bd.execute(sql2,o.getOrderId(), userId,accomId);
+			int a2 = BaseDao.execute(sql2,o.getOrderId(), userId,accomId);
 			if(a1>0&&a2>0) {
 				flag = true;
 				conn.commit();
@@ -185,7 +185,7 @@ public class OrderDaoImpl implements OrderDao {
 	public boolean updateOrder(String orderId,int orderStatus) {
 		// TODO Auto-generated method stub
 		sql="UPDATE orderdetails SET orderStatus=? WHERE orderId=?";
-		return bd.execute(sql, orderStatus, orderId)>0;
+		return BaseDao.execute(sql, orderStatus, orderId)>0;
 	}
 	
 }

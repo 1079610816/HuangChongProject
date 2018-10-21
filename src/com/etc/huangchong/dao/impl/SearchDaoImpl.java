@@ -9,7 +9,7 @@ import com.etc.huangchong.util.PageData;
 
 public class SearchDaoImpl implements SearchDao {
 
-	private BaseDao bd = new BaseDao();
+	
 	/**
 	 * 通过房源编号显示对应的评论内容
 	 */
@@ -17,13 +17,13 @@ public class SearchDaoImpl implements SearchDao {
 	public List<Homestay> querySearch(String accomArea) {
 		// TODO Auto-generated method stub
 		String sql = "select a.accomId,a.accomTitle,a.accomIntro,a.accomArea,a.accomAddress,a.accomStatus,a.houseType,a.price,a.userId,u.userName,COUNT(c.accomId) as commentsum from accommodation as a inner join users as u on a.userId=u.userId left join comment as c on a.accomId=c.accomId where a.accomArea=? group by a.accomId";
-		return (List<Homestay>)bd.select(sql, Homestay.class, accomArea);
+		return (List<Homestay>)BaseDao.select(sql, Homestay.class, accomArea);
 	}
 
 	@Override
 	public PageData<Homestay> querySearchPage(int page, int pageSize,String accomArea) {
 		// TODO Auto-generated method stub
 		String sql = "select a.accomId,a.accomTitle,a.accomIntro,a.accomArea,a.accomAddress,a.accomStatus,a.houseType,a.price,a.userId,u.userName,COUNT(c.accomId) as commentsum from accommodation as a inner join users as u on a.userId=u.userId left join comment as c on a.accomId=c.accomId where a.accomArea=? group by a.accomId";
-		return bd.getPage(sql, page, pageSize, Homestay.class, accomArea);
+		return BaseDao.getPage(sql, page, pageSize, Homestay.class, accomArea);
 	}
 }

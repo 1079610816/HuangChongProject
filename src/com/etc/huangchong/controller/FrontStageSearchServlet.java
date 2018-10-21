@@ -37,7 +37,7 @@ public class FrontStageSearchServlet extends HttpServlet {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-
+	@Override
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
 	 *      response)
@@ -47,9 +47,9 @@ public class FrontStageSearchServlet extends HttpServlet {
 		request.setCharacterEncoding("utf-8");
 		response.setCharacterEncoding("utf-8");
 		String op = request.getParameter("op");
-		String Area = request.getParameter("Area");
+		String area = request.getParameter("Area");
 		if ("searchlist".equals(op)) {
-			List<Homestay> list = ss.getQuerySearch(Area);
+			List<Homestay> list = ss.getQuerySearch(area);
 			request.setAttribute("list", list);
 			request.getRequestDispatcher("frontStage/SearchAccomodation.jsp").forward(request, response);
 		} else if ("searchpage".equals(op)) {
@@ -61,7 +61,7 @@ public class FrontStageSearchServlet extends HttpServlet {
 			if (request.getParameter("pageSize") != null) {
 				pageSize = Integer.parseInt(request.getParameter("pageSize"));
 			}
-			PageData<Homestay>  pd = ss.getQuerySearchPage(page, pageSize, Area);
+			PageData<Homestay>  pd = ss.getQuerySearchPage(page, pageSize, area);
 			request.setAttribute("pd", pd);
 			request.getRequestDispatcher("frontStage/SearchAccomodation.jsp").forward(request, response);
 		} else if ("todetailPage".equals(op)) {
@@ -85,7 +85,7 @@ public class FrontStageSearchServlet extends HttpServlet {
 		}
 
 	}
-
+	@Override
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
 	 *      response)

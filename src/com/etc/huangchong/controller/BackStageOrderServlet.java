@@ -31,7 +31,7 @@ public class BackStageOrderServlet extends HttpServlet {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-
+	@Override
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
 	 *      response)
@@ -140,7 +140,7 @@ public class BackStageOrderServlet extends HttpServlet {
 			request.getRequestDispatcher("os.do?op=olist").forward(request, response);
 		}
 	}
-
+	@Override
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
 	 *      response)

@@ -35,7 +35,7 @@ public class FrontStageValidateCode extends HttpServlet {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-
+	@Override
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
 	 *      response)
@@ -117,7 +117,7 @@ public class FrontStageValidateCode extends HttpServlet {
 		int blue = minColor + random.nextInt(maxColor - minColor);
 		return new Color(red, green, blue);
 	}
-
+	@Override
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
 	 *      response)

@@ -28,7 +28,7 @@ public class FrontStageOrderServlet extends HttpServlet {
         super();
         // TODO Auto-generated constructor stub
     }
-
+    @Override
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
@@ -61,13 +61,16 @@ public class FrontStageOrderServlet extends HttpServlet {
 			orderStatus=Integer.parseInt(request.getParameter("orderStatus"));
 			orderList=os.queryUserOrder(userId,orderStatus);
 			break;
+			default:
 		}
+		
+		
 		request.setAttribute("orderStatus", orderStatus);
 		request.setAttribute("orderList", orderList);		
 		request.getRequestDispatcher("frontStage/ordersinfo.jsp").forward(request, response);
 		
 	}
-	
+	@Override
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */

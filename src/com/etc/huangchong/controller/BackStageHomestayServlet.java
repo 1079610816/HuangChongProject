@@ -30,7 +30,7 @@ public class BackStageHomestayServlet extends HttpServlet {
         super();
         // TODO Auto-generated constructor stub
     }
-
+    @Override
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
@@ -40,7 +40,7 @@ public class BackStageHomestayServlet extends HttpServlet {
 		response.setContentType("application/json");
 		String op=request.getParameter("op");
 		PrintWriter out=response.getWriter();
-		if(op.equals("homestaylist")) {
+		if("homestaylist".equals(op)) {
 			List<Homestay> list=hs.getQueryHomestay();
 			MyData<Homestay> mydata=new MyData<>();
 			mydata.setData(list);
@@ -48,7 +48,7 @@ public class BackStageHomestayServlet extends HttpServlet {
 			String jsonString=gson.toJson(mydata);
 			out.print(jsonString);
 			out.close();
-		}else if(op.equals("edit")) {
+		}else if("edit".equals(op)) {
 			//System.out.println("民宿编辑");
 			int homestayId=Integer.parseInt(request.getParameter("homestayId"));
 			String homestayTitle=request.getParameter("homestayTitle");
@@ -62,12 +62,12 @@ public class BackStageHomestayServlet extends HttpServlet {
 			Homestay h=new Homestay(homestayId, homestayTitle, homestayIntro, homestayArea, homestayAddress, homestayStatus, houseType, userName,price);
 			hs.getHomestayUpdate(h); 
 			request.getRequestDispatcher("hs.do?op=homestaylist").forward(request, response);
-		}else if(op.equals("homestayDelete")) {
+		}else if("homestayDelete".equals(op)) {
 			//System.out.println("删除了");
 			int accomId=Integer.parseInt(request.getParameter("accomId"));
 			boolean flag=hs.getHomestayDel(accomId); 
 			
-		}else if(op.equals("add")) {
+		}else if("add".equals(op)) {
 			String accomTitle=request.getParameter("accomTitle");
 			String accomIntro=request.getParameter("accomIntro");
 			String accomArea=request.getParameter("accomArea");
@@ -79,7 +79,7 @@ public class BackStageHomestayServlet extends HttpServlet {
 			Homestay h=new Homestay(0, accomTitle, accomIntro, accomArea, accomAddress, accomStatus, houseType, null, price);
 			hs.getHomestayAdd(h, userId);
 			request.getRequestDispatcher("hs.do?op=homestaylist").forward(request, response);
-		}else if(op.equals("batchDelById")) {
+		}else if("batchDelById".equals(op)) {
 			//批量删除的SQL语句
 			String sql="DELETE FROM accommodation WHERE accomId IN (";
 			//获取批量ID
@@ -94,7 +94,7 @@ public class BackStageHomestayServlet extends HttpServlet {
 			
 		}
 	}
-
+    @Override
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */

@@ -41,7 +41,7 @@ public class BackStageUsersServlet extends HttpServlet {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-
+	@Override
 	/**doget请求
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
 	 *      response)
@@ -133,7 +133,7 @@ public class BackStageUsersServlet extends HttpServlet {
 					// 非文件域
 					String name = item.getFieldName();
 					String value = item.getString("utf-8");
-					if (name.equals("userName")) {
+					if ("userName".equals(name)) {
 						userName = value;
 						nickName = value;
 					} else {
@@ -237,11 +237,11 @@ public class BackStageUsersServlet extends HttpServlet {
 					// 非文件域
 					String name = item.getFieldName();
 					String value = item.getString("utf-8");
-					if (name.equals("userName")) {
+					if ("userName".equals(name)) {
 						userName = value;
-					} else if (name.equals("nickName")) {
+					} else if ("nickName".equals(name)) {
 						nickName = value;
-					} else if (name.equals("telNum")) {
+					} else if ("telNum".equals(name)) {
 						telNum = value;
 					} else {
 						userId = value;
@@ -356,6 +356,7 @@ public class BackStageUsersServlet extends HttpServlet {
 			doList(request, response);
 		}
 	}
+	@Override
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
 	 *      response)
