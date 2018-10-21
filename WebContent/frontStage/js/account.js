@@ -246,10 +246,12 @@ $(document).ready(function(){
 				layer.alert("保存失败，请稍候再试！",8);
 			},
 			success : function(data){
-				if("false"==data){
-					layer.alert(data.error.message,8);
-				}else{
+				if("true"==data){
 					layer.alert("保存成功",9,"提示信息",function callF(){
+						window.location.href=window.location.href;
+					});
+				}else{
+					layer.alert("保存失败",9,"提示信息",function callF(){
 						window.location.href=window.location.href;
 					});
 				}
