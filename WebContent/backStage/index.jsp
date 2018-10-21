@@ -14,11 +14,9 @@
 		   
 		   //遍历pd中data
 		   $.each(pd.data,function(index,users){
-			   console.log(users.userId+","+users.userName);
 			   
 		   });
 		   
-		   console.log("总页数: "+pd.totalPage);
 		   
 	   });
 	   

@@ -353,7 +353,6 @@
 						reload();
 					},
 					error : function(data) {
-						console.log(data.msg);
 						layer.msg('删除失败!', {
 							icon : 2,
 							time : 1000
@@ -381,7 +380,6 @@
 							reload();
 						},
 						error : function(data) {
-							console.log(data.msg);
 							layer.msg('重置失败!', {
 								icon : 2,
 								time : 1000
@@ -401,7 +399,6 @@
 					'.usersedit',
 					function() {
 						var _this = $(this); //当前对象 编辑的超链接
-						console.log(_this);
 						data = _this.parent().siblings(); //_this.parent() 得到td   siblings(); 当前行的其他td
 						var arr = [];
 						for (var i = 1; i < data.length; i++) { //1 从1开始 从姓名开始
@@ -470,12 +467,8 @@
 										$(inputList[0]).val(arr[5]);
 										$(inputList[1]).val(arr[6]);
 
-										console.log(arr);
 										var selectList = body.find('select'); //找所有的select
 
-										console
-												.log($(this).find("span")
-														.text());
 										$(selectList[0]).find(
 												"option:contains("
 														+ $(this).find("span")
@@ -586,7 +579,6 @@
 				},
 				{
 					"createdCell" : function(nTd, sData, oData, iRow, iCol) {
-						console.log(oData.state);
 						if (oData.state == 1) {
 							$(nTd)
 									.html(
@@ -659,7 +651,10 @@
 									dataType : 'json',//获取数据格式为json
 									error : function(jqXHR, textStatus,
 											errorMsg) {
-										alert("请求失败" + errorMsg);
+										layer.msg("请求失败" + errorMsg, {
+											icon : 1,
+											time : 3000
+										});
 									}
 
 								},
@@ -772,17 +767,25 @@
 			//错误信息提示
 			$.fn.dataTable.ext.errMode = function(s, h, m) {
 				if (h == 1) {
-					alert("连接服务器失败！");
+					layer.msg("连接服务器失败", {
+						icon : 1,
+						time : 3000
+					});
 				} else if (h == 7) {
-					alert("返回数据错误！");
+					layer.msg("数据返回错误", {
+						icon : 1,
+						time : 3000
+					});
 				}
 			};
 
 			//回调，如果返回的时候有问题提示信息
 			eloancn.table.grid.on('xhr.dt', function(e, settings, json, xhr) {
-				console.log("重新加载了数据");
 				if (typeof (json.code) != "undefined" && json.code != "0") {
-					alert(json.message);
+					layer.msg(json.message, {
+						icon : 1,
+						time : 3000
+					});
 				}
 			});
 
@@ -843,8 +846,6 @@
 					function() {
 						var filedValue = $(this).attr('data-column');
 						if (filedValue != "") {
-							console.log($('#col' + filedValue + '_filter')
-									.val());
 							oSettings = eloancn.table.grid.column(filedValue)
 									.search(
 											$('#col' + filedValue + '_filter')
@@ -930,13 +931,22 @@
 				var uuid = eloancn.table.grid.row(".selected").data().extn;
 
 				if (uuid == "") {
-					alert(eloancn.table.statusTitle);
+					layer.msg(eloancn.table.statusTitle, {
+						icon : 1,
+						time : 3000
+					});
 				} else {
-					alert(uuid);
+					layer.msg(uuid, {
+						icon : 1,
+						time : 3000
+					});
 				}
 
 			} else {
-				alert(eloancn.table.statusTitle);
+				layer.msg(eloancn.table.statusTitle, {
+					icon : 1,
+					time : 3000
+				});
 			}
 		}
 

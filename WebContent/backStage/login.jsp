@@ -10,7 +10,8 @@
 <meta name="author" content="">
 
 <!-- CSS -->
-
+<script type="text/javascript" src="lib/jquery/1.9.1/jquery.min.js"></script> 
+<script type="text/javascript" src="lib/layer/2.4/layer.js"></script>
 <link rel="stylesheet" href="css/supersized.css">
 <link rel="stylesheet" href="css/login.css">
 <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -18,7 +19,6 @@
 <!--[if lt IE 9]>
 	<script src="js/html5.js"></script>
 <![endif]-->
-<script src="js/jquery-1.8.2.min.js"></script>
 <script type="text/javascript" src="js/jquery.form.js"></script>
 <script type="text/javascript" src="js/tooltips.js"></script>
 <script type="text/javascript" src="js/login.js"></script>
@@ -82,7 +82,6 @@ var options = {
         result=true;
     },
     fail: function(){
-        console.log("fail");  
     }
 };
 SliderBar("slideBar", options);
@@ -94,7 +93,6 @@ $("#loginform_reset").click(function(){
 });
 
 $("#loginform_submit").click(function(){
-	console.log(1);
 	if(result==false){
 		return false;
 	}else{
@@ -104,7 +102,10 @@ $("#loginform_submit").click(function(){
 			if("true"==data){
 				location.href="index.html";
 			}else{
-				alert("账号或密码错误!");
+				layer.msg("账号密码错误!", {
+					icon : 1,
+					time : 3000
+				});
 				result=false;
 				$("#adminName").val("");
 				$("#adminPwd").val("");

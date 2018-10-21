@@ -248,7 +248,6 @@ function change_password(title,url,id,w,h){
 }
 /*用户-删除*/
 function member_del(index){
-	console.log(index);
 	/* layer.confirm('确认要删除吗？',function(){
 		console.log(id);
 			$.ajax({
@@ -280,7 +279,6 @@ function member_del(index){
 	        // console.log($(data[i]).text());
 	        arr.push($(data[i]).text());//拿到点击按钮的当前那条信息的内容 放到一个数组里
 	    }
-	     console.log(arr);
 		 //change-em-password.html
 		 
 	     layer.open({
@@ -296,7 +294,6 @@ function member_del(index){
 	             var iframeWin = window[layero.find('iframe')[0]['name']];
 
 	             var _ename = body.find('#ename');
-	             console.log(_ename+","+arr[1]);
 	             $(_ename).html(arr[1]);
 	            
 	         }
@@ -508,7 +505,10 @@ function member_del(index){
                 data: elo.search,
                 dataType:'json',//获取数据格式为json
                 error: function(jqXHR, textStatus, errorMsg){
-                    alert("请求失败"+errorMsg);
+                    layer.msg('请求失败!', {
+						icon : 1,
+						time : 3000
+					});
                 }
 
             },
@@ -603,17 +603,25 @@ function member_del(index){
         //错误信息提示
         $.fn.dataTable.ext.errMode = function(s,h,m){
             if(h==1){
-                alert("连接服务器失败！");
+                layer.msg('连接服务器失败!', {
+					icon : 1,
+					time : 3000
+				});
             }else if(h==7){
-                alert("返回数据错误！");
+                layer.msg('返回数据错误!', {
+					icon : 1,
+					time : 3000
+				});
             }
         };
 
         //回调，如果返回的时候有问题提示信息
         eloancn.table.grid.on('xhr.dt', function ( e, settings, json, xhr ) {
-            console.log("重新加载了数据");
             if(typeof(json.code)!="undefined"	&&	json.code!="0"){
-                alert(json.message);
+                layer.msg(json.message, {
+					icon : 1,
+					time : 3000
+				});
             }
         } );
 
@@ -668,7 +676,6 @@ function member_del(index){
         $("[data-column]").each(function(){
             var filedValue = $(this).attr('data-column');
             if(filedValue!=""){
-                console.log($('#col'+filedValue+'_filter').val());
                 oSettings = eloancn.table.grid.column(filedValue).search(
                         $('#col'+filedValue+'_filter').val()
                 );
@@ -702,12 +709,18 @@ function member_del(index){
         var uuid = '';
         var uuids =eloancn.table.grid.rows(".selected").data();
         if(uuids.length==0){
-            alert(eloancn.table.statusTitle);
+            layer.msg(eloancn.table.statusTitle, {
+				icon : 1,
+				time : 3000
+			});
         }else{
             for(var i=0;i<uuids.length;i++){
                 uuid = uuid+uuids[i].extn+",";
             }
-            alert(uuid);
+            layer.msg(uuid, {
+				icon : 1,
+				time : 3000
+			});
         }
     }
 
@@ -718,13 +731,22 @@ function member_del(index){
             var uuid =eloancn.table.grid.row(".selected").data().extn;
 
             if(uuid==""){
-                alert(eloancn.table.statusTitle);
+                layer.msg(eloancn.table.statusTitle, {
+    				icon : 1,
+    				time : 3000
+    			});
             }else{
-                alert(uuid);
+                layer.msg(uuid, {
+    				icon : 1,
+    				time : 3000
+    			});
             }
 
         }else{
-            alert(eloancn.table.statusTitle);
+        	layer.msg(eloancn.table.statusTitle, {
+				icon : 1,
+				time : 3000
+			});
         }
     }
 

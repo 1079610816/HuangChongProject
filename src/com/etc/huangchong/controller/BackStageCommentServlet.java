@@ -63,7 +63,7 @@ public class BackStageCommentServlet extends HttpServlet {
 				//如果成功，就在查询删除后的列表传给显示页面
 				doList(request,response);
 			}else {
-				System.out.println("删除失败");
+				
 			}
 			
 		}else if("batchDelete".equals(op)) {
@@ -115,7 +115,6 @@ public class BackStageCommentServlet extends HttpServlet {
 		PrintWriter out = response.getWriter();
 
 		out.print(jsonString);
-		//System.out.println("[jsonString] :" + jsonString);
 
 		out.close();
 	}

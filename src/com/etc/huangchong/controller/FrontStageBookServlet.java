@@ -65,7 +65,6 @@ public class FrontStageBookServlet extends HttpServlet {
 			Orders o = new Orders(orderId,checkinday,checkoutday,price,0);
 			os.getAddOrder(o,userId,accomId);
 			request.getSession().setAttribute("orderIdNum", orderId);
-			System.out.println(request.getSession().getAttribute("orderIdNum"));
 			request.setAttribute("checkinday", checkinday);
 			request.setAttribute("checkoutday", checkoutday);
 			request.setAttribute("checkinOfWeek", WeekUtil.CalculateWeekDay(checkinday));
@@ -105,8 +104,6 @@ public class FrontStageBookServlet extends HttpServlet {
 			request.getRequestDispatcher("frontStage/ordersinfo.jsp").forward(request, response);
 		}else if("success".equals(op)) {
 			boolean flag = os.getUpdateOrder((String)request.getSession().getAttribute("orderIdNum"), 1);
-			System.out.println((String)request.getSession().getAttribute("orderIdNum"));
-			System.out.println(flag);
 			request.getRequestDispatcher("frontStage/ordersinfo.jsp").forward(request, response);
 		}
 

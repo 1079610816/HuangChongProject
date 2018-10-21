@@ -128,7 +128,6 @@ public class UsersDaoImpl implements UsersDao {
 			int s3 = BaseDao.execute(sql2);
 			int s4 = BaseDao.execute(sql3);
 			int s5 = BaseDao.execute(sql4);
-			System.out.println(s1+s2+s3+s4+s5);
 			// 若两条SQL都操作成功则
 			if (s1 > 0 && s2 > 0 & s3 > 0 & s4 > 0 & s5 > 0) {
 				flag = true;

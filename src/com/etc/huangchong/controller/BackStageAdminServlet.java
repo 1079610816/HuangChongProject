@@ -50,14 +50,13 @@ public class BackStageAdminServlet extends HttpServlet {
 			doList(request, response);
 		} else if ("adminDelete".equals(op)) {
 			String adminName = request.getParameter("adminName");
-			System.out.println("adminName:" + adminName);
 			boolean flag = as.getDeleteByAdminName(adminName);
 			if (flag) {
 				// 如果成功，就在查询删除后的列表传给显示页面
 				doList(request, response);
 
 			} else {
-				System.out.println("删除失败");
+				
 			}
 		} else if ("login".equals(op)) {
 			doLogin(request, response);
@@ -95,7 +94,6 @@ public class BackStageAdminServlet extends HttpServlet {
 		PrintWriter out = response.getWriter();
 
 		out.print(jsonString);
-		System.out.println("[jsonString] :" + jsonString);
 
 		out.close();
 	}

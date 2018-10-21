@@ -5,7 +5,6 @@
 <c:if test="${sessionScope.user==null}">
 	<c:redirect url="index.jsp"></c:redirect>
 </c:if>
-
 <%-- 判断是不是从servlet转发过来,如果不是就跳转到servlet--%>
 <c:if test="${orderList==null}">
 	<c:redirect url="${pageContext.request.contextPath}/../os.action?op=allUserOrders&userId=${user.userId }"></c:redirect>
