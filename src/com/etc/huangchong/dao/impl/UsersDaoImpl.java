@@ -7,6 +7,7 @@ import java.util.List;
 import com.etc.huangchong.dao.UsersDao;
 import com.etc.huangchong.entity.Users;
 import com.etc.huangchong.util.BaseDao;
+import com.etc.huangchong.util.MD5Util;
 
 /**
  * UserDao接口的实现类
@@ -234,8 +235,8 @@ public class UsersDaoImpl implements UsersDao {
 	@Override
 	public boolean addUsersByTel(String userName, String nickName, String telNum, String imgUrl) {
 		// TODO Auto-generated method stub
-		String sql = "insert into users(nickName,telNum,imgUrl) values(?,?,?)";
-		int n = BaseDao.execute(sql, telNum, telNum, imgUrl);
+		String sql = "insert into users(userName,userPwd,nickName,telNum,imgUrl) values(?,?,?,?)";
+		int n = BaseDao.execute(sql, userName, MD5Util.getEncodeByMd5("123456"),telNum, telNum, imgUrl);
 		return n > 0;
 	}
 
