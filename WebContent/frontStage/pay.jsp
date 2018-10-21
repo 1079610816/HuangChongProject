@@ -559,23 +559,6 @@ function setPayCuponPrice() {
 		<div class='head_cnt relave'> 
 			<span class='search'></span>		
 			<ul class="nav_R asote nav_right">
-				 
-            	 <li>
-	                <div class="showinfo">
-	                    <a href="javascript:menufrozen(870557712,'/tenant/870557712/orders','user')" target="_self"><img src="https://i1.mayi.com/mayi97/M30/FV/RS/9927Y95FRTKGDMKX4C9D7LX4REKJSH.jpg_35x35c.jpg" id="aaa" class="user_img">                	
-	                    <span class="name" id="head_nickname"></span></a>
-	                    <div class="head_pop">
-	                        <div class="pop_column">
-	                            <p><a href="javascript:menufrozen(870557712,'/tenant/870557712/orders','user')" target="_self" id="myorder" rel="nofollow" _mayi_rp="webaround|userinfo|order">我的订单</a></p>
-	                            <p><a href="javascript:menufrozen(870557712,'/user/tenant/accountmanager','user')" target="_self" id="myorder" rel="nofollow" class="slideactive" _mayi_rp="webaround|userinfo|account">我的账户</a></p>
-	                            <p><a href="javascript:menufrozen(870557712,'/user/tenant/mycollection','user')" target="_self" id="mycollect" rel="nofollow" _mayi_rp="webaround|userinfo|collection">我的收藏</a></p>
-	                            <p><a href="javascript:menufrozen(870557712,'/user/tenant/msgmanager','user')" target="_self" id="mymsg" rel="nofollow" _mayi_rp="webaround|userinfo|inform">消息通知</a></p>
-	                            <p class="Invite_friends" _mayi_rp="webaround|userinfo|invite">邀请好友</p>
-	                            <p class="textCt"><a href="javascript:void(0)" id="loginoutbut" target="_self" class="stclick" clicktag="1_6">退出登录</a></p>
-	                        </div>
-	                    </div>
-	                </div>
-               </li>          
             	<li>
 	            	<div class="showinfo" id="s_islandlord" hidden>
 	            		<a href="javascript:loginowner(870557712)" target="_self" class="stclick">我是房东</a>
@@ -677,7 +660,7 @@ function setPayCuponPrice() {
 <input  type="hidden" name="ctx1" id="ctx1" value="//staticnew.mayi.com" />
 <input  type="hidden" name="uid" id="uid" value="870557712" />
 <input  type="hidden" name="loginurl" id="loginurl" value="none" />
-<input type="hidden" name="head_userName" id="head_userName" value="上帝的米缸">
+<input type="hidden" name="head_userName" id="head_userName" value="">
 <script type='text/javascript' src='//webchat.7moor.com/javascripts/7moorInit.js?accessId=73859f20-f357-11e6-b43e-3b18b16942dc&autoShow=false' async='async'></script>
  <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"><html xmlns:wb="http://open.weibo.com/wb">
@@ -889,7 +872,7 @@ function setPayCuponPrice() {
 			<div class='fl duigo_par'><span></span></div>
 			<div class='fl you_ti'>
 					<p class='you_p1'>此房源为速订房源，支付后即可预订成功，请放心支付</p>
-					<a href="/tenant/870557712/orders" class='a_more'>查看订单</a>
+					<a href="#" class='a_more'>查看订单</a>
 				
 			</div>
 		</div>
@@ -914,23 +897,7 @@ function setPayCuponPrice() {
 					<ul class='clearfloat bank_ul1'>
 						<li class='bank_radio clearfloat'><label><input type="radio" name='paymethod' value="1" checked="checked"/><img src="//staticnew.mayi.com/resourcesWeb/ordernew/images/zhifubao.jpg" title='支付宝'/></label></li>
 						</ul>
-					<ul class='clearfloat bank_ul2'>
-					  	<input type="hidden" id="item" />
-						<li class='bank_radio clearfloat'><label><input id="icbc" type="radio" name="SelectPay" value="icbc"/><img src="//staticnew.mayi.com/resourcesWeb/ordernew/images/bank_gongs.jpg" title='工商银行'/></label></li>
-						<li class='bank_radio clearfloat'><label><input id="ccb" type="radio" name="SelectPay" value="ccb"/><img src="//staticnew.mayi.com/resourcesWeb/ordernew/images/bank_jians.jpg" title='建设银行'/></label></li>
-						<li class='bank_radio clearfloat'><label><input id="abc" type="radio" name="SelectPay" value="abc"/><img src="//staticnew.mayi.com/resourcesWeb/ordernew/images/bank_nongy.jpg" title='农业银行'/></label></li>
-						<li class='bank_radio clearfloat'><label><input id="cmb" type="radio" name="SelectPay" value="cmb"/><img src="//staticnew.mayi.com/resourcesWeb/ordernew/images/bank_zhaos.jpg" title='招商银行'/></label></li>
-						<li class='bank_radio clearfloat'><label><input id="postgc" type="radio" name="SelectPay" value="postgc"/><img src="//staticnew.mayi.com/resourcesWeb/ordernew/images/bank_youz.jpg" title='邮政银行'/></label></li>
-						<li class='bank_radio clearfloat'><label><input id="boc" type="radio" name="SelectPay" value="boc"/><img src="//staticnew.mayi.com/resourcesWeb/ordernew/images/bank_china.jpg" title='中国银行'/></label></li>
-						<li class='bank_radio clearfloat'><label><input id="comm" type="radio" name="SelectPay" value="comm"/><img src="//staticnew.mayi.com/resourcesWeb/ordernew/images/bank_jiaot.jpg" title='交通银行'/></label></li>
-						<li class='bank_radio clearfloat'><label><input id="citic" type="radio" name="SelectPay" value="citic"/><img src="//staticnew.mayi.com/resourcesWeb/ordernew/images/bank_zhongx.jpg" title='中信银行'/></label></li>
-						<li class='bank_radio clearfloat'><label><input id="bjbank" type="radio" name="SelectPay" value="bjbank"/><img src="//staticnew.mayi.com/resourcesWeb/ordernew/images/bank_beij.jpg" title='北京银行'/></label></li>
-						<li class='bank_radio clearfloat'><label><input id="cmbc" type="radio" name="SelectPay" value="cmbc"/><img src="//staticnew.mayi.com/resourcesWeb/ordernew/images/bank_mins.jpg" title='民生银行'/></label></li>
-						<li class='bank_radio clearfloat'><label><input id="cib" type="radio" name="SelectPay" value="cib"/><img src="//staticnew.mayi.com/resourcesWeb/ordernew/images/bank_xingy.jpg" title='兴业银行'/></label></li>
-						<li class='bank_radio clearfloat'><label><input id="ceb" type="radio" name="SelectPay" value="ceb"/><img src="//staticnew.mayi.com/resourcesWeb/ordernew/images/guangda.jpg" title='中国光大银行'/></label></li>
-						<li class='bank_radio clearfloat'><label><input id="spdb" type="radio" name="SelectPay" value="spdb"/><img src="//staticnew.mayi.com/resourcesWeb/ordernew/images/pufa.jpg" title='浦发银行'/></label></li>
-						<li class='bank_radio clearfloat'><label><input id="gdb" type="radio" name="SelectPay" value="gdb"/><img src="//staticnew.mayi.com/resourcesWeb/ordernew/images/guangdong.jpg" title='广东发展银行'/></label></li>
-					</ul>
+					
 				</dd>
 			</dl>
 		</div>
@@ -938,120 +905,11 @@ function setPayCuponPrice() {
 	</div>
 	</form>
 	
-	<style>
-
-	</style>
-	<!-- 支付后弹窗 -->
-	<div id="goPayShow" class="alert-box">
-		<div class="alert-title">
-			在线支付<!-- 名字可动态自定义 -->
-			<a class="alert-close"rel="nofollow" href="#"></a>
-		</div>
-		<div class="alert-con">
-			<div class="pat-hint">
-				<h3>请在新打开的页面完成付款！</h3>
-				<p>完成付款后请根据您的情况点击下面的按钮。</p>
-			</div>
-			<div class="btn-box">
-				<input type="button" class="green-btn mgrt30" name="" onclick="goPaysuccess();"  value="已完成付款">
-				<input type="button" class="gray-btn" name="" id="problems" value="付款遇到问题？">
-			</div>
-			<p class="select-again"><a href="#" rel="nofollow">返回选择其他支付方式>></a></p>
-		</div>
-	</div>
-	<!-- 支付后弹窗 END -->
 	
 	<!-- Content END -->
 	<!-- Footer -->
 
-<!-- 登录弹窗 -->
-<div class="loginbox" id="loginboxdiv" nexturl="none" name="loginboxdiv" style="display:none;">
-	<a class="login-colse"  id="loginclose" name="loginclose" onClick="" href="javascript:void(0)"></a>
-    <div class="login-ways clearfloat">
-    	<div class="fl phone-account">
-            <ul class="c322c27 clearfloat f18">
-                <li class="phoneway_current" id="changeloginbyma">手机验证码登录</li>
-                <li class="mayiway" id="changeloginbyup">帐号密码登录</li>
-            </ul>
-            <div class="login-phone-account">
-            <!-- 手机登陆 -->		
-                <div class="login-input" id="loginbymadiv" name="loginbymadiv" >
-                <div class="input">
-                    <span class="phone-icon"></span>
-                    <input class="dlargeinput" type="text" id="loginmobile" name="loginmobile" placeholder="手机号" value=""/>
-                </div>
-                <div class="largeinputbox small-top clearfix">
-                    <div class="dinput fl" >
-                        <span class="verification-icon"></span>
-                        <input class="dsmallinput" type="text" id="imagecode" placeholder="图形验证码" value=""/>
-                    </div>
-                    <div class="yz-code fr">
-                          <img src=""  id="loginauthimage" title="点击刷新" />
-                    </div>
-                </div>
-                <div class="largeinputbox small-top clearfix" id="maerrordiv">
-                    <div class="dinput fl" id="maerrordiv">
-                        <span class="password-icon"></span>
-                        <input class="dsmallinput" type="text" id="loginphonecode" name="loginphonecode" placeholder="短信验证码" value=""/>
-                    </div>
-                    <div class="yz-code fr">
-                        <input class="sendnumber defaultsend" type="button" id="getloginphonecode" name="getloginphonecode" value="获取验证码"/>
-                    </div>
-                </div>
-                <div class="logincheckbox large-top clearfix">
-                    <label class="fl">
-                        <input class="selectcheckbox" type="checkbox" name="rememberloginstate" checked="checked" value=""/>自动登录
-                    </label>				
-                </div>	
-                <div class="logincheckbox large-top clearfix"><font>未注册的手机号将自动创建为黄虫短租帐户</font></div>
-                <div class="btn-wrap btnpdt20">
-                    <a href="javascript:void(0)" id="loginbymado">登录</a>
-                </div>
-            </div>
-            <!-- 手机登陆 end  -->	
-            <!-- 密码登陆 start -->
-                <div class="login-input" id="loginbyupdiv" name="loginbyupdiv" style="display:none;">
-                <div class="input">
-                    <span class="user-icon"></span>
-                    <input class="dlargeinput" type="text"  id="loginnamein" name="loginnamein"  placeholder="手机号/邮箱/账号" value=""/>
-                </div>
-                <div class="input small-top" >
-                    <span class="password-icon"></span>
-                    <input class="dlargeinput" type="password" id="loginpassin" name="loginpassin" placeholder="密码" value=""/>
-                </div>
-                <div class="largeinputbox small-top clearfix" id="uperrordiv">
-                    <div class="dinput fl" id="yui_3_5_1_1_1434542056373_108">
-                        <span class="verification-icon"></span>
-                        <input type="text" class="dsmallinput" id="imagecode1" placeholder="图形验证码" value="">
-                    </div>
-                    <div class="yz-code fr">
-                          <img src="" id="loginauthimage1" title="点击刷新">
-                    </div>
-                </div>
-                <div class="logincheckbox large-top clearfix">
-                    <label class="fl">
-                        <input class="selectcheckbox" type="checkbox" name="rememberpass" checked="checked" value=""/>自动登录
-                    </label>				
-                </div>	
-                <div class="btn-wrap btnpdt20">
-                    <a href="javascript:void(0)" id="loginbyupdo">登录</a>
-                </div>
-                <p class="otherwaytitle mt20">没有账号密码请 <a href="javascript:void(0)" id="changeloginbymwa">使用手机验证码登录</a></p>
-            </div>
-            <!-- 密码登陆 end -->
-            </div>
-        </div>
-        <div class="fl t-center third-party">
-        	<p class="f18 c322c27 mb20">其他登录方式</p>
-            <ul class="otherway c322c27">
-                <li class="wxway" id="loginbywx">微信登录</li>
-                <li class="sinaway" id="loginbysina">微博登录</li>
-                <li class="qqway" id="loginbyqq">QQ登录</li>
-            </ul>
-        </div>
-    </div>
-</div>	
-<!-- 登录弹窗 END --> 
+
 <!--公共尾部结束-->
 <script type="text/javascript" src="//staticnew.mayi.com/resourcesWeb/js/layer/layer.min.js"></script>
 <script type="text/javascript" src="//staticnew.mayi.com/resourcesWeb/js/jQuery.md5.js"></script>

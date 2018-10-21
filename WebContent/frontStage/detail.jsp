@@ -1145,7 +1145,7 @@ span.search {
 		<div class="path">
 			<a href="${pageContext.request.contextPath}/frontStage/index.jsp">首页</a>&nbsp;>&nbsp; <a href="#">${homestay.accomArea}</a>&nbsp;>&nbsp;
 			<a href="#">${homestay.accomAddress}</a>&nbsp;>&nbsp; <a
-				style="color: #999">房间编号：${homestay.accomId}</a>
+				style="color: #999">${homestay.accomTitle}</a>
 			<link rel="stylesheet"
 				href="//staticnew.mayi.com/resourcesWeb/laxin/css/details_laxin.css" />
 
