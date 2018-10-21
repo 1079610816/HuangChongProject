@@ -96,12 +96,12 @@ $(document).ready(function(){
 	        var type = file.type.split('/')[0];
 
 	        if (type !='image') {
-	          alert('请上传图片');
+	        	layer.alert("请上传图片！",8);
 	          return;
 	        }
 	        var size = Math.floor(file.size / 1024 /1024);
 	        if (size > 5) {
-	          alert('图片大小不得超过5M');
+	        	layer.alert("图片大小不得超过5M！",8);
 	          return;
 	        };
 	        var reader = new FileReader();
@@ -211,7 +211,7 @@ $(document).ready(function(){
 	      event: function(){
 	        $("#upload").click(function(){
 	          if(navigator.appName == "Microsoft Internet Explorer"&&parseInt(navigator.appVersion.split(";")[1].replace(/[ ]/g, "").replace("MSIE",""))<10){
-	            alert("请使用IE 10以上版本或其他浏览器");
+	            layer.alert("请使用IE 10以上版本或其他浏览器！",8);
 	            $(this).attr('disabled', 'disabled');
 	            return;
 	          }

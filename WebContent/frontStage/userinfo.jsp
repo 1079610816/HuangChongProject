@@ -302,12 +302,12 @@
 					</li>
 					<li>
 						<div class="showinfo">
-							<a href="javascript:menufrozen(870177979,'/tenant/870177979/orders','user')" target="_self"><img src="${user!=null?user.imgUrl:' '}" id="aaa" class="user_img" />
+							<a href="javascript:void(0)" target="_self"><img src="${user!=null?user.imgUrl:' '}" id="aaa" class="user_img" />
 								<span class="name" id="head_nickname"></span></a>
 							<div class="head_pop">
 								<div class="pop_column">
 									<p>
-										<a href="javascript:menufrozen(870177979,'/user/tenant/accountmanager','user')" target="_self" id="myorder" rel="nofollow" class="slideactive" _mayi_rp="webaround|userinfo|account">我的账户</a>
+										<a href="javascript:void(0)" target="_self" id="myorder" rel="nofollow" class="slideactive" _mayi_rp="webaround|userinfo|account">我的账户</a>
 									</p>
 									<p class="textCt">
 										<a href="javascript:void(0)" id="loginoutbut" target="_self" class="stclick" clicktag="1_6">退出登录</a>
@@ -823,7 +823,7 @@
 			</style>
 			<ul class="breadcrumb clearfix">
 				<li>
-					<a href="/tenant/870177979/orders">我是房客</a> <span class="divider">》</span></li>
+					<a href="ls.action?op=allLandlordOrders&orderStatus=-1&userId=${user.userId }">我是房客</a> <span class="divider">》</span></li>
 				<li>账户管理</li>
 			</ul>
 

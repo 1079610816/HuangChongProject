@@ -1519,7 +1519,6 @@ function jumpPage(page){
 	
 	
 	function fdMenu () {	
-		console.log("aaa")
 			$("#fangdong").css("display","block");
 	}
 	</script>

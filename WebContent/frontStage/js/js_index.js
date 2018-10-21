@@ -103,14 +103,6 @@ $(document).ready(function() {
 		$('.search-modal').fadeOut();
 		getCityInfo_PC(e);
 	});
-	
-	//点击搜索checkinday
-	$('#sel').click(function(e) {
-		if($('#searchcityin').val()!=""){
-			console.log($('#searchcityin').val())
-			$('#searchcityin').click();
-		}
-	});
 
 	function getCityInfo_PC(e) {
 		if(this.value == this.defaultValue) {

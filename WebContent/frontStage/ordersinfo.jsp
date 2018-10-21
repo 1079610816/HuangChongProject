@@ -312,7 +312,6 @@
 			//查询订单
 			function searchOrder(state,op) {
 				var url = "os.action?op=" +op+ "&orderStatus="+state+"&userId="+${user.userId};
-				console.log(url);
 				window.location.href = url;
 			}
 
@@ -690,7 +689,7 @@
 					</li>
 					<li>
 						<div class="showinfo">
-							<a href="javascript:menufrozen(870177979,'/tenant/870177979/orders','user')" target="_self"><img src="${user!=null?user.imgUrl:' '}" class="user_img">
+							<a href="javascript:void(0)" target="_self"><img src="${user!=null?user.imgUrl:' '}" class="user_img">
 								<span class="name" id="head_nickname"></span></a>
 							<div class="head_pop">
 								<div class="pop_column">
@@ -709,7 +708,7 @@
 					</li>
 					<li>
 						<div class="showinfo" id="s_islandlord">
-							<a href="javascript:loginowner(870177979)" target="_self" class="stclick">我是房东</a>
+							<a href="javascript:void(0)" target="_self" class="stclick">我是房东</a>
 							<div class="head_pop">
 								<div class="pop_column plr10">
 									<p>
@@ -948,7 +947,7 @@
 		<div class="main">
 			<ul class="breadcrumb clearfix">
 				<li>
-					<a href="/tenant/870177979/orders" ">我是房客</a> <span class="divider">》</span>
+					<a href="ls.action?op=allLandlordOrders&orderStatus=-1&userId=${user.userId }">我是房客</a> <span class="divider">》</span>
 				</li>
 				<li>订单管理<span class="divider "></span></li>
 			</ul> 

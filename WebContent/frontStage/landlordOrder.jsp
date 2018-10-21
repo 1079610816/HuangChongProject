@@ -322,7 +322,7 @@
                </li>          
             	<li>
 	            	<div class="showinfo" id="s_islandlord" >
-	            		<a href="javascript:loginowner(870177979)" target="_self" class="stclick">我是房东</a>
+	            		<a href="javascript:void(0)" target="_self" class="stclick">我是房东</a>
 	                	<div class="head_pop">
 		                	<div class="pop_column plr10">
 		                        <p><a href="ls.action?op=allLandlordOrders&orderStatus=-1&userId=${user.userId }">订单管理</a></p>
