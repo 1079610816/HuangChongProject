@@ -53,7 +53,7 @@ public class FrontStageLandlordServlet extends HttpServlet {
 			throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		request.setCharacterEncoding("utf-8");
-		response.setCharacterEncoding("uft-8");
+		response.setCharacterEncoding("utf-8");
 
 		String op = request.getParameter("op");
 		

@@ -264,8 +264,8 @@ public class UsersDaoImpl implements UsersDao {
 	@Override
 	public boolean addUserRealInfo(String realName, String identityCard, int userId) {
 		// TODO Auto-generated method stub
-		String sql = "insert into userscheck(realName,identityCard,userId) values(?,?,?)";
-		int n = BaseDao.execute(sql, realName, identityCard, userId);
+		String sql = "insert into userscheck(userId,realName,identityCard,state) values(?,?,?,?)";
+		int n = BaseDao.execute(sql, userId,realName, identityCard, 2);
 		return n > 0;
 	}
 

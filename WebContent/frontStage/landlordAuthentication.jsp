@@ -1,16 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%-- 判断用户有没有登录 
+<%-- 判断用户有没有登录 --%>
 <c:if test="${sessionScope.user==null}">
 	<c:redirect url="index.jsp"></c:redirect>
 </c:if>
---%>
-<%-- 判断是不是从servlet转发过来,如果不是就跳转到servlet--%>
-<%-- <c:if test="${orderLandlordList==null}">
-	<c:redirect url="../ls.action?op=allLandlordOrders"></c:redirect>
-</c:if>
-    --%>
+
 
 <!DOCTYPE html>
 <html>
@@ -716,7 +711,7 @@
 										<input class="personLargeInput" type="text" name="identityCard"  id="identityCard" value="">
 									</li>
 									<li class="clearfix">
-										<span class="infoTitle"><a class="btn-danger btn-wrap btnpdt20"" href=""id="submitInfo">提&nbsp;&nbsp;交</a></span>
+										<span class="infoTitle"><a class="btn-danger btn-wrap btnpdt20" href="javascript:void(0)"id="submitInfo">提&nbsp;&nbsp;交</a></span>
 									</li>
 								</ul>
 							</div>
@@ -724,12 +719,12 @@
 			</div>
 
 			<script type="text/javascript">
-			$("submitInfo").click(function () {
+			$("#submitInfo").click(function () {
 				var realName=$("#realName").val();
 				var identityCard=$("#identityCard").val();
 				var userId=1;
 					//${user.userId};
-				$.post("../ls.action?op=AddUserRealInfo","realName="+realName+"&identityCard="+identityCard+"&userId="+${user.userId},function(data) {
+				$.post("../ls.action?op=AddUserRealInfo","realName="+realName+"&identityCard="+identityCard+"&userId=${user.userId}",function(data) {
 					if("success"==data){
 						layer.alert("信息提交成功",8,"温馨提示");			
 					}else{
@@ -1003,7 +998,7 @@ function sinaWeibo(){
 <script type="text/javascript"
 	src="//staticnew.mayi.com/resourcesWeb/js/jQuery.md5.js"></script>
 <script
-	src="${pageContext.request.contextPath}/frontStage/js/loginpc2.js"
+	src="${pageContext.request.contextPath}/frontStage/js/loginpc.js"
 	type="text/javascript" charset="utf-8"></script>
 
 <script type="text/javascript">

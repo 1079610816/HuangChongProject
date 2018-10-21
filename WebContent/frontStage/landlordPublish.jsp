@@ -1,11 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%-- 判断用户有没有登录 
+<%-- 判断用户有没有登录 --%>
 <c:if test="${sessionScope.user==null}">
 	<c:redirect url="index.jsp"></c:redirect>
 </c:if>
---%>
+
 <%-- 判断是不是从servlet转发过来,如果不是就跳转到servlet--%>
 <c:if test="${allHomeList==null}">
 	<c:redirect url="../ls.action?op=allPublish&userId=${user.userId}"></c:redirect>
