@@ -31,7 +31,7 @@
 <script>DD_belatedPNG.fix('*');</script><![endif]-->
 <!--/meta 作为公共模版分离出去-->
 
-<title>用户列表 - 用户管理 - H-ui.admin v3.0</title>
+<title>用户列表 - 用户管理 -</title>
 <meta name="keywords"
 	content="H-ui.admin v3.0,H-ui网站后台模版,后台模版下载,后台管理系统模版,HTML后台模版下载">
 <meta name="description"
@@ -51,33 +51,11 @@
 		<div class="navbar navbar-fixed-top">
 			<div class="container-fluid cl">
 				<a class="logo navbar-logo f-l mr-10 hidden-xs"
-					href="/aboutHui.shtml">H-ui.admin</a> <a
-					class="logo navbar-logo-m f-l mr-10 visible-xs"
-					href="/aboutHui.shtml">H-ui</a> <span
-					class="logo navbar-slogan f-l mr-10 hidden-xs">v3.0</span> <a
+					href="#">黄虫短租</a><span
+					class="logo navbar-slogan f-l mr-10 hidden-xs"></span> <a
 					aria-hidden="false" class="nav-toggle Hui-iconfont visible-xs"
 					href="javascript:;">&#xe667;</a>
-				<nav class="nav navbar-nav">
-					<ul class="cl">
-						<li class="dropDown dropDown_hover"><a href="javascript:;"
-							class="dropDown_A"><i class="Hui-iconfont">&#xe600;</i> 新增 <i
-								class="Hui-iconfont">&#xe6d5;</i></a>
-							<ul class="dropDown-menu menu radius box-shadow">
-								<li><a href="javascript:;"
-									onclick="article_add('添加资讯','article-add.html')"><i
-										class="Hui-iconfont">&#xe616;</i> 资讯</a></li>
-								<li><a href="javascript:;"
-									onclick="picture_add('添加资讯','picture-add.html')"><i
-										class="Hui-iconfont">&#xe613;</i> 图片</a></li>
-								<li><a href="javascript:;"
-									onclick="product_add('添加资讯','product-add.html')"><i
-										class="Hui-iconfont">&#xe620;</i> 产品</a></li>
-								<li><a href="javascript:;"
-									onclick="member_add('添加用户','usersAdd.html','450','400')"><i
-										class="Hui-iconfont">&#xe60d;</i> 用户</a></li>
-							</ul></li>
-					</ul>
-				</nav>
+			
 				<nav id="Hui-userbar"
 					class="nav navbar-nav navbar-userbar hidden-xs">
 					<ul class="cl">
@@ -900,7 +878,10 @@
 			var uuid = '';
 			var uuids = eloancn.table.grid.rows(".selected").data();
 			if (uuids.length == 0) {
-				alert(eloancn.table.statusTitle);
+				layer.msg('请选择一条数据!', {
+					icon : 1,
+					time : 3000
+				});
 			} else {
 				// 上面是自带的语句,大概意思就是判断有没有选数据,没有的话进行提示
 				// 下面是选中数据后

@@ -682,7 +682,9 @@
 		<input type="hidden" name="ctx" id="ctx" value="" />
 		<div class='header relave'>
 			<div class='head_cnt relave'>
-				<span class='search'></span>
+				<a href="/HuangChongProject/frontStage/index.jsp">
+				<span style="text-align: left;font-size: 30px;color: #009900;font-weight: bolder;width: 80%;position: absolute;">黄虫短租</span>			
+					</a>
 				<ul class="nav_R asote nav_right">
 					<li style="margin-left:-211px;">
 						<b class="mayi_tel_top"><img src="//staticnew.mayi.com/resourcesWeb/v201510/images/commom/tel_green_icon.png"><span style="font-family: &quot;Hiragino Sans GB&quot;, Arial, Verdana, Tahoma, &quot;微软雅黑&quot; !important;font-size: 14px;" hiragino="" sans="" gb",="" arial,="" verdana,="" tahoma,="" "微软雅黑"="" !important;font-size:="" 14px;"="">客服电话：</span>400-028-6868</b>
@@ -722,10 +724,6 @@
 						</div>
 					</li>
 					<li>
-						<a rel="nofollow" href="${pageContext.request.contextPath }/frontStage/relHouse.jsp" class="room-btn f16 t-center" _mayi_rp="webaround|activity|freepublish">免费发布房源</a>
-						<!--   
-                <a rel="nofollow" href="javascript:publish(870177979)" class="room-btn f16 t-center" _mayi_rp="webaround|activity|freepublish">免费发布房源</a>
-             -->
 					</li>
 				</ul>
 

@@ -74,9 +74,9 @@ public class UsersServiceImpl implements UsersService {
 	 * @return true 删除成功 false 删除失败
 	 */
 	@Override
-	public boolean getBatchDelUsers(String sql) {
+	public boolean getBatchDelUsers(String sql,String sql1,String sql2,String sql3,String sql4) {
 		// TODO Auto-generated method stub
-		return ud.batchDelUsers(sql);
+		return ud.batchDelUsers(sql,sql1,sql2,sql3,sql4);
 	}
 	/**
 	 * 重置密码

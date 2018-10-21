@@ -308,6 +308,9 @@
 <div class='header relave'>
 		    
 		<div class='head_cnt relave'> 	
+		<a href="/HuangChongProject/frontStage/index.jsp">
+				<span style="text-align: left;font-size: 30px;color: #009900;font-weight: bolder;width: 80%;position: absolute;">黄虫短租</span>			
+					</a>
 			<ul class="nav_R asote nav_right">
 				
             	 <li>
@@ -339,10 +342,6 @@
             	
             	
              <li >
-             <a rel="nofollow" href="javascript:publish(870177979)" class="room-btn  t-center"  _mayi_rp="webaround|activity|freepublish">免费发布房源</a> 
-             <!--   
-                <a rel="nofollow" href="javascript:publish(870177979)" class="room-btn f16 t-center" _mayi_rp="webaround|activity|freepublish">免费发布房源</a>
-             -->
              </li>
             </ul>
             
@@ -605,14 +604,18 @@
 						$(".div1").css("display","none");
 					}
 					$("#publish").click(function () {
+						if(${user.state == 0}){
+							location.href="/HuangChongProject/frontStage/landlordAuthentication.jsp";
+						}else{
+							$("#allPublish").removeClass("active");
+							$("#published").removeClass("active");
+							$("#publishFail").removeClass("active");
+							$("#publishing").removeClass("active");
+							$("#publish").addClass("active");
+							$(".div1").css("display","none");
+							$(".div2").css({"position":"","top":"0"});
+						}
 						
-						$("#allPublish").removeClass("active");
-						$("#published").removeClass("active");
-						$("#publishFail").removeClass("active");
-						$("#publishing").removeClass("active");
-						$("#publish").addClass("active");
-						$(".div1").css("display","none");
-						$(".div2").css({"position":"","top":"0"});
 					});
 				</script>
 				

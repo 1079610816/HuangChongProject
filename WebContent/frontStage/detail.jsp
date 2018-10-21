@@ -952,8 +952,9 @@ span.search {
 		<div class='header relave'>
 
 			<div class='head_cnt relave'>
-				<span style="text-align: left;font-size: 30px;color: #009900;font-weight: bolder;width: 80%;position: absolute;">黄虫短租</span>
-				
+				<a href="/HuangChongProject/frontStage/index.jsp">
+				<span style="text-align: left;font-size: 30px;color: #009900;font-weight: bolder;width: 80%;position: absolute;">黄虫短租</span>			
+					</a>
 				<ul class="nav_R asote nav_right">
 					<li style="margin-left: -211px;"><b class="mayi_tel_top"><img
 							src="//staticnew.mayi.com/resourcesWeb/v201510/images/commom/tel_green_icon.png"/><span
@@ -998,11 +999,7 @@ span.search {
 	                        </div>
 					</li>
 
-					<li><a rel="nofollow" href="javascript:publish(0)"
-						class="room-btn f16 t-center"
-						_mayi_rp="webaround|activity|freepublish">免费发布房源</a> <!--   
-               <a href="javascript:void(0)"rel="nofollow" nexturl="/room/publish/basicinfo" class="loginatother room-btn f16 t-center"  target="_self" _mayi_rp="webaround|activity|freepublish">免费发布房源</a>
-             --></li>
+					<li> </li>
 				</ul>
 			</div>
 
@@ -1675,40 +1672,60 @@ span.search {
 
 						
 						</div>
-<link rel="stylesheet" href="${pageContext.request.contextPath}/frontStage/layui/css/layui.css" media="all" />
- <script src="${pageContext.request.contextPath}/frontStage/layui/layui.js" charset="utf-8"></script>
- 
-	  	 	 	  	 	 <!-- layui分页开始 -->
-						<div id="demo7" style="text-align: center"></div>
-						<!-- layui分页结束 -->
+
+ <script src="${pageContext.request.contextPath}/frontStage/js/bootstrap.min.js"></script>
+  <script src="${pageContext.request.contextPath}/frontStage/js/bootstrap.js"></script>
+  <link rel="stylesheet" href="${pageContext.request.contextPath}/frontStage/css/bootstrap.css" media="all" />
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/frontStage/css/bootstrap.min.css" media="all" />
+	  	 	 	  	 	 <!-- 分页开始 -->
+				<div class="container">
+					<div class="row clearfix">
+						<div class="col-md-12 column" align="center">
+							<ul class="pagination">
+								<li><a href="javascript:prePage()">上一页</a></li>
+								<c:forEach begin="1" end="${pd.totalPage}" var="index">
+									<c:if test="${index==pd.page}">
+										<li class="active"><a href="#">${index}</a></li>
+									</c:if>
+									<c:if test="${index!=pd.page}">
+										<li><a href="javascript:jumpPage(${index})">${index}</a></li>
+									</c:if>
+								</c:forEach>
+								<li><a href="javascript:nextPage()">下一页</a></li>
+							</ul>
+						</div>
+					</div>
+				</div>
+						<!-- 分页结束 -->
 
 							</div>
 						<!--本房源客户评价结束-->
- 		
-		<script>
-layui.use(['laypage', 'layer'], function(){
-  var laypage = layui.laypage
-  ,layer = layui.layer;
-  
-  
-  //完整功能
-  laypage.render({
-    elem: 'demo7'
-    ,count: ${pd.total}
-  ,curr:${pd.page},
-  limit:${pd.pageSize}
-    ,layout: ['count', 'prev', 'page', 'next', 'limit', 'refresh', 'skip']
-    ,jump: function(obj,first){
-      if(!first){
-    	  location.href="ss.action?op=todetailPage&page="+obj.curr+"&pageSize="+obj.limit+"&accomId="+${homestay.accomId};
-      }
-    }
-  });
-  
-  
-});
-</script>
+						
+ 	
+ <script>
+//使用Javascript实现上一页跳转-->
+function prePage(){
+	var page = 1;
+	//什么时候有上一页，当大于1的时候有上一页-->
+	if(${pd.page}>1 ){
+		page=${pd.page}-1;
+	}
+	location.href="ss.action?op=todetailPage&page="+page+"&accomId="+${homestay.accomId};
+}
+function nextPage(){
+	var page = ${pd.page};
+	//什么时候有上一页，当大于1的时候有上一页-->
+	if(${pd.page}<${pd.totalPage}){
+		page=${pd.page}+1;
+	}
+	location.href="ss.action?op=todetailPage&page="+page+"&accomId="+${homestay.accomId};
+}
+function jumpPage(page){
+	location.href="ss.action?op=todetailPage&page="+page+"&accomId="+${homestay.accomId};
+}
 
+//使用Javascript实现下一页跳转
+</script>
 
 						<!--房东收到的所有房源评价-->
 						<div class="attached" id="attached_home02">

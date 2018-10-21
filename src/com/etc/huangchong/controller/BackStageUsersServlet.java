@@ -285,17 +285,29 @@ public class BackStageUsersServlet extends HttpServlet {
 	protected void doBatchDelUsers(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		// 批量删除的SQL语句
-		String sql = "DELETE FROM users WHERE userId IN (";
 		// 获取批量ID
 		String[] userId = request.getParameterValues("userId");
-		// 循环拼接ID
+		// 批量删除的SQL语句
+		//拼接sql语句
+		String sql1 = "delete from users where userId in (";
+		String sql = "delete orders,orderdetails from orders left join orderdetails on orders.orderId=orderdetails.orderId where orders.userId in (";
+		String sql2 = "delete from userscheck where userId in (";
+		String sql3 = "delete from comment where userId in (";
+		String sql4 = "delete from accommodation where userId in (";
 		for (String string : userId) {
+			sql1 += string + ",";
+			sql2 += string + ",";
+			sql3 += string + ",";
+			sql4 += string + ",";
 			sql += string + ",";
 		}
 		// 最后的SQL语句
 		sql = sql.substring(0, sql.lastIndexOf(",")) + ")";
-		boolean flag = us.getBatchDelUsers(sql);
+		sql1 = sql1.substring(0, sql1.lastIndexOf(",")) + ")";
+		sql2 = sql2.substring(0, sql2.lastIndexOf(",")) + ")";
+		sql3 = sql3.substring(0, sql3.lastIndexOf(",")) + ")";
+		sql4 = sql4.substring(0, sql4.lastIndexOf(",")) + ")";
+		boolean flag = us.getBatchDelUsers(sql,sql1,sql2,sql3,sql4);
 		if (flag) {
 			PrintWriter out = response.getWriter();
 			out.print(flag);

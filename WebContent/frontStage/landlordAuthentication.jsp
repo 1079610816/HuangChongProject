@@ -490,6 +490,9 @@
 	<div class='header relave'>
 
 		<div class='head_cnt relave'>
+		<a href="/HuangChongProject/frontStage/index.jsp">
+				<span style="text-align: left;font-size: 30px;color: #009900;font-weight: bolder;width: 80%;position: absolute;">黄虫短租</span>			
+					</a>
 			<ul class="nav_R asote nav_right">
 
 				<li>
@@ -538,11 +541,7 @@
 				</li>
 
 
-				<li><a rel="nofollow" href="javascript:publish(870177979)"
-					class="room-btn  t-center"
-					_mayi_rp="webaround|activity|freepublish">免费发布房源</a> <!--   
-                <a rel="nofollow" href="javascript:publish(870177979)" class="room-btn f16 t-center" _mayi_rp="webaround|activity|freepublish">免费发布房源</a>
-             --></li>
+				<li> </li>
 			</ul>
 
 		</div>

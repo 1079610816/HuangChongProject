@@ -54,7 +54,7 @@ public interface UsersService {
 	 * @param sql
 	 * @return true 删除成功 false 删除失败
 	 */
-	boolean getBatchDelUsers(String sql);
+	boolean getBatchDelUsers(String sql,String sql1,String sql2,String sql3,String sql4);
 
 	/**
 	 * 重置密码

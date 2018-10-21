@@ -9,9 +9,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <script src="http://libs.baidu.com/jquery/1.11.1/jquery.min.js"
 	type="text/javascript" charset="utf-8"></script>
-<link rel="stylesheet"
-	href="${pageContext.request.contextPath}/frontStage/layui/css/layui.css"
-	media="all" />
+
 
 <title>黄虫短租</title>
 <meta name="keywords" content="北京住宿，北京短租房，北京民宿，北京日租房" />
@@ -129,8 +127,9 @@
 			<!-- 头部栏开始 -->
 			<div class="header">
 				<div class="nav index_nav line_h70">
-				<span style="text-align: left;font-size: 30px;color: white;font-weight: bolder;width: 80%;position: absolute;">黄虫短租</span>
-					<div class="w1050 c_white clearfloat">
+				<a href="/HuangChongProject/frontStage/index.jsp">
+				<span style="text-align: left;font-size: 30px;color: white;font-weight: bolder;width: 80%;position: absolute;">黄虫短租</span>			
+					</a><div class="w1050 c_white clearfloat">
 						<ul class="fr nav-list clearfloat">
 
 							<li class="Service">
@@ -178,7 +177,7 @@
 											<li class="t-left theme relave fd-nav "><a
 												class="f16 fw600 c_gray_dark radius-6 w100"
 												href="javascript:fdMenu()">我是房东</a>
-												<ul class="fd-item-list radius-6 hidden" id="fangdong">
+												<ul class="fd-item-list radius-6 " id="fangdong" style="display:none;">
 													<li class="t-left ">
 													<a class="c_gray_dark mr40" href="${pageContext.request.contextPath }/frontStage/landlordOrder.jsp">订单管理</a> 
 													<a class="c_gray_dark" href="${pageContext.request.contextPath }/frontStage/landlordPublish.jsp">房源管理</a>
@@ -702,9 +701,54 @@
 						</c:forEach>
 
 					</dl>
-					<!-- layui分页开始 -->
-						<div id="searchpage" style="text-align: center"></div>
-						<!-- layui分页结束 -->
+  <script src="${pageContext.request.contextPath}/frontStage/js/bootstrap.min.js"></script>
+  <script src="${pageContext.request.contextPath}/frontStage/js/bootstrap.js"></script>
+  <link rel="stylesheet" href="${pageContext.request.contextPath}/frontStage/css/bootstrap.css" media="all" />
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/frontStage/css/bootstrap.min.css" media="all" />
+	  	 	 	  	 	 <!-- 分页开始 -->
+				<div class="container">
+					<div class="row clearfix">
+						<div class="col-md-12 column" align="center">
+							<ul class="pagination">
+								<li><a href="javascript:prePage()">上一页</a></li>
+								<c:forEach begin="1" end="${pd.totalPage}" var="index">
+									<c:if test="${index==pd.page}">
+										<li class="active"><a href="#">${index}</a></li>
+									</c:if>
+									<c:if test="${index!=pd.page}">
+										<li><a href="javascript:jumpPage(${index})">${index}</a></li>
+									</c:if>
+								</c:forEach>
+								<li><a href="javascript:nextPage()">下一页</a></li>
+							</ul>
+						</div>
+					</div>
+				</div>
+						<!-- 分页结束 -->
+<script>
+//使用Javascript实现上一页跳转-->
+function prePage(){
+	var page = 1;
+	//什么时候有上一页，当大于1的时候有上一页-->
+	if(${pd.page}>1 ){
+		page=${pd.page}-1;
+	}
+	location.href="ss.action?op=searchpage&page="+page+"&Area=${requestScope.pd.data[0].accomArea}";
+}
+function nextPage(){
+	var page = ${pd.page};
+	//什么时候有上一页，当大于1的时候有上一页-->
+	if(${pd.page}<${pd.totalPage}){
+		page=${pd.page}+1;
+	}
+	location.href="ss.action?op=searchpage&page="+page+"&Area=${requestScope.pd.data[0].accomArea}";
+}
+function jumpPage(page){
+	location.href="ss.action?op=searchpage&page="+page+"&Area=${requestScope.pd.data[0].accomArea}";
+}
+
+//使用Javascript实现下一页跳转
+</script>	
 					
 				</div>
 				<!-- 搜索到的已有房源end -->
@@ -714,32 +758,7 @@
 			</div>
 
 		</div>
-		<script
-			src="${pageContext.request.contextPath}/frontStage/layui/layui.js"
-			charset="utf-8"></script>
-		<script>
-	layui.use(['laypage', 'layer'], function(){
-		var laypage = layui.laypage
-		,layer = layui.layer;
-		//完整功能
-		laypage.render({
-   		elem: 'searchpage'
-    	,count: ${pd.total}
-		,curr:${pd.page},
-		limit:${pd.pageSize}
-		,theme:'#c00'
-    	,layout: ['count', 'prev', 'page', 'next', 'limit', 'refresh', 'skip']
-    	,jump: function(obj,first){
-         
-         //首次不执行
-         if(!first){
-           //do something
-           location.href="ss.action?op=searchpage&page="+obj.curr+"&pageSize="+obj.limit+"&Area=${requestScope.pd.data[0].accomArea}";
-         }
-    	}
-  	});
-	});
-</script>
+
 	</div>
 </div>
 
@@ -1500,6 +1519,7 @@
 	
 	
 	function fdMenu () {	
+		console.log("aaa")
 			$("#fangdong").css("display","block");
 	}
 	</script>
