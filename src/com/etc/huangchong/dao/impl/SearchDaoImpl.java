@@ -16,14 +16,14 @@ public class SearchDaoImpl implements SearchDao {
 	@Override
 	public List<Homestay> querySearch(String accomArea) {
 		// TODO Auto-generated method stub
-		String sql = "select a.accomId,a.accomTitle,a.accomIntro,a.accomArea,a.accomAddress,a.accomStatus,a.houseType,a.price,a.userId,u.userName,COUNT(c.accomId) as commentsum from accommodation as a inner join users as u on a.userId=u.userId left join comment as c on a.accomId=c.accomId where a.accomArea=? group by a.accomId";
+		String sql = "select a.accomId,a.accomTitle,a.accomIntro,a.accomArea,a.accomAddress,a.accomStatus,a.houseType,a.price,a.userId,u.userName,u.imgUrl,COUNT(c.accomId) as commentsum from accommodation as a left join users as u on a.userId=u.userId left join comment as c on a.accomId=c.accomId where a.accomArea=? group by a.accomId";
 		return (List<Homestay>)BaseDao.select(sql, Homestay.class, accomArea);
 	}
 
 	@Override
 	public PageData<Homestay> querySearchPage(int page, int pageSize,String accomArea) {
 		// TODO Auto-generated method stub
-		String sql = "select a.accomId,a.accomTitle,a.accomIntro,a.accomArea,a.accomAddress,a.accomStatus,a.houseType,a.price,a.userId,u.userName,COUNT(c.accomId) as commentsum from accommodation as a inner join users as u on a.userId=u.userId left join comment as c on a.accomId=c.accomId where a.accomArea=? group by a.accomId";
+		String sql = "select a.accomId,a.accomTitle,a.accomIntro,a.accomArea,a.accomAddress,a.accomStatus,a.houseType,a.price,a.userId,u.userName,u.imgUrl,COUNT(c.accomId) as commentsum from accommodation as a left join users as u on a.userId=u.userId left join comment as c on a.accomId=c.accomId where a.accomArea=? group by a.accomId";
 		return BaseDao.getPage(sql, page, pageSize, Homestay.class, accomArea);
 	}
 }

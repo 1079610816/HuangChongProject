@@ -262,18 +262,19 @@ public class BaseDao {
 
 	/**
 	 * 分页操作 mysql
-	 * @param sql 查询语句
-	 * @param page 查询的页码
+	 * 
+	 * @param sql      查询语句
+	 * @param page     查询的页码
 	 * @param pageSize 查询记录数
-	 * @param cla 查询后的对象
-	 * @param param 参数
+	 * @param cla      查询后的对象
+	 * @param param    参数
 	 * @return PageData对象
 	 */
 	public static PageData getPage(String sql, Integer page, Integer pageSize, Class cla, Object... param) {
 		// 这里是sql嵌套查询,把查询结果作新表,计算数据库里记录数
 		String selSql = "select count(1) from (" + sql + ") t";
 		// 默认是第一页,第一页不能继续-1查询
-		if (page == null) {
+		if (page == null || page < 1) {
 			page = 1;
 		}
 		// 默认一页显示十条数据
@@ -282,21 +283,17 @@ public class BaseDao {
 		}
 		// 得到总记录数
 		Integer count = Integer.parseInt(getFirst(selSql, param).toString());
-		//记录总数/每页的记录数
+		// 记录总数/每页的记录数
 		int totalPage = count / pageSize;
-		//判断是否有余数,如果有就再加一页
-		if (count % pageSize != 0) {
+		// 判断是否有余数,如果有就再加一页
+		if (count % pageSize != 0)
 			totalPage++;
-		}
-		//判断page是否超出总的记录,如果超出就显示最后一页
-		if (page > totalPage) {
+		// 判断page是否超出总的记录,如果超出就显示最后一页
+		if (page > totalPage && page!=1) {
 			page = totalPage;
 		}
 		// start查询语句limit的起始位置
 		int start = (page - 1) * pageSize;
-		if(start<0) {
-			start=0;
-		}
 		selSql = sql + " limit " + start + "," + pageSize;
 		List list = (List) select(selSql, cla, param);
 		PageData data = new PageData(list, count, pageSize, page);
