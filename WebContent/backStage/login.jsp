@@ -49,7 +49,7 @@
 						<div class="row cl">
 	
 						 <div id="slideBar" class="formControls col-xs-8 col-xs-offset-3">
-                                          1111</div>
+                                          </div>
 						</div>
 
 						<div class="form-group space">

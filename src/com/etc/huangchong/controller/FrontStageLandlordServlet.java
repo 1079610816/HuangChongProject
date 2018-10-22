@@ -91,7 +91,7 @@ public class FrontStageLandlordServlet extends HttpServlet {
 			String accomArea=request.getParameter("accomArea");
 			String accomAddress=request.getParameter("accomAddress");
 			String price=request.getParameter("price");
-			Homestay h=new Homestay(accomTitle, accomIntro, accomArea, accomAddress, 0, Double.parseDouble(price), ((Users)request.getSession().getAttribute("user")).getUserId());
+			Homestay h=new Homestay(accomTitle, accomIntro, accomArea, accomAddress, 1, Double.parseDouble(price), ((Users)request.getSession().getAttribute("user")).getUserId());
 			hs.relHouse(h);
 			request.getSession().setAttribute("accomId", hs.selAccomId(h));
 			request.getSession().setAttribute("index",1);

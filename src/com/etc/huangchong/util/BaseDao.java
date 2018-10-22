@@ -16,7 +16,7 @@ import org.apache.commons.beanutils.BeanUtils;
 public class BaseDao {
 
 	private static final String DRIVER = "com.mysql.jdbc.Driver";
-	private static final String URL = "jdbc:mysql://192.168.9.191:3306/homestay?useunicode=true&characterEncoding=utf-8";
+	private static final String URL = "jdbc:mysql://localhost:3306/homestay?useunicode=true&characterEncoding=utf-8";
 	private static final String USER = "root"; // 用户名
 	private static final String PASSWORD = "root";// 密码
 

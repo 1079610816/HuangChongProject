@@ -990,7 +990,7 @@
 						</div>
 						<div class="order-con clearfix ">
 							<div class="order-img ">
-								<a href="http://www.mayi.com/room/851850411 " rel="nofollow "><img src="${pageContext.request.contextPath }/../img/${o.accomId }/Head.jpg" width="112" height="112" alt=" " /></a>
+								<a href="javascript:void(0)" rel="nofollow "><img src="${pageContext.request.contextPath }/../img/${o.accomId }/1.jpg" width="112" height="112" alt=" " /></a>
 							</div>
 							<div class="order-title ">
 								<h2><a href="http://www.mayi.com/room/851850411 ">${o.accomTitle}</a></h2>
