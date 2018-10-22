@@ -17,6 +17,7 @@ import org.apache.commons.fileupload.servlet.ServletFileUpload;
 
 import com.etc.huangchong.entity.Homestay;
 import com.etc.huangchong.entity.Orders;
+import com.etc.huangchong.entity.Users;
 import com.etc.huangchong.service.HomestayService;
 import com.etc.huangchong.service.OrderService;
 import com.etc.huangchong.service.UsersService;
@@ -90,7 +91,7 @@ public class FrontStageLandlordServlet extends HttpServlet {
 			String accomArea=request.getParameter("accomArea");
 			String accomAddress=request.getParameter("accomAddress");
 			String price=request.getParameter("price");
-			Homestay h=new Homestay(accomTitle, accomIntro, accomArea, accomAddress, 0, Double.parseDouble(price), 1);
+			Homestay h=new Homestay(accomTitle, accomIntro, accomArea, accomAddress, 0, Double.parseDouble(price), ((Users)request.getSession().getAttribute("user")).getUserId());
 			hs.relHouse(h);
 			request.getSession().setAttribute("accomId", hs.selAccomId(h));
 			request.getSession().setAttribute("index",1);
