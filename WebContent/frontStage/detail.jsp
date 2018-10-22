@@ -1185,25 +1185,25 @@ span.search {
 								<div class="picbox">
 									<ul class="piclist">
 										<li><a href="#"><img
-												src="/img/${s.accomId}/1.png"
+												src="${pageContext.request.contextPath }/../img/${homestay.accomId}/1.jpg"
 												alt="" /></a></li>
 										<li><a href="#"><img
-												src="/img/${s.accomId}/2.jpg"
+												src="${pageContext.request.contextPath }/../img/${homestay.accomId}/2.jpg"
 												alt="" /></a></li>
 										<li><a href="#"><img
-												src="/img/${s.accomId}/3.jpg"
+												src="${pageContext.request.contextPath }/../img/${homestay.accomId}/3.jpg"
 												alt="" /></a></li>
 										<li><a href="#"><img
-												src="/img/${s.accomId}//4.jpg"
+												src="${pageContext.request.contextPath }/../img/${homestay.accomId}/4.jpg"
 												alt="" /></a></li>
 										<li><a href="#"><img
-												src="/img/${s.accomId}/5.jpg"
+												src="${pageContext.request.contextPath }/../img/${homestay.accomId}/5.jpg"
 												alt="" /></a></li>
 										<li><a href="#"><img
-												src="/img/${s.accomId}/6.jpg"
+												src="${pageContext.request.contextPath }/../img/${homestay.accomId}/6.jpg"
 												alt="" /></a></li>
 										<li><a href="#"><img
-												src="/img/${s.accomId}/7.jpg"
+												src="${pageContext.request.contextPath }/../img/${homestay.accomId}/7.jpg"
 												alt="" /></a></li>
 
 
@@ -1219,25 +1219,25 @@ span.search {
 									<div class="picboxpic">
 										<ul id="picsmall" class="picsmall clearfix">
 											<li class="slideshow-item"><a href="#"><img
-													src="${pageContext.request.contextPath}/../img/${homestay.accomId}/1.png"
+													src="${pageContext.request.contextPath }/../img/${homestay.accomId}/1.jpg"
 													alt="" /></a></li>
 											<li class="slideshow-item"><a href="#"><img
-													src="${pageContext.request.contextPath}/../img/${homestay.accomId}/2.png"
+													src="${pageContext.request.contextPath }/../img/${homestay.accomId}/2.jpg"
 													alt="" /></a></li>
 											<li class="slideshow-item"><a href="#"><img
-													src="${pageContext.request.contextPath}/../img/${homestay.accomId}/3.png"
+													src="${pageContext.request.contextPath }/../img/${homestay.accomId}/3.jpg"
 													alt="" /></a></li>
 											<li class="slideshow-item"><a href="#"><img
-													src="${pageContext.request.contextPath}/../img/${homestay.accomId}/4.png"
+													src="${pageContext.request.contextPath }/../img/${homestay.accomId}/4.jpg"
 													alt="" /></a></li>
 											<li class="slideshow-item"><a href="#"><img
-													src="${pageContext.request.contextPath}/../img/${homestay.accomId}/5.png"
+													src="${pageContext.request.contextPath }/../img/${homestay.accomId}/5.jpg"
 													alt="" /></a></li>
 											<li class="slideshow-item"><a href="#"><img
-													src="${pageContext.request.contextPath}/../img/${homestay.accomId}/6.png"
+													src="${pageContext.request.contextPath }/../img/${homestay.accomId}/6.jpg"
 													alt="" /></a></li>
 											<li class="slideshow-item"><a href="#"><img
-													src="${pageContext.request.contextPath}/../img/${homestay.accomId}/7.png"
+													src="${pageContext.request.contextPath }/../img/${homestay.accomId}/7.jpg"
 													alt="" /></a></li>
 
 
