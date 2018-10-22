@@ -9,10 +9,8 @@ public class Homestay {
 	private int accomStatus;
 	private int houseType;
 	private String userName;
+	private String imgUrl;
 	private double price;
-
-
-
 	private int commentsum;
 	private int userId;
 	public Homestay() {
@@ -209,6 +207,12 @@ public class Homestay {
 	}
 	public void setUserName(String userName) {
 		this.userName = userName;
+	}
+	public String getImgUrl() {
+		return imgUrl;
+	}
+	public void setImgUrl(String imgUrl) {
+		this.imgUrl = imgUrl;
 	}
 	public int getUserId() {
 		return userId;

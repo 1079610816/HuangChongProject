@@ -311,7 +311,7 @@
 							});
 							 if(flag){
 								 
-								 var url = "../ss.action?op=searchpage&Area="+searchcity;
+								 var url = "../ss.action?op=searchpage&area="+searchcity;
 								  if(inday!=null&&inday!=""&&inday!="入住时间"){
 										url = url + "&d1="+inday;
 										
@@ -344,34 +344,34 @@
 			</div>
 			<div class="content clearfloat homestay">
 				<div class="fl f0">
-					<a class="relave radius-12 w515" href="../ss.action?op=searchpage&Area=福州"
+					<a class="relave radius-12 w515" href="../ss.action?op=searchpage&area=福州"
 						_mayi_rp="webindex|lvxing1|mj"> <img class=" lazy" width="515"
 						height="261" src="img/houses.jpg" alt="民居"> <span
 						class="f20 c_gray_dark fw600">民居</span>
 					</a>
 					 <br> 
 					 <a class="relave radius-12 w248 mr20 mt20"
-						href="../ss.action?op=searchpage&Area=泉州" _mayi_rp="webindex|lvxing1|lyf"> <img
+						href="../ss.action?op=searchpage&area=泉州" _mayi_rp="webindex|lvxing1|lyf"> <img
 						class="lazy" height="180" src="img/oldhouse.jpg" width="248"
 						alt="老洋房"> <span class="f20 c_gray_dark fw600 three">老洋房</span>
 					</a> 
-					<a class="relave radius-12 w248 mt20" href="../ss.action?op=searchpage&Area=厦门"
+					<a class="relave radius-12 w248 mt20" href="../ss.action?op=searchpage&area=厦门"
 						_mayi_rp="webindex|lvxing1|hjf"> <img class="lazy"
 						height="180" src="img/seaview.jpg" width="248" alt="海景房"> <span
 						class="f20 c_gray_dark fw600 three">海景房</span>
 					</a>
 				</div>
 				<div class="fr f0">
-					<a class="relave radius-12 w248 mr20" href="../ss.action?op=searchpage&Area=三明"
+					<a class="relave radius-12 w248 mr20" href="../ss.action?op=searchpage&area=三明"
 						_mayi_rp="webindex|lvxing1|kz"> <img class="lazy" height="180"
 						src="img/inn.jpg" width="248" alt="客栈"> <span
 						class="f20 c_gray_dark fw600">客栈</span>
-					</a> <a class="relave radius-12 w248" href="../ss.action?op=searchpage&Area=厦门"
+					</a> <a class="relave radius-12 w248" href="../ss.action?op=searchpage&area=厦门"
 						_mayi_rp="webindex|lvxing1|bs"> <img class="lazy" height="180"
 						src="img/inn.jpg" width="248" alt="别墅"> <span
 						class="f20 c_gray_dark fw600">别墅</span>
 					</a> <br> <a class="relave radius-12 w515 mt20"
-						href="../ss.action?op=searchpage&Area=福州" _mayi_rp="webindex|lvxing1|gy"> <img
+						href="../ss.action?op=searchpage&area=福州" _mayi_rp="webindex|lvxing1|gy"> <img
 						class="lazy" height="261" width="515" src="img/apartment.jpg"
 						alt="公寓"> <span class="f20 c_gray_dark fw600">公寓</span>
 					</a>
@@ -393,7 +393,7 @@
 			<div class="content clearfloat">
 				<div class="fl t-left mr20">
 					<div class="hot-place f0">
-						<a class="inline-block radius-12 w158" href="../ss.action?op=searchpage&Area=厦门"
+						<a class="inline-block radius-12 w158" href="../ss.action?op=searchpage&area=厦门"
 							_mayi_rp="webindex|hot|beijing"> <img class="lazy"
 							width="158" height="220" src="img/h-xiamen.jpg"alt="厦门">
 							<div class="info ">
@@ -406,7 +406,7 @@
 				</div>
 				<div class="fl t-left  mr20">
 					<div class="hot-place f0">
-						<a class="inline-block radius-12 w158" href="../ss.action?op=searchpage&Area=福州"
+						<a class="inline-block radius-12 w158" href="../ss.action?op=searchpage&area=福州"
 							_mayi_rp="webindex|hot|chengdu"> <img class="lazy"
 							width="158" height="220" src="img/h-fuzhou.jpg" alt="福州">
 							<div class="info ">
@@ -419,7 +419,7 @@
 				</div>
 				<div class="fl t-left  mr20">
 					<div class="hot-place f0">
-						<a class="inline-block radius-12 w158" href="../ss.action?op=searchpage&Area=泉州"
+						<a class="inline-block radius-12 w158" href="../ss.action?op=searchpage&area=泉州"
 							_mayi_rp="webindex|hot|xiamen"> <img class="lazy" width="158"
 							height="220" src="img/h-quanzhou.jpg" alt="泉州">
 							<div class="info ">
@@ -432,7 +432,7 @@
 				</div>
 				<div class="fl t-left  mr20">
 					<div class="hot-place f0">
-						<a class="inline-block radius-12 w158" href="../ss.action?op=searchpage&Area=漳州"
+						<a class="inline-block radius-12 w158" href="../ss.action?op=searchpage&area=漳州"
 							_mayi_rp="webindex|hot|guangzhou"> <img class="lazy"
 							width="158" height="220" src="img/h-zhangzhou.jpg" alt="漳州">
 							<div class="info ">
@@ -445,7 +445,7 @@
 				</div>
 				<div class="fl t-left  mr20 ">
 					<div class="hot-place f0">
-						<a class="inline-block radius-12 w158" href="../ss.action?op=searchpage&Area=三明"
+						<a class="inline-block radius-12 w158" href="../ss.action?op=searchpage&area=三明"
 							_mayi_rp="webindex|hot|hangzhou"> <img class="lazy"
 							width="158" height="220" src="img/h-sanming.jpg" alt="三明">
 							<div class="info ">
@@ -458,7 +458,7 @@
 				</div>
 				<div class="fl t-left ">
 					<div class="hot-place f0">
-						<a class="inline-block radius-12 w158" href="../ss.action?op=searchpage&Area=龙岩"
+						<a class="inline-block radius-12 w158" href="../ss.action?op=searchpage&area=龙岩"
 							_mayi_rp="webindex|hot|shanghai"> <img class="lazy"
 							width="158" height="220" src="img/h-longyan.jpg" alt="龙岩">
 							<div class="info ">

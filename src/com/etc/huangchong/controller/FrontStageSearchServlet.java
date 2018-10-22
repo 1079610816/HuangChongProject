@@ -47,7 +47,7 @@ public class FrontStageSearchServlet extends HttpServlet {
 		request.setCharacterEncoding("utf-8");
 		response.setCharacterEncoding("utf-8");
 		String op = request.getParameter("op");
-		String area = request.getParameter("Area");
+		String area = request.getParameter("area");
 		if ("searchlist".equals(op)) {
 			List<Homestay> list = ss.getQuerySearch(area);
 			request.setAttribute("list", list);
