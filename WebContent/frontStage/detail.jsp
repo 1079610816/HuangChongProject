@@ -1185,25 +1185,25 @@ span.search {
 								<div class="picbox">
 									<ul class="piclist">
 										<li><a href="#"><img
-												src="${pageContext.request.contextPath}/../img/${homestay.accomId}/1.png"
+												src="/img/${s.accomId}/1.png"
 												alt="" /></a></li>
 										<li><a href="#"><img
-												src="${pageContext.request.contextPath}/../img/${homestay.accomId}/2.png"
+												src="/img/${s.accomId}/2.jpg"
 												alt="" /></a></li>
 										<li><a href="#"><img
-												src="${pageContext.request.contextPath}/../img/${homestay.accomId}/3.png"
+												src="/img/${s.accomId}/3.jpg"
 												alt="" /></a></li>
 										<li><a href="#"><img
-												src="${pageContext.request.contextPath}/../img/${homestay.accomId}/4.png"
+												src="/img/${s.accomId}//4.jpg"
 												alt="" /></a></li>
 										<li><a href="#"><img
-												src="${pageContext.request.contextPath}/../img/${homestay.accomId}/5.png"
+												src="/img/${s.accomId}/5.jpg"
 												alt="" /></a></li>
 										<li><a href="#"><img
-												src="${pageContext.request.contextPath}/../img/${homestay.accomId}/6.png"
+												src="/img/${s.accomId}/6.jpg"
 												alt="" /></a></li>
 										<li><a href="#"><img
-												src="${pageContext.request.contextPath}/../img/${homestay.accomId}/7.png"
+												src="/img/${s.accomId}/7.jpg"
 												alt="" /></a></li>
 
 
